@@ -1,0 +1,127 @@
+//
+//  QLLoginViewController.m
+//  HeartNet
+//
+//  Created by Shrek on 15/12/9.
+//  Copyright © 2015年 Shreker. All rights reserved.
+//
+
+#import "QLLoginViewController.h"
+#import "QLRegisterViewController.h"
+#import "QLAppDelegate.h"
+#import "QLForgetPWDViewController.h"
+
+/** User */
+static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldRememberLoginName";
+
+@interface QLLoginViewController ()
+{
+    __weak IBOutlet UITextField *_txfUser;
+    __weak IBOutlet UITextField *_txfPwd;
+    __weak IBOutlet UIButton *_btnLogin;
+    __weak IBOutlet UIButton *_btnRememberUser;
+    __weak IBOutlet UIButton *_btnForgetPwd;
+    __weak IBOutlet UIButton *_btnRegister;    
+    __weak IBOutlet UIView *_viewContent;
+    __weak IBOutlet UIButton *_btnBack;
+}
+
+@property (nonatomic, assign) BOOL shouldRememberLoginName;
+
+@end
+
+@implementation QLLoginViewController
+
+- (BOOL)shouldRememberLoginName {
+    if (!_shouldRememberLoginName) {
+        _shouldRememberLoginName = [[NSUserDefaults standardUserDefaults] boolForKey:QLKeyUserShouldRememberLoginName];
+    }
+    return _shouldRememberLoginName;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self loadDefaultSetting];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (_txfUser.text.length <= 0) {
+        [_txfUser becomeFirstResponder];
+    } else if (_txfPwd.text.length <= 0) {
+        [_txfPwd becomeFirstResponder];
+    }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
+/** Load the default UI elements And prepare some datas needed. */
+- (void)loadDefaultSetting {
+    self.title = @"登录";
+    self.view.layer.contents = (id)[UIImage imageNamed:@"img_login_bg"].CGImage;
+    
+    [_btnLogin setCornerRadius:QLCornerRadius];
+    [_btnRegister setCornerRadius:QLCornerRadius border:QLBorderWidth borderColor:[UIColor blueColor]];
+    [_viewContent setCornerRadius:QLCornerRadius];
+    
+    if (self.shouldRememberLoginName) {
+        _txfUser.text = [[NSUserDefaults standardUserDefaults] objectForKey:@""];
+    }
+    
+    _btnRememberUser.selected = self.shouldRememberLoginName;
+    
+    _btnBack.hidden = !self.isFromMine;
+}
+
+
+- (IBAction)login {
+    NSString *strUser = _txfUser.text;
+    if (strUser.length <= 0) {
+        [QLHUDTool showErrorWithStatus:@"请输入用户名"];
+        return;
+    }
+    
+    NSString *strPwd = _txfPwd.text;
+    if (strPwd.length <= 0) {
+        [QLHUDTool showErrorWithStatus:@"请输入密码"];
+        return;
+    }
+    
+    QLAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    [delegate changeRootViewControllerToMain];
+}
+- (IBAction)registerUser {
+    QLRegisterViewController *vcRegister = [QLRegisterViewController new];
+    [self.navigationController pushViewController:vcRegister animated:YES];
+}
+- (IBAction)rememberUser:(UIButton *)button {
+    button.selected = !button.selected;
+    [[NSUserDefaults standardUserDefaults] setBool:button.selected forKey:QLKeyUserShouldRememberLoginName];
+    [QLUserDefaults synchronize];
+    [self.view endEditing:YES];
+}
+- (IBAction)forgetPwd {
+    QLForgetPWDViewController *vcForgetPwd = [QLForgetPWDViewController new];
+    [self.navigationController pushViewController:vcForgetPwd animated:YES];
+}
+
+#pragma mark - Actions
+- (IBAction)backAction {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)dealloc {
+    QLLog(@"%@", @"");
+}
+
+@end
