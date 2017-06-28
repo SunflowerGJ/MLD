@@ -17,7 +17,7 @@
 @end
 
 @implementation QLAppDelegate
-
+//个推实现聊天功能
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Change Root View Controller
     NSString *strVersionKey = (NSString *)kCFBundleVersionKey;
