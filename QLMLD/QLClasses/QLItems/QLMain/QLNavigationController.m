@@ -15,15 +15,16 @@
 @implementation QLNavigationController
 
 + (void)initialize {
-    UINavigationBar *navBar = [UINavigationBar appearance];
-    [navBar setBarTintColor:QLMainNavColor];
-    [navBar setTintColor:[UIColor whiteColor]];
-    [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    
-    UIBarButtonItem *barButtonItem = [UIBarButtonItem appearanceWhenContainedIn:[QLNavigationController class], nil];
-    [barButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateNormal];
-    
-    [barButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]} forState:UIControlStateDisabled];
+//    UINavigationBar *navBar = [UINavigationBar appearance];
+//    [navBar setBarTintColor:QLMainNavColor];
+//    [navBar setTintColor:[UIColor whiteColor]];
+//    [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
+//    
+//    UIBarButtonItem
+//    *barButtonItem = [UIBarButtonItem appearanceWhenContainedIn:[QLNavigationController class], nil];
+//    [barButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateNormal];
+//    
+//    [barButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor lightGrayColor]} forState:UIControlStateDisabled];
 }
 
 - (void)viewDidLoad {
@@ -33,7 +34,7 @@
 
 /** Load the default UI elements And prepare some datas needed. */
 - (void)loadDefaultSetting {
-    
+    self.navigationBar.hidden = YES;
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {

@@ -16,7 +16,6 @@
 		142487161C11295A00592980 /* QLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 142487151C11295A00592980 /* QLAppDelegate.m */; };
 		142487191C11296D00592980 /* QLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142487181C11296D00592980 /* QLMainViewController.m */; };
 		142487341C112A6A00592980 /* QLHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142487331C112A6A00592980 /* QLHomeViewController.m */; };
-		142487401C112AA700592980 /* QLMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1424873F1C112AA700592980 /* QLMineViewController.m */; };
 		1424874C1C112BAB00592980 /* QLHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1424874B1C112BAB00592980 /* QLHomeModel.m */; };
 		14475EB01C96564400CB11CB /* QLForgetPWDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14475EAF1C96564400CB11CB /* QLForgetPWDViewController.xib */; };
 		14475EB81C96684800CB11CB /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 14475EB51C96684800CB11CB /* 1.jpg */; };
@@ -100,6 +99,18 @@
 		14C67D1D1C9299DA0019F9E1 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C67D131C9299DA0019F9E1 /* AFURLResponseSerialization.m */; };
 		14C67D1E1C9299DA0019F9E1 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C67D151C9299DA0019F9E1 /* AFURLSessionManager.m */; };
 		14CDE37D1C929E9200DD857E /* QLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CDE37C1C929E9200DD857E /* QLLoginViewController.m */; };
+		CC64A0AC1F08A3010057801C /* QLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A0AB1F08A3010057801C /* QLViewController.m */; };
+		CC64A0B51F08A5AC0057801C /* QLMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A0B41F08A5AC0057801C /* QLMineViewController.m */; };
+		CC64A0BD1F08A6140057801C /* libGeTuiSdk-1.6.4.0-noidfa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC64A0BB1F08A6140057801C /* libGeTuiSdk-1.6.4.0-noidfa.a */; };
+		CC64A0BE1F08A6140057801C /* libGtExtensionSdk-1.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC64A0BC1F08A6140057801C /* libGtExtensionSdk-1.3.0.a */; };
+		CC64A0C81F08A79A0057801C /* QLStoreHome.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A0C61F08A79A0057801C /* QLStoreHome.m */; };
+		CC64A0C91F08A79A0057801C /* QLStoreHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC64A0C71F08A79A0057801C /* QLStoreHome.xib */; };
+		CC64A0CD1F08A7C20057801C /* QLAdmissionHome.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A0CB1F08A7C20057801C /* QLAdmissionHome.m */; };
+		CC64A0CE1F08A7C20057801C /* QLAdmissionHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC64A0CC1F08A7C20057801C /* QLAdmissionHome.xib */; };
+		CC64A0D21F08A7D90057801C /* QLClassHome.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A0D01F08A7D90057801C /* QLClassHome.m */; };
+		CC64A0D31F08A7D90057801C /* QLClassHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC64A0D11F08A7D90057801C /* QLClassHome.xib */; };
+		CC64A0D71F08A7F80057801C /* QLKindergartenHome.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A0D51F08A7F80057801C /* QLKindergartenHome.m */; };
+		CC64A0D81F08A7F80057801C /* QLKindergartenHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC64A0D61F08A7F80057801C /* QLKindergartenHome.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,8 +129,6 @@
 		142487181C11296D00592980 /* QLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLMainViewController.m; sourceTree = "<group>"; };
 		142487321C112A6A00592980 /* QLHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLHomeViewController.h; sourceTree = "<group>"; };
 		142487331C112A6A00592980 /* QLHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLHomeViewController.m; sourceTree = "<group>"; };
-		1424873E1C112AA700592980 /* QLMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLMineViewController.h; sourceTree = "<group>"; };
-		1424873F1C112AA700592980 /* QLMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLMineViewController.m; sourceTree = "<group>"; };
 		1424874A1C112BAB00592980 /* QLHomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLHomeModel.h; sourceTree = "<group>"; };
 		1424874B1C112BAB00592980 /* QLHomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLHomeModel.m; sourceTree = "<group>"; };
 		14475EAF1C96564400CB11CB /* QLForgetPWDViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLForgetPWDViewController.xib; sourceTree = "<group>"; };
@@ -271,6 +280,26 @@
 		14C67D151C9299DA0019F9E1 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		14CDE37B1C929E9200DD857E /* QLLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLLoginViewController.h; sourceTree = "<group>"; };
 		14CDE37C1C929E9200DD857E /* QLLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLLoginViewController.m; sourceTree = "<group>"; };
+		CC64A0AA1F08A3010057801C /* QLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLViewController.h; sourceTree = "<group>"; };
+		CC64A0AB1F08A3010057801C /* QLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLViewController.m; sourceTree = "<group>"; };
+		CC64A0B31F08A5AC0057801C /* QLMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLMineViewController.h; sourceTree = "<group>"; };
+		CC64A0B41F08A5AC0057801C /* QLMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLMineViewController.m; sourceTree = "<group>"; };
+		CC64A0B91F08A6140057801C /* GeTuiExtSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiExtSdk.h; sourceTree = "<group>"; };
+		CC64A0BA1F08A6140057801C /* GeTuiSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdk.h; sourceTree = "<group>"; };
+		CC64A0BB1F08A6140057801C /* libGeTuiSdk-1.6.4.0-noidfa.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGeTuiSdk-1.6.4.0-noidfa.a"; sourceTree = "<group>"; };
+		CC64A0BC1F08A6140057801C /* libGtExtensionSdk-1.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGtExtensionSdk-1.3.0.a"; sourceTree = "<group>"; };
+		CC64A0C51F08A79A0057801C /* QLStoreHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLStoreHome.h; sourceTree = "<group>"; };
+		CC64A0C61F08A79A0057801C /* QLStoreHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLStoreHome.m; sourceTree = "<group>"; };
+		CC64A0C71F08A79A0057801C /* QLStoreHome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLStoreHome.xib; sourceTree = "<group>"; };
+		CC64A0CA1F08A7C20057801C /* QLAdmissionHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLAdmissionHome.h; sourceTree = "<group>"; };
+		CC64A0CB1F08A7C20057801C /* QLAdmissionHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLAdmissionHome.m; sourceTree = "<group>"; };
+		CC64A0CC1F08A7C20057801C /* QLAdmissionHome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLAdmissionHome.xib; sourceTree = "<group>"; };
+		CC64A0CF1F08A7D90057801C /* QLClassHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLClassHome.h; sourceTree = "<group>"; };
+		CC64A0D01F08A7D90057801C /* QLClassHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLClassHome.m; sourceTree = "<group>"; };
+		CC64A0D11F08A7D90057801C /* QLClassHome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLClassHome.xib; sourceTree = "<group>"; };
+		CC64A0D41F08A7F80057801C /* QLKindergartenHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLKindergartenHome.h; sourceTree = "<group>"; };
+		CC64A0D51F08A7F80057801C /* QLKindergartenHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLKindergartenHome.m; sourceTree = "<group>"; };
+		CC64A0D61F08A7F80057801C /* QLKindergartenHome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLKindergartenHome.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,6 +307,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC64A0BE1F08A6140057801C /* libGtExtensionSdk-1.3.0.a in Frameworks */,
+				CC64A0BD1F08A6140057801C /* libGeTuiSdk-1.6.4.0-noidfa.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,9 +369,13 @@
 		142487091C1121A200592980 /* QLItems */ = {
 			isa = PBXGroup;
 			children = (
+				CC64A0B11F08A5AC0057801C /* QLMine(个人中心) */,
+				CC64A0B01F08A57C0057801C /* QLStore(商城) */,
+				CC64A0AF1F08A5400057801C /* QLAdmission(成长印记) */,
+				CC64A0AE1F08A5070057801C /* QLClass(班级圈) */,
+				CC64A0AD1F08A4DB0057801C /* QLKindergarten(幼儿园) */,
 				14C67C3B1C9276D80019F9E1 /* ItemLogin */,
 				1424870F1C11289900592980 /* ItemHome */,
-				142487131C1128C700592980 /* ItemMine */,
 			);
 			path = QLItems;
 			sourceTree = "<group>";
@@ -348,6 +383,7 @@
 		1424870A1C1121A200592980 /* QLLibs */ = {
 			isa = PBXGroup;
 			children = (
+				CC64A0B81F08A6140057801C /* GtSdkLib-noidfa */,
 				147AB8A01C981344007CAA0D /* QLBannerView */,
 				14475EBB1C96691C00CB11CB /* SDWebImage */,
 				14C67D021C9299DA0019F9E1 /* AFNetworking */,
@@ -381,6 +417,8 @@
 		1424870E1C11285C00592980 /* QLMain */ = {
 			isa = PBXGroup;
 			children = (
+				CC64A0AA1F08A3010057801C /* QLViewController.h */,
+				CC64A0AB1F08A3010057801C /* QLViewController.m */,
 				142487141C11295A00592980 /* QLAppDelegate.h */,
 				142487151C11295A00592980 /* QLAppDelegate.m */,
 				142487171C11296D00592980 /* QLMainViewController.h */,
@@ -404,16 +442,6 @@
 			path = ItemHome;
 			sourceTree = "<group>";
 		};
-		142487131C1128C700592980 /* ItemMine */ = {
-			isa = PBXGroup;
-			children = (
-				1424872F1C112A4800592980 /* QLController */,
-				142487301C112A4800592980 /* QLModel */,
-				142487311C112A4800592980 /* QLView */,
-			);
-			path = ItemMine;
-			sourceTree = "<group>";
-		};
 		142487231C112A1F00592980 /* QLController */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,29 +463,6 @@
 			sourceTree = "<group>";
 		};
 		142487251C112A1F00592980 /* QLView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = QLView;
-			sourceTree = "<group>";
-		};
-		1424872F1C112A4800592980 /* QLController */ = {
-			isa = PBXGroup;
-			children = (
-				1424873E1C112AA700592980 /* QLMineViewController.h */,
-				1424873F1C112AA700592980 /* QLMineViewController.m */,
-			);
-			path = QLController;
-			sourceTree = "<group>";
-		};
-		142487301C112A4800592980 /* QLModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = QLModel;
-			sourceTree = "<group>";
-		};
-		142487311C112A4800592980 /* QLView */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -779,6 +784,143 @@
 			path = QLCommonView;
 			sourceTree = "<group>";
 		};
+		CC64A0AD1F08A4DB0057801C /* QLKindergarten(幼儿园) */ = {
+			isa = PBXGroup;
+			children = (
+				CC64A0C01F08A7100057801C /* QLModel */,
+				CC64A0BF1F08A7060057801C /* QLController */,
+			);
+			name = "QLKindergarten(幼儿园)";
+			path = QLKindergarten;
+			sourceTree = "<group>";
+		};
+		CC64A0AE1F08A5070057801C /* QLClass(班级圈) */ = {
+			isa = PBXGroup;
+			children = (
+				CC64A0C31F08A7590057801C /* QLController */,
+				CC64A0C41F08A7590057801C /* QLModel */,
+			);
+			name = "QLClass(班级圈)";
+			path = QLClass;
+			sourceTree = "<group>";
+		};
+		CC64A0AF1F08A5400057801C /* QLAdmission(成长印记) */ = {
+			isa = PBXGroup;
+			children = (
+				CC64A0C21F08A74B0057801C /* QLController */,
+				CC64A0C11F08A7420057801C /* QLModel */,
+			);
+			name = "QLAdmission(成长印记)";
+			path = QLAdmission;
+			sourceTree = "<group>";
+		};
+		CC64A0B01F08A57C0057801C /* QLStore(商城) */ = {
+			isa = PBXGroup;
+			children = (
+				CC64A0B61F08A5F30057801C /* QLModel */,
+				CC64A0B71F08A5F30057801C /* QLController */,
+			);
+			name = "QLStore(商城)";
+			path = QLStore;
+			sourceTree = "<group>";
+		};
+		CC64A0B11F08A5AC0057801C /* QLMine(个人中心) */ = {
+			isa = PBXGroup;
+			children = (
+				CC64A0B21F08A5AC0057801C /* QLController */,
+			);
+			name = "QLMine(个人中心)";
+			path = QLMine;
+			sourceTree = "<group>";
+		};
+		CC64A0B21F08A5AC0057801C /* QLController */ = {
+			isa = PBXGroup;
+			children = (
+				CC64A0B31F08A5AC0057801C /* QLMineViewController.h */,
+				CC64A0B41F08A5AC0057801C /* QLMineViewController.m */,
+			);
+			path = QLController;
+			sourceTree = "<group>";
+		};
+		CC64A0B61F08A5F30057801C /* QLModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = QLModel;
+			sourceTree = "<group>";
+		};
+		CC64A0B71F08A5F30057801C /* QLController */ = {
+			isa = PBXGroup;
+			children = (
+				CC64A0C51F08A79A0057801C /* QLStoreHome.h */,
+				CC64A0C61F08A79A0057801C /* QLStoreHome.m */,
+				CC64A0C71F08A79A0057801C /* QLStoreHome.xib */,
+			);
+			path = QLController;
+			sourceTree = "<group>";
+		};
+		CC64A0B81F08A6140057801C /* GtSdkLib-noidfa */ = {
+			isa = PBXGroup;
+			children = (
+				CC64A0B91F08A6140057801C /* GeTuiExtSdk.h */,
+				CC64A0BA1F08A6140057801C /* GeTuiSdk.h */,
+				CC64A0BB1F08A6140057801C /* libGeTuiSdk-1.6.4.0-noidfa.a */,
+				CC64A0BC1F08A6140057801C /* libGtExtensionSdk-1.3.0.a */,
+			);
+			path = "GtSdkLib-noidfa";
+			sourceTree = "<group>";
+		};
+		CC64A0BF1F08A7060057801C /* QLController */ = {
+			isa = PBXGroup;
+			children = (
+				CC64A0D41F08A7F80057801C /* QLKindergartenHome.h */,
+				CC64A0D51F08A7F80057801C /* QLKindergartenHome.m */,
+				CC64A0D61F08A7F80057801C /* QLKindergartenHome.xib */,
+			);
+			path = QLController;
+			sourceTree = "<group>";
+		};
+		CC64A0C01F08A7100057801C /* QLModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = QLModel;
+			sourceTree = "<group>";
+		};
+		CC64A0C11F08A7420057801C /* QLModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = QLModel;
+			sourceTree = "<group>";
+		};
+		CC64A0C21F08A74B0057801C /* QLController */ = {
+			isa = PBXGroup;
+			children = (
+				CC64A0CA1F08A7C20057801C /* QLAdmissionHome.h */,
+				CC64A0CB1F08A7C20057801C /* QLAdmissionHome.m */,
+				CC64A0CC1F08A7C20057801C /* QLAdmissionHome.xib */,
+			);
+			path = QLController;
+			sourceTree = "<group>";
+		};
+		CC64A0C31F08A7590057801C /* QLController */ = {
+			isa = PBXGroup;
+			children = (
+				CC64A0CF1F08A7D90057801C /* QLClassHome.h */,
+				CC64A0D01F08A7D90057801C /* QLClassHome.m */,
+				CC64A0D11F08A7D90057801C /* QLClassHome.xib */,
+			);
+			path = QLController;
+			sourceTree = "<group>";
+		};
+		CC64A0C41F08A7590057801C /* QLModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = QLModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -848,9 +990,12 @@
 				14C67C2B1C92764F0019F9E1 /* guide_1-568h@2x.png in Resources */,
 				14C67C331C92764F0019F9E1 /* guide_3-568h@2x.png in Resources */,
 				14C67C381C92764F0019F9E1 /* guide_4-667h@2x.png in Resources */,
+				CC64A0D81F08A7F80057801C /* QLKindergartenHome.xib in Resources */,
 				14C67C321C92764F0019F9E1 /* guide_2@2x.png in Resources */,
 				142486FC1C111C8D00592980 /* Main.storyboard in Resources */,
+				CC64A0CE1F08A7C20057801C /* QLAdmissionHome.xib in Resources */,
 				14C67C3A1C92764F0019F9E1 /* guide_4@2x.png in Resources */,
+				CC64A0D31F08A7D90057801C /* QLClassHome.xib in Resources */,
 				14C67C311C92764F0019F9E1 /* guide_2-736h@3x.png in Resources */,
 				1423B9021C92AAB100FB73E7 /* QLLoginViewController.xib in Resources */,
 				14C67C371C92764F0019F9E1 /* guide_4-568h@2x.png in Resources */,
@@ -862,6 +1007,7 @@
 				14C67C2E1C92764F0019F9E1 /* guide_1@2x.png in Resources */,
 				14C67C2C1C92764F0019F9E1 /* guide_1-667h@2x.png in Resources */,
 				14475EB81C96684800CB11CB /* 1.jpg in Resources */,
+				CC64A0C91F08A79A0057801C /* QLStoreHome.xib in Resources */,
 				14475EB91C96684800CB11CB /* 2.jpg in Resources */,
 				14C67C2F1C92764F0019F9E1 /* guide_2-568h@2x.png in Resources */,
 				14C67C8F1C9279600019F9E1 /* SVProgressHUD.bundle in Resources */,
@@ -876,6 +1022,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14C67CF21C92974D0019F9E1 /* MASConstraint.m in Sources */,
+				CC64A0CD1F08A7C20057801C /* QLAdmissionHome.m in Sources */,
 				14C67C811C9279270019F9E1 /* UIViewController+QLViewController.m in Sources */,
 				14C67CD01C9296A30019F9E1 /* QLUserTool.m in Sources */,
 				14475EDE1C96691C00CB11CB /* SDWebImageDownloaderOperation.m in Sources */,
@@ -890,6 +1037,7 @@
 				14475F1E1C979F4400CB11CB /* QLImageModel.m in Sources */,
 				14C67D171C9299DA0019F9E1 /* AFHTTPRequestOperationManager.m in Sources */,
 				14C67CF81C92974D0019F9E1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				CC64A0AC1F08A3010057801C /* QLViewController.m in Sources */,
 				14C67D191C9299DA0019F9E1 /* AFNetworkReachabilityManager.m in Sources */,
 				142487161C11295A00592980 /* QLAppDelegate.m in Sources */,
 				14C67D181C9299DA0019F9E1 /* AFHTTPSessionManager.m in Sources */,
@@ -926,20 +1074,23 @@
 				14C67CCF1C9296A30019F9E1 /* QLUserModel.m in Sources */,
 				14475EDA1C96691C00CB11CB /* SDImageCache.m in Sources */,
 				14C67C741C9277CC0019F9E1 /* NSString+QLString.m in Sources */,
+				CC64A0B51F08A5AC0057801C /* QLMineViewController.m in Sources */,
 				142487341C112A6A00592980 /* QLHomeViewController.m in Sources */,
 				14C67CC71C92968F0019F9E1 /* QLRegisterViewController.m in Sources */,
 				14475ED91C96691C00CB11CB /* NSData+ImageContentType.m in Sources */,
 				14C67CC21C92968F0019F9E1 /* QLGuideViewController.m in Sources */,
 				14475EE21C96691C00CB11CB /* UIImage+GIF.m in Sources */,
+				CC64A0D71F08A7F80057801C /* QLKindergartenHome.m in Sources */,
 				14475EE41C96691C00CB11CB /* UIImageView+HighlightedWebCache.m in Sources */,
+				CC64A0C81F08A79A0057801C /* QLStoreHome.m in Sources */,
 				14C67CFA1C92974D0019F9E1 /* ViewController+MASAdditions.m in Sources */,
 				14C67C9A1C9279B90019F9E1 /* QLNavigationController.m in Sources */,
 				14C67D1E1C9299DA0019F9E1 /* AFURLSessionManager.m in Sources */,
 				142486F31C111C8D00592980 /* main.m in Sources */,
 				14C67C8D1C9279600019F9E1 /* ShowHUDProgress.m in Sources */,
-				142487401C112AA700592980 /* QLMineViewController.m in Sources */,
 				14C67CF61C92974D0019F9E1 /* MASViewConstraint.m in Sources */,
 				14C67D1D1C9299DA0019F9E1 /* AFURLResponseSerialization.m in Sources */,
+				CC64A0D21F08A7D90057801C /* QLClassHome.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1057,6 +1208,10 @@
 				INFOPLIST_FILE = QLMLD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QLMLD/QLClasses/QLLibs/GtSdkLib-noidfa",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Shreker.QLMLD;
 				PRODUCT_NAME = QLMLD;
 			};
@@ -1072,6 +1227,10 @@
 				INFOPLIST_FILE = QLMLD/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/QLMLD/QLClasses/QLLibs/GtSdkLib-noidfa",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Shreker.QLMLD;
 				PRODUCT_NAME = QLMLD;
 			};

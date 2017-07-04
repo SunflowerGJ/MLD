@@ -22,7 +22,9 @@ static const NSUInteger totalTime = 120;
     
     NSTimer *_timer;
     NSInteger _timeWaiting;
-    NSString *_code;
+    NSString *_code;     
+    
+
 }
 
 @end
@@ -38,6 +40,12 @@ static const NSUInteger totalTime = 120;
 - (void)loadDefaultSetting {
     [self setTitle:@"新用户注册"];
     _timeWaiting = totalTime;
+    [_txfPwd setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    [_txfCode setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    [_txfPhone setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    [_txfPwdConfirm setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+
+    
 }
 
 #pragma mark - Actions

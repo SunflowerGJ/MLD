@@ -31,8 +31,11 @@
         Class cls = NSClassFromString(dicData[@"controller"]);
         UIViewController *viewController = [cls new];
         viewController.title = dicData[@"title"];
-        viewController.tabBarItem.image = [UIImage imageNamed:dicData[@"tab_icon"]];
-        viewController.tabBarItem.selectedImage = [UIImage imageNamed:dicData[@"tab_icon_sl"]];
+        UIImage *image=[UIImage imageForOriginalWithImageName:dicData[@"tab_icon"]];
+        viewController.tabBarItem.image = image;
+        // 设置 tabbarItem 选中状态下的文字颜色(不被系统默认渲染,显示文字自定义颜色)
+        NSDictionary *dictHome = [NSDictionary dictionaryWithObject:QLYellowColor forKey:NSForegroundColorAttributeName];
+        [viewController.tabBarItem setTitleTextAttributes:dictHome forState:UIControlStateSelected];
         [controllers addObject:viewController];
     }
     self.delegate = self;

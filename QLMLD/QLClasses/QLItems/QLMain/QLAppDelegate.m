@@ -24,7 +24,7 @@
     NSString *strVersionPrevious = [[NSUserDefaults standardUserDefaults] stringForKey:strVersionKey];
     NSString *strVersionCurrent = [NSBundle mainBundle].infoDictionary[strVersionKey];
     if ([strVersionCurrent isEqualToString:strVersionPrevious]) {
-        [self changeRootViewControllerToMain];
+        [self changeRootViewControllerToLogin];
     } else {
         [[NSUserDefaults standardUserDefaults] setObject:strVersionCurrent forKey:strVersionKey];
         [[NSUserDefaults standardUserDefaults] synchronize];

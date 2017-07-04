@@ -51,5 +51,35 @@
 
 static CGFloat QLCornerRadius = 5;
 static CGFloat QLBorderWidth = 0.5;
+//按钮圆角
+#define QLButtonRadius 10
 
 #endif /* QLProjectCfg_pch */
+
+
+
+#define QLMainNavColor QLColorFromHex(0xffcc33)
+
+/** 系统全局颜色*/
+//背景色(灰色)
+#define QLBackGroundColor QLColorFromHex(0xFAFAFA) //F4F5F6
+//全局主色调(黄色)
+#define QLYellowColor QLColorFromHex(0xffcc33)
+//辅助色
+#define QLAssistColor QLColorFromHex(0xcc9933)
+//分割线颜色(灰色)
+#define QLDividerColor QLColorFromHex(0xe4e4e4)
+//深色字体色
+#define QLFontDarkColor QLColorFromHex(0x555555)
+//浅色字体色
+#define QLFontShallowColor QLColorFromHex(0x999999)
+//菜单背景色——淡青色
+#define QLCustomTabbarBgColor QLColorFromHex(0xF5F4EF)
+//提示栏颜色
+#define QLTitleTabbarBgColor QLColorFromHex(0xfdedcb)
+//菜单字体颜色——近红
+#define QLCustomTabbarTextColor QLColorFromHex(0xF44C1B)
+//绿色
+#define QLColorGreen QLColorFromHex(0x5ecb85)
+
+

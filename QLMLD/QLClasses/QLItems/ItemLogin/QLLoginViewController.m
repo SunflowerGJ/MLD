@@ -16,14 +16,14 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
 
 @interface QLLoginViewController ()
 {
-    __weak IBOutlet UITextField *_txfUser;
+    __weak IBOutlet UITextField *_txfTele;
     __weak IBOutlet UITextField *_txfPwd;
     __weak IBOutlet UIButton *_btnLogin;
     __weak IBOutlet UIButton *_btnRememberUser;
     __weak IBOutlet UIButton *_btnForgetPwd;
     __weak IBOutlet UIButton *_btnRegister;    
     __weak IBOutlet UIView *_viewContent;
-    __weak IBOutlet UIButton *_btnBack;
+    __weak IBOutlet UILabel *_lblProtocal;
 }
 
 @property (nonatomic, assign) BOOL shouldRememberLoginName;
@@ -54,8 +54,8 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (_txfUser.text.length <= 0) {
-        [_txfUser becomeFirstResponder];
+    if (_txfTele.text.length <= 0) {
+        [_txfTele becomeFirstResponder];
     } else if (_txfPwd.text.length <= 0) {
         [_txfPwd becomeFirstResponder];
     }
@@ -70,36 +70,53 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
     self.title = @"登录";
     self.view.layer.contents = (id)[UIImage imageNamed:@"img_login_bg"].CGImage;
     
-    [_btnLogin setCornerRadius:QLCornerRadius];
-    [_btnRegister setCornerRadius:QLCornerRadius border:QLBorderWidth borderColor:[UIColor blueColor]];
+    [_btnLogin setCornerRadius:QLCornerRadius border:QLBorderWidth borderColor:[UIColor whiteColor]];
+    [_btnRegister setCornerRadius:QLCornerRadius border:QLBorderWidth borderColor:[UIColor whiteColor]];
     [_viewContent setCornerRadius:QLCornerRadius];
     
     if (self.shouldRememberLoginName) {
-        _txfUser.text = [[NSUserDefaults standardUserDefaults] objectForKey:@""];
+        _txfTele.text = [[NSUserDefaults standardUserDefaults] objectForKey:@""];
     }
     
     _btnRememberUser.selected = self.shouldRememberLoginName;
+    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] initWithString:_btnForgetPwd.titleLabel.text];
+    NSRange titleRange = {0,[title length]};
+    [title addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:titleRange];
+    [_btnForgetPwd setAttributedTitle:title
+                      forState:UIControlStateNormal];
+
+    NSMutableAttributedString *content = [[NSMutableAttributedString alloc]initWithString:_lblProtocal.text];
+    NSRange contentRange = {0,[content length]};
+    [content addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:contentRange];
+    _lblProtocal.attributedText = content;
     
-    _btnBack.hidden = !self.isFromMine;
+    [_txfTele setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+    [_txfPwd setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
+
 }
 
+#pragma mark - Actions
 
 - (IBAction)login {
-    NSString *strUser = _txfUser.text;
-    if (strUser.length <= 0) {
-        [QLHUDTool showErrorWithStatus:@"请输入用户名"];
-        return;
-    }
-    
-    NSString *strPwd = _txfPwd.text;
-    if (strPwd.length <= 0) {
-        [QLHUDTool showErrorWithStatus:@"请输入密码"];
-        return;
-    }
-    
-    QLAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+//    NSString *strUser = _txfTele.text;
+//    if (strUser.length <= 0) {
+//        [QLHUDTool showErrorWithStatus:@"请输入用户名"];
+//        return;
+//    }
+//    
+//    NSString *strPwd = _txfPwd.text;
+//    if (strPwd.length <= 0) {
+//        [QLHUDTool showErrorWithStatus:@"请输入密码"];
+//        return;
+//    }
+//    
+    QLAppDelegate *delegate = (QLAppDelegate *)[UIApplication sharedApplication].delegate;
     [delegate changeRootViewControllerToMain];
 }
+//协议
+- (IBAction)btnProtocal:(id)sender {
+}
+
 - (IBAction)registerUser {
     QLRegisterViewController *vcRegister = [QLRegisterViewController new];
     [self.navigationController pushViewController:vcRegister animated:YES];
@@ -115,7 +132,6 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
     [self.navigationController pushViewController:vcForgetPwd animated:YES];
 }
 
-#pragma mark - Actions
 - (IBAction)backAction {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
