@@ -1,34 +1,52 @@
 //
 //  QLMineViewController.m
-//  QLProjectDemo
+//  QLMLD
 //
-//  Created by Shrek on 15/12/4.
-//  Copyright © 2015年 Shreker. All rights reserved.
+//  Created by 英英 on 2017/7/5.
+//  Copyright © 2017年 Shreker. All rights reserved.
 //
 
 #import "QLMineViewController.h"
-
-@interface QLMineViewController ()
+#import "QLMineHomeTableCell.h"
+@interface QLMineViewController ()<UITableViewDelegate,UITableViewDataSource>{
+    
+    __weak IBOutlet NSLayoutConstraint *_heightTableConstraint;
+    NSArray *_arrayData;
+    
+    __weak IBOutlet UITableView *_tableMain;
+}
 
 @end
 
 @implementation QLMineViewController
 
-#pragma mark - Life Circle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadDefaultSetting];
 }
-
-/** Load the default UI elements And prepare some datas needed. */
-- (void)loadDefaultSetting {
-    self.view.backgroundColor = QLColorRandom;
+- (void)loadDefaultSetting{
+    _arrayData = @[@"收货地址管理",@"绑定考勤卡",@"我的学校（幼儿园信息介绍）",@"客服电话",@"关于美乐多"];
+    _heightTableConstraint.constant = _arrayData.count*44;
+    [_tableMain reloadData];
+}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+#pragma mark - table'delegate
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+        return _arrayData.count;
+}
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    QLMineHomeTableCell *cell = [QLMineHomeTableCell cellWithMineHomeTableView:tableView];
+    [cell setCellDataWithTitle:_arrayData[indexPath.row]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
 
-- (void)dealloc {
-    // RELEASE OBJECTS TO FREE THE MEMORIES HERE!
-    __unsafe_unretained typeof(self) selfUnsafe = self;
-    NSLog(@"🌜A instance of type %@ was DESTROYED!🌛", NSStringFromClass([selfUnsafe class]));
-}
+
 
 @end

@@ -62,7 +62,7 @@ static CGFloat QLBorderWidth = 0.5;
 
 /** 系统全局颜色*/
 //背景色(灰色)
-#define QLBackGroundColor QLColorFromHex(0xFAFAFA) //F4F5F6
+#define QLBackGroundColor QLColorFromHex(0xF4F4F4)
 //全局主色调(黄色)
 #define QLYellowColor QLColorFromHex(0xffcc33)
 //辅助色

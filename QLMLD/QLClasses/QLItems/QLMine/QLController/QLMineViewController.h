@@ -1,13 +1,13 @@
 //
 //  QLMineViewController.h
-//  QLProjectDemo
+//  QLMLD
 //
-//  Created by Shrek on 15/12/4.
-//  Copyright © 2015年 Shreker. All rights reserved.
+//  Created by 英英 on 2017/7/5.
+//  Copyright © 2017年 Shreker. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "QLViewController.h"
 
-@interface QLMineViewController : UIViewController
+@interface QLMineViewController : QLViewController
 
 @end
