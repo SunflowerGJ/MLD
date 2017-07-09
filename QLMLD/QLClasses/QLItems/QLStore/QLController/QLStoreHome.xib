@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,7 +18,30 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9Z-Uw-OzU">
+                    <rect key="frame" x="0.0" y="64" width="375" height="140"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" barStyle="black" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="S37-1B-DEf">
+                            <rect key="frame" x="30" y="10" width="315" height="44"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="S37-1B-DEf" secondAttribute="trailing" constant="30" id="DFK-mU-KOr"/>
+                        <constraint firstAttribute="height" constant="140" id="Lum-Tl-zcZ"/>
+                        <constraint firstItem="S37-1B-DEf" firstAttribute="top" secondItem="R9Z-Uw-OzU" secondAttribute="top" constant="10" id="obF-zm-BkA"/>
+                        <constraint firstItem="S37-1B-DEf" firstAttribute="leading" secondItem="R9Z-Uw-OzU" secondAttribute="leading" constant="30" id="xxe-xz-l9C"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="R9Z-Uw-OzU" secondAttribute="trailing" id="8JI-F5-K0B"/>
+                <constraint firstItem="R9Z-Uw-OzU" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="btK-GG-lW7"/>
+                <constraint firstItem="R9Z-Uw-OzU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uG1-H1-4Yb"/>
+            </constraints>
         </view>
     </objects>
 </document>
