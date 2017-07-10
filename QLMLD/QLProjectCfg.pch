@@ -13,6 +13,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import "Masonry.h"
+#import "GeTuiSdk.h"
 
 #import "QLHUDTool.h"
 #import "QLUserTool.h"
@@ -83,3 +84,47 @@ static CGFloat QLBorderWidth = 0.5;
 #define QLColorGreen QLColorFromHex(0x5ecb85)
 
 
+#pragma mark - 接口 owner
+/** 接口 */
+//接口签名密钥
+#define SystemSecret [NSString stringWithFormat:@"c5576953c3293c63e163202a5b1900d3"]
+//加密前缀
+#define EncryptPrefix [NSString stringWithFormat:@"Forp_"]
+
+#ifdef DEBUG
+//static NSString * const QLBaseUrlString = @"http://192.168.100.89:8080/web/";//165  246
+
+//static NSString * const QLBaseUrlString = @"http://192.168.100.165/web/";//165  246
+//static NSString * const QLBaseUrlString = @"http://192.168.100.121:8080/web/";
+static NSString * const QLBaseUrlString = @"http://192.168.100.165:8088/api/";
+//static NSString * const QLBaseUrlString = @"http://192.168.100.171:8088/api/";
+//static NSString * const QLBaseUrlString = @"http://192.168.100.246/web/";
+static NSString * const QLBaseUrlString_Image = @"http://ichetest.image.alimmdn.com/";
+#else
+//static NSString * const QLBaseUrlString = @"http://192.168.100.165/web/";
+//static NSString * const QLBaseUrlString = @"http://192.168.100.121:8080/web/";
+static NSString * const QLBaseUrlString = @"http://192.168.100.171:8088/api/";
+static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimmdn.com/";
+#endif
+
+//根据ID查询系统消息
+//登录
+#define userLogin_interface @"/app/User/appLogin.action"
+//注册
+#define register_interface @"/app/User/appRegist.action"
+//验证码
+#define getVirifyCode_interface @"/app/Message/getMessageCode.action"
+//找回密码
+#define foundPwd_interface @"/app/User/resetPassword.action"
+//班级圈接口
+#define class_interface @"/app/GradeGroup/readGradeGroup.action"
+//上传班级圈信息
+#define classUpload_interface @"/app/GradeGroup/writeGradeGroup.action"
+//发布成长印记
+#define publishGrowYJ_interface @"/app/GradeGroup/writeGradeGroup.action"
+//商场首页
+#define storeHome_interface @"/app/ProductSmallType/readProductSmallType.action"
+//商城轮播图
+#define storeBanner_interface @"/app/Carousel/readCarousel.action"
+//热门商品列表
+#define hotList_interface @"/app/Product/readProduct.action"

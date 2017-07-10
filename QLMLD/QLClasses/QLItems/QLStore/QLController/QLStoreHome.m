@@ -16,9 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    [self loadDefaultSetting];
+}
+- (void)loadDefaultSetting {
+        self.rightBtn.hidden = NO;
+        self.rightBtn.frame= CGRectMake(QLScreenWidth-60, 28, 60, 30);
+        [self.rightBtn setImage:[UIImage imageNamed:@"cart_icon"] forState:UIControlStateNormal];
 }
 
+- (void)clickRight {
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
