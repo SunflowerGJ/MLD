@@ -18,5 +18,5 @@ QLSingletonInterface(UserTool)
 @property (nonatomic, strong, readonly) QLUserModel *userModel;
 - (void)saveUserModel:(QLUserModel *)userModel;
 - (void)clearCurrentUserModel;
-
+- (void)logout;
 @end

@@ -43,42 +43,18 @@ QLSingletonImplementation(UserTool)
 }
 - (void)loginWithUser:(NSString *)strUser pwd:(NSString *)strPwd whenSuccess:(void (^)())success whenFailure:(void (^)())failure  {
     
-}
-
-//- (void)logout {
-//    [[QLUserTool sharedUserTool] clearCurrentUserModel];
-//    QLAppDelegate *delegate = [UIApplication sharedApplication].delegate;
-//    [delegate changeRootViewControllerToLogin];
-//}
-
-- (void)logout {
-    if([QLUserTool sharedUserTool].userModel.strId){
-        //解绑个推
-        [GeTuiSdk unbindAlias:[QLUserTool sharedUserTool].userModel.loginName];
-        [[QLUserTool sharedUserTool] clearCurrentUserModel];
-    }
-    QLLog(@"viewControllers==== %@",[QLHttpTool getCurrentVC].navigationController.viewControllers);
-    QLLoginViewController *loginVC = [[LoginViewController alloc]init];
-    [[QLHttpTool getCurrentVC].navigationController pushViewController:loginVC animated:YES];
-    for (UIViewController *vc in [QLHttpTool getCurrentVC].navigationController.viewControllers) {
-        if (![vc isKindOfClass:[QLLoginViewController class]]) {
-            [vc removeFromParentViewController];
-        }
-    }
-}
-
-#pragma mark - 登录
-+ (void)loginOfAccount:(NSString *)account password:(NSString *)pwd WhenSuccess:(void (^)())success WhenFailure:(void (^)())failure{
-    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@", QLBaseUrlString, login_interface];
     
-    NSData *dataPwd = [[NSString stringWithFormat:@"%@%@",EncryptPrefix,pwd] dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@", QLBaseUrlString, userLogin_interface];
     
-    NSDictionary *dicParams = @{@"tel": account,@"password":[dataPwd md5String],@"cookie":[[UIDevice currentDevice].identifierForVendor UUIDString]};
+//    NSData *dataPwd = [[NSString stringWithFormat:@"%@%@",EncryptPrefix,strPwd] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *dataPwd = [[NSString stringWithFormat:@"%@",strPwd] dataUsingEncoding:NSUTF8StringEncoding];
+
+    NSDictionary *dicParams = @{@"username": strUser,@"password":[dataPwd md5String],@"token":[[UIDevice currentDevice].identifierForVendor UUIDString]};
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParams whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"返回值：%@",responseObject);
         [[QLUserTool sharedUserTool] saveUserModel:[QLUserModel mj_objectWithKeyValues:responseObject[@"data"]]];
         //  绑定个推
-        [GeTuiSdk bindAlias:[QLUserTool sharedUserTool].userModel.loginName];
+        [GeTuiSdk bindAlias:[QLUserTool sharedUserTool].userModel.strAccount andSequenceNum:KGtSeriNum];
         NSString *stationID = [QLUserTool sharedUserTool].userModel.tfUtechnician.fkstationId;
         NSString *str = [NSString stringWithFormat:@"station%@",stationID];
         [GeTuiSdk setTags:@[str]];
@@ -96,6 +72,67 @@ QLSingletonImplementation(UserTool)
         
         //发送通知
         [QLNotificationCenter postNotificationName:Notification_setUserType object:self userInfo:nil];
+        if (success) {
+            success();
+        }
+    } whenFailure:^() {
+        
+    }];
+}
+
+//- (void)logout {
+//    [[QLUserTool sharedUserTool] clearCurrentUserModel];
+//    QLAppDelegate *delegate = [UIApplication sharedApplication].delegate;
+//    [delegate changeRootViewControllerToLogin];
+//}
+
+- (void)logout {
+    if([QLUserTool sharedUserTool].userModel.strId){
+        //解绑个推
+        [GeTuiSdk bindAlias:[QLUserTool sharedUserTool].userModel.strAccount andSequenceNum:KGtSeriNum];
+
+        [[QLUserTool sharedUserTool] clearCurrentUserModel];
+    }
+    QLLog(@"viewControllers==== %@",[QLHttpTool getCurrentVC].navigationController.viewControllers);
+    QLLoginViewController *loginVC = [[QLLoginViewController alloc]init];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:loginVC animated:YES];
+    for (UIViewController *vc in [QLHttpTool getCurrentVC].navigationController.viewControllers) {
+        if (![vc isKindOfClass:[QLLoginViewController class]]) {
+            [vc removeFromParentViewController];
+        }
+    }
+}
+
+#pragma mark - 登录
++ (void)loginOfAccount:(NSString *)account password:(NSString *)pwd WhenSuccess:(void (^)())success WhenFailure:(void (^)())failure{
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@", QLBaseUrlString, userLogin_interface];
+    
+    NSData *dataPwd = [[NSString stringWithFormat:@"%@%@",EncryptPrefix,pwd] dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSDictionary *dicParams = @{@"username": account,@"password":[dataPwd md5String],@"cookie":[[UIDevice currentDevice].identifierForVendor UUIDString]};
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParams whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"返回值：%@",responseObject);
+        [[QLUserTool sharedUserTool] saveUserModel:[QLUserModel mj_objectWithKeyValues:responseObject[@"data"]]];
+        //  绑定个推
+        [GeTuiSdk bindAlias:[QLUserTool sharedUserTool].userModel.strAccount andSequenceNum:KGtSeriNum];
+        
+//        NSString *stationID = [QLUserTool sharedUserTool].userModel.tfUtechnician.fkstationId;
+//        NSString *str = [NSString stringWithFormat:@"station%@",stationID];
+//        [GeTuiSdk setTags:@[str]];
+//        [QLUserDefaults setObject:loginTechnician forKey:userLoginState];
+//        [QLUserDefaults setObject:pwd forKey:currentLoginPwd];
+//        // 切换账号时清掉数据库中除系统消息外的所有消息
+//        NSString *currentUserID = [QLUserDefaults objectForKey:CurrentUserId];
+//        if (currentUserID != [QLUserTool sharedUserTool].userModel.strId) {
+//            [MessageTool clearPushMessageAll:NO];
+//        }
+//        
+//        // 更新 CurrentUserId
+//        [[NSUserDefaults standardUserDefaults] setObject:[NSString getValidStringWithObject:[QLUserTool sharedUserTool].userModel.strId] forKey:CurrentUserId];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//        
+//        //发送通知
+//        [QLNotificationCenter postNotificationName:Notification_setUserType object:self userInfo:nil];
         if (success) {
             success();
         }

@@ -18,6 +18,8 @@
 #import "QLHUDTool.h"
 #import "QLUserTool.h"
 #import "QLHttpTool.h"
+#import "MJExtension.h"
+#import "NSData+QLData.h"
 
 #import "NSString+QLString.h"
 #import "UIView+QLView.h"
@@ -57,7 +59,11 @@ static CGFloat QLBorderWidth = 0.5;
 
 #endif /* QLProjectCfg_pch */
 
-
+//正式
+#define kGtAppId @"vHzCiQUFjp7ArJlrQQu5s7"
+#define kGtAppKey @"dkpFThnVg28F9KfRzIOJv4"
+#define kGtAppSecret @"GKhQppqCuF9iHH7UYvuCU2"
+#define KGtSeriNum @"mld"
 
 #define QLMainNavColor QLColorFromHex(0xffcc33)
 

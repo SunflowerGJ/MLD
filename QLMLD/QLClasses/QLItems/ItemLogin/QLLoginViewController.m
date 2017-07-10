@@ -98,20 +98,22 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
 #pragma mark - Actions
 
 - (IBAction)login {
-//    NSString *strUser = _txfTele.text;
-//    if (strUser.length <= 0) {
-//        [QLHUDTool showErrorWithStatus:@"请输入用户名"];
-//        return;
-//    }
-//    
-//    NSString *strPwd = _txfPwd.text;
-//    if (strPwd.length <= 0) {
-//        [QLHUDTool showErrorWithStatus:@"请输入密码"];
-//        return;
-//    }
-//    
-    QLAppDelegate *delegate = (QLAppDelegate *)[UIApplication sharedApplication].delegate;
-    [delegate changeRootViewControllerToMain];
+    NSString *strUser = _txfTele.text;
+    if (strUser.length <= 0) {
+        [QLHUDTool showErrorWithStatus:@"请输入用户名"];
+        return;
+    }
+    
+    NSString *strPwd = _txfPwd.text;
+    if (strPwd.length <= 0) {
+        [QLHUDTool showErrorWithStatus:@"请输入密码"];
+        return;
+    }
+
+//    QLAppDelegate *delegate = (QLAppDelegate *)[UIApplication sharedApplication].delegate;
+//    [delegate changeRootViewControllerToMain];
+    [QLUserTool 
+    
 }
 //协议
 - (IBAction)btnProtocal:(id)sender {

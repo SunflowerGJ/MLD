@@ -13,10 +13,10 @@ static NSString * const QLCookieKey = @"QLCookieKey";
 static NSString * const QLKeyUserLoginToken = @"QLKeyUserLoginToken";
 
 typedef void(^QLHttpToolSuccessBlock)(AFHTTPRequestOperation *operation, id responseObject);
-typedef void(^QLHttpToolFailureBlock)(AFHTTPRequestOperation *operation, NSError *error);
+typedef void(^QLHttpToolFailureBlock)();
 
-@interface QLHttpTool : NSObject
-
+@interface QLHttpTool : NSObject<UIAlertViewDelegate>
++ (void)certificateParameters:(NSDictionary *)dicParams whenSuccess:(QLHttpToolSuccessBlock)success whenFailure:(QLHttpToolFailureBlock)failure;
 /**
  *  向服务器发送普通的POST请求
  *
@@ -26,9 +26,11 @@ typedef void(^QLHttpToolFailureBlock)(AFHTTPRequestOperation *operation, NSError
  *  @param failure    失败回调的Block
  */
 + (void)postWithBaseUrl:(NSString *)strBaseUrl Parameters:(NSDictionary *)dicParams whenSuccess:(QLHttpToolSuccessBlock)success whenFailure:(QLHttpToolFailureBlock)failure;
-
++ (void)postWithTestBaseUrl:(NSString *)strBaseUrl Parameters:(NSDictionary *)dicParams whenSuccess:(QLHttpToolSuccessBlock)success whenFailure:(QLHttpToolFailureBlock)failure;
 + (void)postWithBaseUrl:(NSString *)strBaseUrl Parameters:(NSDictionary *)dicParams FormDatas:(NSArray *)arrDatas FileExtensions:(NSArray *)arrExtensions MimeTypes:(NSArray *)arrMimeTypes NeedCookie:(BOOL)isNeedCookie whenSuccess:(QLHttpToolSuccessBlock)success whenFailure:(QLHttpToolFailureBlock)failure;
 
+/** 单图 */
++ (void)postPerWithBaseUrl:(NSString *)strBaseUrl Parameters:(NSDictionary *)dicParams FormData:(NSData *)imgData FileExtension:(NSString *)imgExtension MimeType:(NSString *)imgType whenSuccess:(QLHttpToolSuccessBlock)success whenFailure:(QLHttpToolFailureBlock)failure;
 /**
  *  向服务器发送GET请求
  *
@@ -38,5 +40,13 @@ typedef void(^QLHttpToolFailureBlock)(AFHTTPRequestOperation *operation, NSError
  *  @param failure    失败回调的Block
  */
 + (void)getWithBaseUrl:(NSString *)strBaseUrl Parameters:(NSDictionary *)dicParams whenSuccess:(QLHttpToolSuccessBlock)success whenFailure:(QLHttpToolFailureBlock)failure;
+
+
+/**
+ *  获得当前ViewController
+ *
+ */
++ (UIViewController *)getCurrentVC;
+
 
 @end
