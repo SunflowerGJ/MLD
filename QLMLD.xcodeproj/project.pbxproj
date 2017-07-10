@@ -114,6 +114,9 @@
 		CC64A0D31F08A7D90057801C /* QLClassHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC64A0D11F08A7D90057801C /* QLClassHome.xib */; };
 		CC64A0D71F08A7F80057801C /* QLKindergartenHome.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A0D51F08A7F80057801C /* QLKindergartenHome.m */; };
 		CC64A0D81F08A7F80057801C /* QLKindergartenHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC64A0D61F08A7F80057801C /* QLKindergartenHome.xib */; };
+		CC86EA311F0E1525008EF500 /* QLClassHomeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC86EA2F1F0E1525008EF500 /* QLClassHomeTableCell.m */; };
+		CC86EA321F0E1525008EF500 /* QLClassHomeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC86EA301F0E1525008EF500 /* QLClassHomeTableCell.xib */; };
+		CC86EA351F0E158C008EF500 /* QLClassHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC86EA341F0E158C008EF500 /* QLClassHomeDataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -307,6 +310,11 @@
 		CC64A0D41F08A7F80057801C /* QLKindergartenHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLKindergartenHome.h; sourceTree = "<group>"; };
 		CC64A0D51F08A7F80057801C /* QLKindergartenHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLKindergartenHome.m; sourceTree = "<group>"; };
 		CC64A0D61F08A7F80057801C /* QLKindergartenHome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLKindergartenHome.xib; sourceTree = "<group>"; };
+		CC86EA2E1F0E1525008EF500 /* QLClassHomeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLClassHomeTableCell.h; sourceTree = "<group>"; };
+		CC86EA2F1F0E1525008EF500 /* QLClassHomeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLClassHomeTableCell.m; sourceTree = "<group>"; };
+		CC86EA301F0E1525008EF500 /* QLClassHomeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLClassHomeTableCell.xib; sourceTree = "<group>"; };
+		CC86EA331F0E158C008EF500 /* QLClassHomeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLClassHomeDataModel.h; sourceTree = "<group>"; };
+		CC86EA341F0E158C008EF500 /* QLClassHomeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLClassHomeDataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -804,6 +812,7 @@
 		CC64A0AD1F08A4DB0057801C /* QLKindergarten(幼儿园) */ = {
 			isa = PBXGroup;
 			children = (
+				CC86EA261F0E10BF008EF500 /* QLView */,
 				CC64A0C01F08A7100057801C /* QLModel */,
 				CC64A0BF1F08A7060057801C /* QLController */,
 			);
@@ -814,8 +823,9 @@
 		CC64A0AE1F08A5070057801C /* QLClass(班级圈) */ = {
 			isa = PBXGroup;
 			children = (
+				CC86EA271F0E110F008EF500 /* QLView */,
+				CC86EA281F0E110F008EF500 /* QLModel */,
 				CC64A0C31F08A7590057801C /* QLController */,
-				CC64A0C41F08A7590057801C /* QLModel */,
 			);
 			name = "QLClass(班级圈)";
 			path = QLClass;
@@ -933,9 +943,28 @@
 			path = QLController;
 			sourceTree = "<group>";
 		};
-		CC64A0C41F08A7590057801C /* QLModel */ = {
+		CC86EA261F0E10BF008EF500 /* QLView */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = QLView;
+			sourceTree = "<group>";
+		};
+		CC86EA271F0E110F008EF500 /* QLView */ = {
+			isa = PBXGroup;
+			children = (
+				CC86EA2E1F0E1525008EF500 /* QLClassHomeTableCell.h */,
+				CC86EA2F1F0E1525008EF500 /* QLClassHomeTableCell.m */,
+				CC86EA301F0E1525008EF500 /* QLClassHomeTableCell.xib */,
+			);
+			path = QLView;
+			sourceTree = "<group>";
+		};
+		CC86EA281F0E110F008EF500 /* QLModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC86EA331F0E158C008EF500 /* QLClassHomeDataModel.h */,
+				CC86EA341F0E158C008EF500 /* QLClassHomeDataModel.m */,
 			);
 			path = QLModel;
 			sourceTree = "<group>";
@@ -972,6 +1001,7 @@
 				TargetAttributes = {
 					142486ED1C111C8D00592980 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 4R734X2JY2;
 					};
 				};
 			};
@@ -1026,6 +1056,7 @@
 				14475EB01C96564400CB11CB /* QLForgetPWDViewController.xib in Resources */,
 				14C67C351C92764F0019F9E1 /* guide_3-736h@3x.png in Resources */,
 				14C67C2E1C92764F0019F9E1 /* guide_1@2x.png in Resources */,
+				CC86EA321F0E1525008EF500 /* QLClassHomeTableCell.xib in Resources */,
 				14C67C2C1C92764F0019F9E1 /* guide_1-667h@2x.png in Resources */,
 				14475EB81C96684800CB11CB /* 1.jpg in Resources */,
 				CC64A0C91F08A79A0057801C /* QLStoreHome.xib in Resources */,
@@ -1049,6 +1080,7 @@
 				14475EDE1C96691C00CB11CB /* SDWebImageDownloaderOperation.m in Sources */,
 				14C67D1B1C9299DA0019F9E1 /* AFURLConnectionOperation.m in Sources */,
 				14C67CF11C92974D0019F9E1 /* MASCompositeConstraint.m in Sources */,
+				CC86EA311F0E1525008EF500 /* QLClassHomeTableCell.m in Sources */,
 				142487191C11296D00592980 /* QLMainViewController.m in Sources */,
 				14C67D1C1C9299DA0019F9E1 /* AFURLRequestSerialization.m in Sources */,
 				14C67CF71C92974D0019F9E1 /* NSArray+MASAdditions.m in Sources */,
@@ -1088,6 +1120,7 @@
 				14475EE11C96691C00CB11CB /* UIButton+WebCache.m in Sources */,
 				14C67CF51C92974D0019F9E1 /* MASViewAttribute.m in Sources */,
 				14C67D011C9299490019F9E1 /* QLCodeButton.m in Sources */,
+				CC86EA351F0E158C008EF500 /* QLClassHomeDataModel.m in Sources */,
 				14C67C841C92793C0019F9E1 /* NSDate+QLDate.m in Sources */,
 				14475EE51C96691C00CB11CB /* UIImageView+WebCache.m in Sources */,
 				14C67C901C9279600019F9E1 /* SVProgressHUD.m in Sources */,
@@ -1225,6 +1258,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4R734X2JY2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(TARGET_NAME)/QLProjectCfg.pch";
 				INFOPLIST_FILE = QLMLD/Info.plist;
@@ -1234,7 +1268,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/QLMLD/QLClasses/QLLibs/GtSdkLib-noidfa",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Shreker.QLMLD;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-";
 				PRODUCT_NAME = QLMLD;
 			};
 			name = Debug;
@@ -1244,6 +1278,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = 4R734X2JY2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(TARGET_NAME)/QLProjectCfg.pch";
 				INFOPLIST_FILE = QLMLD/Info.plist;
@@ -1253,7 +1288,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/QLMLD/QLClasses/QLLibs/GtSdkLib-noidfa",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Shreker.QLMLD;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-";
 				PRODUCT_NAME = QLMLD;
 			};
 			name = Release;
