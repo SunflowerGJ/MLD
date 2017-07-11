@@ -41,7 +41,7 @@ QLSingletonImplementation(UserTool)
         }
     }
 }
-- (void)loginWithUser:(NSString *)strUser pwd:(NSString *)strPwd whenSuccess:(void (^)())success whenFailure:(void (^)())failure  {
++ (void)loginWithUser:(NSString *)strUser pwd:(NSString *)strPwd whenSuccess:(void (^)())success whenFailure:(void (^)())failure  {
     
     
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@", QLBaseUrlString, userLogin_interface];
@@ -55,23 +55,23 @@ QLSingletonImplementation(UserTool)
         [[QLUserTool sharedUserTool] saveUserModel:[QLUserModel mj_objectWithKeyValues:responseObject[@"data"]]];
         //  绑定个推
         [GeTuiSdk bindAlias:[QLUserTool sharedUserTool].userModel.strAccount andSequenceNum:KGtSeriNum];
-        NSString *stationID = [QLUserTool sharedUserTool].userModel.tfUtechnician.fkstationId;
-        NSString *str = [NSString stringWithFormat:@"station%@",stationID];
-        [GeTuiSdk setTags:@[str]];
-        [QLUserDefaults setObject:loginTechnician forKey:userLoginState];
-        [QLUserDefaults setObject:pwd forKey:currentLoginPwd];
-        // 切换账号时清掉数据库中除系统消息外的所有消息
-        NSString *currentUserID = [QLUserDefaults objectForKey:CurrentUserId];
-        if (currentUserID != [QLUserTool sharedUserTool].userModel.strId) {
-            [MessageTool clearPushMessageAll:NO];
-        }
-        
-        // 更新 CurrentUserId
-        [[NSUserDefaults standardUserDefaults] setObject:[NSString getValidStringWithObject:[QLUserTool sharedUserTool].userModel.strId] forKey:CurrentUserId];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+//        NSString *stationID = [QLUserTool sharedUserTool].userModel.tfUtechnician.fkstationId;
+//        NSString *str = [NSString stringWithFormat:@"station%@",stationID];
+//        [GeTuiSdk setTags:@[str]];
+//        [QLUserDefaults setObject:loginTechnician forKey:userLoginState];
+//        [QLUserDefaults setObject:pwd forKey:currentLoginPwd];
+//        // 切换账号时清掉数据库中除系统消息外的所有消息
+//        NSString *currentUserID = [QLUserDefaults objectForKey:CurrentUserId];
+//        if (currentUserID != [QLUserTool sharedUserTool].userModel.strId) {
+//            [MessageTool clearPushMessageAll:NO];
+//        }
+//        
+//        // 更新 CurrentUserId
+//        [[NSUserDefaults standardUserDefaults] setObject:[NSString getValidStringWithObject:[QLUserTool sharedUserTool].userModel.strId] forKey:CurrentUserId];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
         
         //发送通知
-        [QLNotificationCenter postNotificationName:Notification_setUserType object:self userInfo:nil];
+//        [QLNotificationCenter postNotificationName:Notification_setUserType object:self userInfo:nil];
         if (success) {
             success();
         }

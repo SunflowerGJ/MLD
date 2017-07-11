@@ -16,6 +16,7 @@ QLSingletonInterface(UserTool)
 
 /** 当前登录的用户模型 */
 @property (nonatomic, strong, readonly) QLUserModel *userModel;
++ (void)loginWithUser:(NSString *)strUser pwd:(NSString *)strPwd whenSuccess:(void (^)())success whenFailure:(void (^)())failure;
 - (void)saveUserModel:(QLUserModel *)userModel;
 - (void)clearCurrentUserModel;
 - (void)logout;

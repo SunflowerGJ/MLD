@@ -114,6 +114,18 @@
 		CC4384971F13BA64003692B4 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = CC43848C1F13BA64003692B4 /* AFURLRequestSerialization.m */; };
 		CC4384981F13BA64003692B4 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = CC43848E1F13BA64003692B4 /* AFURLResponseSerialization.m */; };
 		CC4384991F13BA64003692B4 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4384901F13BA64003692B4 /* AFURLSessionManager.m */; };
+		CC4B56A01F14FE2600F53E90 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4B569F1F14FE2600F53E90 /* libsqlite3.tbd */; };
+		CC4B56A21F14FECA00F53E90 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4B56A11F14FECA00F53E90 /* libc++.tbd */; };
+		CC4B56A41F14FED200F53E90 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4B56A31F14FED200F53E90 /* Security.framework */; };
+		CC4B56A61F14FEDD00F53E90 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4B56A51F14FEDD00F53E90 /* MobileCoreServices.framework */; };
+		CC4B56A81F14FEE400F53E90 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4B56A71F14FEE400F53E90 /* SystemConfiguration.framework */; };
+		CC4B56AA1F14FEED00F53E90 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4B56A91F14FEED00F53E90 /* libz.tbd */; };
+		CC4B56AC1F14FEF500F53E90 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4B56AB1F14FEF500F53E90 /* CoreTelephony.framework */; };
+		CC4B56AE1F14FF2200F53E90 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4B56AD1F14FF2200F53E90 /* AVFoundation.framework */; };
+		CC4B56B01F14FF2D00F53E90 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4B56AF1F14FF2D00F53E90 /* CoreLocation.framework */; };
+		CC4B56B21F14FF3600F53E90 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4B56B11F14FF3600F53E90 /* UserNotifications.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CC4B56C11F15243900F53E90 /* QLRegisterFinisheInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4B56BF1F15243900F53E90 /* QLRegisterFinisheInfoVC.m */; };
+		CC4B56C21F15243900F53E90 /* QLRegisterFinisheInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4B56C01F15243900F53E90 /* QLRegisterFinisheInfoVC.xib */; };
 		CC64A0AC1F08A3010057801C /* QLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A0AB1F08A3010057801C /* QLViewController.m */; };
 		CC64A0BD1F08A6140057801C /* libGeTuiSdk-1.6.4.0-noidfa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC64A0BB1F08A6140057801C /* libGeTuiSdk-1.6.4.0-noidfa.a */; };
 		CC64A0BE1F08A6140057801C /* libGtExtensionSdk-1.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC64A0BC1F08A6140057801C /* libGtExtensionSdk-1.3.0.a */; };
@@ -325,6 +337,19 @@
 		CC43848E1F13BA64003692B4 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		CC43848F1F13BA64003692B4 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		CC4384901F13BA64003692B4 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		CC4B569F1F14FE2600F53E90 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		CC4B56A11F14FECA00F53E90 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		CC4B56A31F14FED200F53E90 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CC4B56A51F14FEDD00F53E90 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		CC4B56A71F14FEE400F53E90 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CC4B56A91F14FEED00F53E90 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		CC4B56AB1F14FEF500F53E90 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		CC4B56AD1F14FF2200F53E90 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CC4B56AF1F14FF2D00F53E90 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		CC4B56B11F14FF3600F53E90 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		CC4B56BE1F15243900F53E90 /* QLRegisterFinisheInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLRegisterFinisheInfoVC.h; sourceTree = "<group>"; };
+		CC4B56BF1F15243900F53E90 /* QLRegisterFinisheInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLRegisterFinisheInfoVC.m; sourceTree = "<group>"; };
+		CC4B56C01F15243900F53E90 /* QLRegisterFinisheInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLRegisterFinisheInfoVC.xib; sourceTree = "<group>"; };
 		CC64A0AA1F08A3010057801C /* QLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLViewController.h; sourceTree = "<group>"; };
 		CC64A0AB1F08A3010057801C /* QLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLViewController.m; sourceTree = "<group>"; };
 		CC64A0B91F08A6140057801C /* GeTuiExtSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiExtSdk.h; sourceTree = "<group>"; };
@@ -355,6 +380,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC4B56B21F14FF3600F53E90 /* UserNotifications.framework in Frameworks */,
+				CC4B56B01F14FF2D00F53E90 /* CoreLocation.framework in Frameworks */,
+				CC4B56AE1F14FF2200F53E90 /* AVFoundation.framework in Frameworks */,
+				CC4B56AC1F14FEF500F53E90 /* CoreTelephony.framework in Frameworks */,
+				CC4B56AA1F14FEED00F53E90 /* libz.tbd in Frameworks */,
+				CC4B56A81F14FEE400F53E90 /* SystemConfiguration.framework in Frameworks */,
+				CC4B56A61F14FEDD00F53E90 /* MobileCoreServices.framework in Frameworks */,
+				CC4B56A41F14FED200F53E90 /* Security.framework in Frameworks */,
+				CC4B56A21F14FECA00F53E90 /* libc++.tbd in Frameworks */,
+				CC4B56A01F14FE2600F53E90 /* libsqlite3.tbd in Frameworks */,
 				CC64A0BE1F08A6140057801C /* libGtExtensionSdk-1.3.0.a in Frameworks */,
 				CC64A0BD1F08A6140057801C /* libGeTuiSdk-1.6.4.0-noidfa.a in Frameworks */,
 			);
@@ -368,6 +403,7 @@
 			children = (
 				142486F01C111C8D00592980 /* QLMLD */,
 				142486EF1C111C8D00592980 /* Products */,
+				CC4B569E1F14FE2600F53E90 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -733,6 +769,9 @@
 				14C67CB41C92968F0019F9E1 /* QLRegisterViewController.h */,
 				14C67CB51C92968F0019F9E1 /* QLRegisterViewController.m */,
 				14C67CB61C92968F0019F9E1 /* QLRegisterViewController.xib */,
+				CC4B56BE1F15243900F53E90 /* QLRegisterFinisheInfoVC.h */,
+				CC4B56BF1F15243900F53E90 /* QLRegisterFinisheInfoVC.m */,
+				CC4B56C01F15243900F53E90 /* QLRegisterFinisheInfoVC.xib */,
 			);
 			path = QLRegister;
 			sourceTree = "<group>";
@@ -870,6 +909,23 @@
 				CC4384901F13BA64003692B4 /* AFURLSessionManager.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		CC4B569E1F14FE2600F53E90 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC4B56B11F14FF3600F53E90 /* UserNotifications.framework */,
+				CC4B56AF1F14FF2D00F53E90 /* CoreLocation.framework */,
+				CC4B56AD1F14FF2200F53E90 /* AVFoundation.framework */,
+				CC4B56AB1F14FEF500F53E90 /* CoreTelephony.framework */,
+				CC4B56A91F14FEED00F53E90 /* libz.tbd */,
+				CC4B56A71F14FEE400F53E90 /* SystemConfiguration.framework */,
+				CC4B56A51F14FEDD00F53E90 /* MobileCoreServices.framework */,
+				CC4B56A31F14FED200F53E90 /* Security.framework */,
+				CC4B56A11F14FECA00F53E90 /* libc++.tbd */,
+				CC4B569F1F14FE2600F53E90 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		CC64A0AD1F08A4DB0057801C /* QLKindergarten(幼儿园) */ = {
@@ -1123,6 +1179,7 @@
 				CC86EA321F0E1525008EF500 /* QLClassHomeTableCell.xib in Resources */,
 				14C67C2C1C92764F0019F9E1 /* guide_1-667h@2x.png in Resources */,
 				14475EB81C96684800CB11CB /* 1.jpg in Resources */,
+				CC4B56C21F15243900F53E90 /* QLRegisterFinisheInfoVC.xib in Resources */,
 				CC64A0C91F08A79A0057801C /* QLStoreHome.xib in Resources */,
 				14475EB91C96684800CB11CB /* 2.jpg in Resources */,
 				14C67C2F1C92764F0019F9E1 /* guide_2-568h@2x.png in Resources */,
@@ -1198,6 +1255,7 @@
 				14C67CFE1C9298AB0019F9E1 /* QLHttpTool.m in Sources */,
 				14CDE37D1C929E9200DD857E /* QLLoginViewController.m in Sources */,
 				14475EDD1C96691C00CB11CB /* SDWebImageDownloader.m in Sources */,
+				CC4B56C11F15243900F53E90 /* QLRegisterFinisheInfoVC.m in Sources */,
 				CC43847B1F13BA3D003692B4 /* NSObject+MJProperty.m in Sources */,
 				14C67CCF1C9296A30019F9E1 /* QLUserModel.m in Sources */,
 				14475EDA1C96691C00CB11CB /* SDImageCache.m in Sources */,

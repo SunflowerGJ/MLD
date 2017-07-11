@@ -112,7 +112,11 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
 
 //    QLAppDelegate *delegate = (QLAppDelegate *)[UIApplication sharedApplication].delegate;
 //    [delegate changeRootViewControllerToMain];
-    [QLUserTool 
+    [QLUserTool loginWithUser:_txfTele.text pwd:_txfPwd.text whenSuccess:^{
+        
+    } whenFailure:^{
+        
+    }];
     
 }
 //协议

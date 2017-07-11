@@ -8,7 +8,7 @@
 
 #import "QLRegisterViewController.h"
 #import <CoreLocation/CoreLocation.h>
-
+#import "QLRegisterFinisheInfoVC.h"
 static const NSUInteger totalTime = 120;
 
 @interface QLRegisterViewController () <UITextFieldDelegate, CLLocationManagerDelegate, UIAlertViewDelegate>
@@ -24,6 +24,7 @@ static const NSUInteger totalTime = 120;
     NSInteger _timeWaiting;
     NSString *_code;     
     
+    __weak IBOutlet UIButton *_btnNext;
 
 }
 
@@ -44,8 +45,7 @@ static const NSUInteger totalTime = 120;
     [_txfCode setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     [_txfPhone setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     [_txfPwdConfirm setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
-
-    
+    [_btnNext setCornerRadius:10 border:1 borderColor:[UIColor whiteColor]];
 }
 
 #pragma mark - Actions
@@ -91,7 +91,11 @@ static const NSUInteger totalTime = 120;
         _timeWaiting = totalTime;
     }
 }
-- (IBAction)next {
+- (IBAction)btnNext {
+    
+    QLRegisterFinisheInfoVC *fininshedVC = [[QLRegisterFinisheInfoVC alloc]init];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:fininshedVC animated:YES];
+    
     if ([self checkInput] == NO) {
         return;
     }
@@ -106,6 +110,7 @@ static const NSUInteger totalTime = 120;
     }
     [self registerUser];
 }
+
 
 - (void)registerUser {
     if ([_code isEqualToString:_txfCode.text]) {

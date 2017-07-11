@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QLRegisterViewController">
             <connections>
                 <outlet property="_btnGetCode" destination="Zr6-iH-y3u" id="qrV-SX-C9t"/>
+                <outlet property="_btnNext" destination="Hdq-KW-1na" id="4h8-R1-057"/>
                 <outlet property="_lblTimer" destination="JzT-Sc-3qV" id="n2R-Je-O3m"/>
                 <outlet property="_txfCode" destination="SxU-Uk-KO4" id="z0O-Y5-M1M"/>
                 <outlet property="_txfPhone" destination="pLh-aK-QeR" id="pEt-Xc-3fc"/>
@@ -163,11 +164,11 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="bMv-bx-aQw"/>
                                     </constraints>
-                                    <state key="normal" title="注册">
+                                    <state key="normal" title="下一步">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
-                                        <action selector="next" destination="-1" eventType="touchUpInside" id="vzu-kT-WqC"/>
+                                        <action selector="btnNext" destination="-1" eventType="touchUpInside" id="u8u-jO-4fX"/>
                                     </connections>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7tu-4h-seR" userLabel="line2">

@@ -7,7 +7,7 @@
 //  `新用户注册`控制器
 
 #import <UIKit/UIKit.h>
-
-@interface QLRegisterViewController : UIViewController
+#import "QLViewController.h"
+@interface QLRegisterViewController : QLViewController
 
 @end

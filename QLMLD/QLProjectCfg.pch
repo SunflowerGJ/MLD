@@ -102,7 +102,7 @@ static CGFloat QLBorderWidth = 0.5;
 
 //static NSString * const QLBaseUrlString = @"http://192.168.100.165/web/";//165  246
 //static NSString * const QLBaseUrlString = @"http://192.168.100.121:8080/web/";
-static NSString * const QLBaseUrlString = @"http://192.168.100.165:8088/api/";
+static NSString * const QLBaseUrlString = @"http://wg420884853.eicp.net/wg_cms";
 //static NSString * const QLBaseUrlString = @"http://192.168.100.171:8088/api/";
 //static NSString * const QLBaseUrlString = @"http://192.168.100.246/web/";
 static NSString * const QLBaseUrlString_Image = @"http://ichetest.image.alimmdn.com/";
