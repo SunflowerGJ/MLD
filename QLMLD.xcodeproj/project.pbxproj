@@ -140,6 +140,7 @@
 		CC86EA311F0E1525008EF500 /* QLClassHomeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC86EA2F1F0E1525008EF500 /* QLClassHomeTableCell.m */; };
 		CC86EA321F0E1525008EF500 /* QLClassHomeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC86EA301F0E1525008EF500 /* QLClassHomeTableCell.xib */; };
 		CC86EA351F0E158C008EF500 /* QLClassHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC86EA341F0E158C008EF500 /* QLClassHomeDataModel.m */; };
+		CCF959651F15B2030069DB2E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = CCF959641F15B2030069DB2E /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -373,6 +374,7 @@
 		CC86EA301F0E1525008EF500 /* QLClassHomeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLClassHomeTableCell.xib; sourceTree = "<group>"; };
 		CC86EA331F0E158C008EF500 /* QLClassHomeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLClassHomeDataModel.h; sourceTree = "<group>"; };
 		CC86EA341F0E158C008EF500 /* QLClassHomeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLClassHomeDataModel.m; sourceTree = "<group>"; };
+		CCF959641F15B2030069DB2E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,6 +423,7 @@
 				142487081C1121A200592980 /* QLClasses */,
 				1424870D1C1121A200592980 /* QLResources */,
 				142486F11C111C8D00592980 /* Supporting Files */,
+				CCF959641F15B2030069DB2E /* README.md */,
 			);
 			path = QLMLD;
 			sourceTree = "<group>";
@@ -1256,6 +1259,7 @@
 				14CDE37D1C929E9200DD857E /* QLLoginViewController.m in Sources */,
 				14475EDD1C96691C00CB11CB /* SDWebImageDownloader.m in Sources */,
 				CC4B56C11F15243900F53E90 /* QLRegisterFinisheInfoVC.m in Sources */,
+				CCF959651F15B2030069DB2E /* README.md in Sources */,
 				CC43847B1F13BA3D003692B4 /* NSObject+MJProperty.m in Sources */,
 				14C67CCF1C9296A30019F9E1 /* QLUserModel.m in Sources */,
 				14475EDA1C96691C00CB11CB /* SDImageCache.m in Sources */,
