@@ -7,7 +7,9 @@
 //
 
 #import "QLViewController.h"
+#import "SDCycleScrollView.h"
 
-@interface QLStoreHome : QLViewController
-
+@interface QLStoreHome : QLViewController<SDCycleScrollViewDelegate>
+@property (strong ,nonatomic) NSMutableArray *dataSource;
+@property (weak, nonatomic) IBOutlet SDCycleScrollView *myHeaderImg;
 @end

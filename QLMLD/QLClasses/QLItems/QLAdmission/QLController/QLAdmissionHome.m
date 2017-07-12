@@ -19,11 +19,37 @@
     [self loadDefaultSetting];
 }
 - (void)loadDefaultSetting {
-    self.leftBtn.hidden = YES;
     _viewICarousel.delegate = self;
     _viewICarousel.dataSource = self;
-    
     _viewICarousel.type = iCarouselTypeCoverFlow;
+    
+    self.leftBtn.frame = CGRectMake(0, 28, 50, 30);
+    [self.leftBtn setImage:[UIImage imageNamed:@"moreTime_icon"]  forState:UIControlStateNormal];
+    
+    self.rightBtn.hidden = NO;
+    self.rightBtn.frame = CGRectMake(QLScreenWidth-40, 28, 30, 30);
+    [self.rightBtn setImage:[UIImage imageNamed:@"camera_icon"] forState:UIControlStateNormal];
+    
+    UIImageView *line = [[UIImageView alloc]initWithFrame:CGRectMake(self.rightBtn.frame.origin.x-5, 28, .5, 30)];
+    line.backgroundColor = [UIColor whiteColor];
+    [self.titleView addSubview:line];
+    
+    UIButton *share = [UIButton buttonWithType:UIButtonTypeSystem];
+    share.frame = CGRectMake(self.rightBtn.frame.origin.x-40, 28, 30, 30);
+    share.tintColor = [UIColor whiteColor];
+    share.backgroundColor = [UIColor clearColor];
+    [share setImage:[UIImage imageNamed:@"share_icon"] forState:UIControlStateNormal];
+    [self.titleView addSubview:share];
+    [share addTarget:self action:@selector(clickShare) forControlEvents:UIControlEventTouchUpInside];
+}
+- (void)clickBack{
+    QLLog(@"more");
+}
+- (void)clickRight{
+    QLLog(@"拍照");
+}
+- (void)clickShare{
+    QLLog(@"分享");
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -45,7 +71,7 @@
     lblTime.text = [NSString stringWithFormat:@"%ld time",index];
     lblTime.textColor = [UIColor redColor];
     
-    view.frame = CGRectMake(30, 64+30, QLScreenWidth-80, QLScreenHeight-(64+30)*2);
+    view.frame = CGRectMake(_viewICarousel.frame.origin.x, _viewICarousel.frame.origin.y, _viewICarousel.frame.size.width, _viewICarousel.frame.size.height);
     return view;
 }
 
