@@ -98,6 +98,9 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
 #pragma mark - Actions
 
 - (IBAction)login {
+    QLAppDelegate *delegate = (QLAppDelegate *)[UIApplication sharedApplication].delegate;
+    [delegate changeRootViewControllerToMain];
+
     NSString *strUser = _txfTele.text;
     if (strUser.length <= 0) {
         [QLHUDTool showErrorWithStatus:@"请输入用户名"];
@@ -110,13 +113,11 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
         return;
     }
 
-//    QLAppDelegate *delegate = (QLAppDelegate *)[UIApplication sharedApplication].delegate;
-//    [delegate changeRootViewControllerToMain];
-    [QLUserTool loginWithUser:_txfTele.text pwd:_txfPwd.text whenSuccess:^{
-        
-    } whenFailure:^{
-        
-    }];
+    //    [QLUserTool loginWithUser:_txfTele.text pwd:_txfPwd.text whenSuccess:^{
+//        
+//    } whenFailure:^{
+//        
+//    }];
     
 }
 //协议

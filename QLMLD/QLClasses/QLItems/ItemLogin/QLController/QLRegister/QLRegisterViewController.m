@@ -91,6 +91,7 @@ static const NSUInteger totalTime = 120;
         _timeWaiting = totalTime;
     }
 }
+//验证短信验证码是否正确
 - (IBAction)btnNext {
     
     QLRegisterFinisheInfoVC *fininshedVC = [[QLRegisterFinisheInfoVC alloc]init];

@@ -167,6 +167,13 @@
                                                 <constraint firstItem="gTW-IX-kAv" firstAttribute="width" secondItem="bdt-jg-ZzC" secondAttribute="width" id="zbf-8t-8bT"/>
                                             </constraints>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Wc-bM-6HV">
+                                            <rect key="frame" x="162" y="20" width="50.5" height="50"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="btnUserHeadImage:" destination="-1" eventType="touchUpInside" id="Wrt-sp-eIr"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -175,6 +182,8 @@
                                         <constraint firstAttribute="height" constant="180" id="8Lh-Hk-W1F"/>
                                         <constraint firstAttribute="bottom" secondItem="Ffk-UN-WHL" secondAttribute="bottom" id="ETI-wL-Yea"/>
                                         <constraint firstItem="iwG-Bw-gSY" firstAttribute="top" secondItem="vEJ-H6-WXJ" secondAttribute="bottom" constant="10" id="JtI-r8-qzv"/>
+                                        <constraint firstItem="0Wc-bM-6HV" firstAttribute="top" secondItem="mtB-gB-gMZ" secondAttribute="top" id="Ktd-rc-CSf"/>
+                                        <constraint firstItem="0Wc-bM-6HV" firstAttribute="leading" secondItem="mtB-gB-gMZ" secondAttribute="leading" id="OJA-BF-xtG"/>
                                         <constraint firstItem="vEJ-H6-WXJ" firstAttribute="centerX" secondItem="aqo-dt-Heb" secondAttribute="centerX" id="Tru-uh-5ez"/>
                                         <constraint firstItem="mtB-gB-gMZ" firstAttribute="top" secondItem="aqo-dt-Heb" secondAttribute="top" constant="20" id="WOV-Fl-TKx"/>
                                         <constraint firstItem="Okf-Mj-OLd" firstAttribute="leading" secondItem="fNs-S3-4bg" secondAttribute="leading" id="Z6z-vF-TSo"/>
@@ -184,13 +193,15 @@
                                         <constraint firstItem="Okf-Mj-OLd" firstAttribute="trailing" secondItem="fNs-S3-4bg" secondAttribute="trailing" id="i3C-Je-So0"/>
                                         <constraint firstItem="vEJ-H6-WXJ" firstAttribute="top" secondItem="mtB-gB-gMZ" secondAttribute="bottom" constant="10" id="iSE-6J-feE"/>
                                         <constraint firstAttribute="trailing" secondItem="Okf-Mj-OLd" secondAttribute="trailing" id="ihG-SV-mIv"/>
+                                        <constraint firstItem="0Wc-bM-6HV" firstAttribute="bottom" secondItem="mtB-gB-gMZ" secondAttribute="bottom" id="lHz-za-PZG"/>
                                         <constraint firstItem="mtB-gB-gMZ" firstAttribute="centerX" secondItem="aqo-dt-Heb" secondAttribute="centerX" id="lb1-ic-KjA"/>
                                         <constraint firstAttribute="trailing" secondItem="Ffk-UN-WHL" secondAttribute="trailing" id="mZT-TE-xEg"/>
                                         <constraint firstItem="Okf-Mj-OLd" firstAttribute="leading" secondItem="aqo-dt-Heb" secondAttribute="leading" id="oII-EK-Paj"/>
+                                        <constraint firstItem="0Wc-bM-6HV" firstAttribute="trailing" secondItem="mtB-gB-gMZ" secondAttribute="trailing" id="rzd-JG-FNh"/>
                                         <constraint firstItem="Okf-Mj-OLd" firstAttribute="bottom" secondItem="fNs-S3-4bg" secondAttribute="bottom" id="sY2-dx-cjJ"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6I-qs-qbI">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6I-qs-qbI" customClass="UIControl">
                                     <rect key="frame" x="0.0" y="180" width="375" height="44"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product_order_icon" translatesAutoresizingMaskIntoConstraints="NO" id="V0p-Ry-peN">
@@ -224,6 +235,9 @@
                                         <constraint firstAttribute="height" constant="44" id="kef-nL-VgL"/>
                                         <constraint firstItem="Er5-9o-Z2Y" firstAttribute="centerY" secondItem="o6I-qs-qbI" secondAttribute="centerY" id="zsg-w8-OWx"/>
                                     </constraints>
+                                    <connections>
+                                        <action selector="controlGoodsOrder:" destination="-1" eventType="touchUpInside" id="nsp-Xw-hQs"/>
+                                    </connections>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9vc-CL-iOe">
                                     <rect key="frame" x="0.0" y="224" width="375" height="0.5"/>
@@ -242,7 +256,7 @@
                                                 <constraint firstAttribute="height" constant="0.5" id="2h2-Ag-vuG"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAm-rT-t86">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAm-rT-t86" customClass="UIControl">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wait_get_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Ei3-KT-Yvj">
@@ -265,8 +279,11 @@
                                                 <constraint firstItem="B3r-d4-ahu" firstAttribute="centerY" secondItem="nAm-rT-t86" secondAttribute="centerY" id="oV9-Ya-1vQ"/>
                                                 <constraint firstAttribute="height" constant="44" id="zwd-ll-vsj"/>
                                             </constraints>
+                                            <connections>
+                                                <action selector="controlWaitGetGoods:" destination="-1" eventType="touchUpInside" id="FJn-op-9nn"/>
+                                            </connections>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ye0-5Y-Yer">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ye0-5Y-Yer" customClass="UIControl">
                                             <rect key="frame" x="0.0" y="44.5" width="375" height="44"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wait_send_icon" translatesAutoresizingMaskIntoConstraints="NO" id="oaH-07-ryf">
@@ -288,6 +305,9 @@
                                                 <constraint firstItem="bEQ-w9-X9Z" firstAttribute="centerY" secondItem="ye0-5Y-Yer" secondAttribute="centerY" id="knX-OS-cnG"/>
                                                 <constraint firstItem="oaH-07-ryf" firstAttribute="centerY" secondItem="ye0-5Y-Yer" secondAttribute="centerY" id="xHh-re-gCz"/>
                                             </constraints>
+                                            <connections>
+                                                <action selector="controlWaitSendGoods:" destination="-1" eventType="touchUpInside" id="Bv1-Uu-l91"/>
+                                            </connections>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

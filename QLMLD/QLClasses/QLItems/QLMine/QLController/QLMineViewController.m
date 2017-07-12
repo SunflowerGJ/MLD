@@ -8,6 +8,8 @@
 
 #import "QLMineViewController.h"
 #import "QLMineHomeTableCell.h"
+#import "QLGoodsOrderVC.h"
+#import "QLUserInfoVC.h"
 @interface QLMineViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
     __weak IBOutlet NSLayoutConstraint *_heightTableConstraint;
@@ -25,6 +27,7 @@
     [self loadDefaultSetting];
 }
 - (void)loadDefaultSetting{
+    self.leftBtn.hidden = YES;
     _arrayData = @[@"收货地址管理",@"绑定考勤卡",@"我的学校（幼儿园信息介绍）",@"客服电话",@"关于美乐多"];
     _heightTableConstraint.constant = _arrayData.count*44;
     [_tableMain reloadData];
@@ -47,6 +50,34 @@
     return cell;
 }
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger row = indexPath.row;
+    switch (row) {
+        case 0:{
+           
+        }
+            break;
+        case 1:{
+            
+        }
+            break;
+    }
+}
+#pragma mark - Touch
+//商品订单
+- (IBAction)controlGoodsOrder:(id)sender {
+    QLGoodsOrderVC *goodsOrder = [[QLGoodsOrderVC alloc]init];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:goodsOrder animated:YES];
+}
+//待收货
+- (IBAction)controlWaitGetGoods:(id)sender {
+}
+- (IBAction)controlWaitSendGoods:(id)sender {
+}
+#pragma mark - button
+- (IBAction)btnUserHeadImage:(id)sender {
+    QLUserInfoVC *infoVC = [[QLUserInfoVC alloc]init];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:infoVC animated:YES];
+}
 
 @end

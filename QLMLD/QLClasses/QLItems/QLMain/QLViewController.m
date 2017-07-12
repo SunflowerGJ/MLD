@@ -70,8 +70,8 @@
     if (_leftBtn == nil) {
         _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         _leftBtn.frame = CGRectMake(0, 28, 50, 30);
-        [_leftBtn setImage:[UIImage imageNamed:@"arrow.png"]  forState:UIControlStateNormal];
-        [_leftBtn setImage:[UIImage imageNamed:@"arrowpress.png"]  forState:UIControlStateHighlighted];
+        [_leftBtn setImage:[UIImage imageNamed:@"arrowl.png"]  forState:UIControlStateNormal];
+//        [_leftBtn setImage:[UIImage imageNamed:@"arrowpress.png"]  forState:UIControlStateHighlighted];
         _leftBtn.backgroundColor = [UIColor clearColor];
         _leftBtn.titleLabel.font = [UIFont systemFontOfSize:17.0];
         _leftBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;

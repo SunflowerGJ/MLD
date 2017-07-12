@@ -7,7 +7,6 @@
 //
 
 #import "QLMainViewController.h"
-#import "QLHomeViewController.h"
 #import "QLMineViewController.h"
 #import "UIImage+QLImage.h"
 

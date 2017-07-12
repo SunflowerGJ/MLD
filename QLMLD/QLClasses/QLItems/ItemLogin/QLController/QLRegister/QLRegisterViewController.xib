@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,10 +28,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1W-pv-Jem" userLabel="ScrollView" customClass="QLScrollView">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ni-bk-MBS" userLabel="ViewContent">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whe-OR-x17" userLabel="ViewPhone">
                                     <rect key="frame" x="30" y="140" width="315" height="44"/>
@@ -199,7 +199,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6o6-ok-f5e" userLabel="ViewBottom">
-                                    <rect key="frame" x="50" y="632.5" width="275" height="14.5"/>
+                                    <rect key="frame" x="50" y="568.5" width="275" height="14.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用本软件即表示您同意" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQe-0h-jNi">
                                             <rect key="frame" x="0.0" y="0.0" width="135" height="14.5"/>
@@ -233,7 +233,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYJ-oG-caO">
-                                    <rect key="frame" x="110" y="592.5" width="155" height="25"/>
+                                    <rect key="frame" x="110" y="528.5" width="155" height="25"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tel" translatesAutoresizingMaskIntoConstraints="NO" id="JbR-W5-7rk">
                                             <rect key="frame" x="0.0" y="0.0" width="24" height="25"/>
@@ -332,7 +332,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="R1W-pv-Jem" secondAttribute="trailing" id="27d-f1-JfB"/>
                 <constraint firstItem="R1W-pv-Jem" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="B9R-i5-mw7"/>
-                <constraint firstItem="R1W-pv-Jem" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="otQ-k7-bfy"/>
+                <constraint firstItem="R1W-pv-Jem" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="otQ-k7-bfy"/>
                 <constraint firstAttribute="bottom" secondItem="R1W-pv-Jem" secondAttribute="bottom" id="wHE-dP-xcX"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

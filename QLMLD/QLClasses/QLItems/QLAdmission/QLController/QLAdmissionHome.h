@@ -7,7 +7,9 @@
 //
 
 #import "QLViewController.h"
+#import "iCarousel.h"
 
-@interface QLAdmissionHome : QLViewController
+@interface QLAdmissionHome : QLViewController<iCarouselDataSource,iCarouselDelegate>
+@property (weak, nonatomic) IBOutlet iCarousel *viewICarousel;
 
 @end

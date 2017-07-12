@@ -43,8 +43,6 @@
 #define QLColorWithRGB(redValue, greenValue, blueValue) ([UIColor colorWithRed:((redValue)/255.0) green:((greenValue)/255.0) blue:((blueValue)/255.0) alpha:1])
 #define QLColorRandom QLColorWithRGB(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
 #define QLColorFromHex(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-// ==
-#define QLMainNavColor QLColorWithRGB(80, 135, 225)
 
 /** Define a UserDefaults */
 #define QLUserDefaults [NSUserDefaults standardUserDefaults]
@@ -88,7 +86,8 @@ static CGFloat QLBorderWidth = 0.5;
 #define QLCustomTabbarTextColor QLColorFromHex(0xF44C1B)
 //绿色
 #define QLColorGreen QLColorFromHex(0x5ecb85)
-
+//间隔线色
+#define QLLineColor QLColorFromHex(0xE7E7E7)
 
 #pragma mark - 接口 owner
 /** 接口 */

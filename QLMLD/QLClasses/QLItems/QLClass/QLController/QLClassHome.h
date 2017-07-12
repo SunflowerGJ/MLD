@@ -9,5 +9,5 @@
 #import "QLViewController.h"
 
 @interface QLClassHome : QLViewController
-
+@property (nonatomic ,strong) NSMutableArray *dataSource;
 @end
