@@ -7,8 +7,16 @@
 //
 
 #import "QLUserInfoVC.h"
-
-@interface QLUserInfoVC ()
+#import "QLAlterPwdVC.h"
+@interface QLUserInfoVC (){
+    
+    __weak IBOutlet UIButton *_btnImageHead;
+    
+    __weak IBOutlet UILabel *_lblName;
+    
+    __weak IBOutlet UILabel *_lblAccount;
+    __weak IBOutlet UIButton *_btnLogout;
+}
 
 @end
 
@@ -20,20 +28,20 @@
 }
 - (void)loadDefaultSetting {
     self.title = @"个人信息";
+    [_btnLogout setBorder:.5 borderColor:QLDividerColor];
+    [_btnImageHead setCornerRadius:20];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+//修改密码
+- (IBAction)touchToAlterPwd:(id)sender {
+    QLAlterPwdVC *alterVC = [[QLAlterPwdVC alloc]init];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:alterVC animated:YES];
 }
-*/
+
+- (IBAction)btnLogout:(id)sender {
+}
 
 @end

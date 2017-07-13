@@ -73,7 +73,7 @@ static CGFloat QLBorderWidth = 0.5;
 //辅助色
 #define QLAssistColor QLColorFromHex(0xcc9933)
 //分割线颜色(灰色)
-#define QLDividerColor QLColorFromHex(0xe4e4e4)
+#define QLDividerColor QLColorFromHex(0xE7E7E7)
 //深色字体色
 #define QLFontDarkColor QLColorFromHex(0x555555)
 //浅色字体色
@@ -86,8 +86,7 @@ static CGFloat QLBorderWidth = 0.5;
 #define QLCustomTabbarTextColor QLColorFromHex(0xF44C1B)
 //绿色
 #define QLColorGreen QLColorFromHex(0x5ecb85)
-//间隔线色
-#define QLLineColor QLColorFromHex(0xE7E7E7)
+
 
 #pragma mark - 接口 owner
 /** 接口 */

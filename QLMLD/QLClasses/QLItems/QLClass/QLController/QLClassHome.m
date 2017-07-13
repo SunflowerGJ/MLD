@@ -42,7 +42,7 @@
     _pageSize = 10;
     _tableMain.estimatedRowHeight = 100;
     [_tableMain addSubview: self.promptView];
-    _tableMain.separatorColor = QLLineColor;
+    _tableMain.separatorColor = QLDividerColor;
     [self addTableViewRefresh];
     [_tableMain headerBeginRefreshing];
 }
