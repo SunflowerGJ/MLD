@@ -54,11 +54,11 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (_txfTele.text.length <= 0) {
-        [_txfTele becomeFirstResponder];
-    } else if (_txfPwd.text.length <= 0) {
-        [_txfPwd becomeFirstResponder];
-    }
+//    if (_txfTele.text.length <= 0) {
+//        [_txfTele becomeFirstResponder];
+//    } else if (_txfPwd.text.length <= 0) {
+//        [_txfPwd becomeFirstResponder];
+//    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

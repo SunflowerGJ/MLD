@@ -13,7 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QLKindergartenHome">
             <connections>
                 <outlet property="_collentionMain" destination="qTU-92-rEn" id="EUm-CC-XDi"/>
-                <outlet property="_viewMain" destination="UWL-IP-VMB" id="xIE-1U-dZz"/>
+                <outlet property="_viewHeader" destination="qC5-Vc-UzZ" id="rRR-Er-WAB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,72 +22,58 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qC5-Vc-UzZ">
-                    <rect key="frame" x="0.0" y="64" width="375" height="140"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kindergarten_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Iqj-FY-vqG">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
-                        </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cWp-y3-WBq">
-                            <rect key="frame" x="162" y="20" width="50" height="50"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="50" id="Uc2-Xy-zaS"/>
-                                <constraint firstAttribute="width" secondItem="cWp-y3-WBq" secondAttribute="height" multiplier="1:1" id="Udu-Vz-SF5"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX幼儿园   XX班级" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjK-MA-LRZ">
-                            <rect key="frame" x="127.5" y="80" width="120.5" height="17"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="140" id="8zp-FG-jxP"/>
-                        <constraint firstAttribute="bottom" secondItem="Iqj-FY-vqG" secondAttribute="bottom" id="MBG-cK-fMY"/>
-                        <constraint firstItem="cWp-y3-WBq" firstAttribute="top" secondItem="qC5-Vc-UzZ" secondAttribute="top" constant="20" id="RWn-6n-DJy"/>
-                        <constraint firstItem="gjK-MA-LRZ" firstAttribute="centerX" secondItem="qC5-Vc-UzZ" secondAttribute="centerX" id="XTC-7x-mla"/>
-                        <constraint firstItem="cWp-y3-WBq" firstAttribute="centerX" secondItem="qC5-Vc-UzZ" secondAttribute="centerX" id="aO2-8S-Pch"/>
-                        <constraint firstItem="gjK-MA-LRZ" firstAttribute="top" secondItem="cWp-y3-WBq" secondAttribute="bottom" constant="10" id="iET-py-65u"/>
-                        <constraint firstItem="Iqj-FY-vqG" firstAttribute="top" secondItem="qC5-Vc-UzZ" secondAttribute="top" id="jUe-u6-x8c"/>
-                        <constraint firstAttribute="trailing" secondItem="Iqj-FY-vqG" secondAttribute="trailing" id="s26-IO-fab"/>
-                        <constraint firstItem="Iqj-FY-vqG" firstAttribute="leading" secondItem="qC5-Vc-UzZ" secondAttribute="leading" id="spC-tJ-kWI"/>
-                    </constraints>
-                </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qTU-92-rEn">
-                    <rect key="frame" x="8" y="212" width="359" height="447"/>
+                    <rect key="frame" x="8" y="64" width="359" height="553"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LcM-qX-1i2">
-                        <size key="itemSize" width="50" height="50"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
+                    <collectionViewLayout key="collectionViewLayout" id="JeR-jy-iOt"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="zwy-Yh-J5z"/>
                         <outlet property="delegate" destination="-1" id="hzI-wk-jYy"/>
                     </connections>
                 </collectionView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UWL-IP-VMB">
-                    <rect key="frame" x="0.0" y="204" width="375" height="463"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="qTU-92-rEn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="36i-k3-kTg"/>
                 <constraint firstAttribute="trailing" secondItem="qTU-92-rEn" secondAttribute="trailing" constant="8" id="GRq-Fw-k8V"/>
-                <constraint firstItem="qC5-Vc-UzZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GUj-pr-PcP"/>
-                <constraint firstAttribute="bottom" secondItem="UWL-IP-VMB" secondAttribute="bottom" id="Jw1-yE-R8Z"/>
-                <constraint firstItem="UWL-IP-VMB" firstAttribute="top" secondItem="qC5-Vc-UzZ" secondAttribute="bottom" id="S0T-Ws-UBH"/>
-                <constraint firstItem="qC5-Vc-UzZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Ser-5c-B6t"/>
-                <constraint firstAttribute="trailing" secondItem="UWL-IP-VMB" secondAttribute="trailing" id="T7Z-vI-5KC"/>
-                <constraint firstItem="qTU-92-rEn" firstAttribute="top" secondItem="qC5-Vc-UzZ" secondAttribute="bottom" constant="8" id="U4n-3a-3FU"/>
-                <constraint firstItem="UWL-IP-VMB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Zfd-rp-81P"/>
-                <constraint firstAttribute="bottom" secondItem="qTU-92-rEn" secondAttribute="bottom" constant="8" id="hel-FY-pab"/>
-                <constraint firstAttribute="trailing" secondItem="qC5-Vc-UzZ" secondAttribute="trailing" id="neR-qS-sij"/>
+                <constraint firstAttribute="bottom" secondItem="qTU-92-rEn" secondAttribute="bottom" constant="50" id="hel-FY-pab"/>
+                <constraint firstItem="qTU-92-rEn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="nkc-Hm-2vL"/>
             </constraints>
+        </view>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qC5-Vc-UzZ">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kindergarten_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Iqj-FY-vqG">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cWp-y3-WBq">
+                    <rect key="frame" x="162" y="20" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="Uc2-Xy-zaS"/>
+                        <constraint firstAttribute="width" secondItem="cWp-y3-WBq" secondAttribute="height" multiplier="1:1" id="Udu-Vz-SF5"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX幼儿园   XX班级" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjK-MA-LRZ">
+                    <rect key="frame" x="127.5" y="80" width="120.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="height" constant="140" id="8zp-FG-jxP"/>
+                <constraint firstAttribute="bottom" secondItem="Iqj-FY-vqG" secondAttribute="bottom" id="MBG-cK-fMY"/>
+                <constraint firstItem="cWp-y3-WBq" firstAttribute="top" secondItem="qC5-Vc-UzZ" secondAttribute="top" constant="20" id="RWn-6n-DJy"/>
+                <constraint firstItem="gjK-MA-LRZ" firstAttribute="centerX" secondItem="qC5-Vc-UzZ" secondAttribute="centerX" id="XTC-7x-mla"/>
+                <constraint firstItem="cWp-y3-WBq" firstAttribute="centerX" secondItem="qC5-Vc-UzZ" secondAttribute="centerX" id="aO2-8S-Pch"/>
+                <constraint firstItem="gjK-MA-LRZ" firstAttribute="top" secondItem="cWp-y3-WBq" secondAttribute="bottom" constant="10" id="iET-py-65u"/>
+                <constraint firstItem="Iqj-FY-vqG" firstAttribute="top" secondItem="qC5-Vc-UzZ" secondAttribute="top" id="jUe-u6-x8c"/>
+                <constraint firstAttribute="trailing" secondItem="Iqj-FY-vqG" secondAttribute="trailing" id="s26-IO-fab"/>
+                <constraint firstItem="Iqj-FY-vqG" firstAttribute="leading" secondItem="qC5-Vc-UzZ" secondAttribute="leading" id="spC-tJ-kWI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="53.5" y="-738"/>
         </view>
     </objects>
     <resources>

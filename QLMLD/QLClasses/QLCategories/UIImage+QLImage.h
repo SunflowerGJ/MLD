@@ -32,5 +32,13 @@ typedef NS_ENUM(NSInteger, QLCurrentDeviceClass) {
 
 /** 按照指定宽度等比压缩图片 */
 - (UIImage *)imageCompressForWidth:(UIImage *)sourceImage targetWidth:(CGFloat)defineWidth;
-
+/**
+ *  动态发布图片压缩
+ *
+ *  @param source_image 原图image
+ *  @param maxSize      限定的图片大小
+ *
+ *  @return 返回处理后的图片
+ */
+- (NSData *)resetSizeOfImageData:(UIImage *)source_image maxSize:(NSInteger)maxSize;
 @end

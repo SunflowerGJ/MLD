@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface QLKinderCollectionViewCell : UICollectionViewCell
-- (void)setCellIndexValue:(NSInteger)value;
+- (void)setCellIndexValue:(NSInteger)value withData:(NSMutableAttributedString *)str;
 @end

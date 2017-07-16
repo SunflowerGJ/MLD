@@ -8,11 +8,15 @@
 
 #import "QLKindergartenHome.h"
 #import "QLKinderCollectionViewCell.h"
-@interface QLKindergartenHome ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource>{
+static NSString *kinderHeadIdentity = @"KinderHeader";
 
+@interface QLKindergartenHome ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource>{
+    
     __weak IBOutlet UICollectionView *_collentionMain;
     
-    __weak IBOutlet UIView *_viewMain;
+    __weak IBOutlet UIView *_viewHeader;
+    
+    NSMutableArray *_muArrayData;
 }
 
 @end
@@ -25,49 +29,69 @@
 }
 - (void)loadDefaultSetting {
     self.leftBtn.hidden = YES;
-    
-    //每个Item宽高
-    CGFloat W = 80;
-    CGFloat H = 100;
-    //每行列数
-    NSInteger rank = 4;
-    //每列间距
-    CGFloat rankMargin = (self.view.frame.size.width - rank * W) / (rank - 1);
-    //每行间距
-    CGFloat rowMargin = 20;
-    //Item索引 ->根据需求改变索引
-    NSUInteger index = 9;
-    
-    for (int i = 0 ; i< index; i++) {
-        //Item X轴
-        CGFloat X = (i % rank) * (W + rankMargin);
-        //Item Y轴
-        NSUInteger Y = (i / rank) * (H +rowMargin);
-        //Item top
-        CGFloat top = 50;
-        UIView *speedView = [[UIView alloc] init];
-        speedView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"taozi"]];
-        speedView.frame = CGRectMake(X, Y+top, W, H);
-        speedView.backgroundColor = [UIColor randomColor];
-        [_viewMain addSubview:speedView];
+//    NSMutableAttributedString* allClass = [[NSMutableAttributedString alloc] initWithString:@"所有班级\n(园长)  \n通讯录(家长、教师)"];
+//
+    NSArray *allClassNames = @[@"所有班级",@"(园长)",@" ",@"通讯录",@"(家长、教师)"];
+    //预设字体大小
+    NSArray *fonts = @[[UIFont systemFontOfSize:16],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:14],[UIFont systemFontOfSize:16],[UIFont systemFontOfSize:14]];
+    //创建 NSString
+    NSString *stringAllClass = @"";
+    for (NSString *name in allClassNames) {
+        stringAllClass = [stringAllClass stringByAppendingString:name];
+        if ([name isEqualToString:allClassNames.lastObject]) {break;}
+        stringAllClass = [stringAllClass stringByAppendingString:@"\n"];
     }
+    //创建 NSMutableAttributedString
+    NSMutableAttributedString* allClass = [[NSMutableAttributedString alloc] initWithString:stringAllClass];
+    NSArray *arr = [stringAllClass componentsSeparatedByString:@"\n"];
+    for (NSInteger i = 0; i<arr.count; i++) {
+        NSRange range = [stringAllClass rangeOfString:arr[i]];
+        [allClass addAttribute:NSFontAttributeName value:fonts[i] range:range];
+    }
+
+    NSArray *classPhotos = @[@"班级相册",@"家长班级做标签",@" ",@"长传",@"社区类似",@"教师给班级发",@"给家长做标签"];
+    //预设字体大小
+    NSArray *fontsPhotos = @[[UIFont systemFontOfSize:16],[UIFont systemFontOfSize:12],[UIFont systemFontOfSize:12],[UIFont systemFontOfSize:12],[UIFont systemFontOfSize:12],[UIFont systemFontOfSize:12],[UIFont systemFontOfSize:12]];
+    //创建 NSString
+    NSString *stringClassPhotos = @"";
+    for (NSString *name in classPhotos) {
+        stringClassPhotos = [stringClassPhotos stringByAppendingString:name];
+        if ([name isEqualToString:classPhotos.lastObject]) {break;}
+        stringClassPhotos = [stringClassPhotos stringByAppendingString:@"\n"];
+    }
+    //创建 NSMutableAttributedString
+    NSMutableAttributedString* classPhotosString = [[NSMutableAttributedString alloc] initWithString:stringClassPhotos];
+    NSArray *arrPhotos = [stringClassPhotos componentsSeparatedByString:@"\n"];
+    for (NSInteger i = 0; i<arrPhotos.count; i++) {
+        NSRange range = [stringClassPhotos rangeOfString:arrPhotos[i]];
+        [classPhotosString addAttribute:NSFontAttributeName value:fontsPhotos[i] range:range];
+    }
+
+    
+
+    
+    _muArrayData = [NSMutableArray arrayWithArray:@[[[NSMutableAttributedString alloc] initWithString:@"公告"],[[NSMutableAttributedString alloc] initWithString:@"食谱"],[[NSMutableAttributedString alloc] initWithString:@"作业"],[[NSMutableAttributedString alloc] initWithString:@"新闻"],[[NSMutableAttributedString alloc] initWithAttributedString:allClass],[[NSMutableAttributedString alloc] initWithString:@"考勤"],[[NSMutableAttributedString alloc] initWithString:@"服务频道2"],[[NSMutableAttributedString alloc] initWithAttributedString:classPhotosString],[[NSMutableAttributedString alloc] initWithString:@"+"]]];
+    
+    
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.headerReferenceSize = CGSizeMake(QLScreenWidth, 140.0f);  //设置headerView大小
+    [_collentionMain registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kinderHeadIdentity];  //  一定要设置
+    [_collentionMain setCollectionViewLayout:layout];
     
     [_collentionMain registerClass:[QLKinderCollectionViewCell class] forCellWithReuseIdentifier:@"QLKinderCollectionViewCell"];
     
-    UICollectionViewFlowLayout  *layout = [[UICollectionViewFlowLayout alloc] init];
     // 设置具体属性
     // 1.设置 最小行间距
-    layout.minimumLineSpacing = 10;
+    layout.minimumLineSpacing = 2;
     // 2.设置 最小列间距
-    layout. minimumInteritemSpacing  = 10;
+    layout. minimumInteritemSpacing  = 2;
     // 3.设置item块的大小 (可以用于自适应)
-    //    layout.estimatedItemSize = CGSizeMake((QLScreenWidth-32)/2, 170);
-    layout.itemSize = CGSizeMake((QLScreenWidth-8)/3-10, (QLScreenWidth-8)/3-10);
+    CGFloat width = ((QLScreenWidth - 32))/3;
+    CGFloat height = width;
     
+    layout.estimatedItemSize = CGSizeMake(width, height);
     _collentionMain.collectionViewLayout = layout;
     
-    [_collentionMain reloadData];
-
 }
 
 
@@ -78,7 +102,7 @@
 
 #pragma mark - collection delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 6;
+    return _muArrayData.count;
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
@@ -90,7 +114,7 @@
     static NSString * CellIdentifier = @"QLKinderCollectionViewCell";
     QLKinderCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    [cell setCellIndexValue:indexPath.row];
+    [cell setCellIndexValue:indexPath.row withData:_muArrayData[indexPath.row]];
     return cell;
     
     
@@ -100,7 +124,15 @@
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-   
+    
     
 }
+//  返回头视图
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    
+    UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kinderHeadIdentity forIndexPath:indexPath];
+    [headerView addSubview:_viewHeader];
+    return headerView;
+}
+
 @end

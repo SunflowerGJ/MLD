@@ -7,9 +7,21 @@
 //
 
 #import "QLKinderCollectionViewCell.h"
+@interface QLKinderCollectionViewCell(){
+    
+    __weak IBOutlet UILabel *_lblName;
+}
+@end
 
 @implementation QLKinderCollectionViewCell
-- (void)setCellIndexValue:(NSInteger)value{
+- (void)setCellIndexValue:(NSInteger)value withData:(NSMutableAttributedString *)str{
+    self.backgroundColor = QLColorRandom;
+        _lblName.numberOfLines = 0;
+    
+        _lblName.attributedText =  str;
+        //设置居中需要在添加attributedText设置
+        _lblName.textAlignment = NSTextAlignmentCenter;
+    
     
 }
 - (id)initWithFrame:(CGRect)frame {

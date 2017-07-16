@@ -22,9 +22,10 @@
 #import "NSData+QLData.h"
 #import "UIColor+QLColor.h"
 #import "NSString+QLString.h"
+#import "UIImage+QLImage.h"
 #import "UIView+QLView.h"
 #import "UIViewController+QLViewController.h"
-
+#import "IQKeyboardManager.h"
 /** QLDEBUG Print | M:method, L:line, C:content*/
 #ifndef QLLog
 #ifdef DEBUG
@@ -132,3 +133,5 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 #define storeBanner_interface @"/app/Carousel/readCarousel.action"
 //热门商品列表
 #define hotList_interface @"/app/Product/readProduct.action"
+//上传头像
+#define uploadHeadImage_interface @""

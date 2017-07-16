@@ -11,6 +11,9 @@
 #import "MJRefresh.h"
 #import "UIScrollView+KS.h"
 #import "QLGoodsModel.h"
+
+static NSString *headerViewIdentifier = @"hederview";
+
 @interface QLStoreHome ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource,KSRefreshViewDelegate>{
     
     __weak IBOutlet UIButton *_btnOne;
@@ -24,6 +27,8 @@
     NSInteger _pageNum;
     NSString *_strTableSelected;
     
+    IBOutlet UIView *_viewHeader;
+    __weak IBOutlet UILabel *_lblHotGoods;
     __weak IBOutlet UICollectionView *_collectionGoods;
 }
 @property (nonatomic, strong) NSArray *imageNames;
@@ -38,6 +43,7 @@
     [self loadDefaultSetting];
 }
 - (void)loadDefaultSetting {
+    self.view.backgroundColor = [UIColor whiteColor];
     self.rightBtn.hidden = NO;
     self.leftBtn.hidden = YES;
     self.rightBtn.frame= CGRectMake(QLScreenWidth-60, 28, 60, 30);
@@ -71,24 +77,27 @@
     } whenFailure:^() {
         
     }];
+    
+    [self loadCollectionView];
 }
 - (void)loadCollectionView{
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.headerReferenceSize = CGSizeMake(QLScreenWidth, 414.0f);  //设置headerView大小
+    [_collectionGoods registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerViewIdentifier];  //  一定要设置
+    [_collectionGoods setCollectionViewLayout:layout];
+    
     [_collectionGoods registerClass:[StoreGoodsCollectionCell class] forCellWithReuseIdentifier:@"StoreGoodsCollectionCell"];
     
-    UICollectionViewFlowLayout  *layout = [[UICollectionViewFlowLayout alloc] init];
     // 设置具体属性
     // 1.设置 最小行间距
     layout.minimumLineSpacing = 2;
     // 2.设置 最小列间距
     layout. minimumInteritemSpacing  = 2;
     // 3.设置item块的大小 (可以用于自适应)
-    CGFloat width = ((QLScreenWidth - 100))/3-2;
-    CGFloat height = width+30;
-    QLLog(@"~~~~W1:%.2f , coll's W %.2f",(QLScreenWidth - 80-10 - 8),_collectionGoods.frame.size.width-8);
+    CGFloat width = ((QLScreenWidth - 16))/2;
+    CGFloat height = width;
     
     layout.estimatedItemSize = CGSizeMake(width, height);
-    CGSizeMake((QLScreenWidth - 100) / 3-2,
-               (QLScreenWidth - 80 -10 - 8-10) / 3-8 + 30);
     _collectionGoods.collectionViewLayout = layout;
 }
 - (void)addCollectionViewRefresh{
@@ -131,7 +140,8 @@
 }
 #pragma mark - collection delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.dataSource.count;
+//    return self.dataSource.count;
+    return 15;
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
@@ -171,6 +181,15 @@
 //    subVC.dicPassValue = dic;
 //    [[QLHttpTool getCurrentVC].navigationController pushViewController:subVC animated:YES];
 }
+//  返回头视图
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    
+    UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerViewIdentifier forIndexPath:indexPath];
+    [headerView addSubview:_viewHeader];
+    return headerView;
+}
+
+
 
 - (void)clickRight {
     

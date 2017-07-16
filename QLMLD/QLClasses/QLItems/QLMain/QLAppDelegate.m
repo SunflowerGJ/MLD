@@ -19,12 +19,14 @@
 @implementation QLAppDelegate
 //个推实现聊天功能
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [[IQKeyboardManager sharedManager] setEnable:YES];
     // Change Root View Controller
     NSString *strVersionKey = (NSString *)kCFBundleVersionKey;
     NSString *strVersionPrevious = [[NSUserDefaults standardUserDefaults] stringForKey:strVersionKey];
     NSString *strVersionCurrent = [NSBundle mainBundle].infoDictionary[strVersionKey];
     if ([strVersionCurrent isEqualToString:strVersionPrevious]) {
-        [self changeRootViewControllerToMain];
+        [self changeRootViewControllerToLogin];
     } else {
         [[NSUserDefaults standardUserDefaults] setObject:strVersionCurrent forKey:strVersionKey];
         [[NSUserDefaults standardUserDefaults] synchronize];

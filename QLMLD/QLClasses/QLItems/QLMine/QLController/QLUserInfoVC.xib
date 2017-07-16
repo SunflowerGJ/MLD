@@ -33,7 +33,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGl-9D-MJa">
                                     <rect key="frame" x="0.0" y="10" width="375" height="193.5"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMK-9F-JZA">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMK-9F-JZA" customClass="UIControl">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ea-8L-83t">
@@ -59,6 +59,9 @@
                                                 <constraint firstItem="7Ea-8L-83t" firstAttribute="centerY" secondItem="lMK-9F-JZA" secondAttribute="centerY" id="oRM-T2-0YS"/>
                                                 <constraint firstItem="7Ea-8L-83t" firstAttribute="leading" secondItem="lMK-9F-JZA" secondAttribute="leading" constant="15" id="u5p-jc-31q"/>
                                             </constraints>
+                                            <connections>
+                                                <action selector="uploadHeadImage:" destination="-1" eventType="touchUpInside" id="iEj-tx-Cba"/>
+                                            </connections>
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Am6-eJ-PlR">
                                             <rect key="frame" x="15" y="60" width="360" height="0.5"/>
