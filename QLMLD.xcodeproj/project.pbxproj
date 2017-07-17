@@ -393,6 +393,7 @@
 		CC3589F11F0D39C5003FD0B7 /* QLMineHomeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLMineHomeTableCell.h; sourceTree = "<group>"; };
 		CC3589F21F0D39C5003FD0B7 /* QLMineHomeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLMineHomeTableCell.m; sourceTree = "<group>"; };
 		CC3589F31F0D39C5003FD0B7 /* QLMineHomeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLMineHomeTableCell.xib; sourceTree = "<group>"; };
+		CC3E64921F1CBEC100604AAF /* interface.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = interface.docx; sourceTree = "<group>"; };
 		CC43845C1F13BA3D003692B4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC43845D1F13BA3D003692B4 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
 		CC43845E1F13BA3D003692B4 /* MJExtensionConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConst.h; sourceTree = "<group>"; };
@@ -623,6 +624,7 @@
 		142486F11C111C8D00592980 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CC3E64921F1CBEC100604AAF /* interface.docx */,
 				142486FA1C111C8D00592980 /* Main.storyboard */,
 				142486FD1C111C8D00592980 /* Assets.xcassets */,
 				142486FF1C111C8D00592980 /* LaunchScreen.storyboard */,
