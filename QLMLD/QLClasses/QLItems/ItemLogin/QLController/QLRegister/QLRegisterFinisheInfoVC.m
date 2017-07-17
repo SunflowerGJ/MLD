@@ -14,6 +14,11 @@
     __weak IBOutlet UIView *_viewOne;
     __weak IBOutlet UIView *_viewTwo;
     __weak IBOutlet UIView *_viewThree;
+    
+    __weak IBOutlet UITextField *_tfParentName;
+    __weak IBOutlet UITextField *_tfChindName;
+    
+    
 }
 
 @end
@@ -38,15 +43,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)touchSelectedClass:(id)sender {
 }
-*/
+
+- (IBAction)btnApply:(id)sender {
+}
 
 @end

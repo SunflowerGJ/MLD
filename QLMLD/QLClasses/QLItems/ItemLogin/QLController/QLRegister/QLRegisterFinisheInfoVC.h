@@ -9,5 +9,5 @@
 #import "QLViewController.h"
 
 @interface QLRegisterFinisheInfoVC : QLViewController
-
+@property (nonatomic, strong) NSString *strCode;
 @end

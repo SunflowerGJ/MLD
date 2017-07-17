@@ -102,6 +102,8 @@
 		CC18FADA1F16772F00D79F84 /* StoreGoodsCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC18FAD81F16772F00D79F84 /* StoreGoodsCollectionCell.xib */; };
 		CC20B2561F17BD2100C80D20 /* QLAlterPwdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC20B2541F17BD2100C80D20 /* QLAlterPwdVC.m */; };
 		CC20B2571F17BD2100C80D20 /* QLAlterPwdVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC20B2551F17BD2100C80D20 /* QLAlterPwdVC.xib */; };
+		CC25F1E91F1CFA6600018D00 /* QLWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC25F1E71F1CFA6600018D00 /* QLWebViewController.m */; };
+		CC25F1EA1F1CFA6600018D00 /* QLWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC25F1E81F1CFA6600018D00 /* QLWebViewController.xib */; };
 		CC3589EE1F0D329A003FD0B7 /* QLMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3589EC1F0D329A003FD0B7 /* QLMineViewController.m */; };
 		CC3589EF1F0D329A003FD0B7 /* QLMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC3589ED1F0D329A003FD0B7 /* QLMineViewController.xib */; };
 		CC3589F41F0D39C5003FD0B7 /* QLMineHomeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3589F21F0D39C5003FD0B7 /* QLMineHomeTableCell.m */; };
@@ -387,6 +389,9 @@
 		CC20B2531F17BD2100C80D20 /* QLAlterPwdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLAlterPwdVC.h; path = ../../../../QLAlterPwdVC.h; sourceTree = "<group>"; };
 		CC20B2541F17BD2100C80D20 /* QLAlterPwdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLAlterPwdVC.m; path = ../../../../QLAlterPwdVC.m; sourceTree = "<group>"; };
 		CC20B2551F17BD2100C80D20 /* QLAlterPwdVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QLAlterPwdVC.xib; path = ../../../../QLAlterPwdVC.xib; sourceTree = "<group>"; };
+		CC25F1E61F1CFA6600018D00 /* QLWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLWebViewController.h; sourceTree = "<group>"; };
+		CC25F1E71F1CFA6600018D00 /* QLWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLWebViewController.m; sourceTree = "<group>"; };
+		CC25F1E81F1CFA6600018D00 /* QLWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLWebViewController.xib; sourceTree = "<group>"; };
 		CC3589EB1F0D329A003FD0B7 /* QLMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLMineViewController.h; sourceTree = "<group>"; };
 		CC3589EC1F0D329A003FD0B7 /* QLMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLMineViewController.m; sourceTree = "<group>"; };
 		CC3589ED1F0D329A003FD0B7 /* QLMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLMineViewController.xib; sourceTree = "<group>"; };
@@ -1215,6 +1220,9 @@
 				CC20B2531F17BD2100C80D20 /* QLAlterPwdVC.h */,
 				CC20B2541F17BD2100C80D20 /* QLAlterPwdVC.m */,
 				CC20B2551F17BD2100C80D20 /* QLAlterPwdVC.xib */,
+				CC25F1E61F1CFA6600018D00 /* QLWebViewController.h */,
+				CC25F1E71F1CFA6600018D00 /* QLWebViewController.m */,
+				CC25F1E81F1CFA6600018D00 /* QLWebViewController.xib */,
 			);
 			path = QLController;
 			sourceTree = "<group>";
@@ -1546,6 +1554,7 @@
 				CCF959D01F162EE20069DB2E /* 22.jpg in Resources */,
 				CCF959C11F162EE20069DB2E /* 0.jpg in Resources */,
 				14C67C2D1C92764F0019F9E1 /* guide_1-736h@3x.png in Resources */,
+				CC25F1EA1F1CFA6600018D00 /* QLWebViewController.xib in Resources */,
 				142487011C111C8D00592980 /* LaunchScreen.storyboard in Resources */,
 				CCF959D41F162EE20069DB2E /* 26.jpg in Resources */,
 				CC950D831F1B051700877CD6 /* IQKeyboardManager.bundle in Resources */,
@@ -1728,6 +1737,7 @@
 				14C67CC71C92968F0019F9E1 /* QLRegisterViewController.m in Sources */,
 				CC4384961F13BA64003692B4 /* AFURLConnectionOperation.m in Sources */,
 				14475ED91C96691C00CB11CB /* NSData+ImageContentType.m in Sources */,
+				CC25F1E91F1CFA6600018D00 /* QLWebViewController.m in Sources */,
 				CC18FAC31F16673700D79F84 /* TAAbstractDotView.m in Sources */,
 				CC43847A1F13BA3D003692B4 /* NSObject+MJKeyValue.m in Sources */,
 				14C67CC21C92968F0019F9E1 /* QLGuideViewController.m in Sources */,

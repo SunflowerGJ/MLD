@@ -113,12 +113,14 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 #endif
 
 //根据ID查询系统消息
+//文件上传
+#define fileUpload_interface @"/baseServlet/fileUpload"
 //登录
 #define userLogin_interface @"/app/User/appLogin.action"
 //注册
 #define register_interface @"/app/User/appRegist.action"
 //验证码
-#define getVirifyCode_interface @"/app/Message/getMessageCode.action"
+#define getVirifyCode_interface @"/app/AppMessage/appSMS.action"
 //找回密码
 #define foundPwd_interface @"/app/User/resetPassword.action"
 //班级圈接口

@@ -10,6 +10,7 @@
 #import "QLMineHomeTableCell.h"
 #import "QLGoodsOrderVC.h"
 #import "QLUserInfoVC.h"
+#import "QLWebViewController.h"
 @interface QLMineViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
     __weak IBOutlet NSLayoutConstraint *_heightTableConstraint;
@@ -71,6 +72,8 @@
 }
 //待收货
 - (IBAction)controlWaitGetGoods:(id)sender {
+    QLWebViewController *webVC = [[QLWebViewController alloc]init];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:webVC animated:YES];
 }
 - (IBAction)controlWaitSendGoods:(id)sender {
 }
