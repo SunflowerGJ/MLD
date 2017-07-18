@@ -6,8 +6,8 @@
 //  Copyright © 2015年 Shreker. All rights reserved.
 //  `找回密码`找回密码控制器
 
-#import <UIKit/UIKit.h>
+#import "QLViewController.h"
 
-@interface QLForgetPWDViewController : UIViewController
+@interface QLForgetPWDViewController : QLViewController
 
 @end

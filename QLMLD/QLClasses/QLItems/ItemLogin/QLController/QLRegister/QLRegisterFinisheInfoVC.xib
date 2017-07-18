@@ -13,6 +13,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QLRegisterFinisheInfoVC">
             <connections>
                 <outlet property="_btnApply" destination="HTV-3D-v2m" id="sD6-VP-jI2"/>
+                <outlet property="_tfChindName" destination="2v1-6u-gm9" id="GWn-rw-LoS"/>
+                <outlet property="_tfParentName" destination="fUC-6y-bgX" id="PQv-Xy-H97"/>
+                <outlet property="_tfSchoolClassInfo" destination="epE-S8-GTQ" id="frn-ny-w4Y"/>
                 <outlet property="_viewOne" destination="JvC-pZ-41e" id="g2F-hC-hCR"/>
                 <outlet property="_viewThree" destination="6SY-ok-f8i" id="AV1-eV-QdK"/>
                 <outlet property="_viewTwo" destination="w3g-yg-tmD" id="rat-fb-EYo"/>
@@ -77,7 +80,7 @@
                                         <constraint firstItem="2v1-6u-gm9" firstAttribute="centerY" secondItem="w3g-yg-tmD" secondAttribute="centerY" id="siq-0I-Tbl"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SY-ok-f8i">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SY-ok-f8i" customClass="UIControl">
                                     <rect key="frame" x="-1" y="258" width="377" height="44"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请选择所在幼儿园、班级" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="epE-S8-GTQ">
@@ -91,6 +94,9 @@
                                     <constraints>
                                         <constraint firstItem="epE-S8-GTQ" firstAttribute="centerY" secondItem="6SY-ok-f8i" secondAttribute="centerY" id="ZVi-r2-C7H"/>
                                     </constraints>
+                                    <connections>
+                                        <action selector="touchSelectedClass:" destination="-1" eventType="touchUpInside" id="Xfe-Jw-IH6"/>
+                                    </connections>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTV-3D-v2m">
                                     <rect key="frame" x="20" y="332" width="335" height="50"/>
@@ -102,6 +108,9 @@
                                     <state key="normal" title="申请">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="btnApply:" destination="-1" eventType="touchUpInside" id="GcT-RU-rhf"/>
+                                    </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1M0-tJ-rxg" userLabel="ViewBottom">
                                     <rect key="frame" x="50" y="568.5" width="275" height="14.5"/>

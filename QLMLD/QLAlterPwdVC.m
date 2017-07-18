@@ -11,7 +11,6 @@
 @interface QLAlterPwdVC (){
 
     __weak IBOutlet UITextField *_tfOldPwd;
-    
     __weak IBOutlet UITextField *_tfNewPwd;
     
     __weak IBOutlet UITextField *_tfEnsurePwd;
@@ -36,6 +35,36 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)btnEnsure:(id)sender {
+    if ([_tfOldPwd.text isEmptyString]) {
+        [QLHUDTool showAlertMessage:@"请输入旧密码"];
+        return ;
+    }
+    if (_tfOldPwd.text.length<6 || _tfOldPwd.text.length>16) {
+        [QLHUDTool showAlertMessage:@"密码长度6至16位"];
+        return ;
+    }
+    if ([_tfNewPwd.text isEmptyString] || [_tfEnsurePwd.text isEmptyString]) {
+        [QLHUDTool showAlertMessage:@"请输入新密码"];
+        return ;
+    }
+    if ((_tfNewPwd.text.length<6 || _tfNewPwd.text.length>16)||(_tfEnsurePwd.text.length<6 || _tfEnsurePwd.text.length>16)) {
+        [QLHUDTool showAlertMessage:@"密码长度6至16位"];
+        return ;
+    }
+    if (![_tfNewPwd.text isEqualToString:_tfEnsurePwd.text]) {
+        [QLHUDTool showAlertMessage:@"2次新密码输入不一致"];
+        return ;
+    }
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,alterPwd_interface];
+    NSData *dataOld = [[NSString stringWithFormat:@"%@",_tfOldPwd.text] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *dataNew = [[NSString stringWithFormat:@"%@",_tfNewPwd.text] dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *dic = @{@"oldPassword"
+                          :[dataOld md5String],@"newPassword":[dataNew md5String]};
+    [QLHttpTool getWithBaseUrl:strUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"alter pwd response: %@",responseObject);
+    } whenFailure:^{
+        
+    }];
 }
 
 

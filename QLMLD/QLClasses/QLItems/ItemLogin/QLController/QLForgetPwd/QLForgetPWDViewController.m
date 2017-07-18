@@ -7,7 +7,6 @@
 //
 
 #import "QLForgetPWDViewController.h"
-#import "QLFillCodeViewController.h"
 #import "QLCodeButton.h"
 
 #define QLIdKey @"idKey"
@@ -19,6 +18,7 @@ static const NSUInteger totalTime = 120;
     __weak IBOutlet UITextField *_txfPhone;
     __weak IBOutlet UITextField *_txfCode;
     __weak IBOutlet UITextField *_txfPwd;
+    __weak IBOutlet UITextField *_tfPwdEnsure;
     __weak IBOutlet UIButton *_btnGetCode;
     __weak IBOutlet UILabel *_lblTimer;
     
@@ -50,17 +50,20 @@ static const NSUInteger totalTime = 120;
 }
 
 #pragma mark - Actions
-- (IBAction)next {
+- (IBAction)btnEnsure {
     if ([self checkInput] == NO) {
         return;
     }
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,foundPwd_interface];
+    NSData *dataPwd = [[NSString stringWithFormat:@"%@",_tfPwdEnsure.text] dataUsingEncoding:NSUTF8StringEncoding];
+
+    NSDictionary *dic = @{@"user_tel":_txfPhone.text,@"user_password":[dataPwd md5String]};
+    [QLHttpTool getWithBaseUrl:strUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"found pwd response: %@",responseObject);
+    } whenFailure:^{
+        
+    }];
     
-    if (_txfPwd.text.length < 6 || _txfPwd.text.length > 16) {
-        [QLHUDTool showErrorWithStatus:@"密码长度6-16个字符"];
-        return;
-    }
-    
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 #pragma mark - HTTP Request
@@ -70,31 +73,20 @@ static const NSUInteger totalTime = 120;
         [QLHUDTool showErrorWithStatus:@"手机号格式不正确"];
         return;
     }
-    _code = [NSString stringWithFormat:@"%d%d%d%d%d%d", arc4random_uniform(9), arc4random_uniform(9), arc4random_uniform(9), arc4random_uniform(9), arc4random_uniform(9), arc4random_uniform(9)];
-    NSDictionary *dicParams = @{@"account": @"xdrj_hy",
-                                @"pswd": @"xdrj_hy123",
-                                @"mobile": _txfPhone.text,
-                                @"msg": [NSString stringWithFormat:@"【FramWork】您的验证为:%@", _code],
-                                @"needstatus": @"true"};
-    QLLog(@"%@", dicParams);
-    [QLHttpTool getWithBaseUrl:@"http://120.26.66.24/msg/HttpBatchSendSM" Parameters:dicParams whenSuccess:nil whenFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSInteger statusCode = operation.response.statusCode;
-        if (statusCode == 200) {
-            NSString *strResponse = operation.responseString;
-            strResponse = [strResponse componentsSeparatedByString:@","][1];
-            NSString *code = [[strResponse componentsSeparatedByString:@"\n"] firstObject];
-            if ([code isEqualToString:@"0"]) {
-                QLLog(@"%@", @"验证码发送成功");
-                [QLHUDTool showAlertMessage:@"验证码发送成功"];
-                _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimeWaiting) userInfo:nil repeats:YES];
-                _btnGetCode.enabled = NO;
-            } else {
-                QLLog(@"验证码发送失败:code:%@", code);
-            }
-        } else {
-            QLLog(@"验证码发送失败,statusCode:%zd", statusCode);
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@?tel=%@",QLBaseUrlString,getVirifyCode_interface,_txfPhone.text];
+    [QLHttpTool getWithBaseUrl:strUrl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if([responseObject objectForKey:@"success"]&&[[responseObject objectForKey:@"success"] isEqualToString:@"1"]){
+            _code = responseObject[@"smsCode"];
+            [QLHUDTool showAlertMessage:@"验证码发送成功"];
+            _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimeWaiting) userInfo:nil repeats:YES];
+            _btnGetCode.enabled = NO;
+        }else{
+            [QLHUDTool showAlertMessage:@"验证码发送失败"];
         }
+    } whenFailure:^{
+        [QLHUDTool showAlertMessage:@"验证码发送失败"];
     }];
+   
 }
 
 - (void)updateTimeWaiting {
@@ -113,8 +105,21 @@ static const NSUInteger totalTime = 120;
         [QLHUDTool showErrorWithStatus:@"手机号格式不正确"];
         return NO;
     }
-    if (_txfCode.text.length != 6) {
-        [QLHUDTool showErrorWithStatus:@"请输入正确的验证码"];
+    if ((_txfPwd.text.length < 6 || _txfPwd.text.length > 16)||(_tfPwdEnsure.text.length < 6 || _tfPwdEnsure.text.length > 16)) {
+        [QLHUDTool showErrorWithStatus:@"密码长度6-16个字符"];
+        return NO;
+    }
+    if (![_txfPwd.text isEqualToString:_tfPwdEnsure.text]) {
+        [QLHUDTool showErrorWithStatus:@"俩次密码输入不一致"];
+        return NO;
+    }
+
+    if ([_txfCode.text isEmptyString]) {
+        [QLHUDTool showErrorWithStatus:@"请输入验证码"];
+        return NO;
+    }
+    if (![_txfCode.text isEqualToString:_code]) {
+        [QLHUDTool showAlertMessage:@"请输入正确的验证码"];
         return NO;
     }
     return YES;

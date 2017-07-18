@@ -72,7 +72,7 @@
         }else{
             copyDicParams =[[NSMutableDictionary alloc] init] ;
         }
-        [copyDicParams setObject:[NSString stringWithFormat:@"%@",userModel.strId] forKey:@"userid"];
+        [copyDicParams setObject:[NSString stringWithFormat:@"%@",userModel.strId] forKey:@"userId"];
         [copyDicParams setObject:[[UIDevice currentDevice].identifierForVendor UUIDString] forKey:@"token"];
         NSString *strAdd = [NSString stringWithFormat:@"%@%@", userModel.strAccount,SystemSecret];
         NSData *data = [strAdd dataUsingEncoding:NSUTF8StringEncoding];
@@ -172,7 +172,7 @@
         }else{
             copyDicParams =[[NSMutableDictionary alloc] init] ;
         }
-        [copyDicParams setObject:strUserId forKey:@"userid"];
+        [copyDicParams setObject:strUserId forKey:@"userId"];
         [copyDicParams setObject:[[UIDevice currentDevice].identifierForVendor UUIDString] forKey:@"cookie"];
     }
     [self loadCredencialForManager:manager];
@@ -207,7 +207,7 @@
         }else{
             copyDicParams =[[NSMutableDictionary alloc] init] ;
         }
-        [copyDicParams setObject:userModel.strId forKey:@"userid"];
+        [copyDicParams setObject:userModel.strId forKey:@"userId"];
         [copyDicParams setObject:[[UIDevice currentDevice].identifierForVendor UUIDString] forKey:@"cookie"];
         NSString *strAdd = [NSString stringWithFormat:@"%@%@", userModel.strAccount,SystemSecret];
         NSData *data = [strAdd dataUsingEncoding:NSUTF8StringEncoding];
@@ -280,7 +280,7 @@
         }else{
             copyDicParams =[[NSMutableDictionary alloc] init] ;
         }
-        [copyDicParams setObject:[NSString stringWithFormat:@"%ld",(long)userModel.strId] forKey:@"userid"];
+        [copyDicParams setObject:[NSString stringWithFormat:@"%ld",(long)userModel.strId] forKey:@"userId"];
         [copyDicParams setObject:[[UIDevice currentDevice].identifierForVendor UUIDString] forKey:@"cookie"];
         NSString *strAdd = [NSString stringWithFormat:@"%@%@", userModel.strAccount,SystemSecret];
         NSData *data = [strAdd dataUsingEncoding:NSUTF8StringEncoding];
@@ -365,7 +365,7 @@
         }else{
             copyDicParams =[[NSMutableDictionary alloc] init] ;
         }
-        [copyDicParams setObject:userModel.strId forKey:@"userid"];
+        [copyDicParams setObject:userModel.strId forKey:@"userId"];
         [copyDicParams setObject:[[UIDevice currentDevice].identifierForVendor UUIDString] forKey:@"cookie"];
     }
     [self loadCredencialForManager:manager];
