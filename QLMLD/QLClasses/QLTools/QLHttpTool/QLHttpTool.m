@@ -92,6 +92,13 @@
     
     [self loadCredencialForManager:manager]; //strUserId?copyDicParams:dicParams
     [manager POST:strBaseUrl parameters:copyDicParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (responseObject&&[responseObject[@"success"] boolValue]) {
+            success(operation, responseObject);
+        }else{
+             [QLHUDTool showErrorWithStatus:[responseObject objectForKey:@"err_msg"]];
+             failure();
+        }
+        return ;
         if ([responseObject isKindOfClass:[NSDictionary class]]) {
             NSInteger errCode = [[responseObject objectForKey:@"err_code"] integerValue];
             if (errCode>=0) {

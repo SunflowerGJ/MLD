@@ -10,5 +10,5 @@
 #import "QLClassHomeDataModel.h"
 @interface QLClassHomeTableCell : UITableViewCell
 + (instancetype)cellWithClassHomeTableView:(UITableView *)tableView;
-- (void)setCellDataWithDataModel:(QLClassHomeDataModel *)name;
+- (void)setCellDataWithDataModel:(QLClassHomeDataModel *)model;
 @end

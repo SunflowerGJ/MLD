@@ -11,7 +11,6 @@
 #import "MJRefresh.h"
 #import "UIScrollView+KS.h"
 #import "ShoppingCartModel.h"
-#import "AutoPartsDetialAndAssessment.h"
 @interface ShoppingCartVC ()<UITableViewDelegate,UITableViewDataSource,KSRefreshViewDelegate>{
     
     __weak IBOutlet UITableView *_tableMain;
@@ -49,7 +48,7 @@
     self.title = @"购物车";
     self.rightBtn.hidden = NO;
     self.rightBtn.frame= CGRectMake(QLScreenWidth-70, 28, 60, 30);
-    self.rightBtn.tintColor = QLBlueColor;
+    self.rightBtn.tintColor = QLYellowColor;
     [self.rightBtn.titleLabel setFont:[UIFont systemFontOfSize:15]];
     [self.rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
@@ -57,7 +56,7 @@
     _currentStatus = YES;
     _selectedNormalAllStatus = NO;
     _selectedEditAllStatus = NO;
-    _tableMain.separatorColor = QLLineColor;
+    _tableMain.separatorColor = QLDividerColor;
     if (!_dicSelectedNormal) {
         _dicSelectedNormal = [NSMutableDictionary new];
     }
@@ -253,10 +252,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ShoppingCartModel *model = self.dataSource[indexPath.row];
     
-    AutoPartsDetialAndAssessment *autoPartsDetialVC = [[AutoPartsDetialAndAssessment alloc]init];
-    autoPartsDetialVC.materialType = ServiceMaterialTypeAutoParts;
-    autoPartsDetialVC.fromShopping = YES;
-    [[QLHttpTool getCurrentVC].navigationController pushViewController:autoPartsDetialVC animated:YES];
+  
 }
 //购物车详情请求
 - (void)requestForCartMaterialDetialInfoWithID:(NSString *)strID{

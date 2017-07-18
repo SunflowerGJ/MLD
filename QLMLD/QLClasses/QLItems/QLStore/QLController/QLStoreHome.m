@@ -11,7 +11,7 @@
 #import "MJRefresh.h"
 #import "UIScrollView+KS.h"
 #import "QLGoodsModel.h"
-
+#import "ShoppingCartVC.h"
 static NSString *headerViewIdentifier = @"hederview";
 
 @interface QLStoreHome ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource,KSRefreshViewDelegate>{
@@ -200,14 +200,16 @@ static NSString *headerViewIdentifier = @"hederview";
 
 
 
-- (void)clickRight {
-    
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 
-
+#pragma mark - btn
+- (void)clickRight {
+    ShoppingCartVC *cartVC = [[ShoppingCartVC alloc]init];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:cartVC animated:YES];
+}
 @end

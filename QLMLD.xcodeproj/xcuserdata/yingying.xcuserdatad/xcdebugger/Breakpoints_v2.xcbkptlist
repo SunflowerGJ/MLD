@@ -47,38 +47,6 @@
             endingLineNumber = "157"
             landmarkName = "-verifyCodeRrequest"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[QLRegisterViewController verifyCodeRrequest]"
-                  moduleName = "QLMLD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/My_Work/MLL/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLRegisterViewController.m"
-                  timestampString = "522035089.402094"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "157"
-                  endingLineNumber = "157"
-                  offsetFromSymbolStart = "536">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__46-[QLRegisterViewController verifyCodeRrequest]_block_invoke"
-                  moduleName = "QLMLD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/My_Work/MLL/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLRegisterViewController.m"
-                  timestampString = "522035089.403426"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "159"
-                  endingLineNumber = "159"
-                  offsetFromSymbolStart = "92">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -110,6 +78,38 @@
             startingLineNumber = "161"
             endingLineNumber = "161"
             landmarkName = "-verifyCodeRrequest"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QLMLD/QLClasses/QLItems/QLClass/QLController/QLClassHome.m"
+            timestampString = "522083634.155904"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "-tableHeadLoad"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QLMLD/QLClasses/QLItems/QLClass/QLModel/QLClassHomeDataModel.m"
+            timestampString = "522084821.896069"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "-initClassDataDictionary:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

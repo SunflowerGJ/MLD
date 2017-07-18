@@ -26,7 +26,8 @@
 
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
-    _createTime = [Tools getDateString:[dateFormatter dateFromString:[NSString getValidStringWithObject:dicData[@"createTime"]]] famter:@"yyyy年MM月dd日"];
+//    _createTime = [Tools getDateString:[dateFormatter dateFromString:[NSString getValidStringWithObject:dicData[@"createTime"]]] famter:@"yyyy年MM月dd日"];
+    _createTime = [NSString getValidStringWithObject:dicData[@"create_time"]];
     return self;
 }
 @end

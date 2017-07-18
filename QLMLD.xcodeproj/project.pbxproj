@@ -149,6 +149,11 @@
 		CC64A0D31F08A7D90057801C /* QLClassHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC64A0D11F08A7D90057801C /* QLClassHome.xib */; };
 		CC64A0D71F08A7F80057801C /* QLKindergartenHome.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A0D51F08A7F80057801C /* QLKindergartenHome.m */; };
 		CC64A0D81F08A7F80057801C /* QLKindergartenHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC64A0D61F08A7F80057801C /* QLKindergartenHome.xib */; };
+		CC76C0131F1E63A300D686D1 /* QLTakeGoodsAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC76C0111F1E63A300D686D1 /* QLTakeGoodsAddressVC.m */; };
+		CC76C0141F1E63A300D686D1 /* QLTakeGoodsAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC76C0121F1E63A300D686D1 /* QLTakeGoodsAddressVC.xib */; };
+		CC76C01D1F1E64FD00D686D1 /* QLAddressManageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC76C01B1F1E64FD00D686D1 /* QLAddressManageCell.m */; };
+		CC76C01E1F1E64FD00D686D1 /* QLAddressManageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC76C01C1F1E64FD00D686D1 /* QLAddressManageCell.xib */; };
+		CC76C0221F1E67BE00D686D1 /* QLAddressManageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC76C0211F1E67BE00D686D1 /* QLAddressManageModel.m */; };
 		CC86EA311F0E1525008EF500 /* QLClassHomeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC86EA2F1F0E1525008EF500 /* QLClassHomeTableCell.m */; };
 		CC86EA321F0E1525008EF500 /* QLClassHomeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC86EA301F0E1525008EF500 /* QLClassHomeTableCell.xib */; };
 		CC86EA351F0E158C008EF500 /* QLClassHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC86EA341F0E158C008EF500 /* QLClassHomeDataModel.m */; };
@@ -476,6 +481,14 @@
 		CC64A0D41F08A7F80057801C /* QLKindergartenHome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLKindergartenHome.h; sourceTree = "<group>"; };
 		CC64A0D51F08A7F80057801C /* QLKindergartenHome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLKindergartenHome.m; sourceTree = "<group>"; };
 		CC64A0D61F08A7F80057801C /* QLKindergartenHome.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLKindergartenHome.xib; sourceTree = "<group>"; };
+		CC76C0101F1E63A300D686D1 /* QLTakeGoodsAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLTakeGoodsAddressVC.h; sourceTree = "<group>"; };
+		CC76C0111F1E63A300D686D1 /* QLTakeGoodsAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLTakeGoodsAddressVC.m; sourceTree = "<group>"; };
+		CC76C0121F1E63A300D686D1 /* QLTakeGoodsAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLTakeGoodsAddressVC.xib; sourceTree = "<group>"; };
+		CC76C01A1F1E64FD00D686D1 /* QLAddressManageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLAddressManageCell.h; sourceTree = "<group>"; };
+		CC76C01B1F1E64FD00D686D1 /* QLAddressManageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLAddressManageCell.m; sourceTree = "<group>"; };
+		CC76C01C1F1E64FD00D686D1 /* QLAddressManageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLAddressManageCell.xib; sourceTree = "<group>"; };
+		CC76C0201F1E67BE00D686D1 /* QLAddressManageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLAddressManageModel.h; sourceTree = "<group>"; };
+		CC76C0211F1E67BE00D686D1 /* QLAddressManageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLAddressManageModel.m; sourceTree = "<group>"; };
 		CC86EA2E1F0E1525008EF500 /* QLClassHomeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLClassHomeTableCell.h; sourceTree = "<group>"; };
 		CC86EA2F1F0E1525008EF500 /* QLClassHomeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLClassHomeTableCell.m; sourceTree = "<group>"; };
 		CC86EA301F0E1525008EF500 /* QLClassHomeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLClassHomeTableCell.xib; sourceTree = "<group>"; };
@@ -1107,6 +1120,9 @@
 				CC3589F11F0D39C5003FD0B7 /* QLMineHomeTableCell.h */,
 				CC3589F21F0D39C5003FD0B7 /* QLMineHomeTableCell.m */,
 				CC3589F31F0D39C5003FD0B7 /* QLMineHomeTableCell.xib */,
+				CC76C01A1F1E64FD00D686D1 /* QLAddressManageCell.h */,
+				CC76C01B1F1E64FD00D686D1 /* QLAddressManageCell.m */,
+				CC76C01C1F1E64FD00D686D1 /* QLAddressManageCell.xib */,
 			);
 			path = QLView;
 			sourceTree = "<group>";
@@ -1230,6 +1246,7 @@
 		CC64A0B11F08A5AC0057801C /* QLMine(个人中心) */ = {
 			isa = PBXGroup;
 			children = (
+				CC76C01F1F1E67AC00D686D1 /* QLModel */,
 				CC3589F01F0D3998003FD0B7 /* QLView */,
 				CC64A0B21F08A5AC0057801C /* QLController */,
 			);
@@ -1255,6 +1272,9 @@
 				CC25F1E61F1CFA6600018D00 /* QLWebViewController.h */,
 				CC25F1E71F1CFA6600018D00 /* QLWebViewController.m */,
 				CC25F1E81F1CFA6600018D00 /* QLWebViewController.xib */,
+				CC76C0101F1E63A300D686D1 /* QLTakeGoodsAddressVC.h */,
+				CC76C0111F1E63A300D686D1 /* QLTakeGoodsAddressVC.m */,
+				CC76C0121F1E63A300D686D1 /* QLTakeGoodsAddressVC.xib */,
 			);
 			path = QLController;
 			sourceTree = "<group>";
@@ -1336,6 +1356,15 @@
 				CC64A0D11F08A7D90057801C /* QLClassHome.xib */,
 			);
 			path = QLController;
+			sourceTree = "<group>";
+		};
+		CC76C01F1F1E67AC00D686D1 /* QLModel */ = {
+			isa = PBXGroup;
+			children = (
+				CC76C0201F1E67BE00D686D1 /* QLAddressManageModel.h */,
+				CC76C0211F1E67BE00D686D1 /* QLAddressManageModel.m */,
+			);
+			path = QLModel;
 			sourceTree = "<group>";
 		};
 		CC86EA271F0E110F008EF500 /* QLView */ = {
@@ -1641,6 +1670,7 @@
 				14475EB01C96564400CB11CB /* QLForgetPWDViewController.xib in Resources */,
 				14C67C351C92764F0019F9E1 /* guide_3-736h@3x.png in Resources */,
 				CC18FADA1F16772F00D79F84 /* StoreGoodsCollectionCell.xib in Resources */,
+				CC76C0141F1E63A300D686D1 /* QLTakeGoodsAddressVC.xib in Resources */,
 				CCBEB7E41F1DA33800FF4981 /* QLClassSelectedVC.xib in Resources */,
 				14C67C2E1C92764F0019F9E1 /* guide_1@2x.png in Resources */,
 				CC86EA321F0E1525008EF500 /* QLClassHomeTableCell.xib in Resources */,
@@ -1648,6 +1678,7 @@
 				CCF959D21F162EE20069DB2E /* 24.jpg in Resources */,
 				CCF959D61F162EE20069DB2E /* 28.jpg in Resources */,
 				CCF959CC1F162EE20069DB2E /* 19.jpg in Resources */,
+				CC76C01E1F1E64FD00D686D1 /* QLAddressManageCell.xib in Resources */,
 				CCF9596F1F15FC740069DB2E /* QLGoodsOrderVC.xib in Resources */,
 				CCF959C61F162EE20069DB2E /* 13.jpg in Resources */,
 				14475EB81C96684800CB11CB /* 1.jpg in Resources */,
@@ -1690,6 +1721,7 @@
 				14475EDE1C96691C00CB11CB /* SDWebImageDownloaderOperation.m in Sources */,
 				14C67CF11C92974D0019F9E1 /* MASCompositeConstraint.m in Sources */,
 				CC950D761F1B051700877CD6 /* IQNSArray+Sort.m in Sources */,
+				CC76C0131F1E63A300D686D1 /* QLTakeGoodsAddressVC.m in Sources */,
 				CC86EA311F0E1525008EF500 /* QLClassHomeTableCell.m in Sources */,
 				CCF959731F160E380069DB2E /* QLUserInfoVC.m in Sources */,
 				142487191C11296D00592980 /* QLMainViewController.m in Sources */,
@@ -1701,6 +1733,7 @@
 				CCF959991F1611240069DB2E /* KSAutoFootRefreshView.m in Sources */,
 				CC3589EE1F0D329A003FD0B7 /* QLMineViewController.m in Sources */,
 				CCF959891F1610860069DB2E /* MJRefreshFooterView.m in Sources */,
+				CC76C0221F1E67BE00D686D1 /* QLAddressManageModel.m in Sources */,
 				14C67CF91C92974D0019F9E1 /* View+MASAdditions.m in Sources */,
 				CC18FACC1F16687500D79F84 /* Tools.m in Sources */,
 				14C67CF31C92974D0019F9E1 /* MASConstraintMaker.m in Sources */,
@@ -1752,6 +1785,7 @@
 				CCF9599C1F1611240069DB2E /* KSRefreshView.m in Sources */,
 				14475EE11C96691C00CB11CB /* UIButton+WebCache.m in Sources */,
 				CC18FAD51F16766600D79F84 /* QLGoodsModel.m in Sources */,
+				CC76C01D1F1E64FD00D686D1 /* QLAddressManageCell.m in Sources */,
 				14C67CF51C92974D0019F9E1 /* MASViewAttribute.m in Sources */,
 				14C67D011C9299490019F9E1 /* QLCodeButton.m in Sources */,
 				CCF9599B1F1611240069DB2E /* KSDefaultHeadRefreshView.m in Sources */,

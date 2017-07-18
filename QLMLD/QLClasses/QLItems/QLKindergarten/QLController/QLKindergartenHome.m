@@ -17,6 +17,7 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
     __weak IBOutlet UIView *_viewHeader;
     
     NSMutableArray *_muArrayData;
+    IBOutlet UIView *_testView;
 }
 
 @end
@@ -68,13 +69,19 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
     }
 
     
+    //创建 NSMutableAttributedString
+    NSMutableAttributedString* plus = [[NSMutableAttributedString alloc] initWithString:@"+"];
+   
+    [plus addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:60] range:NSMakeRange(0,plus.length)];
+
+
 
     
-    _muArrayData = [NSMutableArray arrayWithArray:@[[[NSMutableAttributedString alloc] initWithString:@"公告"],[[NSMutableAttributedString alloc] initWithString:@"食谱"],[[NSMutableAttributedString alloc] initWithString:@"作业"],[[NSMutableAttributedString alloc] initWithString:@"新闻"],[[NSMutableAttributedString alloc] initWithAttributedString:allClass],[[NSMutableAttributedString alloc] initWithString:@"考勤"],[[NSMutableAttributedString alloc] initWithString:@"服务频道2"],[[NSMutableAttributedString alloc] initWithAttributedString:classPhotosString],[[NSMutableAttributedString alloc] initWithString:@"+"]]];
+    _muArrayData = [NSMutableArray arrayWithArray:@[[[NSMutableAttributedString alloc] initWithString:@"公告"],[[NSMutableAttributedString alloc] initWithString:@"食谱"],[[NSMutableAttributedString alloc] initWithString:@"作业"],[[NSMutableAttributedString alloc] initWithString:@"新闻"],[[NSMutableAttributedString alloc] initWithAttributedString:allClass],[[NSMutableAttributedString alloc] initWithString:@"考勤"],[[NSMutableAttributedString alloc] initWithString:@"服务频道2"],[[NSMutableAttributedString alloc] initWithAttributedString:classPhotosString],[[NSMutableAttributedString alloc] initWithAttributedString:plus]]];
     
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.headerReferenceSize = CGSizeMake(QLScreenWidth, 140.0f);  //设置headerView大小
+//    layout.headerReferenceSize = CGSizeMake(QLScreenWidth, 140.0f);  //设置headerView大小
     [_collentionMain registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kinderHeadIdentity];  //  一定要设置
     [_collentionMain setCollectionViewLayout:layout];
     
@@ -127,12 +134,12 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
     
     
 }
-//  返回头视图
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
-    
-    UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kinderHeadIdentity forIndexPath:indexPath];
-    [headerView addSubview:_viewHeader];
-    return headerView;
-}
+////  返回头视图
+//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+//    
+//    UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kinderHeadIdentity forIndexPath:indexPath];
+//    [headerView addSubview:_testView];
+//    return headerView;
+//}
 
 @end

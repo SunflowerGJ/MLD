@@ -64,9 +64,9 @@
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,class_interface];
     NSDictionary *dicParam = @{@"pageNumber":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"pageSize":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParam whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        QLLog(@"我的工单：%@",responseObject);
+        QLLog(@"班级圈信息：%@",responseObject);
         NSMutableArray *array = [NSMutableArray new];
-        array = [QLClassHomeDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"rows"]];
+        array = [QLClassHomeDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         self.dataSource = [[NSMutableArray alloc] initWithArray:array];
         [_tableMain reloadData];
         [_tableMain headerEndRefreshing];
@@ -77,7 +77,7 @@
             self.promptView.hidden = NO;
             self.promptL.text =@"这里暂时还没有内容~";
         }
-        if([responseObject[@"data"][@"total"] integerValue]<=_pageNum*_pageSize){
+        if([responseObject[@"total"] integerValue]<=_pageNum*_pageSize){
             [_tableMain.footerKS setIsLastPage:YES];
         }else{
             [_tableMain.footerKS setIsLastPage:NO];
@@ -99,16 +99,17 @@
         _pageNum++;
         NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,class_interface];
         NSDictionary *dicParam = @{@"pageNumber":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"pageSize":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
+
         [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParam whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             if(self.dataSource){
-                NSMutableArray *array = [QLClassHomeDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"rows"]];
+                NSMutableArray *array = [QLClassHomeDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
                 [self.dataSource addObjectsFromArray:array];
             }else{
-                NSMutableArray *array = [QLClassHomeDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"rows"]];
+                NSMutableArray *array = [QLClassHomeDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
                 self.dataSource = [[NSMutableArray alloc] initWithArray:array];
             }
             [_tableMain reloadData];
-            if([responseObject[@"data"][@"total"] integerValue]<=_pageNum*_pageSize){
+            if([responseObject[@"total"] integerValue]<=_pageNum*_pageSize){
                 [_tableMain.footerKS setIsLastPage:YES];
             }else{
                 [_tableMain.footerKS setIsLastPage:NO];
