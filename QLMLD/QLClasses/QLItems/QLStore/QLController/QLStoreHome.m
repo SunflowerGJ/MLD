@@ -106,8 +106,9 @@ static NSString *headerViewIdentifier = @"hederview";
 }
 - (void)collectionViewHeadLoad{
     _pageNum = 1;
-    NSString *strBaseUrl = [NSString stringWithFormat:@"%@",QLBaseUrlString];
-    NSDictionary *dicPara = @{@"currentPage":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"pageMaxResult":[NSString stringWithFormat:@"%ld",(long)_pageSize],@"searchStr":[NSString getValidStringWithObject:_strTableSelected]};//筛选项_strTableSelected
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,class_interface];
+    NSString *classID = @"";
+    NSDictionary *dicPara = @{@"grade_group_id":[NSString getValidStringWithObject:classID], @"start":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"limit":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
     
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicPara whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *array = [QLGoodsModel mj_keyValuesArrayWithObjectArray:responseObject[@"data"]];
@@ -137,6 +138,14 @@ static NSString *headerViewIdentifier = @"hederview";
             [self promptNoNetwork];
         }
     }];
+}
+//上拉加载更多
+- (void)refreshViewDidLoading:(id)view
+{
+    if ([view isEqual:_collectionGoods.footerKS]) {
+        _pageNum++;
+    }
+
 }
 #pragma mark - collection delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{

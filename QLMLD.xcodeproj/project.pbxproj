@@ -173,6 +173,11 @@
 		CCBEB7E41F1DA33800FF4981 /* QLClassSelectedVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCBEB7E21F1DA33800FF4981 /* QLClassSelectedVC.xib */; };
 		CCBEB7E71F1DA50B00FF4981 /* QLKinderDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBEB7E61F1DA50B00FF4981 /* QLKinderDataModel.m */; };
 		CCBEB7EA1F1DA51800FF4981 /* QLClassDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBEB7E91F1DA51800FF4981 /* QLClassDataModel.m */; };
+		CCBEB80D1F1DFCE300FF4981 /* ShoppingCartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBEB80B1F1DFCE300FF4981 /* ShoppingCartVC.m */; };
+		CCBEB80E1F1DFCE300FF4981 /* ShoppingCartVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCBEB80C1F1DFCE300FF4981 /* ShoppingCartVC.xib */; };
+		CCBEB8121F1DFD1900FF4981 /* ShoppingCartTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBEB8101F1DFD1900FF4981 /* ShoppingCartTableCell.m */; };
+		CCBEB8131F1DFD1900FF4981 /* ShoppingCartTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCBEB8111F1DFD1900FF4981 /* ShoppingCartTableCell.xib */; };
+		CCBEB8161F1DFD5B00FF4981 /* ShoppingCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBEB8151F1DFD5B00FF4981 /* ShoppingCartModel.m */; };
 		CCF959651F15B2030069DB2E /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = CCF959641F15B2030069DB2E /* README.md */; };
 		CCF9596E1F15FC740069DB2E /* QLGoodsOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF9596C1F15FC740069DB2E /* QLGoodsOrderVC.m */; };
 		CCF9596F1F15FC740069DB2E /* QLGoodsOrderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF9596D1F15FC740069DB2E /* QLGoodsOrderVC.xib */; };
@@ -518,6 +523,14 @@
 		CCBEB7E61F1DA50B00FF4981 /* QLKinderDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLKinderDataModel.m; sourceTree = "<group>"; };
 		CCBEB7E81F1DA51800FF4981 /* QLClassDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLClassDataModel.h; sourceTree = "<group>"; };
 		CCBEB7E91F1DA51800FF4981 /* QLClassDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLClassDataModel.m; sourceTree = "<group>"; };
+		CCBEB80A1F1DFCE300FF4981 /* ShoppingCartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartVC.h; sourceTree = "<group>"; };
+		CCBEB80B1F1DFCE300FF4981 /* ShoppingCartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartVC.m; sourceTree = "<group>"; };
+		CCBEB80C1F1DFCE300FF4981 /* ShoppingCartVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingCartVC.xib; sourceTree = "<group>"; };
+		CCBEB80F1F1DFD1900FF4981 /* ShoppingCartTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartTableCell.h; sourceTree = "<group>"; };
+		CCBEB8101F1DFD1900FF4981 /* ShoppingCartTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartTableCell.m; sourceTree = "<group>"; };
+		CCBEB8111F1DFD1900FF4981 /* ShoppingCartTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingCartTableCell.xib; sourceTree = "<group>"; };
+		CCBEB8141F1DFD5B00FF4981 /* ShoppingCartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartModel.h; sourceTree = "<group>"; };
+		CCBEB8151F1DFD5B00FF4981 /* ShoppingCartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartModel.m; sourceTree = "<group>"; };
 		CCF959641F15B2030069DB2E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		CCF9596B1F15FC740069DB2E /* QLGoodsOrderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLGoodsOrderVC.h; sourceTree = "<group>"; };
 		CCF9596C1F15FC740069DB2E /* QLGoodsOrderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLGoodsOrderVC.m; sourceTree = "<group>"; };
@@ -1078,6 +1091,9 @@
 		CC18FACD1F16752100D79F84 /* QLView */ = {
 			isa = PBXGroup;
 			children = (
+				CCBEB80F1F1DFD1900FF4981 /* ShoppingCartTableCell.h */,
+				CCBEB8101F1DFD1900FF4981 /* ShoppingCartTableCell.m */,
+				CCBEB8111F1DFD1900FF4981 /* ShoppingCartTableCell.xib */,
 				CC18FAD61F16772F00D79F84 /* StoreGoodsCollectionCell.h */,
 				CC18FAD71F16772F00D79F84 /* StoreGoodsCollectionCell.m */,
 				CC18FAD81F16772F00D79F84 /* StoreGoodsCollectionCell.xib */,
@@ -1246,6 +1262,8 @@
 		CC64A0B61F08A5F30057801C /* QLModel */ = {
 			isa = PBXGroup;
 			children = (
+				CCBEB8141F1DFD5B00FF4981 /* ShoppingCartModel.h */,
+				CCBEB8151F1DFD5B00FF4981 /* ShoppingCartModel.m */,
 				CC18FAD31F16766600D79F84 /* QLGoodsModel.h */,
 				CC18FAD41F16766600D79F84 /* QLGoodsModel.m */,
 			);
@@ -1255,6 +1273,9 @@
 		CC64A0B71F08A5F30057801C /* QLController */ = {
 			isa = PBXGroup;
 			children = (
+				CCBEB80A1F1DFCE300FF4981 /* ShoppingCartVC.h */,
+				CCBEB80B1F1DFCE300FF4981 /* ShoppingCartVC.m */,
+				CCBEB80C1F1DFCE300FF4981 /* ShoppingCartVC.xib */,
 				CC64A0C51F08A79A0057801C /* QLStoreHome.h */,
 				CC64A0C61F08A79A0057801C /* QLStoreHome.m */,
 				CC64A0C71F08A79A0057801C /* QLStoreHome.xib */,
@@ -1638,10 +1659,12 @@
 				CCF959741F160E380069DB2E /* QLUserInfoVC.xib in Resources */,
 				14475EB91C96684800CB11CB /* 2.jpg in Resources */,
 				CCF959DD1F162EE20069DB2E /* 8.jpg in Resources */,
+				CCBEB80E1F1DFCE300FF4981 /* ShoppingCartVC.xib in Resources */,
 				14C67C2F1C92764F0019F9E1 /* guide_2-568h@2x.png in Resources */,
 				CCF959C91F162EE20069DB2E /* 16.jpg in Resources */,
 				CCF959861F1610860069DB2E /* MJRefresh.bundle in Resources */,
 				14C67C8F1C9279600019F9E1 /* SVProgressHUD.bundle in Resources */,
+				CCBEB8131F1DFD1900FF4981 /* ShoppingCartTableCell.xib in Resources */,
 				CCF959CE1F162EE20069DB2E /* 20.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1684,6 +1707,7 @@
 				14C67CC11C92968F0019F9E1 /* QLGuidePageViewController.m in Sources */,
 				CC18FAC91F16673700D79F84 /* UIView+SDExtension.m in Sources */,
 				CC43847C1F13BA3D003692B4 /* NSString+MJExtension.m in Sources */,
+				CCBEB80D1F1DFCE300FF4981 /* ShoppingCartVC.m in Sources */,
 				14C67CF81C92974D0019F9E1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				CCF959A11F162D0E0069DB2E /* iCarousel.m in Sources */,
 				CC64A0AC1F08A3010057801C /* QLViewController.m in Sources */,
@@ -1698,6 +1722,7 @@
 				CCBEB7EA1F1DA51800FF4981 /* QLClassDataModel.m in Sources */,
 				14475EDF1C96691C00CB11CB /* SDWebImageManager.m in Sources */,
 				CCF959871F1610860069DB2E /* MJRefreshBaseView.m in Sources */,
+				CCBEB8161F1DFD5B00FF4981 /* ShoppingCartModel.m in Sources */,
 				147AB8A51C981398007CAA0D /* QLBannerView.m in Sources */,
 				14475EE31C96691C00CB11CB /* UIImage+MultiFormat.m in Sources */,
 				CC950D781F1B051700877CD6 /* IQUIView+Hierarchy.m in Sources */,
@@ -1760,6 +1785,7 @@
 				CC18FAC31F16673700D79F84 /* TAAbstractDotView.m in Sources */,
 				CC43847A1F13BA3D003692B4 /* NSObject+MJKeyValue.m in Sources */,
 				14C67CC21C92968F0019F9E1 /* QLGuideViewController.m in Sources */,
+				CCBEB8121F1DFD1900FF4981 /* ShoppingCartTableCell.m in Sources */,
 				14475EE21C96691C00CB11CB /* UIImage+GIF.m in Sources */,
 				CC64A0D71F08A7F80057801C /* QLKindergartenHome.m in Sources */,
 				CCF9598B1F1610860069DB2E /* UIScrollView+MJExtension.m in Sources */,

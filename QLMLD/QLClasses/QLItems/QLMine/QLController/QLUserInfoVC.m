@@ -97,7 +97,7 @@
 }
 #pragma mark - 头像处理
 - (void)upLoadImage:(UIImage *)image{
-    NSString *imageURL = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,uploadHeadImage_interface];
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,fileUpload_interface];
     NSData *data = UIImageJPEGRepresentation(image, 1);
     [QLHUDTool showLoading];
     [QLHttpTool postPerWithBaseUrl:imageURL Parameters:nil FormData:data FileExtension:@".jpg" MimeType:@"image/jpg"  whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
