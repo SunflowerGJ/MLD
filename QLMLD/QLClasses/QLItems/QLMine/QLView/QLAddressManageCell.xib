@@ -43,10 +43,10 @@
                             <constraint firstAttribute="height" constant="0.5" id="ZcE-JP-ndk"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FW-NM-Qd6">
-                        <rect key="frame" x="15" y="66" width="73" height="33.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <state key="normal" title="    默认地址">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FW-NM-Qd6">
+                        <rect key="frame" x="15" y="66" width="77" height="33.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <state key="normal" title=" 默认地址" image="check">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <connections>
@@ -106,4 +106,7 @@
             <point key="canvasLocation" x="49" y="163"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="check" width="20" height="20"/>
+    </resources>
 </document>

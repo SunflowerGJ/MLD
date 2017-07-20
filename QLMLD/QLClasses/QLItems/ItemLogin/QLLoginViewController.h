@@ -6,9 +6,9 @@
 //  Copyright © 2015年 Shreker. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "QLViewController.h"
 
-@interface QLLoginViewController : UIViewController
+@interface QLLoginViewController : QLViewController
 
 @property (nonatomic, assign) BOOL isFromMine;
 

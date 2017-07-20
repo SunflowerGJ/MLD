@@ -46,7 +46,7 @@
     // Dispose of any resources that can be recreated.
 }
 //selected class data
-- (IBAction)touchSelectedClass:(id)sender {
+- (IBAction)btnSelectedClass:(id)sender {
     QLKinderSelectedVC *kinderVC = [[QLKinderSelectedVC alloc]init];
     [[QLHttpTool getCurrentVC].navigationController pushViewController:kinderVC animated:YES];
 }
@@ -113,7 +113,7 @@
 //    [Tools isBlankString:imageID]?nil:@{@"oldFileId":imageID}
     [QLHttpTool postPerWithBaseUrl:imageURL Parameters:@{@"filePath":@"user"} FormData:data FileExtension:@".jpg" MimeType:@"image/jpg"  whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"image response : %@", responseObject);
-        //        imageID = [NSString stringWithFormat:@"%@",responseObject[@"fileId"]];
+        _strImageID = [NSString stringWithFormat:@"%@",responseObject[@"filepath"]];
     } whenFailure:^{
     }];
     

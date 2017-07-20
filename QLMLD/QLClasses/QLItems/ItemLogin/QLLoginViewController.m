@@ -10,7 +10,7 @@
 #import "QLRegisterViewController.h"
 #import "QLAppDelegate.h"
 #import "QLForgetPWDViewController.h"
-
+#import "QLMainViewController.h"
 /** User */
 static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldRememberLoginName";
 
@@ -67,8 +67,9 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
 
 /** Load the default UI elements And prepare some datas needed. */
 - (void)loadDefaultSetting {
-    self.title = @"登录";
-    self.view.layer.contents = (id)[UIImage imageNamed:@"img_login_bg"].CGImage;
+    self.titleView.hidden = YES;
+    self.view.backgroundColor = QLYellowColor;
+//    self.view.layer.contents = (id)[UIImage imageNamed:@"img_login_bg"].CGImage;
     
     [_btnLogin setCornerRadius:QLCornerRadius border:QLBorderWidth borderColor:[UIColor whiteColor]];
     [_btnRegister setCornerRadius:QLCornerRadius border:QLBorderWidth borderColor:[UIColor whiteColor]];
@@ -119,6 +120,14 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
 //        
 //    }];
     
+    [QLUserTool loginWithUser:_txfTele.text pwd:_txfPwd.text whenSuccess:^{
+        QLMainViewController *homeViewController = [QLMainViewController new];
+        [self.navigationController pushViewController:homeViewController animated:YES];
+        [self removeFromParentViewController];
+    } whenFailure:^{
+        
+    }];
+    
 }
 //协议
 - (IBAction)btnProtocal:(id)sender {
@@ -126,7 +135,7 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
 
 - (IBAction)registerUser {
     QLRegisterViewController *vcRegister = [QLRegisterViewController new];
-    [self.navigationController pushViewController:vcRegister animated:YES];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:vcRegister animated:YES];
 }
 - (IBAction)rememberUser:(UIButton *)button {
     button.selected = !button.selected;

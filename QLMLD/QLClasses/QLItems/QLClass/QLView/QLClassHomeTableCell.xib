@@ -86,18 +86,8 @@
                             <action selector="btnDelete:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="o2L-SO-L06"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zza-S1-Wkw">
-                        <rect key="frame" x="262" y="116.5" width="43" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="  评论" image="comm_icon">
-                            <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </state>
-                        <connections>
-                            <action selector="btnComm:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="J2i-ZC-QXd"/>
-                        </connections>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGd-rO-fsK">
-                        <rect key="frame" x="213" y="117" width="34" height="16"/>
+                        <rect key="frame" x="271" y="117" width="34" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <state key="normal" title="  23" image="admire_icon">
                             <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -108,14 +98,12 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="Zza-S1-Wkw" secondAttribute="bottom" constant="15" id="1je-rp-pM7"/>
                     <constraint firstItem="sGX-Ka-z2x" firstAttribute="top" secondItem="IJ3-lY-k5I" secondAttribute="bottom" constant="8" id="DjC-Yq-Tdr"/>
-                    <constraint firstItem="Zza-S1-Wkw" firstAttribute="trailing" secondItem="sGX-Ka-z2x" secondAttribute="trailing" id="EBB-9P-pkm"/>
                     <constraint firstItem="ttH-qe-5Qh" firstAttribute="centerY" secondItem="jFe-4c-zwI" secondAttribute="centerY" id="FJJ-LL-niR"/>
+                    <constraint firstItem="tGd-rO-fsK" firstAttribute="centerY" secondItem="ttH-qe-5Qh" secondAttribute="centerY" id="FTo-8p-vFg"/>
                     <constraint firstItem="jFe-4c-zwI" firstAttribute="leading" secondItem="sGX-Ka-z2x" secondAttribute="leading" id="Jri-XS-YuI"/>
                     <constraint firstItem="NqK-wH-cQO" firstAttribute="leading" secondItem="Bts-pL-Boh" secondAttribute="trailing" constant="8" id="KTt-5t-Nha"/>
                     <constraint firstItem="IJ3-lY-k5I" firstAttribute="top" secondItem="NqK-wH-cQO" secondAttribute="bottom" constant="3" id="U23-XM-56a"/>
-                    <constraint firstItem="Zza-S1-Wkw" firstAttribute="centerY" secondItem="tGd-rO-fsK" secondAttribute="centerY" id="U6i-2Z-fvK"/>
                     <constraint firstItem="sGX-Ka-z2x" firstAttribute="leading" secondItem="IJ3-lY-k5I" secondAttribute="leading" id="Z3q-tZ-0cW"/>
                     <constraint firstItem="jFe-4c-zwI" firstAttribute="top" secondItem="sGX-Ka-z2x" secondAttribute="bottom" constant="15" id="ZBL-TN-IDy"/>
                     <constraint firstItem="Bts-pL-Boh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="aH3-Uk-O80"/>
@@ -125,9 +113,8 @@
                     <constraint firstItem="iJg-cK-xci" firstAttribute="top" secondItem="NqK-wH-cQO" secondAttribute="top" id="gyz-kf-kvt"/>
                     <constraint firstItem="NqK-wH-cQO" firstAttribute="top" secondItem="Bts-pL-Boh" secondAttribute="top" id="jI9-wZ-IaJ"/>
                     <constraint firstAttribute="trailing" secondItem="iJg-cK-xci" secondAttribute="trailing" constant="15" id="la8-zl-c2d"/>
-                    <constraint firstItem="Zza-S1-Wkw" firstAttribute="centerY" secondItem="ttH-qe-5Qh" secondAttribute="centerY" id="sfE-VR-8pZ"/>
+                    <constraint firstItem="tGd-rO-fsK" firstAttribute="trailing" secondItem="iJg-cK-xci" secondAttribute="trailing" id="sQG-Z3-2T7"/>
                     <constraint firstItem="IJ3-lY-k5I" firstAttribute="leading" secondItem="NqK-wH-cQO" secondAttribute="leading" id="spL-Xh-jlh"/>
-                    <constraint firstItem="Zza-S1-Wkw" firstAttribute="leading" secondItem="tGd-rO-fsK" secondAttribute="trailing" constant="15" id="y8v-jn-Aw0"/>
                     <constraint firstItem="sGX-Ka-z2x" firstAttribute="trailing" secondItem="IJ3-lY-k5I" secondAttribute="trailing" id="yIo-PX-1Or"/>
                 </constraints>
             </tableViewCellContentView>
@@ -144,6 +131,5 @@
     </objects>
     <resources>
         <image name="admire_icon" width="10" height="9"/>
-        <image name="comm_icon" width="9" height="9"/>
     </resources>
 </document>

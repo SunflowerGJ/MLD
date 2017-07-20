@@ -11,6 +11,7 @@
 #import "QLGoodsOrderVC.h"
 #import "QLUserInfoVC.h"
 #import "QLWebViewController.h"
+#import "QLTakeGoodsAddressVC.h"
 @interface QLMineViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
     __weak IBOutlet NSLayoutConstraint *_heightTableConstraint;
@@ -55,7 +56,8 @@
     NSInteger row = indexPath.row;
     switch (row) {
         case 0:{
-           
+            QLTakeGoodsAddressVC *addressVC = [[QLTakeGoodsAddressVC alloc]init];
+            [[QLHttpTool getCurrentVC].navigationController pushViewController:addressVC animated:YES];
         }
             break;
         case 1:{

@@ -8,6 +8,7 @@
 
 #import "QLUserInfoVC.h"
 #import "QLAlterPwdVC.h"
+#import "QLAppDelegate.h"
 @interface QLUserInfoVC ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     
     __weak IBOutlet UIButton *_btnImageHead;
@@ -42,8 +43,18 @@
 }
 //退出登录
 - (IBAction)btnLogout:(id)sender {
-    
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"确认退出登录?" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==1){
+        [[QLUserTool sharedUserTool] logout];
+    }
+}
+
+
 - (IBAction)uploadHeadImage:(id)sender {
     QLLog(@"更换头像");
     UIActionSheet *sheetSelect = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"相册", nil];

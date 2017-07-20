@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -89,14 +89,21 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMh-vY-IWQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="377" height="44"/>
+                                            <connections>
+                                                <action selector="btnSelectedClass:" destination="-1" eventType="touchUpInside" id="pAv-sp-obB"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="UMh-vY-IWQ" secondAttribute="trailing" id="5t4-e1-CGo"/>
+                                        <constraint firstItem="UMh-vY-IWQ" firstAttribute="leading" secondItem="6SY-ok-f8i" secondAttribute="leading" id="CuZ-XC-7lk"/>
+                                        <constraint firstItem="UMh-vY-IWQ" firstAttribute="top" secondItem="6SY-ok-f8i" secondAttribute="top" id="TuP-Ds-XcK"/>
                                         <constraint firstItem="epE-S8-GTQ" firstAttribute="centerY" secondItem="6SY-ok-f8i" secondAttribute="centerY" id="ZVi-r2-C7H"/>
+                                        <constraint firstAttribute="bottom" secondItem="UMh-vY-IWQ" secondAttribute="bottom" id="kB9-lR-jHe"/>
                                     </constraints>
-                                    <connections>
-                                        <action selector="touchSelectedClass:" destination="-1" eventType="touchUpInside" id="Xfe-Jw-IH6"/>
-                                    </connections>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTV-3D-v2m">
                                     <rect key="frame" x="20" y="332" width="335" height="50"/>

@@ -62,6 +62,7 @@
     NSString *strUrl = [NSString stringWithFormat:@"%@%@?active=1",QLBaseUrlString,getKinderData_interface];
     [QLHttpTool getWithBaseUrl:strUrl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"kinder data: %@",responseObject);
+        
     } whenFailure:^{
        
     }];

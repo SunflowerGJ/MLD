@@ -64,8 +64,13 @@ static CGFloat QLBorderWidth = 0.5;
 #define kGtAppSecret @"GKhQppqCuF9iHH7UYvuCU2"
 #define KGtSeriNum @"mld"
 
-#define QLMainNavColor QLColorFromHex(0xffcc33)
 
+//验证码间隔时间
+static NSUInteger QLVerifyCodeInterval = 60;
+static NSInteger PasswordInputLengthMax = 16;//密码输入最大长度
+
+
+#define QLMainNavColor QLColorFromHex(0xffcc33)
 /** 系统全局颜色*/
 //背景色(灰色)
 #define QLBackGroundColor QLColorFromHex(0xF4F4F4)

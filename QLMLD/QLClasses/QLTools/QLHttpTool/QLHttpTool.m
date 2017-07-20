@@ -301,8 +301,9 @@
         }
         NSString *strAdd = [NSString stringWithFormat:@"%@%@", phoneno_default,SystemSecret];
         NSData *data = [strAdd dataUsingEncoding:NSUTF8StringEncoding];
-        [copyDicParams setObject:phoneno_default forKey:@"phoneno"];
-        [copyDicParams setObject:[data md5String] forKey:@"token"];
+//        [copyDicParams setObject:phoneno_default forKey:@"phoneno"];
+//        [copyDicParams setObject:[data md5String] forKey:@"token"];
+        [copyDicParams setObject:@"filePart" forKey:@"filePart"];
     }
     
     [manager POST:strBaseUrl parameters:copyDicParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -313,10 +314,11 @@
         NSString *strImageName = [NSString stringWithFormat:@"%@_%@", strPrefix,imgExtension];
         [formData appendPartWithFileData:imgData name:@"file" fileName:strImageName mimeType:imgType];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if([responseObject objectForKey:@"err_code"]&&[[responseObject objectForKey:@"err_code"] integerValue]>=0){
+        if([responseObject objectForKey:@"success"]&&[[responseObject objectForKey:@"success"] boolValue]){
             //请求成功
             success(operation, responseObject);
-        }else if([responseObject objectForKey:@"err_code"]&&([[responseObject objectForKey:@"err_code"] integerValue]==-3||[[responseObject objectForKey:@"err_code"] integerValue]==-4)){
+        }
+        /*else if([responseObject objectForKey:@"success"]&&([[responseObject objectForKey:@"success"] integerValue]==-3||[[responseObject objectForKey:@"err_code"] integerValue]==-4)){
             [QLHUDTool dissmis];
             if([QLUserTool sharedUserTool].userModel.strId){
                 //清除登录信息
@@ -334,11 +336,12 @@
                 }
             }
             failure();
-        }else{
-            if([responseObject objectForKey:@"err_msg"]){
+        }*/
+        else{
+            if([responseObject objectForKey:@"msg"]){
                 //请求错误(服务器错误)
-                [QLHUDTool showErrorWithStatus:[responseObject objectForKey:@"err_msg"]];
-                QLLog(@"错误信息== %@",[responseObject objectForKey:@"err_msg"]);
+                [QLHUDTool showErrorWithStatus:[responseObject objectForKey:@"msg"]];
+                QLLog(@"错误信息== %@",[responseObject objectForKey:@"msg"]);
             }
             failure();
         }

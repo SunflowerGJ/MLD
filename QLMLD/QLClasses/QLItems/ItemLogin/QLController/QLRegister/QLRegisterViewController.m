@@ -40,6 +40,7 @@ static const NSUInteger totalTime = 120;
 /** Load the default UI elements And prepare some datas needed. */
 - (void)loadDefaultSetting {
     [self setTitle:@"新用户注册"];
+    [_btnGetCode setCornerRadius:QLCornerRadius];
     _timeWaiting = totalTime;
     [_txfPwd setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     [_txfCode setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
@@ -47,8 +48,32 @@ static const NSUInteger totalTime = 120;
     [_txfPwdConfirm setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     [_btnNext setCornerRadius:10 border:1 borderColor:[UIColor whiteColor]];
     _txfPhone.text = @"15209214336";
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFiledEditChanged:) name:@"UITextFieldTextDidChangeNotification"
+                                              object:_txfPwd];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFiledEditChanged:) name:@"UITextFieldTextDidChangeNotification"
+                                              object:_txfPwdConfirm];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFiledEditChanged:) name:@"UITextFieldTextDidChangeNotification"
+                                              object:_txfCode];
+    
 }
-
+- (void)textFiledEditChanged:(NSNotification *)notifi{
+    if (_txfPwd) {
+        if (_txfPwd.text.length > PasswordInputLengthMax) {
+            _txfPwd.text = [_txfPwd.text substringToIndex:PasswordInputLengthMax];
+        }
+    }
+    if (_txfPwdConfirm) {
+        if (_txfPwdConfirm.text.length > PasswordInputLengthMax) {
+            _txfPwdConfirm.text = [_txfPwdConfirm.text substringToIndex:PasswordInputLengthMax];
+        }
+    }
+    if (_txfCode) {
+        if (_txfCode.text.length > 6) {
+            _txfCode.text = [_txfCode.text substringToIndex:6];
+        }
+    }
+    
+}
 #pragma mark - Actions
 //获取二维码
 - (IBAction)requestCode {
@@ -91,7 +116,11 @@ static const NSUInteger totalTime = 120;
 }
 //验证短信验证码是否正确
 - (IBAction)btnNext {
-    
+    QLRegisterFinisheInfoVC *finishedVC = [[QLRegisterFinisheInfoVC alloc]init];
+    finishedVC.strCode = _code;
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:finishedVC animated:YES];
+    return ;
+
     if ([self checkInput] == NO) {
         return;
     }
@@ -149,11 +178,10 @@ static const NSUInteger totalTime = 120;
    
     [QLHUDTool showLoading];
     [manager GET:strBaseUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        if([responseObject objectForKey:@"success"]&&[[responseObject objectForKey:@"success"] isEqualToString:@"1"]){
+        QLLog(@"code== %@",responseObject);
+        if([responseObject objectForKey:@"success"]&&[[responseObject objectForKey:@"success"] boolValue]){
             //请求成功
-            _code = responseObject[@"smsCode"];
-            //            _tfVerifyCode.text = _code;
+            _code = [NSString stringWithFormat:@"%@",[responseObject[@"smsCode"] stringValue]];
             [QLHUDTool showAlertMessage:@"验证码发送成功"];
             _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimeWaiting) userInfo:nil repeats:YES];
             _btnGetCode.enabled = NO;
