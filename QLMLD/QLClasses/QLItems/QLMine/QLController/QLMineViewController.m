@@ -8,10 +8,13 @@
 
 #import "QLMineViewController.h"
 #import "QLMineHomeTableCell.h"
-#import "QLGoodsOrderVC.h"
 #import "QLUserInfoVC.h"
 #import "QLWebViewController.h"
 #import "QLTakeGoodsAddressVC.h"
+#import "QLBindTimecardVC.h"
+#import "QLSchoolInfoVC.h"
+#import "QLAboutUsVC.h"
+#import "QLOrderListVC.h"
 @interface QLMineViewController ()<UITableViewDelegate,UITableViewDataSource>{
     
     __weak IBOutlet NSLayoutConstraint *_heightTableConstraint;
@@ -61,23 +64,42 @@
         }
             break;
         case 1:{
-            
+            QLBindTimecardVC *timecardVC = [[QLBindTimecardVC alloc]init];
+            [[QLHttpTool getCurrentVC].navigationController pushViewController:timecardVC animated:YES];
         }
+            break;
+        case 2:{
+            QLSchoolInfoVC *schoolVC = [[QLSchoolInfoVC alloc]init];
+            [[QLHttpTool getCurrentVC].navigationController pushViewController:schoolVC animated:YES];
+        }
+            break;
+        case 4:{
+            QLAboutUsVC *usVC = [[QLAboutUsVC alloc]init];
+            [[QLHttpTool getCurrentVC].navigationController pushViewController:usVC animated:YES];
+        }
+            break;
+            default:
             break;
     }
 }
 #pragma mark - Touch
 //商品订单
 - (IBAction)controlGoodsOrder:(id)sender {
-    QLGoodsOrderVC *goodsOrder = [[QLGoodsOrderVC alloc]init];
-    [[QLHttpTool getCurrentVC].navigationController pushViewController:goodsOrder animated:YES];
+    QLOrderListVC *orderListVC = [[QLOrderListVC alloc]init];
+    orderListVC.orderType = OrderListTypeAll;
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:orderListVC animated:YES];
 }
 //待收货
 - (IBAction)controlWaitGetGoods:(id)sender {
-    QLWebViewController *webVC = [[QLWebViewController alloc]init];
-    [[QLHttpTool getCurrentVC].navigationController pushViewController:webVC animated:YES];
+    QLOrderListVC *orderListVC = [[QLOrderListVC alloc]init];
+    orderListVC.orderType = OrderListTypeWaitReceive;
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:orderListVC animated:YES];
 }
+//待发货
 - (IBAction)controlWaitSendGoods:(id)sender {
+    QLOrderListVC *orderListVC = [[QLOrderListVC alloc]init];
+    orderListVC.orderType = OrderListTypeWaitSend;
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:orderListVC animated:YES];
 }
 #pragma mark - button
 - (IBAction)btnUserHeadImage:(id)sender {

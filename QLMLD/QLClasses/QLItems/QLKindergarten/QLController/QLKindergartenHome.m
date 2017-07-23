@@ -131,7 +131,9 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    
+    if (indexPath.row == _muArrayData.count-1) {
+        [self addItem];
+    }
     
 }
 ////  返回头视图
@@ -141,5 +143,9 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
 //    [headerView addSubview:_testView];
 //    return headerView;
 //}
-
+#pragma mark - 
+- (void)addItem {
+    QLLog(@"add ");
+//    _muArrayData addObject:<#(nonnull id)#>
+}
 @end

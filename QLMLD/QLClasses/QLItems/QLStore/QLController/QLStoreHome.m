@@ -12,6 +12,7 @@
 #import "UIScrollView+KS.h"
 #import "QLGoodsModel.h"
 #import "ShoppingCartVC.h"
+#import "QLGoodDetailVC.h"
 static NSString *headerViewIdentifier = @"hederview";
 
 @interface QLStoreHome ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource,KSRefreshViewDelegate>{
@@ -48,7 +49,21 @@ static NSString *headerViewIdentifier = @"hederview";
     self.leftBtn.hidden = YES;
     self.rightBtn.frame= CGRectMake(QLScreenWidth-60, 28, 60, 30);
     [self.rightBtn setImage:[UIImage imageNamed:@"cart_icon"] forState:UIControlStateNormal];
+    CGFloat width = _btnOne.frame.size.width;
+    [_btnOne setCornerRadius:width/2];
+    [_btnTwo setCornerRadius:width/2];
+    [_btnThree setCornerRadius:width/2];
+    [_btnFour setCornerRadius:width/2];
+    [_btnFive setCornerRadius:width/2];
+    [_btnSix setCornerRadius:width/2];
     
+    [_btnOne setBackgroundColor:QLColorRandom];
+    [_btnTwo setBackgroundColor:QLColorRandom];
+    [_btnThree setBackgroundColor:QLColorRandom];
+    [_btnFour setBackgroundColor:QLColorRandom];
+    [_btnFive setBackgroundColor:QLColorRandom];
+    [_btnSix setBackgroundColor:QLColorRandom];
+
     _imageNames =[Tools getCache:STOREBANNER_IMAGE];
     
     NSMutableArray *imagesURLStrings = [[NSMutableArray alloc] init];
@@ -66,10 +81,10 @@ static NSString *headerViewIdentifier = @"hederview";
     //查询轮播图
     NSString *strURl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,storeBanner_interface];
     [QLHttpTool postWithBaseUrl:strURl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        _imageNames = [responseObject objectForKey:@"pagedata"];
+        _imageNames = [responseObject objectForKey:@"data"];
         NSMutableArray *imagesURLStrings = [[NSMutableArray alloc] init];
         for (NSDictionary *cid in _imageNames) {
-            [imagesURLStrings addObject:[NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image, [cid objectForKey:@"url"]]];
+            [imagesURLStrings addObject:[NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image, [cid objectForKey:@"carousel_url"]]];
         }
         self.myHeaderImg.imageURLStringsGroup = imagesURLStrings;
         [Tools setCache:STOREBANNER_IMAGE data:_imageNames];
@@ -180,6 +195,9 @@ static NSString *headerViewIdentifier = @"hederview";
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     QLGoodsModel *model = self.dataSource[indexPath.row];
+    QLGoodDetailVC *detailVC = [[QLGoodDetailVC alloc]init];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:detailVC animated:YES];
+    
 //    ShoppingAutoPartsCollectionVC *subVC = [[ShoppingAutoPartsCollectionVC alloc]init];
 //    NSMutableDictionary *dic = [NSMutableDictionary new];
 //    [dic setValue:[NSString getValidStringWithObject:_strCarSeriesId] forKey:@"seriesID"];

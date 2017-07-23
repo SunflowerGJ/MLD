@@ -12,6 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QLStoreHome">
             <connections>
+                <outlet property="_btnFive" destination="ySL-A8-JIw" id="XRS-q9-8IS"/>
+                <outlet property="_btnFour" destination="RLQ-LN-8Gr" id="eu9-Bp-yZN"/>
+                <outlet property="_btnOne" destination="9Fp-S5-Vhy" id="E2T-Xe-go0"/>
+                <outlet property="_btnSix" destination="hxI-iO-BJp" id="y24-j4-bzp"/>
+                <outlet property="_btnThree" destination="U5D-Aq-fY4" id="Wea-KQ-bKy"/>
+                <outlet property="_btnTwo" destination="Yl2-aq-Ux4" id="pcm-cV-INl"/>
                 <outlet property="_collectionGoods" destination="7Qi-Zi-OIA" id="ZpV-sH-5xQ"/>
                 <outlet property="_lblHotGoods" destination="gZ2-He-Vq5" id="icg-lh-bzf"/>
                 <outlet property="_viewHeader" destination="dDS-3O-1C2" id="fac-Gp-Q0V"/>

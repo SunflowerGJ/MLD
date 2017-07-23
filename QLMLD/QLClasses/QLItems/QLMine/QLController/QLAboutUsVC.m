@@ -1,25 +1,25 @@
 //
-//  QLGoodsOrderVC.m
+//  QLAboutUsVC.m
 //  QLMLD
 //
-//  Created by syy on 2017/7/12.
+//  Created by 英英 on 2017/7/22.
 //  Copyright © 2017年 Shreker. All rights reserved.
-//
+//  关于我们
 
-#import "QLGoodsOrderVC.h"
+#import "QLAboutUsVC.h"
 
-@interface QLGoodsOrderVC ()
+@interface QLAboutUsVC ()
 
 @end
 
-@implementation QLGoodsOrderVC
+@implementation QLAboutUsVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadDefaultSetting];
 }
 - (void)loadDefaultSetting {
-    self.title = @"商品详情";
+    self.title = @"关于我们";
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

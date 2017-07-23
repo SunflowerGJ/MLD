@@ -46,7 +46,27 @@
         QLLog(@"task:%@, error:%@",task,error);
     }];
 }
-
+/** 注册 */
++ (void)registerWithBaseUrl:(NSString *)strBaseUrl Parameters:(NSDictionary *)dicParams whenSuccess:(QLHttpToolSuccessBlock)success whenFailure:(QLHttpToolFailureBlock)failure {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject: @"text/html"];
+    //    [manager.requestSerializer setValue:@"text/html; application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [manager.securityPolicy setAllowInvalidCertificates:YES];
+    
+    [self loadCredencialForManager:manager]; //strUserId?copyDicParams:dicParams
+    [manager POST:strBaseUrl parameters:dicParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if (responseObject&&[responseObject[@"success"] boolValue]) {
+            success(operation, responseObject);
+        }else{
+            [QLHUDTool showAlertMessage:[responseObject objectForKey:@"msg"]];
+            failure();
+        }
+       
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [QLHUDTool showErrorWithStatus:@"请求失败,请稍后再试"];
+        failure();
+    }];
+}
 /**
  *  向服务器发送普通的POST请求
  *
@@ -65,29 +85,22 @@
     QLUserModel *userModel = [QLUserTool sharedUserTool].userModel;
     
     NSMutableDictionary *copyDicParams;
-    if (userModel.strId) {
+    if (userModel.user_id) {
         //如果用户登录的情况下,传入userid和cookie参数
         if(dicParams){
             copyDicParams = [[NSMutableDictionary alloc] initWithDictionary:dicParams] ;
         }else{
             copyDicParams =[[NSMutableDictionary alloc] init] ;
         }
-        [copyDicParams setObject:[NSString stringWithFormat:@"%@",userModel.strId] forKey:@"userId"];
-        [copyDicParams setObject:[[UIDevice currentDevice].identifierForVendor UUIDString] forKey:@"token"];
-        NSString *strAdd = [NSString stringWithFormat:@"%@%@", userModel.strAccount,SystemSecret];
-        NSData *data = [strAdd dataUsingEncoding:NSUTF8StringEncoding];
-        [copyDicParams setObject:userModel.strAccount forKey:@"phoneno"];
-        [copyDicParams setObject:[data md5String] forKey:@"token"];
+        [copyDicParams setObject:[NSString stringWithFormat:@"%@",[NSString stringWithFormat:@"%ld",userModel.user_id]] forKey:@"user_id"];
+        [copyDicParams setObject:TOKEN forKey:@"token"];
     }else{
         if(dicParams){
             copyDicParams = [[NSMutableDictionary alloc] initWithDictionary:dicParams] ;
         }else{
             copyDicParams =[[NSMutableDictionary alloc] init] ;
         }
-        NSString *strAdd = [NSString stringWithFormat:@"%@%@", phoneno_default,SystemSecret];
-        NSData *data = [strAdd dataUsingEncoding:NSUTF8StringEncoding];
-        [copyDicParams setObject:phoneno_default forKey:@"phoneno"];
-        [copyDicParams setObject:[data md5String] forKey:@"token"];
+        [copyDicParams setObject:TOKEN forKey:@"token"];
     }
     
     [self loadCredencialForManager:manager]; //strUserId?copyDicParams:dicParams
@@ -95,7 +108,7 @@
         if (responseObject&&[responseObject[@"success"] boolValue]) {
             success(operation, responseObject);
         }else{
-             [QLHUDTool showErrorWithStatus:[responseObject objectForKey:@"err_msg"]];
+             [QLHUDTool showErrorWithStatus:[responseObject objectForKey:@"msg"]];
              failure();
         }
         return ;
@@ -105,7 +118,7 @@
                 success(operation, responseObject);
             }else if (errCode == -3){
                 [QLHUDTool dissmis];
-                if([QLUserTool sharedUserTool].userModel.strId){
+                if([QLUserTool sharedUserTool].userModel.user_id){
                     [[QLUserTool sharedUserTool] clearCurrentUserModel];
                     //                    [[NSUserDefaults standardUserDefaults] setObject:LOGINISOWNER forKey:USERLOGINSTATE];
                     //被踢下线,这里清除用户登录信息
@@ -115,7 +128,7 @@
                 failure();
             }else if (errCode == -4){
                 [QLHUDTool dissmis];
-                if([QLUserTool sharedUserTool].userModel.strId){
+                if([QLUserTool sharedUserTool].userModel.user_id){
                     [[QLUserTool sharedUserTool] clearCurrentUserModel];
                     //                    [[NSUserDefaults standardUserDefaults] setObject:LOGINISOWNER forKey:USERLOGINSTATE];
                     //被踢下线,这里清除用户登录信息
@@ -170,7 +183,7 @@
     
     //单点登录
     QLUserModel *userModel = [QLUserTool sharedUserTool].userModel;
-    NSString *strUserId = userModel.strId;
+    NSString *strUserId = [NSString stringWithFormat:@"%ld",userModel.user_id];
     NSMutableDictionary *copyDicParams;
     if (strUserId) {
         //如果用户登录的情况下,传入userid和cookie参数
@@ -207,29 +220,22 @@
     
     QLUserModel *userModel = [QLUserTool sharedUserTool].userModel;
     NSMutableDictionary *copyDicParams;
-    if (userModel.strId) {
+    if (userModel.user_id) {
         //如果用户登录的情况下,传入userid和cookie参数
         if(dicParams){
             copyDicParams = [[NSMutableDictionary alloc] initWithDictionary:dicParams] ;
         }else{
             copyDicParams =[[NSMutableDictionary alloc] init] ;
         }
-        [copyDicParams setObject:userModel.strId forKey:@"userId"];
-        [copyDicParams setObject:[[UIDevice currentDevice].identifierForVendor UUIDString] forKey:@"cookie"];
-        NSString *strAdd = [NSString stringWithFormat:@"%@%@", userModel.strAccount,SystemSecret];
-        NSData *data = [strAdd dataUsingEncoding:NSUTF8StringEncoding];
-        [copyDicParams setObject:userModel.strAccount forKey:@"phoneno"];
-        [copyDicParams setObject:[data md5String] forKey:@"token"];
+        [copyDicParams setObject:[NSString stringWithFormat:@"%ld",userModel.user_id] forKey:@"user_id"];
+        [copyDicParams setObject:TOKEN forKey:@"token"];
     }else{
         if(dicParams){
             copyDicParams = [[NSMutableDictionary alloc] initWithDictionary:dicParams] ;
         }else{
             copyDicParams =[[NSMutableDictionary alloc] init] ;
         }
-        NSString *strAdd = [NSString stringWithFormat:@"%@%@", phoneno_default,SystemSecret];
-        NSData *data = [strAdd dataUsingEncoding:NSUTF8StringEncoding];
-        [copyDicParams setObject:phoneno_default forKey:@"phoneno"];
-        [copyDicParams setObject:[data md5String] forKey:@"token"];
+        [copyDicParams setObject:TOKEN forKey:@"token"];
     }
     
     [manager POST:strBaseUrl parameters:copyDicParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -280,29 +286,21 @@
     //单点登录
     QLUserModel *userModel = [QLUserTool sharedUserTool].userModel;
     NSMutableDictionary *copyDicParams;
-    if (userModel.strId) {
+    if (userModel.user_id) {
         //如果用户登录的情况下,传入userid和cookie参数
         if(dicParams){
             copyDicParams = [[NSMutableDictionary alloc] initWithDictionary:dicParams] ;
         }else{
             copyDicParams =[[NSMutableDictionary alloc] init] ;
         }
-        [copyDicParams setObject:[NSString stringWithFormat:@"%ld",(long)userModel.strId] forKey:@"userId"];
-        [copyDicParams setObject:[[UIDevice currentDevice].identifierForVendor UUIDString] forKey:@"cookie"];
-        NSString *strAdd = [NSString stringWithFormat:@"%@%@", userModel.strAccount,SystemSecret];
-        NSData *data = [strAdd dataUsingEncoding:NSUTF8StringEncoding];
-        [copyDicParams setObject:userModel.strAccount forKey:@"phoneno"];
-        [copyDicParams setObject:[data md5String] forKey:@"token"];
+        [copyDicParams setObject:[NSString stringWithFormat:@"%ld",(long)userModel.user_id] forKey:@"user_id"];
+        [copyDicParams setObject:TOKEN forKey:@"token"];
     }else{
         if(dicParams){
             copyDicParams = [[NSMutableDictionary alloc] initWithDictionary:dicParams] ;
         }else{
             copyDicParams =[[NSMutableDictionary alloc] init] ;
         }
-        NSString *strAdd = [NSString stringWithFormat:@"%@%@", phoneno_default,SystemSecret];
-        NSData *data = [strAdd dataUsingEncoding:NSUTF8StringEncoding];
-//        [copyDicParams setObject:phoneno_default forKey:@"phoneno"];
-//        [copyDicParams setObject:[data md5String] forKey:@"token"];
         [copyDicParams setObject:@"filePart" forKey:@"filePart"];
     }
     
@@ -366,7 +364,7 @@
     
     //单点登录
     QLUserModel *userModel = [QLUserTool sharedUserTool].userModel;
-    NSString *strUserId = userModel.strId;
+    NSString *strUserId = [NSString stringWithFormat:@"%ld",userModel.user_id];
     NSMutableDictionary *copyDicParams;
     if (strUserId) {
         //如果用户登录的情况下,传入userid和cookie参数
@@ -375,35 +373,19 @@
         }else{
             copyDicParams =[[NSMutableDictionary alloc] init] ;
         }
-        [copyDicParams setObject:userModel.strId forKey:@"userId"];
-        [copyDicParams setObject:[[UIDevice currentDevice].identifierForVendor UUIDString] forKey:@"cookie"];
+        [copyDicParams setObject:strUserId forKey:@"user_id"];
+        [copyDicParams setObject:TOKEN forKey:@"token"];
     }
     [self loadCredencialForManager:manager];
     [manager GET:strBaseUrl parameters:strUserId?copyDicParams:dicParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        if([responseObject objectForKey:@"err_code"]&&[[responseObject objectForKey:@"err_code"] isEqualToString:@"ok"]){
+        if([responseObject objectForKey:@"success"]&&[[responseObject objectForKey:@"success"] boolValue]){
             //请求成功
             success(operation, responseObject);
-        }else if([responseObject objectForKey:@"err_code"]&&[[responseObject objectForKey:@"err_code"] isEqualToString:@"cookie_fail"]){
-            [QLHUDTool dissmis];
-            if([QLUserTool sharedUserTool].userModel.strId){
-                //清除登录信息
-                //                [GeTuiSdk unbindAlias:[QLUserTool sharedUserTool].userModel.tel];
-                [[QLUserTool sharedUserTool] clearCurrentUserModel];
-                //                [[NSUserDefaults standardUserDefaults] setObject:LOGINISOWNER forKey:USERLOGINSTATE];
-                //被踢下线,这里清除用户登录信息
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"当前账号在其他地方登录，被迫下线..." delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                [alertView show];
-            }
-            failure();
         }else{
-            if([responseObject objectForKey:@"err_code"]&&[[responseObject objectForKey:@"err_code"] isEqualToString:@"ng"]){
-                //请求错误(服务器错误)
-                [QLHUDTool showErrorWithStatus:[responseObject objectForKey:@"err_msg"]];
-            }
+            [QLHUDTool showAlertMessage:responseObject[@"msg"]];
             failure();
         }
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [QLHUDTool showErrorWithStatus:@"请求失败,请稍后再试"];
         failure();

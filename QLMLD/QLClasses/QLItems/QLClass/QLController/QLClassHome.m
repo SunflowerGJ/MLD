@@ -12,8 +12,10 @@
 #import "QLClassHomeDataModel.h"
 #import "MJRefresh.h"
 #import "UIScrollView+KS.h"
+#import "QLClassUploadImageVC.h"
+#import "ELCImagePickerController.h"
 
-@interface QLClassHome ()<UITableViewDelegate,UITableViewDataSource,KSRefreshViewDelegate>{
+@interface QLClassHome ()<UITableViewDelegate,UITableViewDataSource,KSRefreshViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ELCImagePickerControllerDelegate>{
     
     __weak IBOutlet UITableView *_tableMain;
     
@@ -23,7 +25,7 @@
     
     NSInteger _pageSize;
     NSInteger _pageNum;
-
+    NSString *_strImageID;
 }
 
 @end
@@ -41,6 +43,7 @@
     [self.rightBtn setImage:[UIImage imageNamed:@"camera_icon"] forState:UIControlStateNormal];
     _pageSize = 10;
     _tableMain.estimatedRowHeight = 100;
+    _tableMain.tableFooterView = [UIView new];
     [_tableMain addSubview: self.promptView];
     _tableMain.separatorColor = QLDividerColor;
     [self addTableViewRefresh];
@@ -49,9 +52,111 @@
 
 #pragma button
 - (void)clickRight{
-    
+    UIActionSheet *sheetSelect = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"相册", nil];
+    [sheetSelect showInView:self.view];
+}
+#pragma mark - UIActionSheet delegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==0)//拍照
+    {
+        UIImagePickerController *  imagePicker1 = [[UIImagePickerController alloc] init];
+        imagePicker1.delegate = self;
+        imagePicker1.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+            imagePicker1.sourceType = UIImagePickerControllerSourceTypeCamera;
+        }
+        imagePicker1.allowsEditing=NO;
+        if([[[UIDevice
+              currentDevice] systemVersion] floatValue]>=8.0) {
+            self.modalPresentationStyle=UIModalPresentationOverCurrentContext;
+        }
+        [self presentViewController:imagePicker1 animated:YES completion:nil];
+    }
+    else if(buttonIndex==1)//相册
+    {
+        ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initImagePicker];
+        
+        elcPicker.maximumImagesCount = 9; //Set the maximum number of images to select to 100
+        elcPicker.returnsOriginalImage = YES; //Only return the fullScreenImage, not the fullResolutionImage
+        elcPicker.returnsImage = YES; //Return UIimage if YES. If NO, only return asset location information
+        elcPicker.onOrder = YES; //For multiple image selection, display and return order of selected images
+        elcPicker.mediaTypes = @[(NSString *)kUTTypeImage]; //Supports image and movie types
+        elcPicker.imagePickerDelegate = self;
+        
+        [self presentViewController:elcPicker animated:YES completion:nil];
+    }
 }
 
+-(void)actionSheetCancel:(UIActionSheet *)actionSheet{
+    [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+}
+#pragma mark - UIImagePickerControllerDelegate
+- (void) imagePickerControllerDidCancel: (UIImagePickerController *) picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    NSData *imageData =  UIImageJPEGRepresentation(image, 0.6f);
+    UIImage *saveImage = [UIImage imageWithData:imageData];
+//    [self upLoadImage:[saveImage scaleMinSideToSize:500]];
+    
+    QLClassUploadImageVC *uploadImage = [[QLClassUploadImageVC alloc]init];
+    uploadImage.arrayImages = [NSMutableArray arrayWithObjects:saveImage, nil];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:uploadImage animated:YES];
+}
+#pragma mark - ELCImagePickerController delegate
+-(void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info{
+    QLLog(@"选择了%zd张图片－images:%@",info.count,info);
+    
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
+    
+    for (NSDictionary *dict in info) {
+        if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypePhoto){
+            if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
+                
+                UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
+                [images addObject:image];
+                
+            } else {
+                NSLog(@"UIImagePickerControllerReferenceURL = %@", dict);
+            }
+        } else if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypeVideo){
+            if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
+                UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
+                
+                [images addObject:image];
+            } else {
+                NSLog(@"UIImagePickerControllerReferenceURL = %@", dict);
+            }
+        } else {
+            NSLog(@"Uknown asset type");
+        }
+    }
+    
+    QLClassUploadImageVC *uploadImage = [[QLClassUploadImageVC alloc]init];
+    uploadImage.arrayImages = images;
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:uploadImage animated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)upLoadImage:(UIImage *)image{
+    NSData *data = UIImageJPEGRepresentation(image, 1);
+    
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,fileUpload_interface];
+    //    [Tools isBlankString:imageID]?nil:@{@"oldFileId":imageID}
+    [QLHttpTool postPerWithBaseUrl:imageURL Parameters:@{@"filePath":@"/fileUpload"} FormData:data FileExtension:@".jpg" MimeType:@"image/jpg"  whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"image response : %@", responseObject);
+        _strImageID = [NSString stringWithFormat:@"%@",responseObject[@"filepath"]];
+       
+    } whenFailure:^{
+    }];
+    
+}
 
 #pragma table
 - (void)addTableViewRefresh{
@@ -132,7 +237,7 @@
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 6;
+    return self.dataSource.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     QLClassHomeTableCell *cell = [QLClassHomeTableCell cellWithClassHomeTableView:tableView];

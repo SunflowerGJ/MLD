@@ -42,8 +42,16 @@
     self.window.rootViewController = [[QLNavigationController alloc] initWithRootViewController:vcMain];
 }
 - (void)changeRootViewControllerToLogin {
-    QLLoginViewController *vcLogin = [QLLoginViewController new];
-    self.window.rootViewController = [[QLNavigationController alloc] initWithRootViewController:vcLogin];
+    
+    
+    NSString *strUserID = [NSString stringWithFormat:@"%ld",[QLUserTool sharedUserTool].userModel.user_id];
+    if (strUserID) {
+        QLMainViewController *vcMain = [QLMainViewController new];
+        self.window.rootViewController = [[QLNavigationController alloc] initWithRootViewController:vcMain];
+    }else{
+        QLLoginViewController *loginViewController = [QLLoginViewController new];
+        self.window.rootViewController = [[QLNavigationController alloc] initWithRootViewController:loginViewController];
+    }
 }
 
 @end

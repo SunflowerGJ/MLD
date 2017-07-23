@@ -43,18 +43,16 @@ QLSingletonImplementation(UserTool)
 }
 + (void)loginWithUser:(NSString *)strUser pwd:(NSString *)strPwd whenSuccess:(void (^)())success whenFailure:(void (^)())failure  {
     
-    
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@", QLBaseUrlString, userLogin_interface];
     
-//    NSData *dataPwd = [[NSString stringWithFormat:@"%@%@",EncryptPrefix,strPwd] dataUsingEncoding:NSUTF8StringEncoding];
     NSData *dataPwd = [[NSString stringWithFormat:@"%@",strPwd] dataUsingEncoding:NSUTF8StringEncoding];
 
-    NSDictionary *dicParams = @{@"username": strUser,@"password":[dataPwd md5String],@"token":[[UIDevice currentDevice].identifierForVendor UUIDString]};
+    NSDictionary *dicParams = @{@"username": strUser,@"password":[dataPwd md5String]};
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParams whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"返回值：%@",responseObject);
         [[QLUserTool sharedUserTool] saveUserModel:[QLUserModel mj_objectWithKeyValues:responseObject[@"data"]]];
         //  绑定个推
-        [GeTuiSdk bindAlias:[QLUserTool sharedUserTool].userModel.strAccount andSequenceNum:KGtSeriNum];
+        [GeTuiSdk bindAlias:[QLUserTool sharedUserTool].userModel.user_tel andSequenceNum:KGtSeriNum];
 //        NSString *stationID = [QLUserTool sharedUserTool].userModel.tfUtechnician.fkstationId;
 //        NSString *str = [NSString stringWithFormat:@"station%@",stationID];
 //        [GeTuiSdk setTags:@[str]];
@@ -87,9 +85,9 @@ QLSingletonImplementation(UserTool)
 //}
 
 - (void)logout {
-    if([QLUserTool sharedUserTool].userModel.strId){
+    if([QLUserTool sharedUserTool].userModel.user_id){
         //解绑个推
-        [GeTuiSdk bindAlias:[QLUserTool sharedUserTool].userModel.strAccount andSequenceNum:KGtSeriNum];
+        [GeTuiSdk bindAlias:[QLUserTool sharedUserTool].userModel.user_tel andSequenceNum:KGtSeriNum];
 
         [[QLUserTool sharedUserTool] clearCurrentUserModel];
     }
@@ -114,7 +112,7 @@ QLSingletonImplementation(UserTool)
         QLLog(@"返回值：%@",responseObject);
         [[QLUserTool sharedUserTool] saveUserModel:[QLUserModel mj_objectWithKeyValues:responseObject[@"data"]]];
         //  绑定个推
-        [GeTuiSdk bindAlias:[QLUserTool sharedUserTool].userModel.strAccount andSequenceNum:KGtSeriNum];
+        [GeTuiSdk bindAlias:[QLUserTool sharedUserTool].userModel.user_tel andSequenceNum:KGtSeriNum];
         
 //        NSString *stationID = [QLUserTool sharedUserTool].userModel.tfUtechnician.fkstationId;
 //        NSString *str = [NSString stringWithFormat:@"station%@",stationID];

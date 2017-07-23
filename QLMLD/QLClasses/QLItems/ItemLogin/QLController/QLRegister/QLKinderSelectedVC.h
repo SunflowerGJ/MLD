@@ -10,7 +10,9 @@
 #import "QLKinderDataModel.h"
 #import "QLClassDataModel.h"
 @interface QLKinderSelectedVC : QLViewController
+@property (nonatomic, assign) BOOL fromClassCircle;
 @property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, copy) void (^blockSelectedSchool)(QLKinderDataModel *model,QLClassDataModel *classModel);
+@property (nonatomic, copy) void (^blockSchool)(QLKinderDataModel *model);
 
 @end

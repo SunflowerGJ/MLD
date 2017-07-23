@@ -47,6 +47,8 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES];
+    [UINavigationBar appearance].backIndicatorImage = [UIImage imageNamed:@"arrowl"];
+
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -99,8 +101,8 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
 #pragma mark - Actions
 
 - (IBAction)login {
-    QLAppDelegate *delegate = (QLAppDelegate *)[UIApplication sharedApplication].delegate;
-    [delegate changeRootViewControllerToMain];
+//    QLAppDelegate *delegate = (QLAppDelegate *)[UIApplication sharedApplication].delegate;
+//    [delegate changeRootViewControllerToMain];
 
     NSString *strUser = _txfTele.text;
     if (strUser.length <= 0) {
@@ -113,13 +115,6 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
         [QLHUDTool showErrorWithStatus:@"请输入密码"];
         return;
     }
-
-    //    [QLUserTool loginWithUser:_txfTele.text pwd:_txfPwd.text whenSuccess:^{
-//        
-//    } whenFailure:^{
-//        
-//    }];
-    
     [QLUserTool loginWithUser:_txfTele.text pwd:_txfPwd.text whenSuccess:^{
         QLMainViewController *homeViewController = [QLMainViewController new];
         [self.navigationController pushViewController:homeViewController animated:YES];

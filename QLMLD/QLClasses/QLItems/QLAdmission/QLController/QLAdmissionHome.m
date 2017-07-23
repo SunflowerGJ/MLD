@@ -7,8 +7,13 @@
 //
 
 #import "QLAdmissionHome.h"
-
-@interface QLAdmissionHome ()
+#import "QLShareVC.h"
+#import "QLAdmissionDetailVC.h"
+#import "QLAdmisiionSlideVC.h"
+@interface QLAdmissionHome (){
+    
+    QLAdmisiionSlideVC *slideVC;
+}
 
 @end
 
@@ -44,12 +49,18 @@
 }
 - (void)clickBack{
     QLLog(@"more");
+    slideVC = [[QLAdmisiionSlideVC alloc]initWithNibName:@"QLAdmisiionSlideVC" bundle:[NSBundle mainBundle]];
+    slideVC.view.frame = self.view.frame;
+    [self.view addSubview:slideVC.view];
+    [slideVC startAnimation];
 }
 - (void)clickRight{
     QLLog(@"拍照");
 }
 - (void)clickShare{
     QLLog(@"分享");
+    QLShareVC *shareVC = [[QLShareVC alloc]init];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:shareVC animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -72,6 +83,10 @@
     lblTime.textColor = [UIColor redColor];
     
     view.frame = CGRectMake(_viewICarousel.frame.origin.x, _viewICarousel.frame.origin.y, _viewICarousel.frame.size.width, _viewICarousel.frame.size.height);
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(detail)];
+    [view addGestureRecognizer:tap];
+    
     return view;
 }
 
@@ -103,5 +118,9 @@
 {
     return YES;
 }
-
+#pragma mark - 
+- (void)detail {
+    QLAdmissionDetailVC *detailVC = [[QLAdmissionDetailVC alloc]init];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:detailVC animated:YES];
+}
 @end

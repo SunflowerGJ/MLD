@@ -17,6 +17,13 @@ typedef void(^QLHttpToolFailureBlock)();
 
 @interface QLHttpTool : NSObject<UIAlertViewDelegate>
 + (void)certificateParameters:(NSDictionary *)dicParams whenSuccess:(QLHttpToolSuccessBlock)success whenFailure:(QLHttpToolFailureBlock)failure;
+
+/** 
+ * 注册接口 
+ * 无需user_id和token
+ */
++ (void)registerWithBaseUrl:(NSString *)strBaseUrl Parameters:(NSDictionary *)dicParams whenSuccess:(QLHttpToolSuccessBlock)success whenFailure:(QLHttpToolFailureBlock)failure;
+
 /**
  *  向服务器发送普通的POST请求
  *

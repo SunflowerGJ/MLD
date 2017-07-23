@@ -179,6 +179,31 @@ static Tools *tools;
     return  [numberFormatter stringFromNumber:[NSNumber numberWithFloat:floatV]];
 }
 
-
+#pragma mark - 上传图片
++ (void)requestForUploadImageWithImageType:(NSString *)imageType specifiedId:(NSString *)specifiedId images:(NSArray *)images WhenSuccess:(void (^)())success WhenFailure:(void (^)(UIImage *imageFailed, NSString *imageType))failure { //
+    if (images.count <= 0) return;
+    /** 图片处理 */
+    NSMutableArray *arrMImageDatas = [NSMutableArray arrayWithCapacity:images.count];
+    NSMutableArray *arrMExtensions = [NSMutableArray arrayWithCapacity:images.count];
+    NSMutableArray *arrMMimeTypes = [NSMutableArray arrayWithCapacity:images.count];
+    if (images.count > 0) {
+        for (UIImage *image in images) {
+            NSData *dataImage = UIImageJPEGRepresentation(image, 1);
+            [arrMImageDatas addObject:dataImage];
+            [arrMExtensions addObject:@".jpeg"];
+            [arrMMimeTypes addObject:@"image/jpeg"];
+        }
+    }
+    //    NSString *resId = [NSString stringWithFormat:@"%@%@", imageType, specifiedId];
+    
+    NSString *imageURL = [NSString stringWithFormat:@"%@",QLBaseUrlString_Image];
+    [QLHttpTool postWithBaseUrl:imageURL Parameters:nil FormDatas:[arrMMimeTypes copy] FileExtensions:[arrMExtensions copy] MimeTypes:[arrMImageDatas copy] NeedCookie:NO whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"上传图==%@", responseObject);
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+        }
+    } whenFailure:^{
+        
+    }];
+}
 @end
 

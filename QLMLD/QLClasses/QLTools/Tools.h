@@ -54,17 +54,8 @@
 //格式话小数 四舍五入类型
 + (NSString *) decimalwithFormat:(NSString *)format  floatV:(float)floatV;
 
-//同城货主根据订单状态跳转到不同的页面
-+ (void) inCityOrderJump:(NSString *)incityorderid;
-
-//城际货主根据订单状态跳转到不同的页面
-+ (void) outCityOrderJump:(NSString *)outcityorderid;
-
-//司机端跳转订单详情页
-+ (void) driverOrderJump:(NSString *)orderid;
-
-//司机端跳转Vip订单详情页
-+ (void) driverOrderJumpVip:(NSString *)orderid;
+//多图上传
++ (void)requestForUploadImageWithImageType:(NSString *)imageType specifiedId:(NSString *)specifiedId images:(NSArray *)images WhenSuccess:(void (^)())success WhenFailure:(void (^)(UIImage *imageFailed, NSString *imageType))failure;
 @end
 
 

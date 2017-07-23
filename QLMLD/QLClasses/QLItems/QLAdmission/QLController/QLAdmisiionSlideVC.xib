@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12121"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QLAdmisiionSlideVC">
+            <connections>
+                <outlet property="backGroundView" destination="sHc-O4-vPM" id="lWM-lh-dfr"/>
+                <outlet property="mainView" destination="Rxs-EE-R4O" id="oB4-oB-eQN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHc-O4-vPM" customClass="UIControl">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="clickBackGround:" destination="-1" eventType="touchUpInside" id="q7V-Iq-CeU"/>
+                    </connections>
+                </view>
+                <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rxs-EE-R4O">
+                    <rect key="frame" x="0.0" y="0.0" width="200" height="667"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="6xJ-WN-466"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Rxs-EE-R4O" secondAttribute="bottom" id="0AM-IG-UHj"/>
+                <constraint firstItem="Rxs-EE-R4O" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1c4-yE-oJ0"/>
+                <constraint firstAttribute="bottom" secondItem="sHc-O4-vPM" secondAttribute="bottom" id="GJc-R3-9mj"/>
+                <constraint firstItem="sHc-O4-vPM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NSi-e2-SzR"/>
+                <constraint firstAttribute="trailing" secondItem="sHc-O4-vPM" secondAttribute="trailing" id="Qmt-JL-4Mg"/>
+                <constraint firstItem="sHc-O4-vPM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="bCO-s9-wlJ"/>
+                <constraint firstItem="Rxs-EE-R4O" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zj1-Jr-tUO"/>
+            </constraints>
+            <point key="canvasLocation" x="40.5" y="77.5"/>
+        </view>
+    </objects>
+</document>

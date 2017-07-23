@@ -8,8 +8,9 @@
 
 #import "QLViewController.h"
 #import "QLClassDataModel.h"
+#import "QLKinderDataModel.h"
 @interface QLClassSelectedVC : QLViewController
-@property (nonatomic, strong) NSString *schoolId;
+@property (nonatomic, strong) QLKinderDataModel *schoolModel;
 @property (nonatomic, strong) NSMutableArray *dataSource;
-@property (nonatomic, copy) void (^blockSelectedClass)(QLClassDataModel *model);
+@property (nonatomic, copy) void (^blockSelectedClass)(QLKinderDataModel *schoolModel,QLClassDataModel *classModel);
 @end

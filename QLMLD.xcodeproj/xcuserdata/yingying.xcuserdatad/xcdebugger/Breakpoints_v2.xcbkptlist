@@ -4,64 +4,18 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.OpenGLErrorBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            breakpointStackSelectionBehavior = "1"
-            symbolName = "__GPUTOOLS_HAS_DETECTED_AN_OPENGL_ERROR__"
-            moduleName = "libglInterpose.dylib">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.OpenGLError">
-                  <ActionContent>
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
-            <Locations>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            scope = "0"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QLMLD/QLClasses/QLItems/QLClass/QLController/QLClassHome.m"
-            timestampString = "522083634.155904"
+            filePath = "QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLRegisterFinisheInfoVC.m"
+            timestampString = "522479907.188552"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "-tableHeadLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QLMLD/QLClasses/QLItems/QLClass/QLModel/QLClassHomeDataModel.m"
-            timestampString = "522084821.896069"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "-initClassDataDictionary:"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-selectedSchoolAndClass:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -72,295 +26,74 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLRegisterFinisheInfoVC.m"
-            timestampString = "522258238.272531"
+            timestampString = "522481207.212884"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "-btnApply:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLRegisterFinisheInfoVC.m"
+            timestampString = "522479907.188552"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "-upLoadImage:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLRegisterFinisheInfoVC.m"
+            timestampString = "522481207.212884"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "-btnApply:"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[QLRegisterFinisheInfoVC upLoadImage:]"
+                  symbolName = "-[QLRegisterFinisheInfoVC btnApply:]"
                   moduleName = "QLMLD"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLRegisterFinisheInfoVC.m"
-                  timestampString = "522259030.577115"
+                  timestampString = "522515693.657798"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "114"
-                  endingLineNumber = "114"
-                  offsetFromSymbolStart = "222">
+                  startingLineNumber = "185"
+                  endingLineNumber = "185"
+                  offsetFromSymbolStart = "2479">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__39-[QLRegisterFinisheInfoVC upLoadImage:]_block_invoke"
+                  symbolName = "__36-[QLRegisterFinisheInfoVC btnApply:]_block_invoke"
                   moduleName = "QLMLD"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLRegisterFinisheInfoVC.m"
-                  timestampString = "522259030.579599"
+                  timestampString = "522515693.659845"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "114"
-                  endingLineNumber = "114"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-            timestampString = "522258281.018635"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
-            landmarkName = "+postPerWithBaseUrl:Parameters:FormData:FileExtension:MimeType:whenSuccess:whenFailure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-            timestampString = "522258703.716933"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
-            landmarkName = "+postPerWithBaseUrl:Parameters:FormData:FileExtension:MimeType:whenSuccess:whenFailure:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[QLHttpTool postPerWithBaseUrl:Parameters:FormData:FileExtension:MimeType:whenSuccess:whenFailure:]"
-                  moduleName = "QLMLD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-                  timestampString = "522259030.60714"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "309"
-                  endingLineNumber = "309"
-                  offsetFromSymbolStart = "1918">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__100+[QLHttpTool postPerWithBaseUrl:Parameters:FormData:FileExtension:MimeType:whenSuccess:whenFailure:]_block_invoke"
-                  moduleName = "QLMLD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-                  timestampString = "522259030.609827"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "309"
-                  endingLineNumber = "309"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-            timestampString = "522258703.716933"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "317"
-            endingLineNumber = "317"
-            landmarkName = "+postPerWithBaseUrl:Parameters:FormData:FileExtension:MimeType:whenSuccess:whenFailure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-            timestampString = "522259029.469263"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "320"
-            endingLineNumber = "320"
-            landmarkName = "+postPerWithBaseUrl:Parameters:FormData:FileExtension:MimeType:whenSuccess:whenFailure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-            timestampString = "522259029.469263"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
-            landmarkName = "+postPerWithBaseUrl:Parameters:FormData:FileExtension:MimeType:whenSuccess:whenFailure:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-            timestampString = "522259029.469263"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "348"
-            endingLineNumber = "348"
-            landmarkName = "+postPerWithBaseUrl:Parameters:FormData:FileExtension:MimeType:whenSuccess:whenFailure:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "+[QLHttpTool postPerWithBaseUrl:Parameters:FormData:FileExtension:MimeType:whenSuccess:whenFailure:]"
-                  moduleName = "QLMLD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-                  timestampString = "522259030.628681"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "348"
-                  endingLineNumber = "348"
-                  offsetFromSymbolStart = "2266">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__100+[QLHttpTool postPerWithBaseUrl:Parameters:FormData:FileExtension:MimeType:whenSuccess:whenFailure:]_block_invoke.239"
-                  moduleName = "QLMLD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-                  timestampString = "522259030.630967"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "348"
-                  endingLineNumber = "348"
-                  offsetFromSymbolStart = "666">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.244"
-                  moduleName = "QLMLD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-                  timestampString = "522259030.63281"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "348"
-                  endingLineNumber = "348"
-                  offsetFromSymbolStart = "88">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.245"
-                  moduleName = "QLMLD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-                  timestampString = "522259030.635738"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "348"
-                  endingLineNumber = "348"
-                  offsetFromSymbolStart = "59">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__100+[QLHttpTool postPerWithBaseUrl:Parameters:FormData:FileExtension:MimeType:whenSuccess:whenFailure:]_block_invoke.247"
-                  moduleName = "QLMLD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-                  timestampString = "522259030.638"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "348"
-                  endingLineNumber = "348"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLKinderSelectedVC.m"
-            timestampString = "522258954.598261"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-getKinderData"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[QLKinderSelectedVC getKinderData]"
-                  moduleName = "QLMLD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLKinderSelectedVC.m"
-                  timestampString = "522259030.645259"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "118">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__35-[QLKinderSelectedVC getKinderData]_block_invoke"
-                  moduleName = "QLMLD"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLKinderSelectedVC.m"
-                  timestampString = "522259030.647317"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
+                  startingLineNumber = "186"
+                  endingLineNumber = "186"
                   offsetFromSymbolStart = "83">
                </Location>
             </Locations>
@@ -372,13 +105,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLKinderSelectedVC.m"
-            timestampString = "522259056.561187"
+            filePath = "QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLRegisterFinisheInfoVC.m"
+            timestampString = "522481207.212884"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-getKinderData"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "-btnApply:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -388,13 +121,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-            timestampString = "522259069.050604"
+            filePath = "QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLRegisterFinisheInfoVC.m"
+            timestampString = "522481198.674232"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "408"
-            endingLineNumber = "408"
-            landmarkName = "+getWithBaseUrl:Parameters:whenSuccess:whenFailure:"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
+            landmarkName = "-btnApply:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -404,30 +137,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-            timestampString = "522259070.478416"
+            filePath = "QLMLD/QLClasses/QLItems/ItemLogin/QLModel/QLUserTool.m"
+            timestampString = "522483273.202678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "400"
-            endingLineNumber = "400"
-            landmarkName = "+getWithBaseUrl:Parameters:whenSuccess:whenFailure:"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "+loginWithUser:pwd:whenSuccess:whenFailure:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QLMLD/QLClasses/QLTools/QLHttpTool/QLHttpTool.m"
-            timestampString = "522259077.594696"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "384"
-            endingLineNumber = "384"
-            landmarkName = "+getWithBaseUrl:Parameters:whenSuccess:whenFailure:"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "+[QLUserTool loginWithUser:pwd:whenSuccess:whenFailure:]"
+                  moduleName = "QLMLD"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLModel/QLUserTool.m"
+                  timestampString = "522515693.674656"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "575">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__56+[QLUserTool loginWithUser:pwd:whenSuccess:whenFailure:]_block_invoke"
+                  moduleName = "QLMLD"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLModel/QLUserTool.m"
+                  timestampString = "522515693.676881"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

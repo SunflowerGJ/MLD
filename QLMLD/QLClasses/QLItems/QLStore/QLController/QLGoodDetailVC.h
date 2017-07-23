@@ -1,13 +1,13 @@
 //
-//  QLGoodsOrderVC.h
+//  QLGoodDetailVC.h
 //  QLMLD
 //
-//  Created by syy on 2017/7/12.
+//  Created by 英英 on 2017/7/22.
 //  Copyright © 2017年 Shreker. All rights reserved.
 //
 
 #import "QLViewController.h"
 
-@interface QLGoodsOrderVC : QLViewController
+@interface QLGoodDetailVC : QLViewController
 
 @end

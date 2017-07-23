@@ -9,5 +9,15 @@
 #import "QLClassDataModel.h"
 
 @implementation QLClassDataModel
-
+MJCodingImplementation
+- (instancetype)init{
+    if (self = [super init]) {
+        [QLClassDataModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"ROWNUM" : @"ROWNUM_"
+                     };
+        }];
+    }
+    return self;
+}
 @end

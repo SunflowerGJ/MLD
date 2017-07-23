@@ -34,12 +34,16 @@ static const NSUInteger totalTime = 120;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES];
     [self loadDefaultSetting];
 }
 
 /** Load the default UI elements And prepare some datas needed. */
 - (void)loadDefaultSetting {
     [self setTitle:@"新用户注册"];
+    self.leftBtn.hidden = NO;
+                                                       
+
     [_btnGetCode setCornerRadius:QLCornerRadius];
     _timeWaiting = totalTime;
     [_txfPwd setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
@@ -116,21 +120,12 @@ static const NSUInteger totalTime = 120;
 }
 //验证短信验证码是否正确
 - (IBAction)btnNext {
-    QLRegisterFinisheInfoVC *finishedVC = [[QLRegisterFinisheInfoVC alloc]init];
-    finishedVC.strCode = _code;
-    [[QLHttpTool getCurrentVC].navigationController pushViewController:finishedVC animated:YES];
-    return ;
+//    QLRegisterFinisheInfoVC *finishedVC = [[QLRegisterFinisheInfoVC alloc]init];
+//    finishedVC.strCode = _code;
+//    [[QLHttpTool getCurrentVC].navigationController pushViewController:finishedVC animated:YES];
+//    return ;
 
     if ([self checkInput] == NO) {
-        return;
-    }
-    
-    if (_txfPwd.text.length < 6 || _txfPwd.text.length > 16) {
-        [QLHUDTool showErrorWithStatus:@"密码长度6-16个字符"];
-        return;
-    }
-    if (![_txfPwd.text isEqualToString:_txfPwdConfirm.text]) {
-        [QLHUDTool showErrorWithStatus:@"两输入密码不一致"];
         return;
     }
     [self registerUser];
@@ -141,6 +136,8 @@ static const NSUInteger totalTime = 120;
     if ([_code isEqualToString:_txfCode.text]) {
         QLRegisterFinisheInfoVC *finishedVC = [[QLRegisterFinisheInfoVC alloc]init];
         finishedVC.strCode = _code;
+        finishedVC.userPwd = _txfPwdConfirm.text;
+        finishedVC.userTel = _txfPhone.text;
         [[QLHttpTool getCurrentVC].navigationController pushViewController:finishedVC animated:YES];
     }else{
         [QLHUDTool showAlertMessage:@"验证码不正确，请重新输入"];
@@ -148,14 +145,39 @@ static const NSUInteger totalTime = 120;
 }
 
 - (BOOL)checkInput {
+    if ([_txfPhone.text isEmptyString]) {
+        [QLHUDTool showErrorWithStatus:@"请输入手机号"];
+        return NO;
+    }
     if (![NSString isPhoneNumber:_txfPhone.text]) {
         [QLHUDTool showErrorWithStatus:@"手机号格式不正确"];
         return NO;
     }
-    if (_txfCode.text.length != 6) {
-        [QLHUDTool showErrorWithStatus:@"请输入正确的验证码"];
+    if ([_txfPwd.text isEmptyString]) {
+        [QLHUDTool showAlertMessage:@"请输入密码"];
         return NO;
     }
+    if (_txfPwd.text.length < 6 || _txfPwd.text.length > 16) {
+        [QLHUDTool showErrorWithStatus:@"密码长度6-16个字符"];
+        return NO;
+    }
+
+    if([_txfPwdConfirm.text isEmptyString]){
+        [QLHUDTool showAlertMessage:@"请输入确认密码"];
+        return NO;
+    }
+    if (![_txfPwd.text isEqualToString:_txfPwdConfirm.text]) {
+        [QLHUDTool showErrorWithStatus:@"两输入密码不一致"];
+        return NO;
+    }
+    if ([_txfCode.text isEmptyString]) {
+        [QLHUDTool showAlertMessage:@"请输入验证码"];
+        return NO;
+    }
+//    if (_txfCode.text.length != 6) {
+//        [QLHUDTool showErrorWithStatus:@"请输入正确的验证码"];
+//        return NO;
+//    }
     return YES;
 }
 

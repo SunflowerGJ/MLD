@@ -9,5 +9,16 @@
 #import "QLKinderDataModel.h"
 
 @implementation QLKinderDataModel
+MJCodingImplementation
+- (instancetype)init{
+    if (self = [super init]) {
+        [QLKinderDataModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     @"school_id" : @"school_id"
+                     };
+        }];
+    }
+    return self;
+}
 
 @end

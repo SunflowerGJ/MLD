@@ -42,7 +42,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadDefaultSetting];
-    [self testData];
 }
 - (void)loadDefaultSetting{
     self.title = @"购物车";

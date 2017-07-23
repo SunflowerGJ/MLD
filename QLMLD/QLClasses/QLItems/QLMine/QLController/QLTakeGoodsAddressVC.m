@@ -31,7 +31,7 @@
     self.title = @"收货地址管理";
     
     self.rightBtn.hidden = NO;
-    self.rightBtn.frame = CGRectMake(QLScreenWidth-40, 28, 30, 30);
+    self.rightBtn.frame = CGRectMake(QLScreenWidth-40, 28, 45, 30);
     [self.rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
     
     _pageSize = 10;

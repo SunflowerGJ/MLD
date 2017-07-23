@@ -24,6 +24,8 @@
 #import "NSString+QLString.h"
 #import "UIImage+QLImage.h"
 #import "UIView+QLView.h"
+#import "UITextView+Placeholder.h"
+
 #import "UIViewController+QLViewController.h"
 #import "IQKeyboardManager.h"
 /** QLDEBUG Print | M:method, L:line, C:content*/
@@ -50,6 +52,14 @@
 
 /** Define a NotificationCenter */
 #define QLNotificationCenter [NSNotificationCenter defaultCenter]
+
+
+//常量
+#define SelectedSchoolAndClass [NSString stringWithFormat:@"SelectedSchoolAndClass"]
+
+#define TOKEN [[UIDevice currentDevice].identifierForVendor UUIDString]
+
+
 
 static CGFloat QLCornerRadius = 5;
 static CGFloat QLBorderWidth = 0.5;
@@ -109,7 +119,7 @@ static NSInteger PasswordInputLengthMax = 16;//密码输入最大长度
 static NSString * const QLBaseUrlString = @"http://wg420884853.eicp.net/wg_cms";
 //static NSString * const QLBaseUrlString = @"http://192.168.100.171:8088/api/";
 //static NSString * const QLBaseUrlString = @"http://192.168.100.246/web/";
-static NSString * const QLBaseUrlString_Image = @"http://ichetest.image.alimmdn.com/";
+static NSString * const QLBaseUrlString_Image = @"http://wg420884853.eicp.net/mdlfs/";
 #else
 //static NSString * const QLBaseUrlString = @"http://192.168.100.165/web/";
 //static NSString * const QLBaseUrlString = @"http://192.168.100.121:8080/web/";
@@ -136,13 +146,16 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 #define classUpload_interface @"/app/GradeGroup/writeGradeGroup.action"
 //发布成长印记
 #define publishGrowYJ_interface @"/app/GradeGroup/writeGradeGroup.action"
-//商场首页
-#define storeHome_interface @"/app/ProductSmallType/readProductSmallType.action"
+
 //商城轮播图
 #define storeBanner_interface @"/app/Carousel/readCarousel.action"
+//商城首页小类
+#define storeSmallCalss_interface @"/app/ProductSmallType/readProductSmallType.action"
 //热门商品列表
 #define hotList_interface @"/app/Product/readProduct.action"
+
+
 //获取幼儿园
-#define getKinderData_interface @"app/NurserySchool/readNurserySchool.action"
+#define getKinderData_interface @"/app/NurserySchool/readNurserySchool.action"
 //获取班级
-#define getClassInfoFromKinder_interface @"app/Grade/readGrade.action"
+#define getClassInfoFromKinder_interface @"/app/Grade/readGrade.action"
