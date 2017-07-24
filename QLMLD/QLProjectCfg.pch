@@ -28,6 +28,8 @@
 
 #import "UIViewController+QLViewController.h"
 #import "IQKeyboardManager.h"
+#import "UIButton+WebCache.h"
+#import "UIImageView+WebCache.h"
 
 #import "GJSUtils.h"
 #import <AlipaySDK/AlipaySDK.h>
@@ -185,11 +187,9 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 
 /** 幼儿园 */
 //首页频道
-#define channelList_interface @"/app/Channel/destroyChannel.action"
-//查询
-#define channelQuery_interface @"/app/Channel/readChannel.action"
-//新增或修改
-#define channelAdd_interface @"/app/Channel/writeChannel.action"
+#define channelList_interface @"/app/AttentionChannel/readAttentionChannel.action"
+//新增
+#define channelAdd_interface @"/app/Channel/readChannel.action"
 //删除
 #define channelDelete_interface @"/app/Channel/destroyChannel.action"
 

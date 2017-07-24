@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="102" id="KGk-i7-Jjw" customClass="QLStoreCLassTableCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="adp-mL-EHm">
+                        <rect key="frame" x="15" y="21" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="9ym-ch-G2y"/>
+                            <constraint firstAttribute="width" secondItem="adp-mL-EHm" secondAttribute="height" multiplier="1:1" id="yJy-yd-hLl"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D22-rA-JS5">
+                        <rect key="frame" x="83" y="8" width="36" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTB-Qn-wHA">
+                        <rect key="frame" x="83" y="37" width="35" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJp-Uv-ayA">
+                        <rect key="frame" x="83" y="63" width="106" height="30"/>
+                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="QH1-0D-LgY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title=" 加入购物车 " image="cart_icon">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="PJp-Uv-ayA" firstAttribute="leading" secondItem="D22-rA-JS5" secondAttribute="leading" id="2Ui-Mg-aX5"/>
+                    <constraint firstItem="adp-mL-EHm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2mH-po-mOD"/>
+                    <constraint firstItem="gTB-Qn-wHA" firstAttribute="top" secondItem="D22-rA-JS5" secondAttribute="bottom" constant="12" id="NBi-Rt-0rd"/>
+                    <constraint firstItem="gTB-Qn-wHA" firstAttribute="leading" secondItem="D22-rA-JS5" secondAttribute="leading" id="S4E-zx-GNQ"/>
+                    <constraint firstAttribute="bottom" secondItem="PJp-Uv-ayA" secondAttribute="bottom" constant="8" id="WdR-dd-V1v"/>
+                    <constraint firstItem="D22-rA-JS5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="egj-gz-soS"/>
+                    <constraint firstItem="PJp-Uv-ayA" firstAttribute="top" secondItem="gTB-Qn-wHA" secondAttribute="bottom" constant="8" id="fs2-vD-vSy"/>
+                    <constraint firstItem="D22-rA-JS5" firstAttribute="leading" secondItem="adp-mL-EHm" secondAttribute="trailing" constant="8" id="rLb-ZM-RAU"/>
+                    <constraint firstItem="adp-mL-EHm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="y1N-hb-4lS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="39" y="182"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cart_icon" width="26" height="20"/>
+    </resources>
+</document>

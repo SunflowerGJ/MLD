@@ -7,8 +7,12 @@
 //
 
 #import "QLStoreClassifyVC.h"
-
-@interface QLStoreClassifyVC ()
+#import "QLStoreCLassTableCell.h"
+#import "QLStoreClassModel.h"
+@interface QLStoreClassifyVC ()<UITableViewDelegate,UITableViewDataSource>{
+    
+    __weak IBOutlet UITableView *_tableMain;
+}
 
 @end
 
@@ -28,14 +32,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+return 1;
 }
-*/
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataSource.count;
+}
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    QLStoreCLassTableCell *cell = [QLStoreCLassTableCell cellWithStoreClassTableView:tableView];
+    QLStoreClassModel *model = self.dataSource[indexPath.row];
+    [cell setCellDataWithStoreClassModel:model];
+    return cell;
+}
+
 
 @end

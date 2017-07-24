@@ -30,22 +30,6 @@
 
 @interface QLUserModel : NSObject
 
-//@property (nonatomic, copy) NSString *strAccount;
-//@property (nonatomic, copy) NSString *strCreatedate;
-//@property (nonatomic, copy) NSString *strEmail;
-//@property (nonatomic, copy) NSString *strHeadphoto;
-//@property (nonatomic, copy) NSString *strId;
-//@property (nonatomic, copy) NSString *strIsdel;
-//@property (nonatomic, copy) NSString *strIslock;
-//@property (nonatomic, copy) NSString *strLoginidcard;
-//@property (nonatomic, copy) NSString *strLoginName;
-//@property (nonatomic, copy) NSString *strMobilephone;
-//@property (nonatomic, copy) NSString *strName;
-//@property (nonatomic, copy) NSString *strOperatorremark;
-//@property (nonatomic, copy) NSString *strToken;
-//@property (nonatomic, copy) NSString *strUpdatepassworddate;
-//@property (nonatomic, copy) NSString *strUsertype;
-
 @property (nonatomic, assign) NSInteger school_id;
 @property (nonatomic, copy) NSString *active;
 @property (nonatomic, copy) NSString *school_name;

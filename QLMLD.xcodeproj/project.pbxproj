@@ -220,6 +220,9 @@
 		CC86EA311F0E1525008EF500 /* QLClassHomeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC86EA2F1F0E1525008EF500 /* QLClassHomeTableCell.m */; };
 		CC86EA321F0E1525008EF500 /* QLClassHomeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC86EA301F0E1525008EF500 /* QLClassHomeTableCell.xib */; };
 		CC86EA351F0E158C008EF500 /* QLClassHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC86EA341F0E158C008EF500 /* QLClassHomeDataModel.m */; };
+		CC8BED471F264CEB0023981E /* QLStoreCLassTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8BED451F264CEB0023981E /* QLStoreCLassTableCell.m */; };
+		CC8BED481F264CEB0023981E /* QLStoreCLassTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8BED461F264CEB0023981E /* QLStoreCLassTableCell.xib */; };
+		CC8BED4B1F264E960023981E /* QLStoreClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8BED4A1F264E960023981E /* QLStoreClassModel.m */; };
 		CC950D761F1B051700877CD6 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = CC950D541F1B051700877CD6 /* IQNSArray+Sort.m */; };
 		CC950D771F1B051700877CD6 /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC950D561F1B051700877CD6 /* IQUITextFieldView+Additions.m */; };
 		CC950D781F1B051700877CD6 /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC950D581F1B051700877CD6 /* IQUIView+Hierarchy.m */; };
@@ -778,6 +781,11 @@
 		CC86EA301F0E1525008EF500 /* QLClassHomeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLClassHomeTableCell.xib; sourceTree = "<group>"; };
 		CC86EA331F0E158C008EF500 /* QLClassHomeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLClassHomeDataModel.h; sourceTree = "<group>"; };
 		CC86EA341F0E158C008EF500 /* QLClassHomeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLClassHomeDataModel.m; sourceTree = "<group>"; };
+		CC8BED441F264CEB0023981E /* QLStoreCLassTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLStoreCLassTableCell.h; sourceTree = "<group>"; };
+		CC8BED451F264CEB0023981E /* QLStoreCLassTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLStoreCLassTableCell.m; sourceTree = "<group>"; };
+		CC8BED461F264CEB0023981E /* QLStoreCLassTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLStoreCLassTableCell.xib; sourceTree = "<group>"; };
+		CC8BED491F264E960023981E /* QLStoreClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLStoreClassModel.h; sourceTree = "<group>"; };
+		CC8BED4A1F264E960023981E /* QLStoreClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLStoreClassModel.m; sourceTree = "<group>"; };
 		CC950D531F1B051700877CD6 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
 		CC950D541F1B051700877CD6 /* IQNSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQNSArray+Sort.m"; sourceTree = "<group>"; };
 		CC950D551F1B051700877CD6 /* IQUITextFieldView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUITextFieldView+Additions.h"; sourceTree = "<group>"; };
@@ -1472,6 +1480,9 @@
 				CC18FAD61F16772F00D79F84 /* StoreGoodsCollectionCell.h */,
 				CC18FAD71F16772F00D79F84 /* StoreGoodsCollectionCell.m */,
 				CC18FAD81F16772F00D79F84 /* StoreGoodsCollectionCell.xib */,
+				CC8BED441F264CEB0023981E /* QLStoreCLassTableCell.h */,
+				CC8BED451F264CEB0023981E /* QLStoreCLassTableCell.m */,
+				CC8BED461F264CEB0023981E /* QLStoreCLassTableCell.xib */,
 			);
 			path = QLView;
 			sourceTree = "<group>";
@@ -1946,6 +1957,8 @@
 				CCBEB8151F1DFD5B00FF4981 /* ShoppingCartModel.m */,
 				CC18FAD31F16766600D79F84 /* QLGoodsModel.h */,
 				CC18FAD41F16766600D79F84 /* QLGoodsModel.m */,
+				CC8BED491F264E960023981E /* QLStoreClassModel.h */,
+				CC8BED4A1F264E960023981E /* QLStoreClassModel.m */,
 			);
 			path = QLModel;
 			sourceTree = "<group>";
@@ -2432,6 +2445,7 @@
 				CCBEB7E41F1DA33800FF4981 /* QLClassSelectedVC.xib in Resources */,
 				14C67C2E1C92764F0019F9E1 /* guide_1@2x.png in Resources */,
 				CC86EA321F0E1525008EF500 /* QLClassHomeTableCell.xib in Resources */,
+				CC8BED481F264CEB0023981E /* QLStoreCLassTableCell.xib in Resources */,
 				14C67C2C1C92764F0019F9E1 /* guide_1-667h@2x.png in Resources */,
 				CCF959D21F162EE20069DB2E /* 24.jpg in Resources */,
 				CCF959D61F162EE20069DB2E /* 28.jpg in Resources */,
@@ -2640,6 +2654,7 @@
 				CC64A0D71F08A7F80057801C /* QLKindergartenHome.m in Sources */,
 				CC2852AE1F25EF3C00B7AC99 /* DataSigner.m in Sources */,
 				CCF9598B1F1610860069DB2E /* UIScrollView+MJExtension.m in Sources */,
+				CC8BED4B1F264E960023981E /* QLStoreClassModel.m in Sources */,
 				CCC829281F23113700757097 /* ELCOverlayImageView.m in Sources */,
 				CCC829501F2348FA00757097 /* QLStoreClassifyVC.m in Sources */,
 				CCC8293C1F23215100757097 /* QLAboutUsVC.m in Sources */,
@@ -2649,6 +2664,7 @@
 				CCBEB7DE1F1DA31D00FF4981 /* QLKinderSelectedVC.m in Sources */,
 				CC64A0C81F08A79A0057801C /* QLStoreHome.m in Sources */,
 				14C67CFA1C92974D0019F9E1 /* ViewController+MASAdditions.m in Sources */,
+				CC8BED471F264CEB0023981E /* QLStoreCLassTableCell.m in Sources */,
 				CCB76FEF1F1BA3DC004589D8 /* UIImage+QLImage.m in Sources */,
 				14C67C9A1C9279B90019F9E1 /* QLNavigationController.m in Sources */,
 				142486F31C111C8D00592980 /* main.m in Sources */,

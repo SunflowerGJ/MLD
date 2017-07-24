@@ -48,6 +48,11 @@
     _tableMain.separatorColor = QLDividerColor;
     [self addTableViewRefresh];
     [_tableMain headerBeginRefreshing];
+    
+    NSString *head = [QLUserTool sharedUserTool].userModel.user_photo;
+    NSString *userHeadUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,head];
+    [_imgMark sd_setImageWithURL:[NSURL URLWithString:userHeadUrl] placeholderImage:nil];
+
 }
 
 #pragma button
@@ -167,7 +172,7 @@
 - (void)tableHeadLoad{
     _pageNum = 1;
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,class_interface];
-    NSDictionary *dicParam = @{@"pageNumber":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"pageSize":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
+    NSDictionary *dicParam = @{@"start":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"limit":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParam whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"班级圈信息：%@",responseObject);
         NSMutableArray *array = [NSMutableArray new];

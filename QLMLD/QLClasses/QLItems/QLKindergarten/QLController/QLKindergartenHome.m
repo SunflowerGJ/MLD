@@ -8,9 +8,11 @@
 
 #import "QLKindergartenHome.h"
 #import "QLKinderCollectionViewCell.h"
+#import "MJRefresh.h"
+#import "UIScrollView+KS.h"
 static NSString *kinderHeadIdentity = @"KinderHeader";
 
-@interface QLKindergartenHome ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource>{
+@interface QLKindergartenHome ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource,KSRefreshViewDelegate>{
     
     __weak IBOutlet UICollectionView *_collentionMain;
     
@@ -98,7 +100,50 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
     
     layout.estimatedItemSize = CGSizeMake(width, height);
     _collentionMain.collectionViewLayout = layout;
-    
+    [self addCollectionRefresh];
+}
+
+- (void)addCollectionRefresh{
+    [_collentionMain addHeaderWithTarget:self action:@selector(collectionViewHeadLoad)];
+    _collentionMain.footerKS = [[KSDefaultFootRefreshView alloc]  initWithDelegate:self];
+}
+- (void)collectionViewHeadLoad{
+    [self dataChannelRequest];
+
+}
+//上拉加载更多
+- (void)refreshViewDidLoading:(id)view
+{
+//    _pageNum++;
+//    NSString *strUrl = [NSString stringWithFormat:@"%@",QLBaseUrlString];
+//    NSDictionary *dicParam = @{@"currentPage":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"pageMaxResult":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
+//    [QLHttpTool postWithBaseUrl:strUrl Parameters:dicParam whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        if(self.dataSource){
+//            NSMutableArray *array = [NSMutableArray new];
+//            for (NSDictionary *dicData in [responseObject objectForKey:@"data"]) {
+//                CareProductsModel *careModel = [CareProductsModel mj_objectWithKeyValues:dicData];
+//                [array addObject:careModel];
+//            }
+//            [self.dataSource addObjectsFromArray:array];
+//        }else{
+//            NSMutableArray *array = [NSMutableArray new];
+//            for (NSDictionary *dicData in [responseObject objectForKey:@"data"]) {
+//                CareProductsModel *careModel = [CareProductsModel mj_objectWithKeyValues:dicData];
+//                [array addObject:careModel];
+//            }
+//            self.dataSource = [[NSMutableArray alloc] initWithArray:array];
+//        }
+//        [_collectionBlockShow reloadData];
+//        if([[responseObject objectForKey:@"data"] count]<_pageSize){
+//            [_collectionBlockShow.footerKS setIsLastPage:YES];
+//        }else{
+//            [_collectionBlockShow.footerKS setIsLastPage:NO];
+//        }
+//        //处理刷新控件
+//        [_collectionBlockShow.footerKS setState:RefreshViewStateDefault];
+//    } whenFailure:^() {
+//        [_collectionBlockShow headerEndRefreshing];
+//    }];
 }
 
 
@@ -150,9 +195,9 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
 }
 - (void)dataChannelRequest{
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,channelList_interface];
-    NSDictionary *dicParam = @{};
+//    NSDictionary *dicParam = @{};
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+        QLLog(@"频道： %@",responseObject);
     } whenFailure:^{
         
     }];

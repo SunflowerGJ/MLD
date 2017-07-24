@@ -45,7 +45,7 @@
 - (void)tableHeadLoad{
     _pageNum = 1;
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,getKinderData_interface];
-    NSDictionary *dicParam = @{@"pageNumber":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"pageSize":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
+    NSDictionary *dicParam = @{@"start":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"limit":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
     [QLHttpTool getWithBaseUrl:strBaseUrl Parameters:dicParam whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"kinder data: %@",responseObject);
         

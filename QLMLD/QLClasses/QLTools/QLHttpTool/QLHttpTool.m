@@ -112,65 +112,6 @@
              failure();
         }
         return ;
-        if ([responseObject isKindOfClass:[NSDictionary class]]) {
-            NSInteger errCode = [[responseObject objectForKey:@"err_code"] integerValue];
-            if (errCode>=0) {
-                success(operation, responseObject);
-            }else if (errCode == -3){
-                [QLHUDTool dissmis];
-                if([QLUserTool sharedUserTool].userModel.user_id){
-                    [[QLUserTool sharedUserTool] clearCurrentUserModel];
-                    //                    [[NSUserDefaults standardUserDefaults] setObject:LOGINISOWNER forKey:USERLOGINSTATE];
-                    //被踢下线,这里清除用户登录信息
-                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"当前账号在其他地方登录，被迫下线..." delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                    [alertView show];
-                }
-                failure();
-            }else if (errCode == -4){
-                [QLHUDTool dissmis];
-                if([QLUserTool sharedUserTool].userModel.user_id){
-                    [[QLUserTool sharedUserTool] clearCurrentUserModel];
-                    //                    [[NSUserDefaults standardUserDefaults] setObject:LOGINISOWNER forKey:USERLOGINSTATE];
-                    //被踢下线,这里清除用户登录信息
-                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"账号失效，如有问题请联系？？" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-                    [alertView show];
-                }
-                failure();
-            }else{
-                [QLHUDTool showErrorWithStatus:[responseObject objectForKey:@"err_msg"]];
-                QLLog(@"错误信息== %@",[responseObject objectForKey:@"err_msg"]);
-                failure();
-            }
-            /*
-             if([responseObject objectForKey:@"err_code"]&&[[responseObject objectForKey:@"err_code"] isEqualToString:@"ok"]){
-             //请求成功
-             success(operation, responseObject);
-             }else if([responseObject objectForKey:@"err_code"]&&[[responseObject objectForKey:@"err_code"] isEqualToString:@"cookie_fail"]){
-             [QLHUDTool dissmis];
-             if([QLUserTool sharedUserTool].userModel.strId){
-             //清除登录信息
-             //                    [GeTuiSdk unbindAlias:[QLUserTool sharedUserTool].userModel.tel];
-             [[QLUserTool sharedUserTool] clearCurrentUserModel];
-             [[NSUserDefaults standardUserDefaults] setObject:LOGINISOWNER forKey:USERLOGINSTATE];
-             //被踢下线,这里清除用户登录信息
-             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"当前账号在其他地方登录，被迫下线..." delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-             [alertView show];
-             }
-             failure();
-             }else{
-             if([responseObject objectForKey:@"err_code"]&&[[responseObject objectForKey:@"err_code"] isEqualToString:@"ng"]){
-             //请求错误(服务器错误)
-             [QLHUDTool showErrorWithStatus:[responseObject objectForKey:@"err_msg"]];
-             QLLog(@"错误信息== %@",[responseObject objectForKey:@"err_msg"]);
-             }
-             failure();
-             }
-             */
-        }else{
-            QLLog(@"返回数据类型问题");
-            [QLHUDTool showErrorWithStatus:@"请求失败,请稍后再试"];
-            failure();
-        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [QLHUDTool showErrorWithStatus:@"请求失败,请稍后再试"];
         failure();

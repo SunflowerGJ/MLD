@@ -33,6 +33,7 @@ static const NSUInteger totalTime = 120;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES];
     [self loadDefaultSetting];
 }
 
@@ -87,6 +88,9 @@ static const NSUInteger totalTime = 120;
         [QLHUDTool showAlertMessage:@"验证码发送失败"];
     }];
    
+}
+//确定
+- (IBAction)btnEnsure:(id)sender {
 }
 
 - (void)updateTimeWaiting {
