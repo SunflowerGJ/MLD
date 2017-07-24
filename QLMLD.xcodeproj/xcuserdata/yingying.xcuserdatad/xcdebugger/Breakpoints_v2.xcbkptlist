@@ -73,13 +73,13 @@
                   symbolName = "-[QLRegisterFinisheInfoVC btnApply:]"
                   moduleName = "QLMLD"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLRegisterFinisheInfoVC.m"
-                  timestampString = "522515693.657798"
+                  urlString = "file:///Users/yingying/Documents/My_Work/MLL/new%20project/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLRegisterFinisheInfoVC.m"
+                  timestampString = "522581188.962628"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "185"
                   endingLineNumber = "185"
-                  offsetFromSymbolStart = "2479">
+                  offsetFromSymbolStart = "2552">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -88,13 +88,13 @@
                   symbolName = "__36-[QLRegisterFinisheInfoVC btnApply:]_block_invoke"
                   moduleName = "QLMLD"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLRegisterFinisheInfoVC.m"
-                  timestampString = "522515693.659845"
+                  urlString = "file:///Users/yingying/Documents/My_Work/MLL/new%20project/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLController/QLRegister/QLRegisterFinisheInfoVC.m"
+                  timestampString = "522581188.964082"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "186"
                   endingLineNumber = "186"
-                  offsetFromSymbolStart = "83">
+                  offsetFromSymbolStart = "96">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -153,13 +153,13 @@
                   symbolName = "+[QLUserTool loginWithUser:pwd:whenSuccess:whenFailure:]"
                   moduleName = "QLMLD"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLModel/QLUserTool.m"
-                  timestampString = "522515693.674656"
+                  urlString = "file:///Users/yingying/Documents/My_Work/MLL/new%20project/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLModel/QLUserTool.m"
+                  timestampString = "522581188.971354"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "51"
                   endingLineNumber = "51"
-                  offsetFromSymbolStart = "575">
+                  offsetFromSymbolStart = "560">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -168,13 +168,13 @@
                   symbolName = "__56+[QLUserTool loginWithUser:pwd:whenSuccess:whenFailure:]_block_invoke"
                   moduleName = "QLMLD"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yingying/Documents/work/MDL/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLModel/QLUserTool.m"
-                  timestampString = "522515693.676881"
+                  urlString = "file:///Users/yingying/Documents/My_Work/MLL/new%20project/MLD/QLMLD/QLClasses/QLItems/ItemLogin/QLModel/QLUserTool.m"
+                  timestampString = "522581188.972753"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "51"
                   endingLineNumber = "51"
-                  offsetFromSymbolStart = "19">
+                  offsetFromSymbolStart = "24">
                </Location>
             </Locations>
          </BreakpointContent>

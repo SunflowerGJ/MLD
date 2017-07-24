@@ -148,4 +148,13 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
     QLLog(@"add ");
 //    _muArrayData addObject:<#(nonnull id)#>
 }
+- (void)dataChannelRequest{
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,channelList_interface];
+    NSDictionary *dicParam = @{};
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+    } whenFailure:^{
+        
+    }];
+}
 @end

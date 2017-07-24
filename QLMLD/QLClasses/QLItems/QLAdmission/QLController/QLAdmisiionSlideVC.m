@@ -8,7 +8,10 @@
 
 #import "QLAdmisiionSlideVC.h"
 
-@interface QLAdmisiionSlideVC ()
+@interface QLAdmisiionSlideVC (){
+    
+    __weak IBOutlet UIVisualEffectView *_viewEffect;
+}
 
 @end
 
@@ -16,9 +19,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self test];
 }
-
+- (void)test{
+    if ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0f) {
+        
+        UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        [_viewEffect setEffect:blur];
+            _viewEffect.alpha = 0.5;
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

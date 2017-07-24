@@ -28,6 +28,15 @@
 
 #import "UIViewController+QLViewController.h"
 #import "IQKeyboardManager.h"
+
+#import "GJSUtils.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import "WechatPayManager.h"
+#import "GJSPay.h"
+#import "GlobalVariable.h"
+#import "ProductForAlipay.h"
+#import "ProductForWXpay.h"
+#import "OrderForUnionPay.h"
 /** QLDEBUG Print | M:method, L:line, C:content*/
 #ifndef QLLog
 #ifdef DEBUG
@@ -128,8 +137,13 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 #endif
 
 //根据ID查询系统消息
+/** 公共类 */
 //文件上传
 #define fileUpload_interface @"/baseServlet/fileUpload"
+//微信支付
+#define payWeiXin_interface @""
+
+/** 注册、登录 账号管理*/
 //登录
 #define userLogin_interface @"/app/User/appLogin.action"
 //注册
@@ -140,12 +154,27 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 #define foundPwd_interface @"/app/User/resetPassword.action"
 //修改密码
 #define alterPwd_interface @"/app/AttentionChannel/writeAttentionChannel.action"
+//获取幼儿园
+#define getKinderData_interface @"app/NurserySchool/readNurserySchool.action"
+//获取班级
+#define getClassInfoFromKinder_interface @"app/Grade/readGrade.action"
+
+/** 班级圈 */
 //班级圈接口
 #define class_interface @"/app/GradeGroup/readGradeGroup.action"
 //上传班级圈信息
 #define classUpload_interface @"/app/GradeGroup/writeGradeGroup.action"
+
+/** 成长印记 */
 //发布成长印记
 #define publishGrowYJ_interface @"/app/GradeGroup/writeGradeGroup.action"
+//首页
+#define growHome_interface @"/app/GroupSign/readGroupSign.action"
+/** 商城 */
+//商场首页
+#define storeHomeType_interface @"/app/ProductSmallType/readProductSmallType.action"
+//热门商品
+#define storeHotGoods_interface @"/app/GradeGroup/writeGradeGroup.action"
 
 //商城轮播图
 #define storeBanner_interface @"/app/Carousel/readCarousel.action"
@@ -154,8 +183,13 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 //热门商品列表
 #define hotList_interface @"/app/Product/readProduct.action"
 
+/** 幼儿园 */
+//首页频道
+#define channelList_interface @"/app/Channel/destroyChannel.action"
+//查询
+#define channelQuery_interface @"/app/Channel/readChannel.action"
+//新增或修改
+#define channelAdd_interface @"/app/Channel/writeChannel.action"
+//删除
+#define channelDelete_interface @"/app/Channel/destroyChannel.action"
 
-//获取幼儿园
-#define getKinderData_interface @"/app/NurserySchool/readNurserySchool.action"
-//获取班级
-#define getClassInfoFromKinder_interface @"/app/Grade/readGrade.action"
