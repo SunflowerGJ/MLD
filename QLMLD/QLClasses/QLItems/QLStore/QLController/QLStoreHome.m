@@ -259,12 +259,16 @@ static NSString *headerViewIdentifier = @"hederview";
 {
     if ([collectionView isEqual:_collectionGoods]) {
         [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-        QLGoodsModel *model = self.dataSource[indexPath.row];
-        [self dataDetailRequestWithGoodID:model.strID];
+        
+        QLGoodDetailVC *detailVC = [[QLGoodDetailVC alloc]init];
+        [[QLHttpTool getCurrentVC].navigationController pushViewController:detailVC animated:YES];
+        
+//        QLGoodsModel *model = self.dataSource[indexPath.row];
+//        [self dataDetailRequestWithGoodID:model.strID];
     }else{
         QLStoreClassifyVC *classifyVC = [[QLStoreClassifyVC alloc]init];
-        QLStoreSmallTypeModel *model = _muArraySmallType[indexPath.row];
-        classifyVC.strSmallTypeID = model.strID;
+//        QLStoreSmallTypeModel *model = _muArraySmallType[indexPath.row];
+//        classifyVC.strSmallTypeID = model.strID;
         [[QLHttpTool getCurrentVC].navigationController pushViewController:classifyVC animated:YES];
     }
     

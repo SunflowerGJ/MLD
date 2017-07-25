@@ -1,15 +1,15 @@
 
 //
-//  ShoppingCartTableCell.m
+//  StoreCartTableCell.m
 //  technician
 //
 //  Created by syy on 2016/12/14.
 //  Copyright © 2016年 cn.forp.app. All rights reserved.
 //
 
-#import "ShoppingCartTableCell.h"
+#import "StoreCartTableCell.h"
 #define maxNum 90
-@interface ShoppingCartTableCell(){
+@interface StoreCartTableCell(){
     __weak IBOutlet UIView *_viewBGCountNum;
     __weak IBOutlet UITextField *_textFieldCountNum;
     __weak IBOutlet UIView *_viewBgEdit;
@@ -24,13 +24,13 @@
 }
 @end
 
-@implementation ShoppingCartTableCell
+@implementation StoreCartTableCell
 + (instancetype)cellWithShoppingCartTableView:(UITableView *)tableView{
-    static NSString *GroupedTableIdentifier = @"ShoppingCartTableCell";
-    ShoppingCartTableCell *cell = [tableView dequeueReusableCellWithIdentifier:
+    static NSString *GroupedTableIdentifier = @"StoreCartTableCell";
+    StoreCartTableCell *cell = [tableView dequeueReusableCellWithIdentifier:
                               GroupedTableIdentifier];
     if (cell == nil) {
-        UINib *nib = [UINib nibWithNibName:NSStringFromClass([ShoppingCartTableCell class]) bundle:nil];
+        UINib *nib = [UINib nibWithNibName:NSStringFromClass([StoreCartTableCell class]) bundle:nil];
         [tableView registerNib:nib forCellReuseIdentifier:GroupedTableIdentifier];
         cell = [tableView dequeueReusableCellWithIdentifier:
                 GroupedTableIdentifier];
@@ -53,8 +53,8 @@
     [_textFieldCountNum setInputAccessoryView:toolBar];
     
     _textFieldCountNum.text = model.cartCount;
-    _labelPrice.text = [NSString stringWithFormat:@"￥%@",model.cartPrice];
-    _labelTitle.text = model.cartName;
+//    _labelPrice.text = [NSString stringWithFormat:@"￥%@",model.cartPrice];
+//    _labelTitle.text = model.cartName;
     
 }
 - (void)doneAction{
@@ -146,6 +146,9 @@
     if (self.blockClickMarkButton) {
         self.blockClickMarkButton(_cartModel,_indexPath);
     }
+}
+//删除
+- (IBAction)btnDelete:(id)sender {
 }
 
 @end
