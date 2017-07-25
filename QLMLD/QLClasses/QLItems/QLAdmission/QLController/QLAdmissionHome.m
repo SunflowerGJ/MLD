@@ -10,6 +10,7 @@
 #import "QLShareVC.h"
 #import "QLAdmissionDetailVC.h"
 #import "QLAdmisiionSlideVC.h"
+#import "QLAdmissionHomeDataModel.h"
 @interface QLAdmissionHome (){
     
     QLAdmisiionSlideVC *slideVC;
@@ -21,7 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self dataRequest];
     [self loadDefaultSetting];
+    
 }
 - (void)loadDefaultSetting {
     _viewICarousel.delegate = self;
@@ -66,7 +69,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+#pragma mark - data request 
+- (void)dataRequest {
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,admissionHomeData_interface];
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+    } whenFailure:^{
+        
+    }];
+}
 #pragma mark -
 
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel

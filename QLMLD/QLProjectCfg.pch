@@ -155,11 +155,11 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 //找回密码
 #define foundPwd_interface @"/app/User/resetPassword.action"
 //修改密码
-#define alterPwd_interface @"/app/AttentionChannel/writeAttentionChannel.action"
+#define alterPwd_interface @""
 //获取幼儿园
-#define getKinderData_interface @"app/NurserySchool/readNurserySchool.action"
+#define getKinderData_interface @"/app/NurserySchool/readNurserySchool.action"
 //获取班级
-#define getClassInfoFromKinder_interface @"app/Grade/readGrade.action"
+#define getClassInfoFromKinder_interface @"/app/Grade/readGrade.action"
 
 /** 班级圈 */
 //班级圈接口
@@ -169,9 +169,12 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 
 /** 成长印记 */
 //发布成长印记
-#define publishGrowYJ_interface @"/app/GradeGroup/writeGradeGroup.action"
+#define admissionPublish_interface @"/app/GradeGroup/writeGradeGroup.action"
 //首页
-#define growHome_interface @"/app/GroupSign/readGroupSign.action"
+#define admissionHomeData_interface @"/app/GroupSign/readGroupSign.action"
+//删除
+#define admissionDelete_interface @"/app/GroupSign/destroyGroupSign.action"
+
 /** 商城 */
 //商场首页
 #define storeHomeType_interface @"/app/ProductSmallType/readProductSmallType.action"
@@ -182,14 +185,25 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 #define storeBanner_interface @"/app/Carousel/readCarousel.action"
 //商城首页小类
 #define storeSmallCalss_interface @"/app/ProductSmallType/readProductSmallType.action"
+//商品大类
+#define productBigClass_interface @"/app/ProductBigType/readProductBigType.action"
 //热门商品列表
 #define hotList_interface @"/app/Product/readProduct.action"
+//商品详情
+#define goodsDetail_interface @""
 
 /** 幼儿园 */
-//首页频道
+//首页频道(已关注的)
 #define channelList_interface @"/app/AttentionChannel/readAttentionChannel.action"
-//新增
-#define channelAdd_interface @"/app/Channel/readChannel.action"
+//首页的+
+#define channelAdd_interface @"/app/AttentionChannel/writeAttentionChannel.action"
 //删除
 #define channelDelete_interface @"/app/Channel/destroyChannel.action"
+//查询channelOrder列表
+#define queryChannel_interface @"/app/ChannelOrder/readChannelOrder.action"
 
+/** 消息 */
+//给指定的单个用户发消息
+#define sendPerMessage_interface @"/app/AppMessage/sendMessageToList.action"
+//给当前应用下的所有用户发消息
+#define sendMessageToAll_interface @"/app/AppMessage/sendMessageToList.action"

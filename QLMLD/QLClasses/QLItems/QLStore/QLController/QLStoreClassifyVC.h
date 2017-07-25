@@ -10,4 +10,5 @@
 
 @interface QLStoreClassifyVC : QLViewController
 @property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) NSString *strSmallTypeID;
 @end

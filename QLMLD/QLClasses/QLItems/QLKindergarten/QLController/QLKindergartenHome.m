@@ -30,8 +30,15 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
     [super viewDidLoad];
     [self loadDefaultSetting];
 }
+- (void)clickRight {
+    [self dataChannelRequest];
+}
 - (void)loadDefaultSetting {
     self.leftBtn.hidden = YES;
+    
+    self.rightBtn.hidden = NO;
+    self.rightBtn.frame = CGRectMake(QLScreenWidth-40, 28, 30, 30);
+    [self.rightBtn setTitle:@"刷新" forState:UIControlStateNormal];
 //    NSMutableAttributedString* allClass = [[NSMutableAttributedString alloc] initWithString:@"所有班级\n(园长)  \n通讯录(家长、教师)"];
 //
     NSArray *allClassNames = @[@"所有班级",@"(园长)",@" ",@"通讯录",@"(家长、教师)"];

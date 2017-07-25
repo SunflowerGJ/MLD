@@ -217,6 +217,14 @@
 		CC76C01D1F1E64FD00D686D1 /* QLAddressManageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC76C01B1F1E64FD00D686D1 /* QLAddressManageCell.m */; };
 		CC76C01E1F1E64FD00D686D1 /* QLAddressManageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC76C01C1F1E64FD00D686D1 /* QLAddressManageCell.xib */; };
 		CC76C0221F1E67BE00D686D1 /* QLAddressManageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC76C0211F1E67BE00D686D1 /* QLAddressManageModel.m */; };
+		CC7D383D1F2719320007AD6C /* QLStoreSmallTypeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7D383B1F2719320007AD6C /* QLStoreSmallTypeCell.m */; };
+		CC7D383E1F2719320007AD6C /* QLStoreSmallTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC7D383C1F2719320007AD6C /* QLStoreSmallTypeCell.xib */; };
+		CC7D38411F271A1D0007AD6C /* QLStoreSmallTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7D38401F271A1D0007AD6C /* QLStoreSmallTypeModel.m */; };
+		CC7D38451F2727930007AD6C /* QLClassPersonCircleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7D38431F2727930007AD6C /* QLClassPersonCircleVC.m */; };
+		CC7D38461F2727930007AD6C /* QLClassPersonCircleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC7D38441F2727930007AD6C /* QLClassPersonCircleVC.xib */; };
+		CC7D384A1F272FC30007AD6C /* QLAdmissionPublishVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7D38481F272FC30007AD6C /* QLAdmissionPublishVC.m */; };
+		CC7D384B1F272FC30007AD6C /* QLAdmissionPublishVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC7D38491F272FC30007AD6C /* QLAdmissionPublishVC.xib */; };
+		CC7D384E1F2731D40007AD6C /* QLAdmissionHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7D384D1F2731D40007AD6C /* QLAdmissionHomeDataModel.m */; };
 		CC86EA311F0E1525008EF500 /* QLClassHomeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC86EA2F1F0E1525008EF500 /* QLClassHomeTableCell.m */; };
 		CC86EA321F0E1525008EF500 /* QLClassHomeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC86EA301F0E1525008EF500 /* QLClassHomeTableCell.xib */; };
 		CC86EA351F0E158C008EF500 /* QLClassHomeDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC86EA341F0E158C008EF500 /* QLClassHomeDataModel.m */; };
@@ -775,6 +783,19 @@
 		CC76C01C1F1E64FD00D686D1 /* QLAddressManageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLAddressManageCell.xib; sourceTree = "<group>"; };
 		CC76C0201F1E67BE00D686D1 /* QLAddressManageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLAddressManageModel.h; sourceTree = "<group>"; };
 		CC76C0211F1E67BE00D686D1 /* QLAddressManageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLAddressManageModel.m; sourceTree = "<group>"; };
+		CC7D383A1F2719320007AD6C /* QLStoreSmallTypeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLStoreSmallTypeCell.h; sourceTree = "<group>"; };
+		CC7D383B1F2719320007AD6C /* QLStoreSmallTypeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLStoreSmallTypeCell.m; sourceTree = "<group>"; };
+		CC7D383C1F2719320007AD6C /* QLStoreSmallTypeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLStoreSmallTypeCell.xib; sourceTree = "<group>"; };
+		CC7D383F1F271A1D0007AD6C /* QLStoreSmallTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLStoreSmallTypeModel.h; sourceTree = "<group>"; };
+		CC7D38401F271A1D0007AD6C /* QLStoreSmallTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLStoreSmallTypeModel.m; sourceTree = "<group>"; };
+		CC7D38421F2727930007AD6C /* QLClassPersonCircleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLClassPersonCircleVC.h; sourceTree = "<group>"; };
+		CC7D38431F2727930007AD6C /* QLClassPersonCircleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLClassPersonCircleVC.m; sourceTree = "<group>"; };
+		CC7D38441F2727930007AD6C /* QLClassPersonCircleVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLClassPersonCircleVC.xib; sourceTree = "<group>"; };
+		CC7D38471F272FC30007AD6C /* QLAdmissionPublishVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLAdmissionPublishVC.h; sourceTree = "<group>"; };
+		CC7D38481F272FC30007AD6C /* QLAdmissionPublishVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLAdmissionPublishVC.m; sourceTree = "<group>"; };
+		CC7D38491F272FC30007AD6C /* QLAdmissionPublishVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLAdmissionPublishVC.xib; sourceTree = "<group>"; };
+		CC7D384C1F2731D40007AD6C /* QLAdmissionHomeDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QLAdmissionHomeDataModel.h; path = QLMLD/QLClasses/QLItems/QLAdmission/QLController/QLAdmissionHomeDataModel.h; sourceTree = SOURCE_ROOT; };
+		CC7D384D1F2731D40007AD6C /* QLAdmissionHomeDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QLAdmissionHomeDataModel.m; path = QLMLD/QLClasses/QLItems/QLAdmission/QLController/QLAdmissionHomeDataModel.m; sourceTree = SOURCE_ROOT; };
 		CC86EA2E1F0E1525008EF500 /* QLClassHomeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLClassHomeTableCell.h; sourceTree = "<group>"; };
 		CC86EA2F1F0E1525008EF500 /* QLClassHomeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLClassHomeTableCell.m; sourceTree = "<group>"; };
 		CC86EA301F0E1525008EF500 /* QLClassHomeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLClassHomeTableCell.xib; sourceTree = "<group>"; };
@@ -1483,6 +1504,9 @@
 				CC8BED441F264CEB0023981E /* QLStoreCLassTableCell.h */,
 				CC8BED451F264CEB0023981E /* QLStoreCLassTableCell.m */,
 				CC8BED461F264CEB0023981E /* QLStoreCLassTableCell.xib */,
+				CC7D383A1F2719320007AD6C /* QLStoreSmallTypeCell.h */,
+				CC7D383B1F2719320007AD6C /* QLStoreSmallTypeCell.m */,
+				CC7D383C1F2719320007AD6C /* QLStoreSmallTypeCell.xib */,
 			);
 			path = QLView;
 			sourceTree = "<group>";
@@ -1959,6 +1983,8 @@
 				CC18FAD41F16766600D79F84 /* QLGoodsModel.m */,
 				CC8BED491F264E960023981E /* QLStoreClassModel.h */,
 				CC8BED4A1F264E960023981E /* QLStoreClassModel.m */,
+				CC7D383F1F271A1D0007AD6C /* QLStoreSmallTypeModel.h */,
+				CC7D38401F271A1D0007AD6C /* QLStoreSmallTypeModel.m */,
 			);
 			path = QLModel;
 			sourceTree = "<group>";
@@ -2016,6 +2042,8 @@
 		CC64A0C11F08A7420057801C /* QLModel */ = {
 			isa = PBXGroup;
 			children = (
+				CC7D384C1F2731D40007AD6C /* QLAdmissionHomeDataModel.h */,
+				CC7D384D1F2731D40007AD6C /* QLAdmissionHomeDataModel.m */,
 			);
 			path = QLModel;
 			sourceTree = "<group>";
@@ -2035,6 +2063,9 @@
 				CC160E251F2494DE0045CD8C /* QLAdmisiionSlideVC.h */,
 				CC160E261F2494DE0045CD8C /* QLAdmisiionSlideVC.m */,
 				CC160E271F2494DE0045CD8C /* QLAdmisiionSlideVC.xib */,
+				CC7D38471F272FC30007AD6C /* QLAdmissionPublishVC.h */,
+				CC7D38481F272FC30007AD6C /* QLAdmissionPublishVC.m */,
+				CC7D38491F272FC30007AD6C /* QLAdmissionPublishVC.xib */,
 			);
 			path = QLController;
 			sourceTree = "<group>";
@@ -2048,6 +2079,9 @@
 				CCC828FE1F2307E800757097 /* QLClassUploadImageVC.h */,
 				CCC828FF1F2307E800757097 /* QLClassUploadImageVC.m */,
 				CCC829001F2307E800757097 /* QLClassUploadImageVC.xib */,
+				CC7D38421F2727930007AD6C /* QLClassPersonCircleVC.h */,
+				CC7D38431F2727930007AD6C /* QLClassPersonCircleVC.m */,
+				CC7D38441F2727930007AD6C /* QLClassPersonCircleVC.xib */,
 			);
 			path = QLController;
 			sourceTree = "<group>";
@@ -2343,7 +2377,8 @@
 				TargetAttributes = {
 					142486ED1C111C8D00592980 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = 4R734X2JY2;
+						DevelopmentTeam = 9E2EJNAGJ9;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -2370,6 +2405,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC7D383E1F2719320007AD6C /* QLStoreSmallTypeCell.xib in Resources */,
 				CC2852CF1F25EF3C00B7AC99 /* README.txt in Resources */,
 				14C67CC81C92968F0019F9E1 /* QLRegisterViewController.xib in Resources */,
 				CCF959D01F162EE20069DB2E /* 22.jpg in Resources */,
@@ -2417,6 +2453,7 @@
 				CCF959C51F162EE20069DB2E /* 12.jpg in Resources */,
 				14C67C311C92764F0019F9E1 /* guide_2-736h@3x.png in Resources */,
 				CCC829381F2320AD00757097 /* QLSchoolInfoVC.xib in Resources */,
+				CC7D38461F2727930007AD6C /* QLClassPersonCircleVC.xib in Resources */,
 				CC160E0E1F24886C0045CD8C /* QLOrderDetailVC.xib in Resources */,
 				CC2852A51F25EF3C00B7AC99 /* AlipaySDK.bundle in Resources */,
 				CCF959DA1F162EE20069DB2E /* 5.jpg in Resources */,
@@ -2457,6 +2494,7 @@
 				CCF959C61F162EE20069DB2E /* 13.jpg in Resources */,
 				14475EB81C96684800CB11CB /* 1.jpg in Resources */,
 				CC2852D91F25F14000B7AC99 /* QLOrderPaymentVC.xib in Resources */,
+				CC7D384B1F272FC30007AD6C /* QLAdmissionPublishVC.xib in Resources */,
 				CCF959DB1F162EE20069DB2E /* 6.jpg in Resources */,
 				CCF959C71F162EE20069DB2E /* 14.jpg in Resources */,
 				CC4B56C21F15243900F53E90 /* QLRegisterFinisheInfoVC.xib in Resources */,
@@ -2489,6 +2527,7 @@
 				14C67CF21C92974D0019F9E1 /* MASConstraint.m in Sources */,
 				CCF9598A1F1610860069DB2E /* MJRefreshHeaderView.m in Sources */,
 				CCF9599A1F1611240069DB2E /* KSDefaultFootRefreshView.m in Sources */,
+				CC7D38411F271A1D0007AD6C /* QLStoreSmallTypeModel.m in Sources */,
 				CC4384761F13BA3D003692B4 /* MJPropertyKey.m in Sources */,
 				CC64A0CD1F08A7C20057801C /* QLAdmissionHome.m in Sources */,
 				CCC829061F23089200757097 /* YZInputView.m in Sources */,
@@ -2549,7 +2588,9 @@
 				CC160E161F248A6B0045CD8C /* QLOrderListModel.m in Sources */,
 				CC160E121F2489A70045CD8C /* QLOrderTableCell.m in Sources */,
 				CC2852D01F25EF3C00B7AC99 /* ApiXml.mm in Sources */,
+				CC7D384A1F272FC30007AD6C /* QLAdmissionPublishVC.m in Sources */,
 				CC2852AD1F25EF3C00B7AC99 /* base64.m in Sources */,
+				CC7D38451F2727930007AD6C /* QLClassPersonCircleVC.m in Sources */,
 				14475EDF1C96691C00CB11CB /* SDWebImageManager.m in Sources */,
 				CCF959871F1610860069DB2E /* MJRefreshBaseView.m in Sources */,
 				CC2852AC1F25EF3C00B7AC99 /* Order.m in Sources */,
@@ -2571,6 +2612,7 @@
 				CC2852BA1F25EF3C00B7AC99 /* GJSPayWXpay.m in Sources */,
 				CC4384731F13BA3D003692B4 /* MJExtensionConst.m in Sources */,
 				CC160E281F2494DE0045CD8C /* QLAdmisiionSlideVC.m in Sources */,
+				CC7D383D1F2719320007AD6C /* QLStoreSmallTypeCell.m in Sources */,
 				CC18FAD91F16772F00D79F84 /* StoreGoodsCollectionCell.m in Sources */,
 				CC950D7B1F1B051700877CD6 /* IQKeyboardManager.m in Sources */,
 				14475EE61C96691C00CB11CB /* UIView+WebCacheOperation.m in Sources */,
@@ -2665,6 +2707,7 @@
 				CC64A0C81F08A79A0057801C /* QLStoreHome.m in Sources */,
 				14C67CFA1C92974D0019F9E1 /* ViewController+MASAdditions.m in Sources */,
 				CC8BED471F264CEB0023981E /* QLStoreCLassTableCell.m in Sources */,
+				CC7D384E1F2731D40007AD6C /* QLAdmissionHomeDataModel.m in Sources */,
 				CCB76FEF1F1BA3DC004589D8 /* UIImage+QLImage.m in Sources */,
 				14C67C9A1C9279B90019F9E1 /* QLNavigationController.m in Sources */,
 				142486F31C111C8D00592980 /* main.m in Sources */,
@@ -2791,7 +2834,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4R734X2JY2;
+				DEVELOPMENT_TEAM = 9E2EJNAGJ9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2810,8 +2853,10 @@
 					"$(PROJECT_DIR)/QLMLD/QLClasses/QLLibs/payment/UnionPaySDK/UPPayPlugin/libs",
 					"$(PROJECT_DIR)/QLMLD/QLClasses/QLLibs/payment/WXpaySDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xingdie.meiLeDuo;
 				PRODUCT_NAME = QLMLD;
+				PROVISIONING_PROFILE = "7d9b5fcc-5822-4e97-ada2-312672617b37";
+				PROVISIONING_PROFILE_SPECIFIER = meiLeDuo_dev;
 			};
 			name = Debug;
 		};
@@ -2820,7 +2865,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 4R734X2JY2;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 9E2EJNAGJ9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2839,8 +2885,10 @@
 					"$(PROJECT_DIR)/QLMLD/QLClasses/QLLibs/payment/UnionPaySDK/UPPayPlugin/libs",
 					"$(PROJECT_DIR)/QLMLD/QLClasses/QLLibs/payment/WXpaySDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.xingdie.meiLeDuo;
 				PRODUCT_NAME = QLMLD;
+				PROVISIONING_PROFILE = "431d563b-4c55-4932-ade9-f95127272360";
+				PROVISIONING_PROFILE_SPECIFIER = meiLeDuo_dis;
 			};
 			name = Release;
 		};

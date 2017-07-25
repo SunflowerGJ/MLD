@@ -61,7 +61,7 @@
 }
 - (void)selectedSchoolAndClass:(NSNotification *)notification {
     QLLog(@"nn %@",notification.object);
-    NSDictionary *dic = notification.object;
+   NSDictionary *dic = notification.object;
     _schoolModel = dic[@"school"];
     _classModel = dic[@"class"];
     _tfSchoolClassInfo.text = [NSString stringWithFormat:@"%@  %@",_schoolModel.school_name,_classModel.grade_name];

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="QLStoreSmallTypeCell">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qrk-pc-Nws">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llo-9e-3AG">
+                                <rect key="frame" x="7.5" y="16.5" width="35.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="llo-9e-3AG" firstAttribute="centerX" secondItem="qrk-pc-Nws" secondAttribute="centerX" id="Xj9-WU-I0z"/>
+                            <constraint firstItem="llo-9e-3AG" firstAttribute="centerY" secondItem="qrk-pc-Nws" secondAttribute="centerY" id="k2K-6j-5Kx"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="qrk-pc-Nws" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="4ZT-uR-7oK"/>
+                <constraint firstAttribute="trailing" secondItem="qrk-pc-Nws" secondAttribute="trailing" id="H9l-Oj-2rr"/>
+                <constraint firstAttribute="bottom" secondItem="qrk-pc-Nws" secondAttribute="bottom" id="mYZ-TH-ClA"/>
+                <constraint firstItem="qrk-pc-Nws" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="oo6-T0-PS6"/>
+            </constraints>
+            <size key="customSize" width="56" height="64"/>
+            <connections>
+                <outlet property="_lblName" destination="llo-9e-3AG" id="Hde-Iq-vbE"/>
+                <outlet property="_viewBG" destination="qrk-pc-Nws" id="8BE-8a-623"/>
+            </connections>
+            <point key="canvasLocation" x="36" y="72"/>
+        </collectionViewCell>
+    </objects>
+</document>
