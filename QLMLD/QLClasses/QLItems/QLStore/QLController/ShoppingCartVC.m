@@ -7,7 +7,7 @@
 //
 
 #import "ShoppingCartVC.h"
-#import "ShoppingCartTableCell.h"
+#import "StoreCartTableCell.h"
 #import "MJRefresh.h"
 #import "UIScrollView+KS.h"
 #import "ShoppingCartModel.h"
@@ -46,11 +46,11 @@
 - (void)loadDefaultSetting{
     self.title = @"购物车";
     self.rightBtn.hidden = NO;
-    self.rightBtn.frame= CGRectMake(QLScreenWidth-70, 28, 60, 30);
-    self.rightBtn.tintColor = QLYellowColor;
-    [self.rightBtn.titleLabel setFont:[UIFont systemFontOfSize:15]];
-    [self.rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
+//    self.rightBtn.frame= CGRectMake(QLScreenWidth-70, 28, 60, 30);
+//    self.rightBtn.tintColor = QLYellowColor;
+//    [self.rightBtn.titleLabel setFont:[UIFont systemFontOfSize:15]];
+//    [self.rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//    [self.rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
     _tableMain.estimatedRowHeight = 80;
     _currentStatus = YES;
     _selectedNormalAllStatus = NO;
@@ -177,10 +177,11 @@
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataSource.count;
+//    return self.dataSource.count;
+    return 5;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ShoppingCartTableCell *cell = [ShoppingCartTableCell cellWithShoppingCartTableView:tableView];
+    StoreCartTableCell *cell = [StoreCartTableCell cellWithShoppingCartTableView:tableView];
     ShoppingCartModel *model = self.dataSource[indexPath.row];
     [cell setCellDataWithModel:model indexPath:indexPath];
     
@@ -220,7 +221,7 @@
 //cell 选中
 - (void)cellButtonSelected:(ShoppingCartModel *)model indexPath:(NSIndexPath *)path{
     
-    ShoppingCartTableCell *cell = [_tableMain cellForRowAtIndexPath:path];
+    StoreCartTableCell *cell = [_tableMain cellForRowAtIndexPath:path];
     if (!_currentStatus) {
         if(_dicSelectedEdit[model.strID]){
             //取消选中状态

@@ -165,6 +165,10 @@
 		CC2852D41F25EFC100B7AC99 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2852D31F25EFC100B7AC99 /* CoreMotion.framework */; };
 		CC2852D81F25F14000B7AC99 /* QLOrderPaymentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2852D61F25F14000B7AC99 /* QLOrderPaymentVC.m */; };
 		CC2852D91F25F14000B7AC99 /* QLOrderPaymentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC2852D71F25F14000B7AC99 /* QLOrderPaymentVC.xib */; };
+		CC3260631F2797C900081BD7 /* ico_make.png in Resources */ = {isa = PBXBuildFile; fileRef = CC3260601F2797C900081BD7 /* ico_make.png */; };
+		CC3260641F2797C900081BD7 /* JSDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3260621F2797C900081BD7 /* JSDropDownMenu.m */; };
+		CC3260681F279D0800081BD7 /* StoreCartTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3260661F279D0800081BD7 /* StoreCartTableCell.m */; };
+		CC3260691F279D0800081BD7 /* StoreCartTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC3260671F279D0800081BD7 /* StoreCartTableCell.xib */; };
 		CC3589EE1F0D329A003FD0B7 /* QLMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3589EC1F0D329A003FD0B7 /* QLMineViewController.m */; };
 		CC3589EF1F0D329A003FD0B7 /* QLMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC3589ED1F0D329A003FD0B7 /* QLMineViewController.xib */; };
 		CC3589F41F0D39C5003FD0B7 /* QLMineHomeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC3589F21F0D39C5003FD0B7 /* QLMineHomeTableCell.m */; };
@@ -254,8 +258,6 @@
 		CCBEB7EA1F1DA51800FF4981 /* QLClassDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBEB7E91F1DA51800FF4981 /* QLClassDataModel.m */; };
 		CCBEB80D1F1DFCE300FF4981 /* ShoppingCartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBEB80B1F1DFCE300FF4981 /* ShoppingCartVC.m */; };
 		CCBEB80E1F1DFCE300FF4981 /* ShoppingCartVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCBEB80C1F1DFCE300FF4981 /* ShoppingCartVC.xib */; };
-		CCBEB8121F1DFD1900FF4981 /* ShoppingCartTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBEB8101F1DFD1900FF4981 /* ShoppingCartTableCell.m */; };
-		CCBEB8131F1DFD1900FF4981 /* ShoppingCartTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCBEB8111F1DFD1900FF4981 /* ShoppingCartTableCell.xib */; };
 		CCBEB8161F1DFD5B00FF4981 /* ShoppingCartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBEB8151F1DFD5B00FF4981 /* ShoppingCartModel.m */; };
 		CCC829011F2307E800757097 /* QLClassUploadImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC828FF1F2307E800757097 /* QLClassUploadImageVC.m */; };
 		CCC829021F2307E800757097 /* QLClassUploadImageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCC829001F2307E800757097 /* QLClassUploadImageVC.xib */; };
@@ -697,6 +699,12 @@
 		CC2852D51F25F14000B7AC99 /* QLOrderPaymentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLOrderPaymentVC.h; sourceTree = "<group>"; };
 		CC2852D61F25F14000B7AC99 /* QLOrderPaymentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLOrderPaymentVC.m; sourceTree = "<group>"; };
 		CC2852D71F25F14000B7AC99 /* QLOrderPaymentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLOrderPaymentVC.xib; sourceTree = "<group>"; };
+		CC3260601F2797C900081BD7 /* ico_make.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ico_make.png; sourceTree = "<group>"; };
+		CC3260611F2797C900081BD7 /* JSDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSDropDownMenu.h; sourceTree = "<group>"; };
+		CC3260621F2797C900081BD7 /* JSDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSDropDownMenu.m; sourceTree = "<group>"; };
+		CC3260651F279D0800081BD7 /* StoreCartTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCartTableCell.h; sourceTree = "<group>"; };
+		CC3260661F279D0800081BD7 /* StoreCartTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCartTableCell.m; sourceTree = "<group>"; };
+		CC3260671F279D0800081BD7 /* StoreCartTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreCartTableCell.xib; sourceTree = "<group>"; };
 		CC3589EB1F0D329A003FD0B7 /* QLMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLMineViewController.h; sourceTree = "<group>"; };
 		CC3589EC1F0D329A003FD0B7 /* QLMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLMineViewController.m; sourceTree = "<group>"; };
 		CC3589ED1F0D329A003FD0B7 /* QLMineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLMineViewController.xib; sourceTree = "<group>"; };
@@ -852,9 +860,6 @@
 		CCBEB80A1F1DFCE300FF4981 /* ShoppingCartVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartVC.h; sourceTree = "<group>"; };
 		CCBEB80B1F1DFCE300FF4981 /* ShoppingCartVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartVC.m; sourceTree = "<group>"; };
 		CCBEB80C1F1DFCE300FF4981 /* ShoppingCartVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingCartVC.xib; sourceTree = "<group>"; };
-		CCBEB80F1F1DFD1900FF4981 /* ShoppingCartTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartTableCell.h; sourceTree = "<group>"; };
-		CCBEB8101F1DFD1900FF4981 /* ShoppingCartTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartTableCell.m; sourceTree = "<group>"; };
-		CCBEB8111F1DFD1900FF4981 /* ShoppingCartTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingCartTableCell.xib; sourceTree = "<group>"; };
 		CCBEB8141F1DFD5B00FF4981 /* ShoppingCartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingCartModel.h; sourceTree = "<group>"; };
 		CCBEB8151F1DFD5B00FF4981 /* ShoppingCartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingCartModel.m; sourceTree = "<group>"; };
 		CCC828FE1F2307E800757097 /* QLClassUploadImageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLClassUploadImageVC.h; sourceTree = "<group>"; };
@@ -1067,6 +1072,7 @@
 		1424870A1C1121A200592980 /* QLLibs */ = {
 			isa = PBXGroup;
 			children = (
+				CC32605F1F2797C900081BD7 /* JSDropDownMenu */,
 				CC2851ED1F25EF3C00B7AC99 /* payment */,
 				CCC8290A1F23113700757097 /* ELCImagePicker */,
 				CCC829031F23089200757097 /* InputView */,
@@ -1495,9 +1501,9 @@
 		CC18FACD1F16752100D79F84 /* QLView */ = {
 			isa = PBXGroup;
 			children = (
-				CCBEB80F1F1DFD1900FF4981 /* ShoppingCartTableCell.h */,
-				CCBEB8101F1DFD1900FF4981 /* ShoppingCartTableCell.m */,
-				CCBEB8111F1DFD1900FF4981 /* ShoppingCartTableCell.xib */,
+				CC3260651F279D0800081BD7 /* StoreCartTableCell.h */,
+				CC3260661F279D0800081BD7 /* StoreCartTableCell.m */,
+				CC3260671F279D0800081BD7 /* StoreCartTableCell.xib */,
 				CC18FAD61F16772F00D79F84 /* StoreGoodsCollectionCell.h */,
 				CC18FAD71F16772F00D79F84 /* StoreGoodsCollectionCell.m */,
 				CC18FAD81F16772F00D79F84 /* StoreGoodsCollectionCell.xib */,
@@ -1797,6 +1803,16 @@
 				CC2852A41F25EF3C00B7AC99 /* WXUtil.mm */,
 			);
 			path = WXPay;
+			sourceTree = "<group>";
+		};
+		CC32605F1F2797C900081BD7 /* JSDropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CC3260601F2797C900081BD7 /* ico_make.png */,
+				CC3260611F2797C900081BD7 /* JSDropDownMenu.h */,
+				CC3260621F2797C900081BD7 /* JSDropDownMenu.m */,
+			);
+			path = JSDropDownMenu;
 			sourceTree = "<group>";
 		};
 		CC3589F01F0D3998003FD0B7 /* QLView */ = {
@@ -2453,6 +2469,7 @@
 				CCF959C51F162EE20069DB2E /* 12.jpg in Resources */,
 				14C67C311C92764F0019F9E1 /* guide_2-736h@3x.png in Resources */,
 				CCC829381F2320AD00757097 /* QLSchoolInfoVC.xib in Resources */,
+				CC3260631F2797C900081BD7 /* ico_make.png in Resources */,
 				CC7D38461F2727930007AD6C /* QLClassPersonCircleVC.xib in Resources */,
 				CC160E0E1F24886C0045CD8C /* QLOrderDetailVC.xib in Resources */,
 				CC2852A51F25EF3C00B7AC99 /* AlipaySDK.bundle in Resources */,
@@ -2472,6 +2489,7 @@
 				CCC829511F2348FA00757097 /* QLStoreClassifyVC.xib in Resources */,
 				CC18FAAC1F165B5A00D79F84 /* QLKinderCollectionViewCell.xib in Resources */,
 				CCF959C21F162EE20069DB2E /* 1.jpg in Resources */,
+				CC3260691F279D0800081BD7 /* StoreCartTableCell.xib in Resources */,
 				CC160E241F2493660045CD8C /* QLAdmissionHomeTableCell.xib in Resources */,
 				14475EB01C96564400CB11CB /* QLForgetPWDViewController.xib in Resources */,
 				14C67C351C92764F0019F9E1 /* guide_3-736h@3x.png in Resources */,
@@ -2510,7 +2528,6 @@
 				CCF959C91F162EE20069DB2E /* 16.jpg in Resources */,
 				CCF959861F1610860069DB2E /* MJRefresh.bundle in Resources */,
 				14C67C8F1C9279600019F9E1 /* SVProgressHUD.bundle in Resources */,
-				CCBEB8131F1DFD1900FF4981 /* ShoppingCartTableCell.xib in Resources */,
 				CCC8292C1F23113700757097 /* Overlay.png in Resources */,
 				CCF959CE1F162EE20069DB2E /* 20.jpg in Resources */,
 			);
@@ -2541,6 +2558,7 @@
 				14C67CF11C92974D0019F9E1 /* MASCompositeConstraint.m in Sources */,
 				CC950D761F1B051700877CD6 /* IQNSArray+Sort.m in Sources */,
 				CC76C0131F1E63A300D686D1 /* QLTakeGoodsAddressVC.m in Sources */,
+				CC3260641F2797C900081BD7 /* JSDropDownMenu.m in Sources */,
 				CC86EA311F0E1525008EF500 /* QLClassHomeTableCell.m in Sources */,
 				CC2852C31F25EF3C00B7AC99 /* WechatPayManager.m in Sources */,
 				CCF959731F160E380069DB2E /* QLUserInfoVC.m in Sources */,
@@ -2664,6 +2682,7 @@
 				CC950D7F1F1B051700877CD6 /* IQBarButtonItem.m in Sources */,
 				CC950D7C1F1B051700877CD6 /* IQKeyboardReturnKeyHandler.m in Sources */,
 				14475EDD1C96691C00CB11CB /* SDWebImageDownloader.m in Sources */,
+				CC3260681F279D0800081BD7 /* StoreCartTableCell.m in Sources */,
 				CC4B56C11F15243900F53E90 /* QLRegisterFinisheInfoVC.m in Sources */,
 				CC2852B51F25EF3C00B7AC99 /* CommonUtil.m in Sources */,
 				CCF959651F15B2030069DB2E /* README.md in Sources */,
@@ -2691,7 +2710,6 @@
 				CC2852D11F25EF3C00B7AC99 /* payRequsestHandler.mm in Sources */,
 				14C67CC21C92968F0019F9E1 /* QLGuideViewController.m in Sources */,
 				CC2852B61F25EF3C00B7AC99 /* CompilerForC++.mm in Sources */,
-				CCBEB8121F1DFD1900FF4981 /* ShoppingCartTableCell.m in Sources */,
 				14475EE21C96691C00CB11CB /* UIImage+GIF.m in Sources */,
 				CC64A0D71F08A7F80057801C /* QLKindergartenHome.m in Sources */,
 				CC2852AE1F25EF3C00B7AC99 /* DataSigner.m in Sources */,

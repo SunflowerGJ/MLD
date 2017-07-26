@@ -8,7 +8,15 @@
 
 #import "QLGoodDetailVC.h"
 
-@interface QLGoodDetailVC ()
+@interface QLGoodDetailVC (){
+    __weak IBOutlet UIView *_viewBGCountNum;
+    __weak IBOutlet UIView *_viewBgEdit;
+
+    __weak IBOutlet UIWebView *_webDetial;
+    __weak IBOutlet UILabel *_lblCollectionStatus;
+    __weak IBOutlet UIImageView *_imgCollectionStatus;
+    __weak IBOutlet UITextField *_tfCount;
+}
 
 @end
 
@@ -20,20 +28,26 @@
 }
 - (void)loadDefaultSetting {
     self.title = @"商品详情";
+      [_viewBGCountNum setBorder:1 borderColor:QLDividerColor];
+    [_viewBgEdit setCornerRadius:QLButtonRadius border:1 borderColor:QLDividerColor];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark -
+- (IBAction)btnCollection:(id)sender {
 }
-*/
+- (IBAction)btnMinus:(id)sender {
+}
+- (IBAction)btnPlus:(id)sender {
+}
+- (IBAction)btnGoodsDetail:(id)sender {
+}
+//参数
+- (IBAction)btnArgument:(id)sender {
+}
 
 @end

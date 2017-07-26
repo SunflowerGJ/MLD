@@ -1,5 +1,5 @@
 //
-//  ShoppingCartTableCell.h
+//  StoreCartTableCell.h
 //  technician
 //
 //  Created by syy on 2016/12/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ShoppingCartModel.h"
-@interface ShoppingCartTableCell : UITableViewCell
+@interface StoreCartTableCell : UITableViewCell
 @property (nonatomic,copy) void (^blockShoppingSubtraction)();
 @property (nonatomic,copy) void (^blockShoppingPlus)();
 @property (nonatomic,copy) void (^blockShoppingEditCountNum)(NSInteger num);
