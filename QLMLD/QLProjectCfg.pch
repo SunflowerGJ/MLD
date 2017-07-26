@@ -79,10 +79,10 @@ static CGFloat QLBorderWidth = 0.5;
 
 #endif /* QLProjectCfg_pch */
 
-//正式
-#define kGtAppId @"vHzCiQUFjp7ArJlrQQu5s7"
-#define kGtAppKey @"dkpFThnVg28F9KfRzIOJv4"
-#define kGtAppSecret @"GKhQppqCuF9iHH7UYvuCU2"
+//dev
+#define kGtAppId @"PpnbLefkOM7081kXKwm6i8"
+#define kGtAppKey @"RzwzDNABhb7vZkttq4vjv5"
+#define kGtAppSecret @"zEYspcgF2b87pHvZB64ZS9"
 #define KGtSeriNum @"mld"
 
 
