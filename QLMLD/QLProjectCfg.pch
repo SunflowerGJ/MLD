@@ -97,6 +97,8 @@ static NSInteger PasswordInputLengthMax = 16;//密码输入最大长度
 #define QLBackGroundColor QLColorFromHex(0xF4F4F4)
 //全局主色调(黄色)
 #define QLYellowColor QLColorFromHex(0xffcc33)
+//浅黄色
+#define QLLightYellowColor QLColorFromHex(0xFFFFCD)
 //辅助色
 #define QLAssistColor QLColorFromHex(0xcc9933)
 //分割线颜色(灰色)
@@ -114,6 +116,8 @@ static NSInteger PasswordInputLengthMax = 16;//密码输入最大长度
 //绿色
 #define QLColorGreen QLColorFromHex(0x5ecb85)
 
+/** 字体 */
+#define QLFontNormal [UIFont systemFontOfSize:14.0]
 
 #pragma mark - 接口 owner
 /** 接口 */

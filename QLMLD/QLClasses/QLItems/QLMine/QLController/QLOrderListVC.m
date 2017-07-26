@@ -33,7 +33,7 @@
     [self loadDefaultSetting];
 }
 - (void)loadDefaultSetting {
-    self.title = @"订单列表";
+    self.title = @"订单管理";
     _pageSize = 10;
     _tableMain.estimatedRowHeight = 100;
     _tableMain.tableFooterView = [UIView new];
@@ -147,21 +147,113 @@
     
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 3;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 6;
+    return 2;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     QLOrderTableCell *cell = [QLOrderTableCell cellWithOrderListTableView:tableView];
-    QLOrderListModel *model = self.dataSource[indexPath.row];
+//    QLOrderListModel *model = self.dataSource[indexPath.row];
 //    [cell setCellDataWithDataModel:model];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    QLOrderListModel *model = self.dataSource[indexPath.row];
+//    QLOrderListModel *model = self.dataSource[indexPath.row];
     [self detailInfoRequestWithOrderId:nil];
 }
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *vw=[[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 44)];
+    vw.backgroundColor=[UIColor whiteColor];
+    
+    UILabel *tip=[[UILabel alloc] init];
+    [vw addSubview:tip];
+    [tip mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leftMargin.equalTo(vw).offset(15);
+        make.centerY.equalTo(vw);
+    }];
+    tip.font=QLFontNormal;
+    tip.textColor = QLFontDarkColor;
+    tip.text = @"订单编号：";
+    
+    UILabel *status = [[UILabel alloc]init];
+    [vw addSubview:status];
+    [status mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.rightMargin.equalTo(vw).offset(-15);
+        make.width.equalTo(@60);
+        make.centerY.equalTo(vw);
+    }];
+    status.text = @"代付款";
+    status.textColor = QLYellowColor;
+    
+    UILabel *orderNum = [[UILabel alloc] init];
+    [vw addSubview:orderNum];
+    [orderNum mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leadingMargin.equalTo(orderNum).offset(15);
+        make.rightMargin.equalTo(status).offset(-15);
+        make.centerY.equalTo(vw);
+    }];
+    orderNum.textColor = QLFontShallowColor;
+    orderNum.font=QLFontNormal;
+    
+   
+    
+    UILabel *line = [[UILabel alloc]init];
+    [vw addSubview:line];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottomMargin.equalTo(vw).offset(0.5);
+        make.width.equalTo(@(tableView.frame.size.width));
+        make.height.equalTo(@0.5);
+    }];
+    line.backgroundColor = QLDividerColor;
+    
+        return vw;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView *vw=[[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40)];
+    vw.backgroundColor=[UIColor whiteColor];
+    
+    UILabel *tip = [[UILabel alloc]init];
+    [vw addSubview:tip];
+    [tip mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leadingMargin.equalTo(vw).offset(15);
+        make.centerY.equalTo(vw);
+    }];
+    tip.text = @"合计：";
+    tip.font = QLFontNormal;
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [vw addSubview:button];
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.rightMargin.equalTo(vw).offset(-15);
+        make.width.equalTo(@50);
+        make.height.equalTo(@26);
+        make.centerY.equalTo(vw);
+    }];
+    [button setTitle:@"支付" forState:UIControlStateNormal];
+    [button setTintColor:QLYellowColor];
+    [button setBorder:.5 borderColor:QLYellowColor];
+    
+    UILabel *total = [[UILabel alloc]init];
+    [vw addSubview:total];
+    [total mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leftMargin.equalTo(tip).offset(15);
+        make.centerY.equalTo(vw);
+    }];
+    total.textColor = QLFontDarkColor;
+    total.text = @"￥200";
+    total.font = QLFontNormal;
+    return vw;
+
+}
+    
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 44;
+}
+- ( CGFloat )tableView:( UITableView *)tableView heightForFooterInSection:( NSInteger )section{
+    return 40 ;
+}
+
 - (void)detailInfoRequestWithOrderId:(NSString *)orderID{
     NSString *strUrl = [NSString stringWithFormat:@"%@",QLBaseUrlString];
     [QLHttpTool postWithBaseUrl:strUrl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
