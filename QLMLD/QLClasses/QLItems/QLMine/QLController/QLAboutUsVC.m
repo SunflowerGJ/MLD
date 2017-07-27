@@ -20,6 +20,14 @@
 }
 - (void)loadDefaultSetting {
     self.title = @"关于我们";
+    
+    NSString *versionInfo = [NSString stringWithFormat:@"Copyright ©2016 \n fahuola.cn All Rights Reserved."];
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    // app名称
+    NSString *app_Name = [NSString stringWithFormat:@"关于%@",[infoDictionary objectForKey:@"CFBundleDisplayName"]];
+    // app版本
+    NSString *app_Version = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *name = [NSString stringWithFormat:@"%@  V%@",app_Name,app_Version];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

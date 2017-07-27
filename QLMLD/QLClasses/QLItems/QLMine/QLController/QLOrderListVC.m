@@ -255,6 +255,9 @@
 }
 
 - (void)detailInfoRequestWithOrderId:(NSString *)orderID{
+    QLOrderDetailVC *detailVC = [[QLOrderDetailVC alloc]init];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:detailVC animated:YES];
+    
     NSString *strUrl = [NSString stringWithFormat:@"%@",QLBaseUrlString];
     [QLHttpTool postWithBaseUrl:strUrl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         

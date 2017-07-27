@@ -8,7 +8,10 @@
 
 #import "QLSchoolInfoVC.h"
 
-@interface QLSchoolInfoVC ()
+@interface QLSchoolInfoVC (){
+    
+    __weak IBOutlet UITextView *_textViewInfo;
+}
 
 @end
 

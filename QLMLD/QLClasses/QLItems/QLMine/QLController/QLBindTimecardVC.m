@@ -8,7 +8,11 @@
 
 #import "QLBindTimecardVC.h"
 
-@interface QLBindTimecardVC ()
+@interface QLBindTimecardVC (){
+
+    __weak IBOutlet UITextField *_tfCardNum;
+    __weak IBOutlet UIButton *_btnBind;
+}
 
 @end
 
@@ -20,20 +24,30 @@
 }
 - (void)loadDefaultSetting {
     self.title = @"绑定考勤卡";
+    [_btnBind setCornerRadius:QLCornerRadius];
+    BOOL isBind = YES;
+    if (isBind) {
+        _tfCardNum.text = @"ddd";
+        _tfCardNum.userInteractionEnabled = NO;
+    }else{
+        _btnBind.hidden = YES;
+         _tfCardNum.userInteractionEnabled = YES;
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - btn
+- (IBAction)btnBind:(id)sender {
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString];
+    NSDictionary *dicParam = @{};
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParam whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+    } whenFailure:^{
+        
+    }];
 }
-*/
 
 @end

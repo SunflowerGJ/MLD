@@ -1,0 +1,13 @@
+//
+//  QLChannelListDataModel.h
+//  QLMLD
+//
+//  Created by syy on 2017/7/27.
+//  Copyright © 2017年 Shreker. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface QLChannelListDataModel : NSObject
+
+@end

@@ -10,6 +10,7 @@
 #import "QLKinderCollectionViewCell.h"
 #import "MJRefresh.h"
 #import "UIScrollView+KS.h"
+#import "QLChannelListVC.h"
 static NSString *kinderHeadIdentity = @"KinderHeader";
 
 @interface QLKindergartenHome ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource,KSRefreshViewDelegate>{
@@ -185,6 +186,9 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     if (indexPath.row == _muArrayData.count-1) {
         [self addItem];
+    }else{
+        QLChannelListVC *listVC = [[QLChannelListVC alloc]init];
+        [[QLHttpTool getCurrentVC].navigationController pushViewController:listVC animated:YES];
     }
     
 }

@@ -334,6 +334,12 @@
 		CCF959DC1F162EE20069DB2E /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCF959BE1F162EE20069DB2E /* 7.jpg */; };
 		CCF959DD1F162EE20069DB2E /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCF959BF1F162EE20069DB2E /* 8.jpg */; };
 		CCF959DE1F162EE20069DB2E /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CCF959C01F162EE20069DB2E /* 9.jpg */; };
+		CCFC62FB1F29C0A00068742C /* QLCollectionManageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC62F91F29C0A00068742C /* QLCollectionManageVC.m */; };
+		CCFC62FC1F29C0A00068742C /* QLCollectionManageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFC62FA1F29C0A00068742C /* QLCollectionManageVC.xib */; };
+		CCFC630A1F29DF3E0068742C /* QLCollectionDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC63091F29DF3E0068742C /* QLCollectionDataModel.m */; };
+		CCFC630E1F29E0FC0068742C /* QLChannelListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC630C1F29E0FC0068742C /* QLChannelListVC.m */; };
+		CCFC630F1F29E0FC0068742C /* QLChannelListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFC630D1F29E0FC0068742C /* QLChannelListVC.xib */; };
+		CCFC63121F29E2140068742C /* QLChannelListDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC63111F29E2140068742C /* QLChannelListDataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -971,6 +977,16 @@
 		CCF959BE1F162EE20069DB2E /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
 		CCF959BF1F162EE20069DB2E /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
 		CCF959C01F162EE20069DB2E /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
+		CCFC62F81F29C0A00068742C /* QLCollectionManageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLCollectionManageVC.h; sourceTree = "<group>"; };
+		CCFC62F91F29C0A00068742C /* QLCollectionManageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLCollectionManageVC.m; sourceTree = "<group>"; };
+		CCFC62FA1F29C0A00068742C /* QLCollectionManageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLCollectionManageVC.xib; sourceTree = "<group>"; };
+		CCFC63081F29DF3E0068742C /* QLCollectionDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLCollectionDataModel.h; sourceTree = "<group>"; };
+		CCFC63091F29DF3E0068742C /* QLCollectionDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLCollectionDataModel.m; sourceTree = "<group>"; };
+		CCFC630B1F29E0FC0068742C /* QLChannelListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChannelListVC.h; sourceTree = "<group>"; };
+		CCFC630C1F29E0FC0068742C /* QLChannelListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChannelListVC.m; sourceTree = "<group>"; };
+		CCFC630D1F29E0FC0068742C /* QLChannelListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLChannelListVC.xib; sourceTree = "<group>"; };
+		CCFC63101F29E2140068742C /* QLChannelListDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChannelListDataModel.h; sourceTree = "<group>"; };
+		CCFC63111F29E2140068742C /* QLChannelListDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChannelListDataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1986,6 +2002,9 @@
 				CCC829391F23215100757097 /* QLAboutUsVC.h */,
 				CCC8293A1F23215100757097 /* QLAboutUsVC.m */,
 				CCC8293B1F23215100757097 /* QLAboutUsVC.xib */,
+				CCFC62F81F29C0A00068742C /* QLCollectionManageVC.h */,
+				CCFC62F91F29C0A00068742C /* QLCollectionManageVC.m */,
+				CCFC62FA1F29C0A00068742C /* QLCollectionManageVC.xib */,
 			);
 			path = QLController;
 			sourceTree = "<group>";
@@ -2044,6 +2063,9 @@
 				CC64A0D41F08A7F80057801C /* QLKindergartenHome.h */,
 				CC64A0D51F08A7F80057801C /* QLKindergartenHome.m */,
 				CC64A0D61F08A7F80057801C /* QLKindergartenHome.xib */,
+				CCFC630B1F29E0FC0068742C /* QLChannelListVC.h */,
+				CCFC630C1F29E0FC0068742C /* QLChannelListVC.m */,
+				CCFC630D1F29E0FC0068742C /* QLChannelListVC.xib */,
 			);
 			path = QLController;
 			sourceTree = "<group>";
@@ -2051,6 +2073,8 @@
 		CC64A0C01F08A7100057801C /* QLModel */ = {
 			isa = PBXGroup;
 			children = (
+				CCFC63101F29E2140068742C /* QLChannelListDataModel.h */,
+				CCFC63111F29E2140068742C /* QLChannelListDataModel.m */,
 			);
 			path = QLModel;
 			sourceTree = "<group>";
@@ -2111,6 +2135,8 @@
 				CC160E151F248A6B0045CD8C /* QLOrderListModel.m */,
 				CC160E171F248BFE0045CD8C /* QLOrderDetailModel.h */,
 				CC160E181F248BFE0045CD8C /* QLOrderDetailModel.m */,
+				CCFC63081F29DF3E0068742C /* QLCollectionDataModel.h */,
+				CCFC63091F29DF3E0068742C /* QLCollectionDataModel.m */,
 			);
 			path = QLModel;
 			sourceTree = "<group>";
@@ -2443,6 +2469,7 @@
 				CCBEB7DF1F1DA31D00FF4981 /* QLKinderSelectedVC.xib in Resources */,
 				14C67C361C92764F0019F9E1 /* guide_3@2x.png in Resources */,
 				147AB89F1C9812FF007CAA0D /* controllers.plist in Resources */,
+				CCFC62FC1F29C0A00068742C /* QLCollectionManageVC.xib in Resources */,
 				CCF959CF1F162EE20069DB2E /* 21.jpg in Resources */,
 				CCC8294C1F232F4400757097 /* QLShareVC.xib in Resources */,
 				CC160E291F2494DE0045CD8C /* QLAdmisiionSlideVC.xib in Resources */,
@@ -2501,6 +2528,7 @@
 				14C67C2E1C92764F0019F9E1 /* guide_1@2x.png in Resources */,
 				CC86EA321F0E1525008EF500 /* QLClassHomeTableCell.xib in Resources */,
 				CC8BED481F264CEB0023981E /* QLStoreCLassTableCell.xib in Resources */,
+				CCFC630F1F29E0FC0068742C /* QLChannelListVC.xib in Resources */,
 				14C67C2C1C92764F0019F9E1 /* guide_1-667h@2x.png in Resources */,
 				CCF959D21F162EE20069DB2E /* 24.jpg in Resources */,
 				CCF959D61F162EE20069DB2E /* 28.jpg in Resources */,
@@ -2578,6 +2606,7 @@
 				CC160E1D1F2492070045CD8C /* QLAdmissionDetailVC.m in Sources */,
 				14C67CF91C92974D0019F9E1 /* View+MASAdditions.m in Sources */,
 				CC2852C41F25EF3C00B7AC99 /* XMLReader.m in Sources */,
+				CCFC62FB1F29C0A00068742C /* QLCollectionManageVC.m in Sources */,
 				CC2852BD1F25EF3C00B7AC99 /* OrderForAlipay.m in Sources */,
 				CC18FACC1F16687500D79F84 /* Tools.m in Sources */,
 				14C67CF31C92974D0019F9E1 /* MASConstraintMaker.m in Sources */,
@@ -2611,12 +2640,14 @@
 				CC7D38451F2727930007AD6C /* QLClassPersonCircleVC.m in Sources */,
 				14475EDF1C96691C00CB11CB /* SDWebImageManager.m in Sources */,
 				CCF959871F1610860069DB2E /* MJRefreshBaseView.m in Sources */,
+				CCFC63121F29E2140068742C /* QLChannelListDataModel.m in Sources */,
 				CC2852AC1F25EF3C00B7AC99 /* Order.m in Sources */,
 				CCC829461F2322B400757097 /* QLGoodDetailVC.m in Sources */,
 				CCC829371F2320AD00757097 /* QLSchoolInfoVC.m in Sources */,
 				CCBEB8161F1DFD5B00FF4981 /* ShoppingCartModel.m in Sources */,
 				CC2852D21F25EF3C00B7AC99 /* WXUtil.mm in Sources */,
 				CC160E0D1F24886C0045CD8C /* QLOrderDetailVC.m in Sources */,
+				CCFC630A1F29DF3E0068742C /* QLCollectionDataModel.m in Sources */,
 				147AB8A51C981398007CAA0D /* QLBannerView.m in Sources */,
 				14475EE31C96691C00CB11CB /* UIImage+MultiFormat.m in Sources */,
 				CC950D781F1B051700877CD6 /* IQUIView+Hierarchy.m in Sources */,
@@ -2677,6 +2708,7 @@
 				14CDE37D1C929E9200DD857E /* QLLoginViewController.m in Sources */,
 				CC2852B71F25EF3C00B7AC99 /* GJSPay.m in Sources */,
 				CC2852C71F25EF3C00B7AC99 /* WXApiManager.m in Sources */,
+				CCFC630E1F29E0FC0068742C /* QLChannelListVC.m in Sources */,
 				CC2852C21F25EF3C00B7AC99 /* TestWechatPay.m in Sources */,
 				CC2852C81F25EF3C00B7AC99 /* WXApiRequestHandler.m in Sources */,
 				CC950D7F1F1B051700877CD6 /* IQBarButtonItem.m in Sources */,
