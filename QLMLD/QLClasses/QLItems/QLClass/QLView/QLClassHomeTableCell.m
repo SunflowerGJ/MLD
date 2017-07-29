@@ -97,10 +97,9 @@
 }
 //删除
 - (IBAction)btnDelete:(id)sender {
+    
 }
-//评论
-- (IBAction)btnComm:(id)sender {
-}
+
 //赞
 - (IBAction)btnPraise:(id)sender {
 }

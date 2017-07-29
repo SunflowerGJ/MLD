@@ -11,4 +11,7 @@
 @interface QLClassHomeTableCell : UITableViewCell
 + (instancetype)cellWithClassHomeTableView:(UITableView *)tableView;
 - (void)setCellDataWithDataModel:(QLClassHomeDataModel *)model;
+@property (nonatomic,copy) void (^blockDelete)();
+@property (nonatomic,copy) void (^blockPraise)();
+
 @end

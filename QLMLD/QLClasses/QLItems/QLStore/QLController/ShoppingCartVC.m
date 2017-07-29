@@ -30,6 +30,7 @@
     
     NSInteger _pageSize;
     NSInteger _pageNum;
+    NSMutableDictionary *_dicSelected;
 }
 
 @end
@@ -62,6 +63,7 @@
     if (!_dicSelectedEdit) {
         _dicSelectedEdit = [NSMutableDictionary new];
     }
+   
     [self addTableViewRefresh];
 }
 -(void)tableViewHeaderRefreshBegin{
@@ -248,6 +250,13 @@
     }
     #pragma mark - 一旦取消一个则全选UnSelected
     [self calculatePrice];
+}
+- (void)refreshStatus{
+    if (_dicSelected.allValues.count==0) {
+        [_btnSettlement setBackgroundColor:QLDividerColor];
+    }else{
+        [_btnSettlement setBackgroundColor:QLYellowColor];
+    }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ShoppingCartModel *model = self.dataSource[indexPath.row];

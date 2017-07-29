@@ -7,6 +7,17 @@
 //
 
 #import "QLOrderTableCell.h"
+@interface QLOrderTableCell(){
+    
+    __weak IBOutlet UIImageView *_imgLogo;
+    __weak IBOutlet UILabel *_lblTitle;
+    
+    __weak IBOutlet UILabel *_lblPrice;
+    
+    __weak IBOutlet UILabel *_lblNum;
+    
+}
+@end
 
 @implementation QLOrderTableCell
 + (instancetype)cellWithOrderListTableView:(UITableView *)tableView{

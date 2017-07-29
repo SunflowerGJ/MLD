@@ -8,6 +8,7 @@
 
 #import "QLRegisterFinisheInfoVC.h"
 #import "QLKinderSelectedVC.h"
+#import "QLMainViewController.h"
 @interface QLRegisterFinisheInfoVC ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
 
     __weak IBOutlet UIButton *_btnApply;
@@ -47,6 +48,7 @@
         _layoutChildTop.constant = 0;
         _tfParentName.placeholder = @"请输入老师姓名";
     }
+    [_imgLogo setCornerRadius:_imgLogo.frame.size.width/2];
     
 }
 
@@ -138,11 +140,10 @@
 - (void)upLoadImage:(UIImage *)image{
     NSData *data = UIImageJPEGRepresentation(image, 1);
     
-    NSString *imageURL = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,fileUpload_interface];
-//    [Tools isBlankString:imageID]?nil:@{@"oldFileId":imageID}
-    [QLHttpTool postPerWithBaseUrl:imageURL Parameters:@{@"filePath":@"user"} FormData:data FileExtension:@".jpg" MimeType:@"image/jpg"  whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,fileUpload_interface];
+    [QLHttpTool postPerWithBaseUrl:imageURL Parameters:@{@"basePath":@"user"} FormData:data FileExtension:@".jpg" MimeType:@"image/jpg"  whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"image response : %@", responseObject);
-        _strImageID = [NSString stringWithFormat:@"%@",responseObject[@"filepath"]];
+        _strImageID = [NSString stringWithFormat:@"%@",responseObject[@"msg"]];
     } whenFailure:^{
     }];
     
@@ -167,15 +168,13 @@
     }
     
     NSString *strUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,register_interface];
-    NSString *userLogo = [NSString getValidStringWithObject:_strCode];
     NSString *userTel = [NSString getValidStringWithObject:_userTel];
-    NSString *userPwd = [NSString getValidStringWithObject:_userPwd];
     NSString *parentName = [NSString getValidStringWithObject:_tfParentName.text];
     NSString *childName = [NSString getValidStringWithObject:_tfChindName.text];
     NSString *schoolId = [NSString getValidStringWithObject:[NSString stringWithFormat:@"%ld",_classModel.school_id]];
     NSString *classId = [NSString getValidStringWithObject:[NSString stringWithFormat:@"%ld",_classModel.grade_id]];
-    
-    NSMutableDictionary *dic = [[NSMutableDictionary alloc]initWithDictionary:@{@"user_photo":userLogo,@"user_tel":userTel,@"user_password":userPwd,@"user_name":parentName,@"child_name":childName,@"school_id":schoolId,@"grade_id":classId,@"user_photo":[NSString getValidStringWithObject:_strImageID]}];
+    NSData *dataPwd = [[NSString stringWithFormat:@"%@",_userPwd] dataUsingEncoding:NSUTF8StringEncoding];
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc]initWithDictionary:@{@"user_tel":userTel,@"user_password":[dataPwd md5String],@"user_name":parentName,@"child_name":childName,@"school_id":schoolId,@"grade_id":classId,@"user_photo":[NSString getValidStringWithObject:_strImageID]}];
     if (_menuSegment.selectedSegmentIndex==1) {
         QLLog(@"家长");
     }else{
@@ -184,10 +183,21 @@
     
     [QLHttpTool registerWithBaseUrl:strUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"regiater response : %@",responseObject);
+        [QLHUDTool showAlertMessage:@"注册成功"];
+        [self login];
     } whenFailure:^{
         
     }];
 
 }
+- (void)login{
+    [QLUserTool loginWithUser:_userTel pwd:_userPwd whenSuccess:^{
+        QLMainViewController *homeViewController = [QLMainViewController new];
+        [self.navigationController pushViewController:homeViewController animated:YES];
+        [self removeFromParentViewController];
+    } whenFailure:^{
+        
+    }];
 
+}
 @end

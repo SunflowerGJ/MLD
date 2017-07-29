@@ -52,12 +52,13 @@
         return ;
     }
     if (![_tfNewPwd.text isEqualToString:_tfEnsurePwd.text]) {
-        [QLHUDTool showAlertMessage:@"2次新密码输入不一致"];
+        [QLHUDTool showAlertMessage:@"两次新密码输入不一致"];
         return ;
     }
     NSString *strUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,alterPwd_interface];
     NSData *dataOld = [[NSString stringWithFormat:@"%@",_tfOldPwd.text] dataUsingEncoding:NSUTF8StringEncoding];
     NSData *dataNew = [[NSString stringWithFormat:@"%@",_tfNewPwd.text] dataUsingEncoding:NSUTF8StringEncoding];
+    
     NSDictionary *dic = @{@"oldPassword"
                           :[dataOld md5String],@"newPassword":[dataNew md5String]};
     [QLHttpTool getWithBaseUrl:strUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {

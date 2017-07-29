@@ -10,25 +10,47 @@
 #import "MJRefresh.h"
 #import "UIScrollView+KS.h"
 #import "QLClassHomeDataModel.h"
+#import "QLClassHomeTableCell.h"
 @interface QLClassPersonCircleVC ()<UITableViewDelegate,UITableViewDataSource,KSRefreshViewDelegate>{
-    __weak IBOutlet UIImageView *_imgMark;
+    __weak IBOutlet UIImageView *_imgHead;
+    __weak IBOutlet UILabel *_lblUserName;
     NSInteger _pageSize;
     NSInteger _pageNum;
     NSString *_strImageID;
     __weak IBOutlet UITableView *_tableMain;
 
+    IBOutlet UIView *_viewHeader;
+    __weak IBOutlet UIImageView *_imgViewHeadLine;
+    __weak IBOutlet UILabel *_lblIsPraised;//被赞
+    __weak IBOutlet UILabel *_lblToPraise;//点赞
+    __weak IBOutlet UIButton *btnClose;
+    __weak IBOutlet UIImageView *_imgBg;
 }
 
 @end
 
 @implementation QLClassPersonCircleVC
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    [self sizeHeaderToFit];
+}
+- (void)sizeHeaderToFit{
+    UIView *headerView = _viewHeader;
+    [headerView setNeedsLayout];
+    [headerView layoutIfNeeded];
+    CGRect frameHeader = _viewHeader.frame;
+    frameHeader.size.height = _imgViewHeadLine.frame.origin.y;
+    headerView.frame = frameHeader;
+    _tableMain.tableHeaderView = headerView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.titleView.hidden = YES;
+    [self BlurWithImageView:_imgBg];
     [self loadDefaultSetting];
 }
 - (void)loadDefaultSetting{
-    self.leftBtn.hidden = YES;
     self.rightBtn.hidden = NO;
     self.rightBtn.frame = CGRectMake(QLScreenWidth-40, 28, 30, 30);
     [self.rightBtn setImage:[UIImage imageNamed:@"camera_icon"] forState:UIControlStateNormal];
@@ -41,8 +63,10 @@
     [_tableMain headerBeginRefreshing];
     
     NSString *head = [QLUserTool sharedUserTool].userModel.user_photo;
-    NSString *userHeadUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,head];
-    [_imgMark sd_setImageWithURL:[NSURL URLWithString:userHeadUrl] placeholderImage:nil];
+    NSString *userHeadUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,head];
+    [_imgHead sd_setImageWithURL:[NSURL URLWithString:userHeadUrl] placeholderImage:nil];
+    [_imgHead setCornerRadius:_imgHead.frame.size.width/2];
+    _lblUserName.text = @"应";
     
 }
 #pragma table
@@ -120,6 +144,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - btn
+- (IBAction)btnClose:(id)sender {
+    [[QLHttpTool getCurrentVC].navigationController popViewControllerAnimated:YES];
+}
 
 #pragma mark - table'delegate
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -130,11 +158,38 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellIndentity=@"customCell";
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellIndentity];
-    if (cell==nil) {
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentity];
-    }
+    QLClassHomeTableCell *cell = [QLClassHomeTableCell cellWithClassHomeTableView:tableView];
+    //    QLClassHomeDataModel *model = self.dataSource[indexPath.row];
+    //    [cell setCellDataWithDataModel:model];
     return cell;
 }
+
+#pragma mark - 毛玻璃
+- (void)BlurWithImageView:(UIImageView *)imageview{
+    
+    if ([UIDevice currentDevice].systemVersion.floatValue>=8.0) {
+        /**  毛玻璃特效类型
+         *  UIBlurEffectStyleExtraLight,
+         *  UIBlurEffectStyleLight,
+         *  UIBlurEffectStyleDark
+         */
+        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        
+        //  毛玻璃视图
+        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+//        self.effectView = effectView;
+        
+        //添加到要有毛玻璃特效的控件中
+        [imageview addSubview:effectView];
+        
+        [effectView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(imageview);
+        }];
+        //设置模糊透明度
+        effectView.alpha = 0.74f;
+    }
+}
+
+
 
 @end

@@ -46,8 +46,8 @@ QLSingletonImplementation(UserTool)
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@", QLBaseUrlString, userLogin_interface];
     
     NSData *dataPwd = [[NSString stringWithFormat:@"%@",strPwd] dataUsingEncoding:NSUTF8StringEncoding];
-
-    NSDictionary *dicParams = @{@"username": strUser,@"password":[dataPwd md5String]};
+    NSString *pwd = [dataPwd md5String];
+    NSDictionary *dicParams = @{@"username": strUser,@"password":pwd};
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParams whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"返回值：%@",responseObject);
         [[QLUserTool sharedUserTool] saveUserModel:[QLUserModel mj_objectWithKeyValues:responseObject[@"data"]]];

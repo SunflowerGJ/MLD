@@ -21,6 +21,9 @@
     NSArray *_arrayData;
     
     __weak IBOutlet UITableView *_tableMain;
+    __weak IBOutlet UILabel *_lblUserName;
+    __weak IBOutlet UILabel *_lblTele;
+    __weak IBOutlet UIImageView *_imgHead;
 }
 
 @end
@@ -33,9 +36,22 @@
 }
 - (void)loadDefaultSetting{
     self.leftBtn.hidden = YES;
+    NSString *tele = [QLUserTool sharedUserTool].userModel.user_tel;
+    NSString *name = [QLUserTool sharedUserTool].userModel.user_name;
+    NSString *strHeadUrl = [QLUserTool sharedUserTool].userModel.user_photo;
+    _lblTele.text = tele;
+    _lblUserName.text = name;
+    [_imgHead setCornerRadius:_imgHead.frame.size.width/2];
+    [_imgHead sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,strHeadUrl]] placeholderImage:nil];
+    
+    
     _arrayData = @[@"收货地址管理",@"绑定考勤卡",@"我的学校（幼儿园信息介绍）",@"客服电话",@"关于美乐多"];
     _heightTableConstraint.constant = _arrayData.count*44;
     [_tableMain reloadData];
+    
+    
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

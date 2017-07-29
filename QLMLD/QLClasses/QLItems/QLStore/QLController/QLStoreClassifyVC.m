@@ -18,6 +18,7 @@
     NSInteger _pageSize;
     NSInteger _pageNum;
     NSString *_strSearch;
+    __weak IBOutlet UIView *_viewBgSearch;
 }
 
 @end
@@ -31,6 +32,7 @@
 
 - (void)loadDefaultSetting {
     self.title = @"商城分类";
+    [_viewBgSearch setCornerRadius:15 border:.5 borderColor:QLYellowColor];
     _pageSize = 10;
     _tableMain.estimatedRowHeight = 100;
     _tableMain.tableFooterView = [UIView new];

@@ -11,10 +11,8 @@
 #import "QLAppDelegate.h"
 @interface QLUserInfoVC ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
     
-    __weak IBOutlet UIButton *_btnImageHead;
-    
+    __weak IBOutlet UIImageView *_imageHead;
     __weak IBOutlet UILabel *_lblName;
-    
     __weak IBOutlet UILabel *_lblAccount;
     __weak IBOutlet UIButton *_btnLogout;
 }
@@ -30,7 +28,13 @@
 - (void)loadDefaultSetting {
     self.title = @"个人信息";
     [_btnLogout setBorder:.5 borderColor:QLDividerColor];
-    [_btnImageHead setCornerRadius:20];
+    [_imageHead setCornerRadius:20];
+    NSString *tele = [QLUserTool sharedUserTool].userModel.user_tel;
+    NSString *name = [QLUserTool sharedUserTool].userModel.user_name;
+    NSString *strHeadUrl = [QLUserTool sharedUserTool].userModel.user_photo;
+    _lblName.text = name;
+    _lblAccount.text = tele;
+    [_imageHead sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,strHeadUrl]]  placeholderImage:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -108,19 +112,26 @@
 }
 #pragma mark - 头像处理
 - (void)upLoadImage:(UIImage *)image{
-    NSString *imageURL = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,fileUpload_interface];
     NSData *data = UIImageJPEGRepresentation(image, 1);
     [QLHUDTool showLoading];
-    [QLHttpTool postPerWithBaseUrl:imageURL Parameters:nil FormData:data FileExtension:@".jpg" MimeType:@"image/jpg"  whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([responseObject isKindOfClass:[NSDictionary class]]) {
-            if ([responseObject[@"err_code"] isEqualToString:@"ok"]) {
-                [QLHUDTool showAlertMessage:@"图片上传成功！"];
-                NSString *fileID = [NSString stringWithFormat:@"%@",responseObject[@"fileid"]];
-//                [self alterHeadImage:fileID];
-            }
-        }
+    __weak typeof(self) weakSelf = self;
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,fileUpload_interface];
+    [QLHttpTool postPerWithBaseUrl:strBaseUrl Parameters:@{@"basePath":@"user"} FormData:data FileExtension:@".jpg" MimeType:@"image/jpg"  whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"image response : %@", responseObject);
+         NSString * imageID = [NSString stringWithFormat:@"%@",responseObject[@"msg"]];
+        _imageHead.image = image;
+        [weakSelf updateData:imageID];
     } whenFailure:^{
     }];
-}
 
+}
+- (void)updateData:(NSString *)url{
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,alterHeadImage_interface];
+    NSDictionary *dic = @{@"userPhoto":url};
+    [QLHttpTool postWithBaseUrl:imageURL Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"修改头像：%@",responseObject);
+    } whenFailure:^{
+        
+    }];
+}
 @end

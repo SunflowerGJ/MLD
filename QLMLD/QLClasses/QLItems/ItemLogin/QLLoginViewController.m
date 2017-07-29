@@ -96,8 +96,17 @@ static NSString * const QLKeyUserShouldRememberLoginName = @"QLKeyUserShouldReme
     [_txfTele setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
     [_txfPwd setValue:[UIColor whiteColor] forKeyPath:@"_placeholderLabel.textColor"];
 
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFiledEditChanged:) name:@"UITextFieldTextDidChangeNotification"
+                                              object:_txfTele];
+    
 }
-
+- (void)textFiledEditChanged:(NSNotification *)notifi{
+    if (_txfTele) {
+        if (_txfTele.text.length > 11) {
+            _txfTele.text = [_txfTele.text substringToIndex:6];
+        }
+    }
+}
 #pragma mark - Actions
 
 - (IBAction)login {

@@ -30,6 +30,7 @@
     
     _pageSize = 10;
     _tableMain.estimatedRowHeight = 100;
+    _tableMain.tableFooterView = [UIView new];
     [_tableMain addSubview: self.promptView];
     _tableMain.separatorColor = QLDividerColor;
     [self addTableViewRefresh];

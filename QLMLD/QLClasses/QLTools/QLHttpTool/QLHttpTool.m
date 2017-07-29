@@ -242,7 +242,7 @@
         }else{
             copyDicParams =[[NSMutableDictionary alloc] init] ;
         }
-        [copyDicParams setObject:@"filePart" forKey:@"filePart"];
+//        [copyDicParams setObject:@"filePart" forKey:@"filePart"];
     }
     
     [manager POST:strBaseUrl parameters:copyDicParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -251,7 +251,7 @@
         formatter.dateFormat = @"yyyy_MM_dd_HH_mm_ss";
         NSString *strPrefix = [formatter stringFromDate:date];
         NSString *strImageName = [NSString stringWithFormat:@"%@_%@", strPrefix,imgExtension];
-        [formData appendPartWithFileData:imgData name:@"file" fileName:strImageName mimeType:imgType];
+        [formData appendPartWithFileData:imgData name:@"imgFile" fileName:strImageName mimeType:imgType];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if([responseObject objectForKey:@"success"]&&[[responseObject objectForKey:@"success"] boolValue]){
             //请求成功

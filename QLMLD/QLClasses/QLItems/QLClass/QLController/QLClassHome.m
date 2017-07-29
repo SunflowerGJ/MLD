@@ -14,7 +14,7 @@
 #import "UIScrollView+KS.h"
 #import "QLClassUploadImageVC.h"
 #import "ELCImagePickerController.h"
-
+#import "QLClassPersonCircleVC.h"
 @interface QLClassHome ()<UITableViewDelegate,UITableViewDataSource,KSRefreshViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ELCImagePickerControllerDelegate>{
     
     __weak IBOutlet UITableView *_tableMain;
@@ -39,6 +39,7 @@
 - (void)loadDefaultSetting{
     self.leftBtn.hidden = YES;
     self.rightBtn.hidden = NO;
+    [_imgMark setCornerRadius:_imgMark.frame.size.width/2];
     self.rightBtn.frame = CGRectMake(QLScreenWidth-40, 28, 30, 30);
     [self.rightBtn setImage:[UIImage imageNamed:@"camera_icon"] forState:UIControlStateNormal];
     _pageSize = 10;
@@ -55,11 +56,16 @@
 
 }
 
-#pragma button
+#pragma mark - button
 - (void)clickRight{
     UIActionSheet *sheetSelect = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"相册", nil];
     [sheetSelect showInView:self.view];
 }
+- (IBAction)btnUser:(id)sender {
+    QLClassPersonCircleVC *circleVC = [[QLClassPersonCircleVC alloc]init];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:circleVC animated:YES];
+}
+
 #pragma mark - UIActionSheet delegate
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex==0)//拍照
@@ -242,15 +248,18 @@
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataSource.count;
+//    return self.dataSource.count;
+    return 3;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     QLClassHomeTableCell *cell = [QLClassHomeTableCell cellWithClassHomeTableView:tableView];
-    QLClassHomeDataModel *model = self.dataSource[indexPath.row];
-    [cell setCellDataWithDataModel:model];
+//    QLClassHomeDataModel *model = self.dataSource[indexPath.row];
+//    [cell setCellDataWithDataModel:model];
     return cell;
 }
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
 
 @end

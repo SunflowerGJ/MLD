@@ -12,8 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QLUserInfoVC">
             <connections>
-                <outlet property="_btnImageHead" destination="HSv-2H-V7J" id="sUa-GN-l2U"/>
                 <outlet property="_btnLogout" destination="lTx-c0-Xyi" id="8df-gz-GzM"/>
+                <outlet property="_imageHead" destination="cxH-Vi-Taq" id="z8t-nC-ZTz"/>
                 <outlet property="_lblAccount" destination="pFA-9v-Zmu" id="xvx-Y6-U27"/>
                 <outlet property="_lblName" destination="OCc-du-nVO" id="9CQ-Bj-hVu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -42,22 +42,21 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HSv-2H-V7J">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cxH-Vi-Taq">
                                                     <rect key="frame" x="320" y="10" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="HSv-2H-V7J" secondAttribute="height" multiplier="1:1" id="Mxf-3h-FVl"/>
-                                                        <constraint firstAttribute="width" constant="40" id="XcE-vn-BF3"/>
+                                                        <constraint firstAttribute="width" constant="40" id="3ET-i7-IBI"/>
+                                                        <constraint firstAttribute="width" secondItem="cxH-Vi-Taq" secondAttribute="height" multiplier="1:1" id="Q6G-Qc-SW3"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
-                                                </button>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="HSv-2H-V7J" firstAttribute="centerY" secondItem="lMK-9F-JZA" secondAttribute="centerY" id="3QG-71-xQ3"/>
-                                                <constraint firstAttribute="trailing" secondItem="HSv-2H-V7J" secondAttribute="trailing" constant="15" id="R75-G3-08O"/>
                                                 <constraint firstAttribute="height" constant="60" id="dHS-Kp-7aq"/>
+                                                <constraint firstItem="cxH-Vi-Taq" firstAttribute="centerY" secondItem="lMK-9F-JZA" secondAttribute="centerY" id="fL2-gN-8RL"/>
                                                 <constraint firstItem="7Ea-8L-83t" firstAttribute="centerY" secondItem="lMK-9F-JZA" secondAttribute="centerY" id="oRM-T2-0YS"/>
                                                 <constraint firstItem="7Ea-8L-83t" firstAttribute="leading" secondItem="lMK-9F-JZA" secondAttribute="leading" constant="15" id="u5p-jc-31q"/>
+                                                <constraint firstAttribute="trailing" secondItem="cxH-Vi-Taq" secondAttribute="trailing" constant="15" id="vYc-56-mpp"/>
                                             </constraints>
                                             <connections>
                                                 <action selector="uploadHeadImage:" destination="-1" eventType="touchUpInside" id="iEj-tx-Cba"/>

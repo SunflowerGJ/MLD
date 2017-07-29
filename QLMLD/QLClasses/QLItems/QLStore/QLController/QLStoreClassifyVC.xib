@@ -6,12 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QLStoreClassifyVC">
             <connections>
                 <outlet property="_tableMain" destination="pUv-iB-zt4" id="gra-W9-OpM"/>
+                <outlet property="_viewBgSearch" destination="DY9-C5-i6m" id="3NB-0O-i8A"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,18 +25,54 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JI9-6A-1vE">
                     <rect key="frame" x="0.0" y="64" width="375" height="50"/>
                     <subviews>
-                        <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="Wrz-dS-x64">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DY9-C5-i6m">
+                            <rect key="frame" x="20" y="10" width="335" height="30"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_icon" translatesAutoresizingMaskIntoConstraints="NO" id="cQd-at-IK4">
+                                    <rect key="frame" x="8" y="8" width="14" height="14"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="cQd-at-IK4" secondAttribute="height" multiplier="1:1" id="5Cg-jg-5AZ"/>
+                                        <constraint firstAttribute="width" constant="14" id="Yqc-cn-LAo"/>
+                                    </constraints>
+                                </imageView>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="快速搜索你想要的" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eov-cM-PtA">
+                                    <rect key="frame" x="30" y="6.5" width="247" height="17"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w5D-DB-txS">
+                                    <rect key="frame" x="285" y="0.0" width="50" height="30"/>
+                                    <color key="backgroundColor" red="0.80000000000000004" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="nAf-IS-Qxk"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="搜索">
+                                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.9882352941176471" green="0.89411764705882346" blue="0.52549019607843139" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="w5D-DB-txS" firstAttribute="leading" secondItem="eov-cM-PtA" secondAttribute="trailing" constant="8" id="0Kl-W3-i9H"/>
+                                <constraint firstAttribute="trailing" secondItem="w5D-DB-txS" secondAttribute="trailing" id="8Kx-Bq-bk2"/>
+                                <constraint firstItem="cQd-at-IK4" firstAttribute="centerY" secondItem="DY9-C5-i6m" secondAttribute="centerY" id="EdV-iv-gAw"/>
+                                <constraint firstItem="eov-cM-PtA" firstAttribute="centerY" secondItem="DY9-C5-i6m" secondAttribute="centerY" id="Tc8-wh-xg8"/>
+                                <constraint firstAttribute="bottom" secondItem="w5D-DB-txS" secondAttribute="bottom" id="dJY-sA-H8A"/>
+                                <constraint firstItem="cQd-at-IK4" firstAttribute="leading" secondItem="DY9-C5-i6m" secondAttribute="leading" constant="8" id="lpT-yh-QWh"/>
+                                <constraint firstItem="w5D-DB-txS" firstAttribute="top" secondItem="DY9-C5-i6m" secondAttribute="top" id="nFz-vy-qQo"/>
+                                <constraint firstAttribute="height" constant="30" id="rke-uy-sao"/>
+                                <constraint firstItem="eov-cM-PtA" firstAttribute="leading" secondItem="cQd-at-IK4" secondAttribute="trailing" constant="8" id="zeh-xY-WwG"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="bottom" secondItem="Wrz-dS-x64" secondAttribute="bottom" id="Ffz-Z2-tiN"/>
+                        <constraint firstItem="DY9-C5-i6m" firstAttribute="centerY" secondItem="JI9-6A-1vE" secondAttribute="centerY" id="BQO-Xd-8sb"/>
                         <constraint firstAttribute="height" constant="50" id="KWt-wG-KP8"/>
-                        <constraint firstItem="Wrz-dS-x64" firstAttribute="leading" secondItem="JI9-6A-1vE" secondAttribute="leading" id="ZVg-U7-xph"/>
-                        <constraint firstItem="Wrz-dS-x64" firstAttribute="top" secondItem="JI9-6A-1vE" secondAttribute="top" id="g3x-DW-nRh"/>
-                        <constraint firstAttribute="trailing" secondItem="Wrz-dS-x64" secondAttribute="trailing" id="iLD-PF-BAX"/>
+                        <constraint firstItem="DY9-C5-i6m" firstAttribute="leading" secondItem="JI9-6A-1vE" secondAttribute="leading" constant="20" id="KZE-Gu-XJg"/>
+                        <constraint firstAttribute="trailing" secondItem="DY9-C5-i6m" secondAttribute="trailing" constant="20" id="Lde-CW-XlC"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKc-6j-LEM">
@@ -68,4 +106,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="search_icon" width="14" height="14"/>
+    </resources>
 </document>
