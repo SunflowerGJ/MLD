@@ -9,5 +9,5 @@
 #import "QLViewController.h"
 
 @interface QLClassUploadImageVC : QLViewController
-@property (nonatomic, strong) NSMutableArray *arrayImages;
+@property (nonatomic, strong) NSMutableArray *muArrayImages;
 @end

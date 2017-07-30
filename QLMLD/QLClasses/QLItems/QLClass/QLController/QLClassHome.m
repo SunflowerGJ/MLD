@@ -114,7 +114,7 @@
 //    [self upLoadImage:[saveImage scaleMinSideToSize:500]];
     
     QLClassUploadImageVC *uploadImage = [[QLClassUploadImageVC alloc]init];
-    uploadImage.arrayImages = [NSMutableArray arrayWithObjects:saveImage, nil];
+    uploadImage.muArrayImages = [NSMutableArray arrayWithObjects:saveImage, nil];
     [[QLHttpTool getCurrentVC].navigationController pushViewController:uploadImage animated:YES];
 }
 #pragma mark - ELCImagePickerController delegate
@@ -150,7 +150,7 @@
     }
     
     QLClassUploadImageVC *uploadImage = [[QLClassUploadImageVC alloc]init];
-    uploadImage.arrayImages = images;
+    uploadImage.muArrayImages = images;
     [[QLHttpTool getCurrentVC].navigationController pushViewController:uploadImage animated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

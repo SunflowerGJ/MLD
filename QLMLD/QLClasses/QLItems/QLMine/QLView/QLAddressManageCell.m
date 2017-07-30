@@ -46,8 +46,10 @@
 - (IBAction)btnDefaultAddress:(id)sender {
 }
 - (IBAction)btnDelete:(id)sender {
+    self.blockDelete();
 }
 - (IBAction)btnEdit:(id)sender {
+    self.blockEdit();
 }
 
 @end

@@ -157,7 +157,6 @@
     return 5;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *cellIndentity=@"customCell";
     QLClassHomeTableCell *cell = [QLClassHomeTableCell cellWithClassHomeTableView:tableView];
     //    QLClassHomeDataModel *model = self.dataSource[indexPath.row];
     //    [cell setCellDataWithDataModel:model];

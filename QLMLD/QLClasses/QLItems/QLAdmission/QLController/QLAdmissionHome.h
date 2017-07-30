@@ -11,5 +11,5 @@
 
 @interface QLAdmissionHome : QLViewController<iCarouselDataSource,iCarouselDelegate>
 @property (weak, nonatomic) IBOutlet iCarousel *viewICarousel;
-
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end

@@ -11,9 +11,15 @@
 #import "QLAdmissionDetailVC.h"
 #import "QLAdmisiionSlideVC.h"
 #import "QLAdmissionHomeDataModel.h"
-@interface QLAdmissionHome (){
+#import "MyCollectionView.h"
+#import "ELCImagePickerController.h"
+#import "QLAdmissionPublishVC.h"
+
+@interface QLAdmissionHome ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ELCImagePickerControllerDelegate>{
     
     QLAdmisiionSlideVC *slideVC;
+    NSString *_strTime;
+    __weak IBOutlet UIView *_viewCollection;
 }
 
 @end
@@ -54,11 +60,17 @@
     QLLog(@"more");
     slideVC = [[QLAdmisiionSlideVC alloc]initWithNibName:@"QLAdmisiionSlideVC" bundle:[NSBundle mainBundle]];
     slideVC.view.frame = self.view.frame;
+    [slideVC setBlockSelectedDate:^(NSString *date){
+        _strTime = date;
+        
+    }];
     [self.view addSubview:slideVC.view];
     [slideVC startAnimation];
 }
 - (void)clickRight{
     QLLog(@"拍照");
+    UIActionSheet *sheetSelect = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"相册", nil];
+    [sheetSelect showInView:self.view];
 }
 - (void)clickShare{
     QLLog(@"分享");
@@ -72,8 +84,26 @@
 #pragma mark - data request 
 - (void)dataRequest {
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,admissionHomeData_interface];
+    NSDate *date = [NSDate date];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    
+    [formatter setDateFormat:@"YYYY-MM-dd hh:mm:ss"];
+    NSString *dateTime = [formatter stringFromDate:date];
+    QLLog(@"date: %@",dateTime);
+    
+    NSDictionary *dic = @{@"create_time":dateTime};
+    
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+        NSMutableArray *array = [NSMutableArray new];
+//        array = [QLClassHomeDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        array = responseObject[@"data"];
+        self.dataSource = [[NSMutableArray alloc] initWithArray:array];
+                           
     } whenFailure:^{
         
     }];
@@ -88,7 +118,12 @@
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index
 {
     UIView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpg",index]]];
-    UILabel *lblTime = [[UILabel alloc]initWithFrame:CGRectMake(0, 30, view.frame.size.width, 30)];
+    
+    UIView *viewTip = [[UIView alloc]initWithFrame:CGRectMake(0, view.frame.size.height-40, view.frame.size.width, 40)];
+    viewTip.backgroundColor = [UIColor yellowColor];
+    [carousel addSubview:viewTip];
+    
+    UILabel *lblTime = [[UILabel alloc]initWithFrame:CGRectMake(0, view.frame.size.height-40, view.frame.size.width, 30)];
     [view addSubview:lblTime];
     lblTime.text = [NSString stringWithFormat:@"%ld time",index];
     lblTime.textColor = [UIColor redColor];
@@ -113,7 +148,7 @@
 
 - (CGFloat)carouselItemWidth:(iCarousel *)carousel
 {
-    return QLScreenWidth-40;
+    return QLScreenWidth-50;
 }
 
 - (CATransform3D)carousel:(iCarousel *)_carousel transformForItemView:(UIView *)view withOffset:(CGFloat)offset
@@ -134,4 +169,93 @@
     QLAdmissionDetailVC *detailVC = [[QLAdmissionDetailVC alloc]init];
     [[QLHttpTool getCurrentVC].navigationController pushViewController:detailVC animated:YES];
 }
+
+#pragma mark - UIActionSheet delegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==0)//拍照
+    {
+        UIImagePickerController *  imagePicker1 = [[UIImagePickerController alloc] init];
+        imagePicker1.delegate = self;
+        imagePicker1.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+            imagePicker1.sourceType = UIImagePickerControllerSourceTypeCamera;
+        }
+        imagePicker1.allowsEditing=NO;
+        if([[[UIDevice
+              currentDevice] systemVersion] floatValue]>=8.0) {
+            self.modalPresentationStyle=UIModalPresentationOverCurrentContext;
+        }
+        [self presentViewController:imagePicker1 animated:YES completion:nil];
+    }
+    else if(buttonIndex==1)//相册
+    {
+        ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initImagePicker];
+        
+        elcPicker.maximumImagesCount = 9; //Set the maximum number of images to select to 100
+        elcPicker.returnsOriginalImage = YES; //Only return the fullScreenImage, not the fullResolutionImage
+        elcPicker.returnsImage = YES; //Return UIimage if YES. If NO, only return asset location information
+        elcPicker.onOrder = YES; //For multiple image selection, display and return order of selected images
+        elcPicker.mediaTypes = @[(NSString *)kUTTypeImage]; //Supports image and movie types
+        elcPicker.imagePickerDelegate = self;
+        
+        [self presentViewController:elcPicker animated:YES completion:nil];
+    }
+}
+
+-(void)actionSheetCancel:(UIActionSheet *)actionSheet{
+    [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+}
+#pragma mark - UIImagePickerControllerDelegate
+- (void) imagePickerControllerDidCancel: (UIImagePickerController *) picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    NSData *imageData =  UIImageJPEGRepresentation(image, 0.6f);
+    UIImage *saveImage = [UIImage imageWithData:imageData];
+    
+    QLAdmissionPublishVC *uploadImage = [[QLAdmissionPublishVC alloc]init];
+    uploadImage.muArrayImages = [NSMutableArray arrayWithObjects:saveImage, nil];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:uploadImage animated:YES];
+}
+#pragma mark - ELCImagePickerController delegate
+-(void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)elcImagePickerController:(ELCImagePickerController *)picker didFinishPickingMediaWithInfo:(NSArray *)info{
+    QLLog(@"选择了%zd张图片－images:%@",info.count,info);
+    
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
+    
+    for (NSDictionary *dict in info) {
+        if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypePhoto){
+            if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
+                
+                UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
+                [images addObject:image];
+                
+            } else {
+                NSLog(@"UIImagePickerControllerReferenceURL = %@", dict);
+            }
+        } else if ([dict objectForKey:UIImagePickerControllerMediaType] == ALAssetTypeVideo){
+            if ([dict objectForKey:UIImagePickerControllerOriginalImage]){
+                UIImage* image=[dict objectForKey:UIImagePickerControllerOriginalImage];
+                
+                [images addObject:image];
+            } else {
+                NSLog(@"UIImagePickerControllerReferenceURL = %@", dict);
+            }
+        } else {
+            NSLog(@"Uknown asset type");
+        }
+    }
+    
+    QLAdmissionPublishVC *uploadImage = [[QLAdmissionPublishVC alloc]init];
+    uploadImage.muArrayImages = images;
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:uploadImage animated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end

@@ -11,4 +11,7 @@
 @interface QLAddressManageCell : UITableViewCell
 + (instancetype)cellWithAddressTableView:(UITableView *)tableView;
 - (void)setCellDataWithAddressModel:(id)model;
+@property (nonatomic,copy) void (^blockDelete)();
+@property (nonatomic,copy) void (^blockEdit)();
+
 @end

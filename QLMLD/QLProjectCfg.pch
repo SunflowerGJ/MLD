@@ -173,7 +173,12 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 
 /** 成长印记 */
 //发布成长印记
-#define admissionPublish_interface @"/app/GradeGroup/writeGradeGroup.action"
+#define admissionPublish_interface @"/app/GroupSign/writeGroupSign.action"
+//详情
+#define admissionDetail_interface @"/app/GrowupSignDetail/readGrowupSignDetail.action"
+//新增或根据ID修改
+#define admissionAddOrUpdate_interface @"/app/GrowupSignDetail/writeGrowupSignDetail.action"
+
 //首页
 #define admissionHomeData_interface @"/app/GroupSign/readGroupSign.action"
 //删除

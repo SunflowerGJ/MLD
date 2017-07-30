@@ -48,7 +48,8 @@ typedef void(^QLHttpToolFailureBlock)();
  */
 + (void)getWithBaseUrl:(NSString *)strBaseUrl Parameters:(NSDictionary *)dicParams whenSuccess:(QLHttpToolSuccessBlock)success whenFailure:(QLHttpToolFailureBlock)failure;
 
-
+//多图上传
++ (void)requestForUploadImageWithImageType:(NSString *)imageType specifiedId:(NSString *)specifiedId dic:(NSDictionary *)dic images:(NSArray *)images WhenSuccess:(void (^)())success WhenFailure:(void (^)(UIImage *imageFailed, NSString *imageType))failure;
 /**
  *  获得当前ViewController
  *

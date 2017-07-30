@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIView *backGroundView;
 @property (weak, nonatomic) IBOutlet UIView *mainView;
 @property (strong ,nonatomic) NSArray *arrayDatasource;
+@property (nonatomic, copy) void (^blockSelectedDate)(NSString *date);
 
 -(void)startAnimation;
 - (IBAction)clickBackGround:(id)sender;

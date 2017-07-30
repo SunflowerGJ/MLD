@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QLAdmissionHome">
             <connections>
+                <outlet property="_viewCollection" destination="oqV-XP-e3M" id="GND-2i-eDa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewICarousel" destination="L6r-xq-JPJ" id="weM-aR-jIp"/>
             </connections>
@@ -24,20 +25,28 @@
                     <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6r-xq-JPJ" customClass="iCarousel">
-                    <rect key="frame" x="30" y="114" width="315" height="513"/>
+                    <rect key="frame" x="30" y="114" width="315" height="493"/>
                     <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqV-XP-e3M">
+                    <rect key="frame" x="30" y="84" width="315" height="519"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="L6r-xq-JPJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="114" id="2g8-mV-nhB"/>
+                <constraint firstItem="oqV-XP-e3M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="6RF-fV-usC"/>
                 <constraint firstItem="L6r-xq-JPJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="DPc-bS-ZIP"/>
                 <constraint firstAttribute="trailing" secondItem="L6r-xq-JPJ" secondAttribute="trailing" constant="30" id="JgE-U1-fmb"/>
                 <constraint firstAttribute="bottom" secondItem="csv-Z2-A4Q" secondAttribute="bottom" id="Kfp-dL-EZL"/>
                 <constraint firstItem="csv-Z2-A4Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Prd-Lb-JqW"/>
                 <constraint firstAttribute="trailing" secondItem="csv-Z2-A4Q" secondAttribute="trailing" id="Qah-fU-KpR"/>
+                <constraint firstAttribute="trailing" secondItem="oqV-XP-e3M" secondAttribute="trailing" constant="30" id="WpR-kG-2Dw"/>
+                <constraint firstAttribute="bottom" secondItem="oqV-XP-e3M" secondAttribute="bottom" constant="64" id="YN6-Fk-Pph"/>
+                <constraint firstItem="oqV-XP-e3M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="Ztk-2w-10g"/>
                 <constraint firstItem="csv-Z2-A4Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="hHS-Eg-kVT"/>
-                <constraint firstAttribute="bottom" secondItem="L6r-xq-JPJ" secondAttribute="bottom" constant="40" id="pgi-n1-R7w"/>
+                <constraint firstAttribute="bottom" secondItem="L6r-xq-JPJ" secondAttribute="bottom" constant="60" id="pgi-n1-R7w"/>
             </constraints>
         </view>
     </objects>

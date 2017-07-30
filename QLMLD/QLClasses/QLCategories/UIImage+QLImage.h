@@ -41,4 +41,6 @@ typedef NS_ENUM(NSInteger, QLCurrentDeviceClass) {
  *  @return 返回处理后的图片
  */
 - (NSData *)resetSizeOfImageData:(UIImage *)source_image maxSize:(NSInteger)maxSize;
++ (UIImage *)imageWithName:(NSString *)strImgName;
+- (UIImage *)cutImageMaxWithRatio:(CGFloat)ratio;
 @end

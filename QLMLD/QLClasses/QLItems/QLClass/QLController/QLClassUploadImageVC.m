@@ -10,16 +10,19 @@
 #import "QLKinderSelectedVC.h"
 #import "QLClassSelectedVC.h"
 #import "ELCImagePickerController.h"
+#import "QLPostPics.h"
+#import "MWPhotoBrowser.h"
 
-@interface QLClassUploadImageVC ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ELCImagePickerControllerDelegate>{
+@interface QLClassUploadImageVC ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ELCImagePickerControllerDelegate,MWPhotoBrowserDelegate>{
 
     __weak IBOutlet UITextView *_textViewDescription;
-
     __weak IBOutlet NSLayoutConstraint *_layoutImageViewHeight;
     __weak IBOutlet UIView *_viewImageBg;
-    NSString *_strSchoolID;
-    NSMutableArray *_currentImageArray;
-    UIButton *_btnAddImage;
+    UIButton *_btnAdd;
+    NSInteger uploadIndex;
+    NSMutableDictionary *_dicImgsSave;
+
+
 }
 
 @end
@@ -29,104 +32,96 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self loadDefaultSetting];
+    [self uploadImages:self.muArrayImages];
+    uploadIndex = 0;
+    _dicImgsSave = [NSMutableDictionary new];
 }
+
 - (void)loadDefaultSetting {
-    self.title = @"上传图片";
+    self.title = @"班级圈";
     self.rightBtn.hidden = NO;
-    self.rightBtn.frame = CGRectMake(QLScreenWidth-40, 28, 45, 30);
+    self.rightBtn.frame = CGRectMake(QLScreenWidth-60, 28, 45, 30);
     [self.rightBtn setTitle:@"发布" forState:UIControlStateNormal];
     
-    UIButton *btnImage = [UIButton buttonWithType:UIButtonTypeCustom];
-    [btnImage setFrame:CGRectMake(15 , 15, 60, 60)];
-    [btnImage addTarget:self action:@selector(btnAddNewImageAction:) forControlEvents:UIControlEventTouchUpInside];
-    [btnImage setImage:[UIImage imageNamed:@"ic_img_add"] forState:UIControlStateNormal];
-    [_viewImageBg addSubview:btnImage];
-    _btnAddImage = btnImage;
+    if (!_btnAdd) {
+        CGFloat fMargin = 20;
+        CGFloat fYPoint = 40;
+        CGFloat fWidthBtn = (QLScreenWidth-20-30)/4;
+        CGFloat fHeightBtn = fWidthBtn*1.25;
+        
+        UIButton * btnNew = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btnNew setFrame:CGRectMake(fMargin, fYPoint, fWidthBtn, fHeightBtn)];
+        [btnNew setBackgroundImage:[UIImage imageNamed:@"ic_img_add"] forState:UIControlStateNormal];
+        [btnNew addTarget:self action:@selector(showAddImagesAlert) forControlEvents:UIControlEventTouchUpInside];
+        [_viewImageBg addSubview:btnNew];
+        _btnAdd = btnNew;
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - 
-////选择学校
-//- (IBAction)selectedSchool:(id)sender {
-//    QLKinderSelectedVC *schoolVC = [[QLKinderSelectedVC alloc]init];
-//    schoolVC.fromClassCircle = YES;
-//    [schoolVC setBlockSchool:^(QLKinderDataModel *model){
-//        _strSchoolID = [NSString stringWithFormat:@"%ld",model.school_id];
-//    }];
-//    [[QLHttpTool getCurrentVC].navigationController pushViewController:schoolVC animated:YES];
-//}
-////选择班级
-//- (IBAction)selectedClass:(id)sender {
-//    QLClassSelectedVC *classVC = [[QLClassSelectedVC alloc]init
-//                                  ];
-//    classVC.schoolId = _strSchoolID;
-//    [[QLHttpTool getCurrentVC].navigationController pushViewController:classVC animated:YES];
-//}
-#pragma mark - btn
-//发布
 - (void)clickRight {
-    NSString *strUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,nil];
-    NSDictionary *dic = @{};
-    [QLHttpTool postWithBaseUrl:strUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-    } whenFailure:^{
-        
-    }];
-}
-- (void)btnAddNewImageAction:(id)sender {
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"相册", nil];
+    if (_textViewDescription.text.length<=0) {
+        [QLHUDTool showAlertMessage:@"请输入图片描述"];
+        return ;
+    }
+    if (_muArrayImages<=0) {
+        [QLHUDTool showAlertMessage:@"请选择图片"];
+        return ;
+    }
+    [self upLoadImageToServer:_muArrayImages];
     
-    [actionSheet showInView:self.view];
-
+}
+- (void)showAddImagesAlert{
+    UIActionSheet *sheetSelect = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"相册", nil];
+    [sheetSelect showInView:self.view];
 }
 #pragma mark - UIActionSheet delegate
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    switch (buttonIndex) {
-        case 0:{
-            QLLog(@"拍照");
-            self.editing = NO;
-            
-            UIImagePickerController *  imagePicker1 = [[UIImagePickerController alloc] init];
-            imagePicker1.delegate = self;
-            imagePicker1.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-            if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
-                imagePicker1.sourceType = UIImagePickerControllerSourceTypeCamera;
-            }
-            imagePicker1.allowsEditing=NO;
-            if([[[UIDevice
-                  currentDevice] systemVersion] floatValue]>=8.0) {
-                self.modalPresentationStyle=UIModalPresentationOverCurrentContext;
-            }
-            [self presentViewController:imagePicker1 animated:YES completion:nil];
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex==0)//拍照
+    {
+        UIImagePickerController *  imagePicker1 = [[UIImagePickerController alloc] init];
+        imagePicker1.delegate = self;
+        imagePicker1.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]){
+            imagePicker1.sourceType = UIImagePickerControllerSourceTypeCamera;
         }
-            break;
-        case 1:{
-            QLLog(@"相册选取");
-            ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initImagePicker];
-            
-            elcPicker.maximumImagesCount = 9-_arrayImages.count; //Set the maximum number of images to select to 100
-            elcPicker.returnsOriginalImage = YES; //Only return the fullScreenImage, not the fullResolutionImage
-            elcPicker.returnsImage = YES; //Return UIimage if YES. If NO, only return asset location information
-            elcPicker.onOrder = YES; //For multiple image selection, display and return order of selected images
-            elcPicker.imagePickerDelegate = self;
-            elcPicker.mediaTypes = @[ALAssetTypePhoto];
-            
-            [self presentViewController:elcPicker animated:YES completion:nil];
+        imagePicker1.allowsEditing=NO;
+        if([[[UIDevice
+              currentDevice] systemVersion] floatValue]>=8.0) {
+            self.modalPresentationStyle=UIModalPresentationOverCurrentContext;
         }
-            break;
-        default:
-            break;
+        [self presentViewController:imagePicker1 animated:YES completion:nil];
     }
-    [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    else if(buttonIndex==1)//相册
+    {
+        ELCImagePickerController *elcPicker = [[ELCImagePickerController alloc] initImagePicker];
+        
+        elcPicker.maximumImagesCount = 9-_muArrayImages.count; //Set the maximum number of images to select to 100
+        elcPicker.returnsOriginalImage = YES; //Only return the fullScreenImage, not the fullResolutionImage
+        elcPicker.returnsImage = YES; //Return UIimage if YES. If NO, only return asset location information
+        elcPicker.onOrder = YES; //For multiple image selection, display and return order of selected images
+        elcPicker.mediaTypes = @[(NSString *)kUTTypeImage]; //Supports image and movie types
+        elcPicker.imagePickerDelegate = self;
+        
+        [self presentViewController:elcPicker animated:YES completion:nil];
+    }
 }
+
 -(void)actionSheetCancel:(UIActionSheet *)actionSheet{
     [actionSheet dismissWithClickedButtonIndex:0 animated:YES];
 }
-
+#pragma mark - UIImagePickerControllerDelegate
+- (void) imagePickerControllerDidCancel: (UIImagePickerController *) picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    NSData *imageData =  UIImageJPEGRepresentation(image, 0.6f);
+    UIImage *saveImage = [UIImage imageWithData:imageData];
+    [_muArrayImages addObject:saveImage];
+    [self uploadImages:_muArrayImages];
+}
 #pragma mark - ELCImagePickerController delegate
 -(void)elcImagePickerControllerDidCancel:(ELCImagePickerController *)picker{
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -159,63 +154,168 @@
         }
     }
     
-    [self addImagesToShow:images];
     [self dismissViewControllerAnimated:YES completion:nil];
+    [_muArrayImages addObjectsFromArray:images];
+    [self uploadImages:_muArrayImages];
 }
 
-#pragma mark -
--(void)addImagesToShow:(NSArray *)arrImageViews;{
-    if (!_arrayImages) {
-        _arrayImages = [NSMutableArray arrayWithCapacity:9];
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+#pragma mark - MWPhotoBroswer delegate
+-(NSUInteger)numberOfPhotosInPhotoBrowser:(MWPhotoBrowser *)photoBrowser{
+    return _muArrayImages.count;
+}
+-(id<MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index{
+    MWPhoto *photo;
+    if ([_muArrayImages[index] isKindOfClass:[NSDictionary class]]) {
+        NSString *strURL = [NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,_muArrayImages[index][@"name"]];
+        photo = [MWPhoto photoWithURL:[NSURL URLWithString:strURL]];
+    }else if([_muArrayImages[index] isKindOfClass:[UIImage class]]){
+        photo = [MWPhoto photoWithImage:_muArrayImages[index]];
+    }else{
+        return nil;
     }
-    if (arrImageViews && arrImageViews.count>0) {
-        [_arrayImages addObjectsFromArray:arrImageViews];
-    }
-    __block UIButton *safeBtnAddImage = _btnAddImage;
+    
+    return photo;
+}
+
+#pragma mark - data Request
+- (void)dataPublish {
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,admissionPublish_interface];
+    NSString *theme = [NSString getValidStringWithObject:nil];
+    NSString *photo = [NSString getValidStringWithObject:nil];
+    NSString *isTeacher = @"1";
+    NSDictionary *dicParam = @{@"sign_theme":theme,@"sign_photo":photo,@"is_teacher":isTeacher};
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParam whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+    } whenFailure:^{
+        
+    }];
+}
+- (void)uploadImages:(NSArray *)images{
     [_viewImageBg.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (obj == safeBtnAddImage) {
+        if (obj == _btnAdd) {
             ;
         }else{
             [obj removeFromSuperview];
         }
     }];
     
-    NSInteger count = _arrayImages.count;
+    NSInteger count = images.count;
     
-    CGFloat fMargin = 5;
-    CGFloat fWidthBtn = 70;
+    CGFloat fMargin = 10;
+    CGFloat fWidthBtn = (QLScreenWidth-20-30)/4;
+    CGFloat fHeightBtn = fWidthBtn*1.25;
     for (NSInteger i=0; i<count; i++) {
-        CGFloat fXPointStart = i%3*(fWidthBtn+fMargin*2);
-        CGFloat fYPointStart = fMargin;
+        CGFloat fXPointStart = i%4*(fWidthBtn+fMargin);
+        CGFloat fYPointStart = 10+i/4*(fHeightBtn+fMargin);
         UIButton *btnImage = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btnImage setFrame:CGRectMake(fXPointStart, fYPointStart, fWidthBtn, fWidthBtn)];
+        [btnImage setFrame:CGRectMake(fXPointStart, fYPointStart, fWidthBtn, fHeightBtn)];
         [btnImage addTarget:self action:@selector(btnScanImagesAction:) forControlEvents:UIControlEventTouchUpInside];
-        [btnImage setImage:_arrayImages[i] forState:UIControlStateNormal];
-        btnImage.tag = 100+i;
+        if ([images[i] isKindOfClass:[NSDictionary class]]) {
+            NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,images[i][@"name"]]];
+            [btnImage sd_setImageWithURL:url forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"icon_selectPicture_normal"]];
+        }else{
+            [btnImage setImage:images[i] forState:UIControlStateNormal];
+        }
         
-        UIButton *btnClean = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btnClean setBackgroundImage:[UIImage imageNamed:@"icon_delete"] forState:UIControlStateNormal];
-        btnClean.frame = CGRectMake(btnImage.frame.size.width-10, btnImage.frame.origin.y-10, 20, 20);
-        [btnImage addSubview:btnClean];
-        [btnClean addTarget:self action:@selector(deletImage:) forControlEvents:UIControlEventTouchUpInside];
-        [btnClean setCornerRadius:10];
-        btnClean.tag = 200+i;
+        btnImage.tag = 100+i;
         [_viewImageBg addSubview:btnImage];
         
+        UIButton *btnDelete = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btnDelete setFrame:CGRectMake(CGRectGetMaxX(btnImage.frame)-20, CGRectGetMinY(btnImage.frame)-15, 30, 30)];
+        [btnDelete setImage:[UIImage imageNamed:@"close_icon"] forState:UIControlStateNormal];
+        [btnDelete addTarget:self action:@selector(btnDemoveImageAction:) forControlEvents:UIControlEventTouchUpInside];
+        btnDelete.tag = 200+i;
+        [_viewImageBg addSubview:btnDelete];
     }
+    
     CGRect rectView = _viewImageBg.frame;
-    if (count <3) {
-        CGFloat fXPointStart = count%3*(fWidthBtn+fMargin*2);
-        CGFloat fYPointStart = fMargin;
-        [_btnAddImage setHidden:NO];
-        [_btnAddImage setFrame:CGRectMake(fXPointStart, fYPointStart, fWidthBtn, fWidthBtn)];
-        rectView.size.height =CGRectGetMaxY(_btnAddImage.frame)+10;
+    if (count <9) {
+        CGFloat fXPointStart = count%4*(fWidthBtn+fMargin);
+        CGFloat fYPointStart = 10+count/4*(fHeightBtn+fMargin);
+        [_btnAdd setHidden:NO];
+        [_btnAdd setFrame:CGRectMake(fXPointStart, fYPointStart, fWidthBtn, fHeightBtn)];
+        rectView.size.height =CGRectGetMaxY(_btnAdd.frame)+10;
         [_viewImageBg setFrame:rectView];
     }else{
-        [_btnAddImage setHidden:YES];
-        rectView.size.height = (fWidthBtn+fMargin)*1+fMargin;
+        [_btnAdd setHidden:YES];
+        rectView.size.height = (fHeightBtn+fMargin)*1+fMargin;
         [_viewImageBg setFrame:rectView];
     }
+    _layoutImageViewHeight.constant = _viewImageBg.frame.size.height;
+}
 
+- (void)btnDemoveImageAction:(id)sender{
+    UIButton *button = (UIButton *)sender;
+    NSInteger tag = button.tag - 200;
+    id image = _muArrayImages[tag];
+    [_muArrayImages removeObject:image];
+    [self uploadImages:_muArrayImages];
+}
+//浏览图片
+-(void)btnScanImagesAction:(id)sender{
+    
+    UIButton *button = (UIButton *)sender;
+    NSInteger index = button.tag-100;
+    
+    // Create browser
+    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
+    browser.displayActionButton = NO;
+    browser.displayNavArrows = YES;
+    browser.displaySelectionButtons = NO;
+    browser.alwaysShowControls = NO;
+    browser.zoomPhotosToFill = YES;
+    browser.enableGrid = NO;
+    browser.startOnGrid = NO;
+    browser.enableSwipeToDismiss = NO;
+    browser.autoPlayOnAppear = NO;
+    [browser setCurrentPhotoIndex:index];
+    [self.navigationController pushViewController:browser animated:YES];
+}
+
+
+- (void)upLoadImageToServer:(NSArray *)image{
+    NSData *data = UIImageJPEGRepresentation(image[uploadIndex], 1);
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,fileUpload_interface];
+    [QLHUDTool showLoading];
+    __weak typeof (self)weakSelf = self;
+    [QLHttpTool postPerWithBaseUrl:imageURL Parameters:@{@"basePath":@"other"} FormData:data FileExtension:@".jpg" MimeType:@"image/jpg"  whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"image response : %@", responseObject);
+        NSString *url = [NSString stringWithFormat:@"%@",responseObject[@"msg"]];
+        [_dicImgsSave setObject:url forKey:[NSString stringWithFormat:@"%ld",uploadIndex]];
+        if (url&&url.length>0&&uploadIndex<image.count-1) {
+            uploadIndex++;
+            [weakSelf upLoadImageToServer:image];
+        }else{
+            [QLHUDTool showAlertMessage:@"图片上传成功！"];
+            [weakSelf postData];
+        }
+    } whenFailure:^{
+    }];
+}
+- (void)postData{
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,classUpload_interface];
+    NSString *schoolId = [NSString getValidStringWithObject:[NSString stringWithFormat:@"%ld",[QLUserTool sharedUserTool].userModel.school_id]];
+    NSString *gradeId = [NSString getValidStringWithObject:[NSString stringWithFormat:@"%ld",[QLUserTool sharedUserTool].userModel.grade_id]];
+    NSString *content = [NSString getValidStringWithObject:_textViewDescription.text];
+    NSMutableDictionary *dic = [NSMutableDictionary new];
+    for (NSInteger i=0; i<_dicImgsSave.allValues.count; i++) {
+        [dic setObject:_dicImgsSave.allValues[i] forKey:[NSString stringWithFormat:@"photo_%ld",i]];
+    }
+    [dic setObject:content forKey:@"grade_group_content"];
+    [dic setObject:schoolId forKey:@"school_id"];
+    [dic setObject:gradeId forKey:@"grade_id"];
+    
+    [QLHUDTool showLoading];
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [QLHUDTool showAlertMessage:@"发布成功"];
+        [[QLHttpTool getCurrentVC].navigationController popViewControllerAnimated:YES];
+        QLLog(@"dd %@",responseObject);
+    } whenFailure:^{
+        
+    }];
 }
 @end

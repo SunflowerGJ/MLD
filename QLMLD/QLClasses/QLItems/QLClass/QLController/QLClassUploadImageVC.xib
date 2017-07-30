@@ -52,7 +52,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxh-xP-2Or">
-                                    <rect key="frame" x="0.0" y="130" width="375" height="100"/>
+                                    <rect key="frame" x="10" y="130" width="355" height="100"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="NTP-QP-Poe"/>
@@ -61,8 +61,8 @@
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="yxh-xP-2Or" firstAttribute="leading" secondItem="L3M-In-Y2a" secondAttribute="leading" id="0Tx-cY-UNd"/>
-                                <constraint firstAttribute="trailing" secondItem="yxh-xP-2Or" secondAttribute="trailing" id="1Ak-fl-i6d"/>
+                                <constraint firstItem="yxh-xP-2Or" firstAttribute="leading" secondItem="L3M-In-Y2a" secondAttribute="leading" constant="10" id="0Tx-cY-UNd"/>
+                                <constraint firstAttribute="trailing" secondItem="yxh-xP-2Or" secondAttribute="trailing" constant="10" id="1Ak-fl-i6d"/>
                                 <constraint firstAttribute="trailing" secondItem="k3a-f3-dbs" secondAttribute="trailing" id="CEt-vg-mjS"/>
                                 <constraint firstItem="k3a-f3-dbs" firstAttribute="top" secondItem="L3M-In-Y2a" secondAttribute="top" id="Qwf-Hf-IFo"/>
                                 <constraint firstItem="k3a-f3-dbs" firstAttribute="leading" secondItem="L3M-In-Y2a" secondAttribute="leading" id="SZN-Ol-DGK"/>

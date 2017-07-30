@@ -7,8 +7,28 @@
 //
 
 #import "QLAdmissionHomeTableCell.h"
+@interface QLAdmissionHomeTableCell(){
+    
+    __weak IBOutlet UILabel *_lblShow;
+}
+@end
 
 @implementation QLAdmissionHomeTableCell
++ (instancetype)cellWithAdmissionHomeTableView:(UITableView *)tableView{
+    static NSString *GroupedTableIdentifier = @"QLAdmissionHomeTableCell";
+    QLAdmissionHomeTableCell *cell = [tableView dequeueReusableCellWithIdentifier:
+                                 GroupedTableIdentifier];
+    if (cell == nil) {
+        UINib *nib = [UINib nibWithNibName:NSStringFromClass([QLAdmissionHomeTableCell class]) bundle:nil];
+        [tableView registerNib:nib forCellReuseIdentifier:GroupedTableIdentifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:
+                GroupedTableIdentifier];
+    }
+    return cell;
+}
+- (void)setCellDataWithTitle:(NSString *)str{
+    _lblShow.text = str;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

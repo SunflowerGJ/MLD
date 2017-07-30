@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface QLAdmissionHomeTableCell : UITableViewCell
-
++ (instancetype)cellWithAdmissionHomeTableView:(UITableView *)tableView;
+- (void)setCellDataWithTitle:(NSString *)str;
 @end

@@ -45,7 +45,7 @@
 @property (nonatomic, assign) NSInteger point_number;
 @property (nonatomic, assign) NSInteger upadte_user;
 @property (nonatomic, copy) NSString *update_time;
-@property (nonatomic, assign) NSInteger user_type;
+@property (nonatomic, assign) NSInteger user_type;//2 家长
 
 @end
 

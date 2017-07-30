@@ -249,4 +249,55 @@ QLCurrentDeviceClass currentDeviceClass() {
     
     return imageData;
 }
++ (UIImage *)imageWithName:(NSString *)strImgName {
+    NSString *strElemment = @"@2x";
+    NSString *strSuffix = @".png";
+    if ([strImgName rangeOfString:strElemment].length != 0) {
+        if ([strImgName hasSuffix:strSuffix]) {
+            strImgName = [strImgName stringByReplacingOccurrencesOfString:strSuffix withString:@""];
+        }
+        strImgName = [NSString stringWithFormat:@"%@%@", strImgName, strElemment];
+    }
+    if (![strImgName hasSuffix:strSuffix]) {
+        strImgName = [NSString stringWithFormat:@"%@%@", strImgName, strSuffix];
+    }
+    NSString *strImgPath = [[NSBundle mainBundle] pathForResource:strImgName ofType:nil];
+    if (strImgPath == nil) {
+        strImgName = [strImgName stringByReplacingOccurrencesOfString:@"@2x" withString:@""];
+    }
+    strImgPath = [[NSBundle mainBundle] pathForResource:strImgName ofType:nil];
+    
+    return [UIImage imageWithContentsOfFile:strImgPath];
+}
+/**
+ *  @brief 根据self,返回一个按照最大比例切割出来的图片
+ *
+ *  @param ratio 想要的比例(像素的宽/像素的高)
+ *
+ *  @return 返回一个按照最大比例切割出来的图片
+ */
+- (UIImage *)cutImageMaxWithRatio:(CGFloat)ratio {
+    CGSize sizeImage = self.size;
+    CGFloat fWidthRes;
+    CGFloat fHeightRes;
+    UIImage *image = [[UIImage alloc] init];
+    
+    if (sizeImage.width > sizeImage.height) {
+        fWidthRes = sizeImage.height / ratio;
+        CGFloat fXRes = (sizeImage.width - fWidthRes) / 2;
+        CGRect rectRes = CGRectMake(fXRes, 0, fWidthRes, sizeImage.height);
+        image = [UIImage imageWithCGImage:CGImageCreateWithImageInRect(self.CGImage, rectRes)];
+        return image;
+    } else if (sizeImage.width < sizeImage.height) {
+        fHeightRes = sizeImage.width * ratio;
+        CGFloat fYRes = (sizeImage.height - fHeightRes) / 2;
+        CGRect rectRes = CGRectMake(0, fYRes, sizeImage.width, fHeightRes);
+        image = [UIImage imageWithCGImage:CGImageCreateWithImageInRect(self.CGImage, rectRes)];
+        return image;
+    } else {
+        return self;
+    }
+    return nil;
+}
+
 @end

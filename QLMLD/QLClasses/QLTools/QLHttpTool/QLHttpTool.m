@@ -151,11 +151,11 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.securityPolicy setAllowInvalidCertificates:YES];
     
-    if (isNeedCookie) {
-        id cookie = [[NSUserDefaults standardUserDefaults] objectForKey:QLCookieKey];
-        
-        [manager.requestSerializer setValue:cookie forHTTPHeaderField:@"Cookie"];
-    }
+//    if (isNeedCookie) {
+//        id cookie = [[NSUserDefaults standardUserDefaults] objectForKey:QLCookieKey];
+//        
+//        [manager.requestSerializer setValue:cookie forHTTPHeaderField:@"Cookie"];
+//    }
     
     [self loadCredencialForManager:manager];
     
@@ -187,7 +187,7 @@
                 formatter.dateFormat = @"yyyy_MM_dd_HH_mm_ss";
                 NSString *strPrefix = [formatter stringFromDate:date];
                 NSString *strImageName = [NSString stringWithFormat:@"%@_%zi%@", strPrefix, idx, arrExtensions[idx]];
-                [formData appendPartWithFileData:data name:@"file" fileName:strImageName mimeType:arrMimeTypes[idx]];
+                [formData appendPartWithFileData:data name:@"imgFile" fileName:strImageName mimeType:arrMimeTypes[idx]];
             }];
         }
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -348,6 +348,35 @@
 //        [manager setCredential:urlCredential];
     }
 }
+
+
+#pragma mark - 上传图片
++ (void)requestForUploadImageWithImageType:(NSString *)imageType specifiedId:(NSString *)specifiedId dic:(NSDictionary *)dic images:(NSArray *)images WhenSuccess:(void (^)())success WhenFailure:(void (^)(UIImage *imageFailed, NSString *imageType))failure { //
+    if (images.count <= 0) return;
+    /** 图片处理 */
+    NSMutableArray *arrMImageDatas = [NSMutableArray arrayWithCapacity:images.count];
+    NSMutableArray *arrMExtensions = [NSMutableArray arrayWithCapacity:images.count];
+    NSMutableArray *arrMMimeTypes = [NSMutableArray arrayWithCapacity:images.count];
+    if (images.count > 0) {
+        for (UIImage *image in images) {
+            NSData *dataImage = UIImageJPEGRepresentation(image, 1);
+            [arrMImageDatas addObject:dataImage];
+            [arrMExtensions addObject:@".jpeg"];
+            [arrMMimeTypes addObject:@"image/jpeg"];
+        }
+    }
+    //    NSString *resId = [NSString stringWithFormat:@"%@%@", imageType, specifiedId];
+    
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,fileUpload_interface];
+    [QLHttpTool postWithBaseUrl:imageURL Parameters:dic FormDatas:[arrMMimeTypes copy] FileExtensions:[arrMExtensions copy] MimeTypes:[arrMImageDatas copy] NeedCookie:NO whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"上传图==%@,%@", responseObject,responseObject[@"err_msg"]);
+        if ([responseObject isKindOfClass:[NSDictionary class]]) {
+        }
+    } whenFailure:^{
+        
+    }];
+}
+
 #pragma mark - viewcontroller
 //获取当前屏幕显示的viewcontroller
 + (UIViewController *)getCurrentVC

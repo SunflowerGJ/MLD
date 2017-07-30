@@ -9,5 +9,9 @@
 #import "QLViewController.h"
 
 @interface QLAdmissionDetailVC : QLViewController
-
+@property (nonatomic, strong) NSString *signId;
+@property (nonatomic, strong) NSString *remark;
+@property (nonatomic, strong) NSString *photo;
+@property (nonatomic, strong) NSMutableArray *imgsArray;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @end

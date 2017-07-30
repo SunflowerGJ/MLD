@@ -9,6 +9,7 @@
 #import "QLTakeGoodsAddressVC.h"
 #import "QLAddressManageCell.h"
 #import "QLAddressManageModel.h"
+#import "QLAddAddressVC.h"
 @interface QLTakeGoodsAddressVC ()<UITableViewDelegate,UITableViewDataSource>{
     
     __weak IBOutlet UITableView *_tableMain;
@@ -31,8 +32,8 @@
     self.title = @"收货地址管理";
     
     self.rightBtn.hidden = NO;
-    self.rightBtn.frame = CGRectMake(QLScreenWidth-40, 28, 45, 30);
-    [self.rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
+    self.rightBtn.frame = CGRectMake(QLScreenWidth-60, 28, 45, 30);
+    [self.rightBtn setTitle:@"添加" forState:UIControlStateNormal];
     
     _pageSize = 10;
     _tableMain.estimatedRowHeight = 100;
@@ -46,7 +47,8 @@
 
 #pragma mark - btn
 - (void)clickRight {
-    
+    QLAddAddressVC *addVC = [[QLAddAddressVC alloc]init];
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:addVC animated:YES];
 }
 
 
@@ -58,10 +60,26 @@ return 1;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     QLAddressManageCell *cell = [QLAddressManageCell cellWithAddressTableView:tableView];
-    QLAddressManageModel *model = self.dataSource[indexPath.row];
-    [cell setCellDataWithAddressModel:model];
+//    QLAddressManageModel *model = self.dataSource[indexPath.row];
+//    [cell setCellDataWithAddressModel:model];
+    [cell setBlockEdit:^{
+        QLAddAddressVC *addVC = [[QLAddAddressVC alloc]init];
+        [[QLHttpTool getCurrentVC].navigationController pushViewController:addVC animated:YES];
+    }];
+    __weak typeof (self) weakSelf = self;
+    [cell setBlockDelete:^{
+        [weakSelf deleteAddressWithID:nil];
+    }];
     return cell;
 }
 
-
+- (void)deleteAddressWithID:(NSString *)addressID{
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,nil];
+    NSDictionary *dic = @{};
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+    } whenFailure:^{
+        
+    }];
+}
 @end

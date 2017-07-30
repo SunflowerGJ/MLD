@@ -21,14 +21,14 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S8X-5Q-Ux7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sex-zP-MSa">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sex-zP-MSa">
                                 <rect key="frame" x="15" y="11" width="290" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Sex-zP-MSa" secondAttribute="trailing" constant="15" id="4IQ-ra-yCU"/>
                             <constraint firstItem="Sex-zP-MSa" firstAttribute="centerY" secondItem="S8X-5Q-Ux7" secondAttribute="centerY" id="XTj-26-vaM"/>
@@ -36,6 +36,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="S8X-5Q-Ux7" secondAttribute="bottom" id="Ss4-62-xZh"/>
                     <constraint firstAttribute="trailing" secondItem="S8X-5Q-Ux7" secondAttribute="trailing" id="X6C-Fh-lEq"/>
@@ -43,6 +44,10 @@
                     <constraint firstItem="S8X-5Q-Ux7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ejb-pA-dgX"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="_lblShow" destination="Sex-zP-MSa" id="zYR-eM-GtL"/>
+            </connections>
             <point key="canvasLocation" x="40" y="89"/>
         </tableViewCell>
     </objects>

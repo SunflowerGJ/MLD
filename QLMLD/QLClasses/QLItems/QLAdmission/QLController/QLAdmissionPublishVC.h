@@ -9,5 +9,5 @@
 #import "QLViewController.h"
 
 @interface QLAdmissionPublishVC : QLViewController
-
+@property (nonatomic, strong) NSMutableArray *muArrayImages;
 @end
