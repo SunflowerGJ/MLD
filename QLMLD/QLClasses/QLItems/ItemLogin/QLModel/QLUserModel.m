@@ -13,7 +13,7 @@ MJCodingImplementation
     if (self = [super init]) {
         [QLUserModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
-                     @"user_id" : @"user_id"
+//                     @"user_id" : @"user_id"
                      };
         }];
     }

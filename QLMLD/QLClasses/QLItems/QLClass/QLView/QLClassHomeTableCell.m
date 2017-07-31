@@ -7,6 +7,7 @@
 //
 
 #import "QLClassHomeTableCell.h"
+#import "PictureShowView.h"
 @interface QLClassHomeTableCell(){
     
     __weak IBOutlet UIImageView *_imageHead;
@@ -17,6 +18,7 @@
     __weak IBOutlet UIView *_viewImageShow;
     __weak IBOutlet UILabel *_lblImageNum;
     NSMutableArray *_muArrayImages;
+    __weak IBOutlet NSLayoutConstraint *_layoutHeight;
 }
 @end
 
@@ -60,6 +62,16 @@
     if(model.photo6.length>0){
         [_muArrayImages addObject:model.photo6];
     }
+    if(model.photo7.length>0){
+        [_muArrayImages addObject:model.photo6];
+    }
+    if(model.photo8.length>0){
+        [_muArrayImages addObject:model.photo6];
+    }
+    if(model.photo9.length>0){
+        [_muArrayImages addObject:model.photo6];
+    }
+    [self uploadImages:_muArrayImages];
 //    if (_muArrayImages.count) {
 //        if (![forumModel.strFourmReplayId isEmptyString]) {
 //            _lcTopMarginForViewImages.constant = 8;
@@ -83,6 +95,36 @@
 //    }
     
 
+}
+
+- (void)uploadImages:(NSMutableArray *)images{
+    
+    NSInteger count = images.count;
+    
+    CGFloat fMargin = 10;
+    CGFloat fWidthBtn = 35;
+    CGFloat fHeightBtn = fWidthBtn;
+    for (NSInteger i=0; i<count; i++) {
+        CGFloat fXPointStart = i%4*(fWidthBtn+fMargin);
+        CGFloat fYPointStart = 10+i/4*(fHeightBtn+fMargin);
+        UIButton *btnImage = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btnImage setFrame:CGRectMake(fXPointStart, fYPointStart, fWidthBtn, fHeightBtn)];
+        [btnImage addTarget:self action:@selector(btnScanImagesAction:) forControlEvents:UIControlEventTouchUpInside];
+      
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,images[i]]];
+        [btnImage sd_setImageWithURL:url forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"icon_selectPicture_normal"]];
+
+        btnImage.tag = 100+i;
+        [_viewImageShow addSubview:btnImage];
+    }
+    CGFloat fYPointStart = 10+count/4*(fHeightBtn+fMargin);
+    _layoutHeight.constant = fYPointStart;
+}
+- (void)btnScanImagesAction:(id)sender{
+    UIButton *button = (UIButton *)sender;
+    PictureShowView *view = [PictureShowView showImageView];
+    [view setLookOfImage:button.imageView.image];
+    
 }
 - (void)awakeFromNib {
     [super awakeFromNib];

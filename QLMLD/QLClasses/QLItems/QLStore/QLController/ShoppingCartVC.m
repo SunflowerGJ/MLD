@@ -21,7 +21,6 @@
     __weak IBOutlet UIImageView *_imgNormalAll;
     __weak IBOutlet UIButton *_btnSettlement;//结算
     __weak IBOutlet UILabel *_lblPriceAll;
-    BOOL _currentStatus;
     BOOL _selectedNormalAllStatus;
     BOOL _selectedEditAllStatus;
     
@@ -42,18 +41,15 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self testData];
     [self loadDefaultSetting];
 }
 - (void)loadDefaultSetting{
     self.title = @"购物车";
     self.rightBtn.hidden = NO;
-//    self.rightBtn.frame= CGRectMake(QLScreenWidth-70, 28, 60, 30);
-//    self.rightBtn.tintColor = QLYellowColor;
-//    [self.rightBtn.titleLabel setFont:[UIFont systemFontOfSize:15]];
-//    [self.rightBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    [self.rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
+    _btnSettlement.backgroundColor = QLFontShallowColor;
+    _lblPriceAll.text = @"￥0.00";
     _tableMain.estimatedRowHeight = 80;
-    _currentStatus = YES;
     _selectedNormalAllStatus = NO;
     _selectedEditAllStatus = NO;
     _tableMain.separatorColor = QLDividerColor;
@@ -63,7 +59,7 @@
     if (!_dicSelectedEdit) {
         _dicSelectedEdit = [NSMutableDictionary new];
     }
-   
+    
     [self addTableViewRefresh];
 }
 -(void)tableViewHeaderRefreshBegin{
@@ -147,29 +143,6 @@
     }
 }
 
-- (void)clickRight{
-    //_currentStatus yes 当前为完成状态,显示编辑
-    if (_currentStatus) {
-        //可编辑
-        [self.rightBtn setTitle:@"完成" forState:UIControlStateNormal];
-        _viewFooterEdit.hidden = NO;
-        _viewFooterNormal.hidden = YES;
-        _currentStatus = !_currentStatus;
-        _imgNormalAll.image = [UIImage imageNamed:@"check"];
-
-    }else{
-        [self.rightBtn setTitle:@"编辑" forState:UIControlStateNormal];
-        _viewFooterEdit.hidden = YES;
-        _viewFooterNormal.hidden = NO;
-        _currentStatus = !_currentStatus;
-        _imgEditAll.image = [UIImage imageNamed:@"check"];
-
-    }
-    [_dicSelectedNormal removeAllObjects];
-    [_dicSelectedEdit removeAllObjects];
-    
-    [_tableMain reloadData];
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -179,27 +152,18 @@
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    return self.dataSource.count;
-    return 5;
+    return self.dataSource.count;
+    //    return 5;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     StoreCartTableCell *cell = [StoreCartTableCell cellWithShoppingCartTableView:tableView];
     ShoppingCartModel *model = self.dataSource[indexPath.row];
     [cell setCellDataWithModel:model indexPath:indexPath];
     
-    
-    if (!_currentStatus) {
-        if (_dicSelectedEdit[model.strID]){
-            [cell setCellSelected:YES];
-        }else{
-            [cell setCellSelected:NO];
-        }
+    if (_dicSelectedNormal[model.strID]){
+        [cell setCellSelected:YES];
     }else{
-        if (_dicSelectedNormal[model.strID]){
-            [cell setCellSelected:YES];
-        }else{
-            [cell setCellSelected:NO];
-        }
+        [cell setCellSelected:NO];
     }
     __weak typeof(self) weakSelf = self;
     [cell setBlockClickMarkButton:^(ShoppingCartModel *model,NSIndexPath *path) {
@@ -207,16 +171,21 @@
     }];
     
     [cell setBlockShoppingSubtraction:^{
+         [self calculatePrice];
         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
     }];
     [cell setBlockShoppingPlus:^{
+        [self calculatePrice];
         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath,nil] withRowAnimation:UITableViewRowAnimationNone];
+        
     }];
     [cell setBlockShoppingEditCountNum:^(NSInteger num) {
-        //        [self calculateServiceMaterialAllFee:indexPath];
+         [self calculatePrice];
     }];
     
-    
+    [cell setBlockDelete:^{
+        [weakSelf deleteData:model];
+    }];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -224,29 +193,17 @@
 - (void)cellButtonSelected:(ShoppingCartModel *)model indexPath:(NSIndexPath *)path{
     
     StoreCartTableCell *cell = [_tableMain cellForRowAtIndexPath:path];
-    if (!_currentStatus) {
-        if(_dicSelectedEdit[model.strID]){
-            //取消选中状态
-            [_dicSelectedEdit removeObjectForKey:model.strID];
-            [cell setCellSelected:NO];
-            [self editCancelSelectedAll];
-        }else{
-            //选中
-            [_dicSelectedEdit setObject:model forKey:model.strID];
-            [cell setCellSelected:YES];
-        }
+    
+    if(_dicSelectedNormal[model.strID]){
+        //取消选中状态
+        [_dicSelectedNormal removeObjectForKey:model.strID];
+        [cell setCellSelected:NO];
+        [self normalCancelSelectedAll];
+        
     }else{
-        if(_dicSelectedNormal[model.strID]){
-            //取消选中状态
-            [_dicSelectedNormal removeObjectForKey:model.strID];
-            [cell setCellSelected:NO];
-            [self normalCancelSelectedAll];
-           
-        }else{
-            //选中
-            [_dicSelectedNormal setObject:model forKey:model.strID];
-            [cell setCellSelected:YES];
-        }
+        //选中
+        [_dicSelectedNormal setObject:model forKey:model.strID];
+        [cell setCellSelected:YES];
     }
     #pragma mark - 一旦取消一个则全选UnSelected
     [self calculatePrice];
@@ -261,7 +218,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     ShoppingCartModel *model = self.dataSource[indexPath.row];
     
-  
+    
 }
 //购物车详情请求
 - (void)requestForCartMaterialDetialInfoWithID:(NSString *)strID{
@@ -295,7 +252,7 @@
         _imgNormalAll.image = [UIImage imageNamed:@"check"];
         [_dicSelectedNormal removeAllObjects];
         _selectedNormalAllStatus = NO;
-
+        
     }
     [self calculatePrice];
     [_tableMain reloadData];
@@ -318,24 +275,35 @@
 }
 //删除
 - (IBAction)btnDelete:(id)sender {
-
+    
     QLLog(@"删除：%@",_dicSelectedEdit);
 }
 //结算
 - (IBAction)btnSettlement:(id)sender {
-
+    
     QLLog(@"结算的数据：%@, 总金额：%@",_dicSelectedNormal,_lblPriceAll.text);
-//只取金额： _lblPriceAll.text
+    //只取金额： _lblPriceAll.text
     
 }
 #pragma mark - 计算总金额
 - (void)calculatePrice{
+    if ([_dicSelectedNormal allValues].count>0) {
+        _btnSettlement.backgroundColor = QLYellowColor;
+    }else{
+        _btnSettlement.backgroundColor = QLFontShallowColor;
+    }
+
     CGFloat priceAll = 0;
     //选中
     for (ShoppingCartModel *model in _dicSelectedNormal.allValues) {
         priceAll = priceAll + [model.cartPrice floatValue]*[model.cartCount integerValue];
     }
     _lblPriceAll.text = [NSString stringWithFormat:@"%.2f",priceAll];
+}
+#pragma mark - 删除
+- (void)deleteData:(ShoppingCartModel *)model{
+    [self.dataSource removeObject:model];
+    [_tableMain reloadData];
 }
 - (void)dealloc {
     // RELEASE OBJECTS TO FREE THE MEMORIES HERE!

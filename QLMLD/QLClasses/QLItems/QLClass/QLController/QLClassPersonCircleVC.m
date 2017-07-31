@@ -66,7 +66,7 @@
     NSString *userHeadUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,head];
     [_imgHead sd_setImageWithURL:[NSURL URLWithString:userHeadUrl] placeholderImage:nil];
     [_imgHead setCornerRadius:_imgHead.frame.size.width/2];
-    _lblUserName.text = @"应";
+    _lblUserName.text = [QLUserTool sharedUserTool].userModel.user_name;
     
 }
 #pragma table
@@ -76,9 +76,9 @@
 }
 /** 下拉刷新 */
 - (void)tableHeadLoad{
-    _pageNum = 1;
+    _pageNum = 0;
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,class_interface];
-    NSDictionary *dicParam = @{@"start":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"limit":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
+    NSDictionary *dicParam = @{@"get_id":[NSString getValidStringWithObject:_strUserId],@"start":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"limit":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParam whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"班级圈信息：%@",responseObject);
         NSMutableArray *array = [NSMutableArray new];
@@ -93,7 +93,7 @@
             self.promptView.hidden = NO;
             self.promptL.text =@"这里暂时还没有内容~";
         }
-        if([responseObject[@"total"] integerValue]<=_pageNum*_pageSize){
+        if([responseObject[@"total"] integerValue]<=_pageSize){
             [_tableMain.footerKS setIsLastPage:YES];
         }else{
             [_tableMain.footerKS setIsLastPage:NO];
@@ -114,7 +114,7 @@
     if ([view isEqual:_tableMain.footerKS]) {
         _pageNum++;
         NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,class_interface];
-        NSDictionary *dicParam = @{@"pageNumber":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"pageSize":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
+        NSDictionary *dicParam = @{@"pageNumber":[NSString stringWithFormat:@"%ld",(long)_pageNum*_pageSize],@"pageSize":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
         
         [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParam whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             if(self.dataSource){
@@ -154,12 +154,12 @@
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 5;
+    return self.dataSource.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     QLClassHomeTableCell *cell = [QLClassHomeTableCell cellWithClassHomeTableView:tableView];
-    //    QLClassHomeDataModel *model = self.dataSource[indexPath.row];
-    //    [cell setCellDataWithDataModel:model];
+        QLClassHomeDataModel *model = self.dataSource[indexPath.row];
+        [cell setCellDataWithDataModel:model];
     return cell;
 }
 

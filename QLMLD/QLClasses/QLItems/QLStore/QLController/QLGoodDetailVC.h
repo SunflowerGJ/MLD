@@ -7,7 +7,7 @@
 //
 
 #import "QLViewController.h"
-
+#import "ShoppingCartModel.h"
 @interface QLGoodDetailVC : QLViewController
-
+@property (nonatomic, strong) ShoppingCartModel *cartModel;
 @end

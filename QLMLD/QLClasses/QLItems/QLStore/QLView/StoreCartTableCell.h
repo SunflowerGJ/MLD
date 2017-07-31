@@ -13,6 +13,9 @@
 @property (nonatomic,copy) void (^blockShoppingPlus)();
 @property (nonatomic,copy) void (^blockShoppingEditCountNum)(NSInteger num);
 @property (nonatomic,copy) void (^blockClickMarkButton)(ShoppingCartModel *model,NSIndexPath *path);
+@property (nonatomic,copy) void (^blockDelete)();
+
+
 + (instancetype)cellWithShoppingCartTableView:(UITableView *)tableView;
 - (void)setCellDataWithModel:(ShoppingCartModel *)model indexPath:(NSIndexPath *)path;
 -(void)setCellSelected:(BOOL)isSelected;

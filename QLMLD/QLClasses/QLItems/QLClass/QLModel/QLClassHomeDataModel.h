@@ -16,6 +16,9 @@
 @property (strong, nonatomic) NSString *photo4;
 @property (strong, nonatomic) NSString *photo5;
 @property (strong, nonatomic) NSString *photo6;
+@property (strong, nonatomic) NSString *photo7;
+@property (strong, nonatomic) NSString *photo8;
+@property (strong, nonatomic) NSString *photo9;
 @property (strong, nonatomic) NSString *praiseNum;
 @property (strong, nonatomic) NSString *createTime;
 @property (strong, nonatomic) NSString *rowNum;

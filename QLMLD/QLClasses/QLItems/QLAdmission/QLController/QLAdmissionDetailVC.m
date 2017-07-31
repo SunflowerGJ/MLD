@@ -13,6 +13,7 @@
     
     __weak IBOutlet UITableView *_tableMain;
     NSInteger uploadIndex;
+    NSMutableDictionary *_dicImgsSave;
 }
 
 @end
@@ -29,15 +30,25 @@
     _tableMain.estimatedRowHeight = 100;
     _tableMain.tableFooterView = [UIView new];
     [_tableMain addSubview: self.promptView];
+    uploadIndex = 0;
     [self uploadImage:_imgsArray];
 }
 
-- (void)uploadImage:(UIImage *)image{
-    NSData *data = UIImageJPEGRepresentation(image, 1);
+- (void)uploadImage:(NSMutableArray *)array{
+    NSData *data = UIImageJPEGRepresentation(array[uploadIndex], 1);
     NSString *imageURL = [NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,fileUpload_interface];
+    __weak typeof (self)weakSelf = self;
     [QLHttpTool postPerWithBaseUrl:imageURL Parameters:@{@"basePath":@"user"} FormData:data FileExtension:@".jpg" MimeType:@"image/jpg"  whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"image response : %@", responseObject);
         NSString *imageUrl = [NSString stringWithFormat:@"%@",responseObject[@"msg"]];
+        [_dicImgsSave setObject:imageUrl forKey:[NSString stringWithFormat:@"%ld",uploadIndex]];
+        if (imageUrl&&imageUrl.length>0&&uploadIndex<array.count-1) {
+            uploadIndex++;
+            [weakSelf uploadImage:array[uploadIndex]];
+        }else{
+            [QLHUDTool showAlertMessage:@"图片上传成功！"];
+            [weakSelf uploadImageInfoData];
+        }
     } whenFailure:^{
     }];
     
@@ -45,7 +56,12 @@
 }
 - (void)uploadImageInfoData{
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,admissionAddOrUpdate_interface];
-    NSDictionary *dic=@{@"sign_id":[NSString getValidStringWithObject:_signId]};
+//    NSDictionary *dic=@{@"sign_id":[NSString getValidStringWithObject:_signId]};
+    NSMutableDictionary *dic = [NSMutableDictionary new];
+    for (NSInteger i=0; i<_dicImgsSave.allValues.count; i++) {
+        [dic setObject:_dicImgsSave.allValues[i] forKey:[NSString stringWithFormat:@"photo_%ld",i]];
+    }
+    
     
 }
 - (void)didReceiveMemoryWarning {

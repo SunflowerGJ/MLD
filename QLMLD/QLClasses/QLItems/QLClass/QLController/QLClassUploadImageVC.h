@@ -10,4 +10,6 @@
 
 @interface QLClassUploadImageVC : QLViewController
 @property (nonatomic, strong) NSMutableArray *muArrayImages;
+@property (nonatomic, copy) void (^blockPublishSuccess)();
+
 @end

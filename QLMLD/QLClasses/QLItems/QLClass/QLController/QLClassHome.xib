@@ -39,7 +39,7 @@
                         <constraint firstAttribute="bottom" secondItem="sAK-he-hqV" secondAttribute="bottom" id="kjT-hO-2cx"/>
                     </constraints>
                 </view>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8fO-6B-e0S">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8fO-6B-e0S">
                     <rect key="frame" x="0.0" y="184" width="375" height="483"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -48,7 +48,7 @@
                     </connections>
                 </tableView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r57-DE-EcY">
-                    <rect key="frame" x="305" y="159" width="50" height="50"/>
+                    <rect key="frame" x="305" y="154" width="50" height="50"/>
                     <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="r57-DE-EcY" secondAttribute="height" multiplier="1:1" id="5BW-BN-DQU"/>
@@ -56,7 +56,7 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzK-q3-k6Z">
-                    <rect key="frame" x="305" y="159" width="50" height="50"/>
+                    <rect key="frame" x="305" y="154" width="50" height="50"/>
                     <connections>
                         <action selector="btnUser:" destination="-1" eventType="touchUpInside" id="aVn-Wh-N5r"/>
                     </connections>
@@ -71,7 +71,7 @@
                 <constraint firstItem="XzK-q3-k6Z" firstAttribute="top" secondItem="r57-DE-EcY" secondAttribute="top" id="FWL-4w-YQD"/>
                 <constraint firstItem="8fO-6B-e0S" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fko-0J-WVg"/>
                 <constraint firstItem="gNR-dY-ASu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="LbX-Gw-FNS"/>
-                <constraint firstItem="r57-DE-EcY" firstAttribute="top" secondItem="gNR-dY-ASu" secondAttribute="bottom" constant="-25" id="LfP-YC-Lcl"/>
+                <constraint firstItem="r57-DE-EcY" firstAttribute="top" secondItem="gNR-dY-ASu" secondAttribute="bottom" constant="-30" id="LfP-YC-Lcl"/>
                 <constraint firstAttribute="trailing" secondItem="8fO-6B-e0S" secondAttribute="trailing" id="ZBs-l5-hGX"/>
                 <constraint firstItem="XzK-q3-k6Z" firstAttribute="trailing" secondItem="r57-DE-EcY" secondAttribute="trailing" id="oUc-rO-o74"/>
                 <constraint firstItem="XzK-q3-k6Z" firstAttribute="bottom" secondItem="r57-DE-EcY" secondAttribute="bottom" id="pb0-Sc-XP9"/>

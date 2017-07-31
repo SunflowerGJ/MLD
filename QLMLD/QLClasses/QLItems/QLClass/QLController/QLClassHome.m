@@ -51,8 +51,8 @@
     [_tableMain headerBeginRefreshing];
     
     NSString *head = [QLUserTool sharedUserTool].userModel.user_photo;
-    NSString *userHeadUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,head];
-    [_imgMark sd_setImageWithURL:[NSURL URLWithString:userHeadUrl] placeholderImage:nil];
+    NSString *userHeadUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,head];
+    [_imgMark sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,userHeadUrl]]  placeholderImage:nil];
 
 }
 
@@ -115,6 +115,9 @@
     
     QLClassUploadImageVC *uploadImage = [[QLClassUploadImageVC alloc]init];
     uploadImage.muArrayImages = [NSMutableArray arrayWithObjects:saveImage, nil];
+    [uploadImage setBlockPublishSuccess:^{
+        [_tableMain headerBeginRefreshing];
+    }];
     [[QLHttpTool getCurrentVC].navigationController pushViewController:uploadImage animated:YES];
 }
 #pragma mark - ELCImagePickerController delegate
@@ -151,6 +154,9 @@
     
     QLClassUploadImageVC *uploadImage = [[QLClassUploadImageVC alloc]init];
     uploadImage.muArrayImages = images;
+    [uploadImage setBlockPublishSuccess:^{
+        [_tableMain headerBeginRefreshing];
+    }];
     [[QLHttpTool getCurrentVC].navigationController pushViewController:uploadImage animated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -176,7 +182,7 @@
 }
 /** 下拉刷新 */
 - (void)tableHeadLoad{
-    _pageNum = 1;
+    _pageNum = 0;
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,class_interface];
     NSDictionary *dicParam = @{@"start":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"limit":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParam whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -193,7 +199,7 @@
             self.promptView.hidden = NO;
             self.promptL.text =@"这里暂时还没有内容~";
         }
-        if([responseObject[@"total"] integerValue]<=_pageNum*_pageSize){
+        if([responseObject[@"total"] integerValue]<=_pageSize){
             [_tableMain.footerKS setIsLastPage:YES];
         }else{
             [_tableMain.footerKS setIsLastPage:NO];
@@ -214,7 +220,7 @@
     if ([view isEqual:_tableMain.footerKS]) {
         _pageNum++;
         NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,class_interface];
-        NSDictionary *dicParam = @{@"pageNumber":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"pageSize":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
+        NSDictionary *dicParam = @{@"pageNumber":[NSString stringWithFormat:@"%ld",(long)_pageNum*_pageSize],@"pageSize":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
 
         [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParam whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             if(self.dataSource){
@@ -248,13 +254,13 @@
     return 1;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    return self.dataSource.count;
-    return 3;
+    return self.dataSource.count;
+//    return 3;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     QLClassHomeTableCell *cell = [QLClassHomeTableCell cellWithClassHomeTableView:tableView];
-//    QLClassHomeDataModel *model = self.dataSource[indexPath.row];
-//    [cell setCellDataWithDataModel:model];
+    QLClassHomeDataModel *model = self.dataSource[indexPath.row];
+    [cell setCellDataWithDataModel:model];
     return cell;
 }
 

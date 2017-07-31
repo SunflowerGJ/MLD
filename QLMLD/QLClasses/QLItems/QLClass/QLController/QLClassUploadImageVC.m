@@ -312,6 +312,7 @@
     [QLHUDTool showLoading];
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         [QLHUDTool showAlertMessage:@"发布成功"];
+        self.blockPublishSuccess();
         [[QLHttpTool getCurrentVC].navigationController popViewControllerAnimated:YES];
         QLLog(@"dd %@",responseObject);
     } whenFailure:^{

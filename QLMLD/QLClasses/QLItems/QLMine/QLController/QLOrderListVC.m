@@ -179,7 +179,6 @@
     [vw addSubview:status];
     [status mas_makeConstraints:^(MASConstraintMaker *make) {
         make.rightMargin.equalTo(vw).offset(-15);
-        make.width.equalTo(@60);
         make.centerY.equalTo(vw);
     }];
     status.textAlignment = NSTextAlignmentRight;
@@ -190,14 +189,14 @@
     UILabel *orderNum = [[UILabel alloc] init];
     [vw addSubview:orderNum];
     [orderNum mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(tip.mas_right).offset(15);
-        make.right.greaterThanOrEqualTo(status).offset(-15);
+        make.leftMargin.equalTo(tip.mas_right).offset(0);
+        make.rightMargin.equalTo(status.mas_left).offset(-10);
         make.centerY.equalTo(vw);
     }];
     orderNum.textColor = QLFontShallowColor;
     orderNum.font=QLFontNormal;
     orderNum.text = @"212121212121";
-   
+    orderNum.backgroundColor = QLYellowColor;
     
     UILabel *line = [[UILabel alloc]init];
     [vw addSubview:line];
@@ -214,41 +213,57 @@
     UIView *vw=[[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 40)];
     vw.backgroundColor=[UIColor whiteColor];
     
-//    UILabel *tip = [[UILabel alloc]init];
-//    [vw addSubview:tip];
-//    [tip mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.leadingMargin.equalTo(vw).offset(15);
-//        make.centerY.equalTo(vw);
-//    }];
-//    tip.text = @"合计：";
-//    tip.font = QLFontNormal;
-//    
-//    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [vw addSubview:button];
-//    [button mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.rightMargin.equalTo(vw).offset(-15);
-//        make.width.equalTo(@50);
-//        make.height.equalTo(@26);
-//        make.centerY.equalTo(vw);
-//    }];
-//    [button setTitle:@"支付" forState:UIControlStateNormal];
-//    [button setTitleColor:QLYellowColor forState:UIControlStateNormal];
-//    [button setBorder:.5 borderColor:QLYellowColor];
-//    [button.titleLabel setFont:QLFontNormal];
-//    
-//    UILabel *total = [[UILabel alloc]init];
-//    [vw addSubview:total];
-//    [total mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.leftMargin.equalTo(tip).offset(15);
-//        make.centerY.equalTo(vw);
-//    }];
-//    total.textColor = QLFontDarkColor;
-//    total.text = @"￥200";
-//    total.font = QLFontNormal;
+    UILabel *tip = [[UILabel alloc]init];
+    [vw addSubview:tip];
+    [tip mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leadingMargin.equalTo(vw).offset(15);
+        make.centerY.equalTo(vw);
+    }];
+    tip.text = @"合计：";
+    tip.font = QLFontNormal;
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [vw addSubview:button];
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.rightMargin.equalTo(vw).offset(-15);
+        make.width.equalTo(@50);
+        make.height.equalTo(@26);
+        make.centerY.equalTo(vw);
+    }];
+    [button setTitle:@"支付" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [button setBackgroundColor:QLYellowColor];
+    [button setCornerRadius:QLCornerRadius];
+    [button.titleLabel setFont:QLFontNormal];
+    [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UILabel *total = [[UILabel alloc]init];
+    [vw addSubview:total];
+    [total mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leftMargin.equalTo(tip.mas_right).offset(15);
+        make.centerY.equalTo(vw);
+    }];
+    total.textColor = QLFontDarkColor;
+    total.text = @"￥200";
+    total.font = QLFontNormal;
+    
+    UILabel *line = [[UILabel alloc]init];
+    [vw addSubview:line];
+    [line mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottomMargin.equalTo(vw).offset(0.5);
+        make.width.equalTo(@(tableView.frame.size.width));
+        make.height.equalTo(@1);
+    }];
+    line.backgroundColor = QLDividerColor;
+
     return vw;
 
 }
+#pragma mark - button
+- (void)buttonAction:(id)sender{
     
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 44;
 }

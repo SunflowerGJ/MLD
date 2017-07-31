@@ -48,6 +48,7 @@ static NSString *headerViewIdentifier = @"hederview";
     [self smallTypeLayout];
     [self loadCollectionView];
 }
+
 - (void)smallTypeLayout {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     [_collectionSmallType setCollectionViewLayout:layout];
@@ -70,6 +71,9 @@ static NSString *headerViewIdentifier = @"hederview";
 - (void)loadDefaultSetting {
     _pageSize = 10;
     self.view.backgroundColor = [UIColor whiteColor];
+    
+     _viewHeader.frame=CGRectMake(0, 0, QLScreenWidth, 140);
+    
     self.rightBtn.hidden = NO;
     self.leftBtn.hidden = YES;
     self.rightBtn.frame= CGRectMake(QLScreenWidth-60, 28, 60, 30);
@@ -86,7 +90,7 @@ static NSString *headerViewIdentifier = @"hederview";
     self.myHeaderImg.pageDotColor = QLFontShallowColor; // 自定义分页控件小圆标颜色
     self.myHeaderImg.placeholderImage = [UIImage imageNamed:@"banner1"];
     self.myHeaderImg.imageURLStringsGroup = imagesURLStrings;
-    
+    [self smallTypeDataRequest];
     
     //查询轮播图
     NSString *strURl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,storeBanner_interface];
@@ -94,7 +98,7 @@ static NSString *headerViewIdentifier = @"hederview";
         _imageNames = [responseObject objectForKey:@"data"];
         NSMutableArray *imagesURLStrings = [[NSMutableArray alloc] init];
         for (NSDictionary *cid in _imageNames) {
-            [imagesURLStrings addObject:[NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image, [cid objectForKey:@"carousel_url"]]];
+            [imagesURLStrings addObject:[NSString stringWithFormat:@"%@/%@",QLBaseUrlString_Image, [cid objectForKey:@"carousel_url"]]];
         }
         self.myHeaderImg.imageURLStringsGroup = imagesURLStrings;
         [Tools setCache:STOREBANNER_IMAGE data:_imageNames];
@@ -130,8 +134,19 @@ static NSString *headerViewIdentifier = @"hederview";
     [_collectionGoods addHeaderWithTarget:self action:@selector(collectionViewHeadLoad)];
     _collectionGoods.footerKS = [[KSDefaultFootRefreshView alloc]  initWithDelegate:self];
 }
+
+#pragma mark - data Request
+- (void)smallTypeRequest{
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,storeSmallCalss_interface];
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"smallType: %@",responseObject);
+    } whenFailure:^{
+        
+    }];
+}
+
 - (void)collectionViewHeadLoad{
-    _pageNum = 1;
+    _pageNum = 0;
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,hotList_interface];
 //    _strSearch =
     NSDictionary *dicParam = @{@"product_name":[NSString getValidStringWithObject:_strSearch], @"start":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"limit":[NSString stringWithFormat:@"%ld",(long)_pageSize]};

@@ -45,7 +45,7 @@
 }
 - (void)changeRootViewControllerToLogin {
     NSString *strUserID = [NSString stringWithFormat:@"%ld",[QLUserTool sharedUserTool].userModel.user_id];
-    if (strUserID) {
+    if (strUserID&&![strUserID isEqualToString:@"0"]) {
         QLMainViewController *vcMain = [QLMainViewController new];
         self.window.rootViewController = [[QLNavigationController alloc] initWithRootViewController:vcMain];
     }else{

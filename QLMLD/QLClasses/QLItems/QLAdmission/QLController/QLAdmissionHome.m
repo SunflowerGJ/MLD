@@ -96,8 +96,6 @@
     NSString *dateTime = [formatter stringFromDate:date];
     QLLog(@"date: %@",dateTime);
     
-    NSDictionary *dic = @{@"create_time":dateTime};
-    
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSMutableArray *array = [NSMutableArray new];
 //        array = [QLClassHomeDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];

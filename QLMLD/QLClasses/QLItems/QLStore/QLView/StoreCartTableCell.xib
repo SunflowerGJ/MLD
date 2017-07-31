@@ -28,8 +28,8 @@
                                     <constraint firstAttribute="width" constant="15" id="GYh-QS-MKr"/>
                                     <constraint firstAttribute="width" secondItem="aqY-rj-SAu" secondAttribute="height" multiplier="1:1" id="JNR-PT-rIx"/>
                                 </constraints>
-                                <state key="normal" image="checked_icon"/>
-                                <state key="selected" image="checked"/>
+                                <state key="normal" image="unCheck_icon"/>
+                                <state key="selected" image="checked_icon"/>
                                 <connections>
                                     <action selector="btnMark:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="gQL-1p-D4f"/>
                                 </connections>
@@ -90,6 +90,9 @@
                                                 <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="-1" id="nMS-3k-yAm"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -158,6 +161,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="_btnDelete" destination="V1r-2e-815" id="LyB-wM-1a3"/>
                 <outlet property="_btnMark" destination="aqY-rj-SAu" id="bAr-M0-sqQ"/>
                 <outlet property="_imgLogo" destination="nOp-m9-hog" id="3NP-7Q-VwB"/>
                 <outlet property="_labelPrice" destination="OW1-uS-HgH" id="uqq-m2-KvH"/>
@@ -170,9 +174,9 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="checked" width="19" height="19"/>
         <image name="checked_icon" width="15" height="15"/>
         <image name="minus" width="12" height="2"/>
         <image name="plus" width="12" height="12"/>
+        <image name="unCheck_icon" width="15" height="15"/>
     </resources>
 </document>

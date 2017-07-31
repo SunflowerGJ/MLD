@@ -9,7 +9,7 @@
 
 #import "StoreCartTableCell.h"
 #define maxNum 90
-@interface StoreCartTableCell(){
+@interface StoreCartTableCell()<UITextFieldDelegate>{
     __weak IBOutlet UIView *_viewBGCountNum;
     __weak IBOutlet UITextField *_textFieldCountNum;
     __weak IBOutlet UIView *_viewBgEdit;
@@ -21,6 +21,9 @@
     NSInteger countNum;
     ShoppingCartModel *_cartModel;
     NSIndexPath *_indexPath;
+    
+    __weak IBOutlet UIButton *_btnDelete;
+    
 }
 @end
 
@@ -53,8 +56,8 @@
     [_textFieldCountNum setInputAccessoryView:toolBar];
     
     _textFieldCountNum.text = model.cartCount;
-//    _labelPrice.text = [NSString stringWithFormat:@"￥%@",model.cartPrice];
-//    _labelTitle.text = model.cartName;
+    _labelPrice.text = [NSString stringWithFormat:@"￥%@",model.cartPrice];
+    _labelTitle.text = model.cartName;
     
 }
 - (void)doneAction{
@@ -129,6 +132,8 @@
     [_viewBgEdit setCornerRadius:QLButtonRadius border:1 borderColor:QLDividerColor];
     [_viewBGCountNum setBorder:1 borderColor:QLDividerColor];
     [_imgLogo setBorder:1 borderColor:QLYellowColor];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFiledEditChanged:) name:@"UITextFieldTextDidChangeNotification"
+//                                              object:_textFieldCountNum];
 
 }
 
@@ -140,6 +145,11 @@
 
 -(void)setCellSelected:(BOOL)isSelected{
     _btnMark.selected = isSelected;
+    if (isSelected) {
+        _btnDelete.hidden = YES;
+    }else{
+        _btnDelete.hidden = NO;
+    }
 }
 
 - (IBAction)btnMark:(id)sender {
@@ -149,6 +159,7 @@
 }
 //删除
 - (IBAction)btnDelete:(id)sender {
+    self.blockDelete();
 }
 
 @end

@@ -10,4 +10,5 @@
 
 @interface QLClassPersonCircleVC : QLViewController
 @property (nonatomic, strong) NSMutableArray *dataSource;
+@property (nonatomic, strong) NSString *strUserId;
 @end

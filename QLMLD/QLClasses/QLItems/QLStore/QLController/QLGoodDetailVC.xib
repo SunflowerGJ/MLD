@@ -57,7 +57,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9M-rc-lPQ">
                                             <rect key="frame" x="300" y="4.5" width="60" height="51"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NOx-zd-EFf">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unCollection_icon" translatesAutoresizingMaskIntoConstraints="NO" id="NOx-zd-EFf">
                                                     <rect key="frame" x="20" y="5" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="K6e-eA-NIZ"/>
@@ -136,6 +136,9 @@
                                                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="-1" id="bGN-gt-VzG"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -269,5 +272,6 @@
     <resources>
         <image name="minus" width="12" height="2"/>
         <image name="plus" width="12" height="12"/>
+        <image name="unCollection_icon" width="13" height="11"/>
     </resources>
 </document>

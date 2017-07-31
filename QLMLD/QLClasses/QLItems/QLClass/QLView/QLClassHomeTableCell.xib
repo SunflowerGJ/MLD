@@ -121,6 +121,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="_imageHead" destination="Bts-pL-Boh" id="BM5-RI-0Iq"/>
+                <outlet property="_layoutHeight" destination="5i8-eN-sqm" id="8fG-xh-rVH"/>
                 <outlet property="_lblContent" destination="IJ3-lY-k5I" id="qqY-MX-gef"/>
                 <outlet property="_lblImageNum" destination="jFe-4c-zwI" id="H38-Gf-hU7"/>
                 <outlet property="_lblName" destination="NqK-wH-cQO" id="Nrt-M3-wke"/>

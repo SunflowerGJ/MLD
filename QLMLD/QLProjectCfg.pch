@@ -185,11 +185,8 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 #define admissionDelete_interface @"/app/GroupSign/destroyGroupSign.action"
 
 /** 商城 */
-//商场首页
-#define storeHomeType_interface @"/app/ProductSmallType/readProductSmallType.action"
 //热门商品
 #define storeHotGoods_interface @"/app/GradeGroup/writeGradeGroup.action"
-
 //商城轮播图
 #define storeBanner_interface @"/app/Carousel/readCarousel.action"
 //商城首页小类
