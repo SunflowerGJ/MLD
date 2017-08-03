@@ -11,7 +11,6 @@
 #import "QLAdmissionDetailVC.h"
 #import "QLAdmisiionSlideVC.h"
 #import "QLAdmissionHomeDataModel.h"
-#import "MyCollectionView.h"
 #import "ELCImagePickerController.h"
 #import "QLAdmissionPublishVC.h"
 #import "MKJCollectionViewCell.h"
@@ -23,8 +22,6 @@ static NSString *indentify = @"MKJCollectionViewCell";
     
     QLAdmisiionSlideVC *slideVC;
     NSString *_strTime;
-    __weak IBOutlet UIView *_viewCollection;
-    
     NSMutableArray *_datas;
     __weak IBOutlet UICollectionView *_collectionView;
 }
@@ -35,17 +32,16 @@ static NSString *indentify = @"MKJCollectionViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self dataRequest];
-//    [self loadDefaultSetting];
+    [self dataRequest];
+    [self loadDefaultSetting];
     [self addsubviews];
 }
 - (void)loadDefaultSetting {
-    _viewICarousel.delegate = self;
-    _viewICarousel.dataSource = self;
-    _viewICarousel.type = iCarouselTypeCoverFlow;
-    
+  
+    self.leftBtn.hidden = NO;
     self.leftBtn.frame = CGRectMake(0, 28, 50, 30);
     [self.leftBtn setImage:[UIImage imageNamed:@"moreTime_icon"]  forState:UIControlStateNormal];
+    
     
     self.rightBtn.hidden = NO;
     self.rightBtn.frame = CGRectMake(QLScreenWidth-40, 28, 30, 30);
@@ -63,6 +59,7 @@ static NSString *indentify = @"MKJCollectionViewCell";
     [self.titleView addSubview:share];
     [share addTarget:self action:@selector(clickShare) forControlEvents:UIControlEventTouchUpInside];
 }
+
 - (void)clickBack{
     QLLog(@"more");
     slideVC = [[QLAdmisiionSlideVC alloc]initWithNibName:@"QLAdmisiionSlideVC" bundle:[NSBundle mainBundle]];
@@ -88,6 +85,7 @@ static NSString *indentify = @"MKJCollectionViewCell";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 #pragma mark - data request 
 - (void)dataRequest {
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,admissionHomeData_interface];
@@ -105,7 +103,7 @@ static NSString *indentify = @"MKJCollectionViewCell";
     
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSMutableArray *array = [NSMutableArray new];
-//        array = [QLClassHomeDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        array = [QLAdmissionHomeDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         array = responseObject[@"data"];
         self.dataSource = [[NSMutableArray alloc] initWithArray:array];
                            
@@ -114,62 +112,6 @@ static NSString *indentify = @"MKJCollectionViewCell";
     }];
 }
 #pragma mark -
-
-- (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
-{
-    return 30;
-}
-
-- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index
-{
-    UIView *view = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%ld.jpg",index]]];
-    
-    UIView *viewTip = [[UIView alloc]initWithFrame:CGRectMake(0, view.frame.size.height-40, view.frame.size.width, 40)];
-    viewTip.backgroundColor = [UIColor yellowColor];
-    [carousel addSubview:viewTip];
-    
-    UILabel *lblTime = [[UILabel alloc]initWithFrame:CGRectMake(0, view.frame.size.height-40, view.frame.size.width, 30)];
-    [view addSubview:lblTime];
-    lblTime.text = [NSString stringWithFormat:@"%ld time",index];
-    lblTime.textColor = [UIColor redColor];
-    
-    view.frame = CGRectMake(_viewICarousel.frame.origin.x, _viewICarousel.frame.origin.y, _viewICarousel.frame.size.width, _viewICarousel.frame.size.height);
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(detail)];
-    [view addGestureRecognizer:tap];
-    
-    return view;
-}
-
-- (NSUInteger)numberOfPlaceholdersInCarousel:(iCarousel *)carousel
-{
-    return 0;
-}
-
-- (NSUInteger)numberOfVisibleItemsInCarousel:(iCarousel *)carousel
-{
-    return 30;
-}
-
-- (CGFloat)carouselItemWidth:(iCarousel *)carousel
-{
-    return QLScreenWidth-50;
-}
-
-- (CATransform3D)carousel:(iCarousel *)_carousel transformForItemView:(UIView *)view withOffset:(CGFloat)offset
-{
-    view.alpha = 1.0 - fminf(fmaxf(offset, 0.0), 1.0);
-    
-    CATransform3D transform = CATransform3DIdentity;
-    transform.m34 = _viewICarousel.perspective;
-    transform = CATransform3DRotate(transform, M_PI / 8.0, 0, 1.0, 0);
-    return CATransform3DTranslate(transform, 0.0, 0.0, offset * _viewICarousel.itemWidth);
-}
-- (BOOL)carouselShouldWrap:(iCarousel *)carousel
-{
-    return YES;
-}
-#pragma mark - 
 - (void)detail {
     QLAdmissionDetailVC *detailVC = [[QLAdmissionDetailVC alloc]init];
     [[QLHttpTool getCurrentVC].navigationController pushViewController:detailVC animated:YES];
@@ -267,9 +209,9 @@ static NSString *indentify = @"MKJCollectionViewCell";
 - (void)addsubviews {
     MKJCollectionViewFlowLayout *flow = [[MKJCollectionViewFlowLayout alloc] init];
     flow.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    flow.itemSize = CGSizeMake(QLScreenWidth / 1.5, QLScreenWidth - 100);
-    flow.minimumLineSpacing = 30;
-    flow.minimumInteritemSpacing = 30;
+    flow.itemSize = CGSizeMake(QLScreenWidth / 1.8, QLScreenWidth-50);
+    flow.minimumLineSpacing = 20;
+    flow.minimumInteritemSpacing = 20;
     flow.needAlpha = YES;
     flow.delegate = self;
     CGFloat oneX =QLScreenWidth / 4;
@@ -277,7 +219,6 @@ static NSString *indentify = @"MKJCollectionViewCell";
     
     //TODO:这里设置frame
     [_collectionView setCollectionViewLayout:flow];
-    _collectionView.backgroundColor = [UIColor grayColor];
     _collectionView.showsHorizontalScrollIndicator = NO;
     [_collectionView registerNib:[UINib nibWithNibName:indentify bundle:nil] forCellWithReuseIdentifier:indentify];
     

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "QLChannelListDataModel.h"
 @interface QLKinderCollectionViewCell : UICollectionViewCell
 - (void)setCellIndexValue:(NSInteger)value withData:(NSMutableAttributedString *)str;
+- (void)setCellDataWithModel:(QLChannelListDataModel *)model;
 @end

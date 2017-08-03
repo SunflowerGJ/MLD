@@ -10,4 +10,5 @@
 
 @interface QLOrderTableCell : UITableViewCell
 + (instancetype)cellWithOrderListTableView:(UITableView *)tableView;
+
 @end

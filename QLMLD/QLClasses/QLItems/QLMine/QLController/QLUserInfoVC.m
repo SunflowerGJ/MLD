@@ -118,6 +118,7 @@
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString_Image,fileUpload_interface];
     [QLHttpTool postPerWithBaseUrl:strBaseUrl Parameters:@{@"basePath":@"user"} FormData:data FileExtension:@".jpg" MimeType:@"image/jpg"  whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"image response : %@", responseObject);
+        [QLHUDTool showAlertMessage:@"头像更新成功"];
          NSString * imageID = [NSString stringWithFormat:@"%@",responseObject[@"msg"]];
         _imageHead.image = image;
         [weakSelf updateData:imageID];

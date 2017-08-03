@@ -19,9 +19,9 @@
     __weak IBOutlet UIView *_viewWaitReceive;
     __weak IBOutlet UITableView *_tableMain;
     
-    
     NSInteger _pageSize;
     NSInteger _pageNum;
+    NSString *_strType;
 }
 
 @end
@@ -50,6 +50,7 @@
 - (void)tableHeadLoad{
     _pageNum = 1;
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,class_interface];
+    NSString *type = _strType;
     NSDictionary *dicParam = @{@"pageNumber":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"pageSize":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParam whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"订单信息：%@",responseObject);
@@ -85,6 +86,7 @@
 - (void)refreshViewDidLoading:(id)view {
     if ([view isEqual:_tableMain.footerKS]) {
         _pageNum++;
+        NSString *type = _strType;
         NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,class_interface];
         NSDictionary *dicParam = @{@"pageNumber":[NSString stringWithFormat:@"%ld",(long)_pageNum],@"pageSize":[NSString stringWithFormat:@"%ld",(long)_pageSize]};
         
@@ -143,6 +145,27 @@
     } completion:^(BOOL finished) {
         
     }];
+    switch (button.tag) {
+        case 100:
+        {
+            _strType = @"1";
+        }
+            break;
+        case 200:
+        {
+             _strType = @"2";
+        }
+            break;
+        case 300:
+        {
+             _strType = @"3";
+        }
+            break;
+            
+        default:
+            break;
+    }
+    [_tableMain headerBeginRefreshing];
     
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -261,7 +284,7 @@
 }
 #pragma mark - button
 - (void)buttonAction:(id)sender{
-    
+    QLLog(@"支付： ");
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

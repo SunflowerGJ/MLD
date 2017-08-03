@@ -48,8 +48,10 @@ QLSingletonImplementation(UserTool)
     NSData *dataPwd = [[NSString stringWithFormat:@"%@",strPwd] dataUsingEncoding:NSUTF8StringEncoding];
     NSString *pwd = [dataPwd md5String];
     NSDictionary *dicParams = @{@"username": strUser,@"password":pwd};
+    [QLHUDTool showLoading];
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dicParams whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"返回值：%@",responseObject);
+        [QLHUDTool dissmis];
         [[QLUserTool sharedUserTool] saveUserModel:[QLUserModel mj_objectWithKeyValues:responseObject[@"data"]]];
         //  绑定个推
         [GeTuiSdk bindAlias:[QLUserTool sharedUserTool].userModel.user_tel andSequenceNum:KGtSeriNum];

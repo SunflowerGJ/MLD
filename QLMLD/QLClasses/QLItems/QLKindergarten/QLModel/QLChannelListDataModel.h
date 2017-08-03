@@ -9,5 +9,16 @@
 #import <Foundation/Foundation.h>
 
 @interface QLChannelListDataModel : NSObject
-
+@property (nonatomic, assign) NSInteger active;
+@property (nonatomic, assign) NSInteger channelType;
+@property (nonatomic, assign) NSInteger channelId;
+@property (nonatomic, assign) NSInteger isCharge;
+@property (nonatomic, assign) NSInteger isShow;
+@property (nonatomic, copy) NSString *channelName;
+@property (nonatomic, assign) NSInteger threeMonthPrice;
+@property (nonatomic, assign) NSInteger oneMonthPrice;
+@property (nonatomic, assign) NSInteger yearly;
+@property (nonatomic, assign) NSInteger ROWNUM_;
+@property (nonatomic, assign) NSInteger harfYearPrice;
 @end
+

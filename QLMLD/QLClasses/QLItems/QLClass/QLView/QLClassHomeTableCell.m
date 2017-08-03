@@ -71,30 +71,11 @@
     if(model.photo9.length>0){
         [_muArrayImages addObject:model.photo6];
     }
-    [self uploadImages:_muArrayImages];
-//    if (_muArrayImages.count) {
-//        if (![forumModel.strFourmReplayId isEmptyString]) {
-//            _lcTopMarginForViewImages.constant = 8;
-//            // 工作场地图片
-//            NSMutableArray *arrMWorkPlaceImageModels = [NSMutableArray arrayWithCapacity:arrMImagesUrls.count];
-//            for (NSString *imageUrl in arrMImagesUrls) {
-//                QLImageModel *imageModel = [QLImageModel new];
-//                QLIdNameModel *imageInfo = [QLIdNameModel new];
-//                imageInfo.strName = imageUrl;
-//                imageModel.imageInfo = imageInfo;
-//                [arrMWorkPlaceImageModels addObject:imageModel];
-//            }
-//            NSMutableArray *arrMWorkPlaceImages = [NSMutableArray arrayWithArray:[arrMWorkPlaceImageModels copy]];
-//            self.arrImages = (NSArray<QLPostPicsDataSource> *)arrMWorkPlaceImages;
-//        }else{
-//            _lblFloorTopMarginForViewImages.constant = 0;
-//            _lcTopMarginForViewImages.constant = 0;
-//        }
-//    } else {
-//        _lcTopMarginForViewImages.constant = 0;
-//    }
-    
-
+    if (_muArrayImages.count>0) {
+         [self uploadImages:_muArrayImages];
+    }else{
+        _layoutHeight.constant = 0;
+    }
 }
 
 - (void)uploadImages:(NSMutableArray *)images{

@@ -17,13 +17,17 @@
 - (void)setCellIndexValue:(NSInteger)value withData:(NSMutableAttributedString *)str{
     self.backgroundColor = QLColorRandom;
         _lblName.numberOfLines = 0;
-    
         _lblName.attributedText =  str;
         //设置居中需要在添加attributedText设置
         _lblName.textAlignment = NSTextAlignmentCenter;
     
     
 }
+
+- (void)setCellDataWithModel:(QLChannelListDataModel *)model{
+    _lblName.text = model.channelName;
+}
+
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self){

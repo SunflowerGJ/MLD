@@ -9,5 +9,4 @@
 #import "QLViewController.h"
 
 @interface QLKindergartenHome : QLViewController
-
 @end

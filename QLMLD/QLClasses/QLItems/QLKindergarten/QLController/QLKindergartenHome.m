@@ -11,6 +11,7 @@
 #import "MJRefresh.h"
 #import "UIScrollView+KS.h"
 #import "QLChannelListVC.h"
+#import "QLChannelListDataModel.h"
 static NSString *kinderHeadIdentity = @"KinderHeader";
 
 @interface QLKindergartenHome ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource,KSRefreshViewDelegate>{
@@ -87,7 +88,7 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
 
 
     
-    _muArrayData = [NSMutableArray arrayWithArray:@[[[NSMutableAttributedString alloc] initWithString:@"公告"],[[NSMutableAttributedString alloc] initWithString:@"食谱"],[[NSMutableAttributedString alloc] initWithString:@"作业"],[[NSMutableAttributedString alloc] initWithString:@"新闻"],[[NSMutableAttributedString alloc] initWithAttributedString:allClass],[[NSMutableAttributedString alloc] initWithString:@"考勤"],[[NSMutableAttributedString alloc] initWithString:@"服务频道2"],[[NSMutableAttributedString alloc] initWithAttributedString:classPhotosString],[[NSMutableAttributedString alloc] initWithAttributedString:plus]]];
+//    _muArrayData = [NSMutableArray arrayWithArray:@[[[NSMutableAttributedString alloc] initWithString:@"公告"],[[NSMutableAttributedString alloc] initWithString:@"食谱"],[[NSMutableAttributedString alloc] initWithString:@"作业"],[[NSMutableAttributedString alloc] initWithString:@"新闻"],[[NSMutableAttributedString alloc] initWithAttributedString:allClass],[[NSMutableAttributedString alloc] initWithString:@"考勤"],[[NSMutableAttributedString alloc] initWithString:@"服务频道2"],[[NSMutableAttributedString alloc] initWithAttributedString:classPhotosString],[[NSMutableAttributedString alloc] initWithAttributedString:plus]]];
     
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -174,7 +175,8 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
     static NSString * CellIdentifier = @"QLKinderCollectionViewCell";
     QLKinderCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    [cell setCellIndexValue:indexPath.row withData:_muArrayData[indexPath.row]];
+//    [cell setCellIndexValue:indexPath.row withData:_muArrayData[indexPath.row]];
+    [cell setCellDataWithModel:_muArrayData[indexPath.row]];
     return cell;
     
     
@@ -209,6 +211,10 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
 //    NSDictionary *dicParam = @{};
     [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         QLLog(@"频道： %@",responseObject);
+        NSMutableArray *array = [NSMutableArray new];
+        array = [QLChannelListDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        _muArrayData = [[NSMutableArray alloc] initWithArray:array];
+        [_collentionMain reloadData];
     } whenFailure:^{
         
     }];

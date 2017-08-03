@@ -9,5 +9,16 @@
 #import "QLChannelListDataModel.h"
 
 @implementation QLChannelListDataModel
+MJCodingImplementation
+- (instancetype)init{
+    if (self = [super init]) {
+        [QLChannelListDataModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
+            return @{
+                     //                     @"userId":@"user_id",
+                     };
+        }];
+    }
+    return self;
+}
 
 @end

@@ -77,6 +77,7 @@
         }
     }];
 }
+
 //上拉加载更多
 - (void)refreshViewDidLoading:(id)view {
     if ([view isEqual:_tableMain.footerKS]) {

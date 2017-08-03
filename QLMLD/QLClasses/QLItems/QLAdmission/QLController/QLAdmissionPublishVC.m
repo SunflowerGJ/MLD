@@ -291,6 +291,7 @@
     } whenFailure:^{
     }];
 }
+
 - (void)postData{
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,admissionPublish_interface];
     NSString *schoolId = [NSString getValidStringWithObject:[NSString stringWithFormat:@"%ld",[QLUserTool sharedUserTool].userModel.school_id]];

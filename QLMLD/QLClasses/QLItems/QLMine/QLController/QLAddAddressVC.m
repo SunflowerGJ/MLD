@@ -58,8 +58,9 @@
 }
 - (IBAction)btnSave:(id)sender {
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,nil];
-    NSDictionary *dic = @{};
-    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+//    NSDictionary *dic = @{@"":,@"":,};
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         
     } whenFailure:^{
         

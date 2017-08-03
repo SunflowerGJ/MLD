@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,8 +24,9 @@
                     <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                 </imageView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="g0Z-k7-umW">
-                    <rect key="frame" x="0.0" y="64" width="375" height="553"/>
+                    <rect key="frame" x="0.0" y="64" width="375" height="555"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZD0-CL-Ebm">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -41,7 +42,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="g0Z-k7-umW" secondAttribute="trailing" id="2EU-DB-Khj"/>
-                <constraint firstAttribute="bottom" secondItem="g0Z-k7-umW" secondAttribute="bottom" constant="50" id="7Vi-Le-rhQ"/>
+                <constraint firstAttribute="bottom" secondItem="g0Z-k7-umW" secondAttribute="bottom" constant="48" id="7Vi-Le-rhQ"/>
                 <constraint firstAttribute="bottom" secondItem="csv-Z2-A4Q" secondAttribute="bottom" id="Kfp-dL-EZL"/>
                 <constraint firstItem="csv-Z2-A4Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Prd-Lb-JqW"/>
                 <constraint firstAttribute="trailing" secondItem="csv-Z2-A4Q" secondAttribute="trailing" id="Qah-fU-KpR"/>

@@ -232,10 +232,6 @@
 		CC7636E41F2D77E4006173DA /* QLPostPics.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7636E21F2D77E4006173DA /* QLPostPics.m */; };
 		CC7636E81F2D8A0B006173DA /* QLSelectYearView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7636E61F2D8A0B006173DA /* QLSelectYearView.m */; };
 		CC7636E91F2D8A0B006173DA /* QLSelectYearView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC7636E71F2D8A0B006173DA /* QLSelectYearView.xib */; };
-		CC7637341F2D9E1D006173DA /* CustomLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CC76372E1F2D9E1D006173DA /* CustomLayout.m */; };
-		CC7637351F2D9E1D006173DA /* FlowCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7637301F2D9E1D006173DA /* FlowCollectionCell.m */; };
-		CC7637361F2D9E1D006173DA /* FlowCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC7637311F2D9E1D006173DA /* FlowCollectionCell.xib */; };
-		CC7637371F2D9E1D006173DA /* MyCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7637331F2D9E1D006173DA /* MyCollectionView.m */; };
 		CC76373C1F2DB017006173DA /* QLAddAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC76373A1F2DB017006173DA /* QLAddAddressVC.m */; };
 		CC76373D1F2DB017006173DA /* QLAddAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC76373B1F2DB017006173DA /* QLAddAddressVC.xib */; };
 		CC7637411F2DB38D006173DA /* QLSelectAreaView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC76373F1F2DB38D006173DA /* QLSelectAreaView.m */; };
@@ -894,13 +890,6 @@
 		CC7636E51F2D8A0B006173DA /* QLSelectYearView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLSelectYearView.h; sourceTree = "<group>"; };
 		CC7636E61F2D8A0B006173DA /* QLSelectYearView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLSelectYearView.m; sourceTree = "<group>"; };
 		CC7636E71F2D8A0B006173DA /* QLSelectYearView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLSelectYearView.xib; sourceTree = "<group>"; };
-		CC76372D1F2D9E1D006173DA /* CustomLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLayout.h; sourceTree = "<group>"; };
-		CC76372E1F2D9E1D006173DA /* CustomLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLayout.m; sourceTree = "<group>"; };
-		CC76372F1F2D9E1D006173DA /* FlowCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowCollectionCell.h; sourceTree = "<group>"; };
-		CC7637301F2D9E1D006173DA /* FlowCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowCollectionCell.m; sourceTree = "<group>"; };
-		CC7637311F2D9E1D006173DA /* FlowCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlowCollectionCell.xib; sourceTree = "<group>"; };
-		CC7637321F2D9E1D006173DA /* MyCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionView.h; sourceTree = "<group>"; };
-		CC7637331F2D9E1D006173DA /* MyCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionView.m; sourceTree = "<group>"; };
 		CC7637391F2DB017006173DA /* QLAddAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLAddAddressVC.h; sourceTree = "<group>"; };
 		CC76373A1F2DB017006173DA /* QLAddAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLAddAddressVC.m; sourceTree = "<group>"; };
 		CC76373B1F2DB017006173DA /* QLAddAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLAddAddressVC.xib; sourceTree = "<group>"; };
@@ -1279,7 +1268,6 @@
 				CC1A6F871F2F5CE200ADC640 /* PictureShowView.m */,
 				CC1A6F881F2F5CE200ADC640 /* PictureShowView.xib */,
 				CC7637431F2DC7E4006173DA /* MWPhotoBroswer */,
-				CC76372C1F2D9E1D006173DA /* FlowView */,
 				CC32605F1F2797C900081BD7 /* JSDropDownMenu */,
 				CC2851ED1F25EF3C00B7AC99 /* payment */,
 				CCC8290A1F23113700757097 /* ELCImagePicker */,
@@ -2186,10 +2174,10 @@
 		CC64A0AF1F08A5400057801C /* QLAdmission(成长印记) */ = {
 			isa = PBXGroup;
 			children = (
+				CC64A0C11F08A7420057801C /* QLModel */,
 				CC160E1F1F2493310045CD8C /* QLView */,
 				CCF959A21F162EE20069DB2E /* photo */,
 				CC64A0C21F08A74B0057801C /* QLController */,
-				CC64A0C11F08A7420057801C /* QLModel */,
 			);
 			name = "QLAdmission(成长印记)";
 			path = QLAdmission;
@@ -2372,20 +2360,6 @@
 				CC7636E21F2D77E4006173DA /* QLPostPics.m */,
 			);
 			path = QLPictureLayout;
-			sourceTree = "<group>";
-		};
-		CC76372C1F2D9E1D006173DA /* FlowView */ = {
-			isa = PBXGroup;
-			children = (
-				CC76372D1F2D9E1D006173DA /* CustomLayout.h */,
-				CC76372E1F2D9E1D006173DA /* CustomLayout.m */,
-				CC76372F1F2D9E1D006173DA /* FlowCollectionCell.h */,
-				CC7637301F2D9E1D006173DA /* FlowCollectionCell.m */,
-				CC7637311F2D9E1D006173DA /* FlowCollectionCell.xib */,
-				CC7637321F2D9E1D006173DA /* MyCollectionView.h */,
-				CC7637331F2D9E1D006173DA /* MyCollectionView.m */,
-			);
-			path = FlowView;
 			sourceTree = "<group>";
 		};
 		CC7637381F2DAFEF006173DA /* 地址管理 */ = {
@@ -2871,7 +2845,6 @@
 				CC7637961F2DC7E4006173DA /* PlayButtonOverlayLarge.png in Resources */,
 				CC76373D1F2DB017006173DA /* QLAddAddressVC.xib in Resources */,
 				CCF959DE1F162EE20069DB2E /* 9.jpg in Resources */,
-				CC7637361F2D9E1D006173DA /* FlowCollectionCell.xib in Resources */,
 				CC64A0D81F08A7F80057801C /* QLKindergartenHome.xib in Resources */,
 				14C67C321C92764F0019F9E1 /* guide_2@2x.png in Resources */,
 				CC3589F51F0D39C5003FD0B7 /* QLMineHomeTableCell.xib in Resources */,
@@ -3009,7 +2982,6 @@
 				14C67CF11C92974D0019F9E1 /* MASCompositeConstraint.m in Sources */,
 				CC950D761F1B051700877CD6 /* IQNSArray+Sort.m in Sources */,
 				CC76C0131F1E63A300D686D1 /* QLTakeGoodsAddressVC.m in Sources */,
-				CC7637341F2D9E1D006173DA /* CustomLayout.m in Sources */,
 				CC3260641F2797C900081BD7 /* JSDropDownMenu.m in Sources */,
 				CC86EA311F0E1525008EF500 /* QLClassHomeTableCell.m in Sources */,
 				CC2852C31F25EF3C00B7AC99 /* WechatPayManager.m in Sources */,
@@ -3045,7 +3017,6 @@
 				CC18FAC91F16673700D79F84 /* UIView+SDExtension.m in Sources */,
 				CC43847C1F13BA3D003692B4 /* NSString+MJExtension.m in Sources */,
 				CC7636E81F2D8A0B006173DA /* QLSelectYearView.m in Sources */,
-				CC7637371F2D9E1D006173DA /* MyCollectionView.m in Sources */,
 				CCBEB80D1F1DFCE300FF4981 /* ShoppingCartVC.m in Sources */,
 				CC2852AA1F25EF3C00B7AC99 /* APViewController.m in Sources */,
 				14C67CF81C92974D0019F9E1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
@@ -3057,7 +3028,6 @@
 				14C67C7E1C9279170019F9E1 /* UIView+MGBadgeView.m in Sources */,
 				CCBEB7E31F1DA33800FF4981 /* QLClassSelectedVC.m in Sources */,
 				CC950D821F1B051700877CD6 /* IQUIView+IQKeyboardToolbar.m in Sources */,
-				CC7637351F2D9E1D006173DA /* FlowCollectionCell.m in Sources */,
 				CC5CACCC1F333E5B00A069B6 /* MKJCollectionViewFlowLayout.m in Sources */,
 				CC4384781F13BA3D003692B4 /* NSObject+MJClass.m in Sources */,
 				CCF9599D1F1611240069DB2E /* UIScrollView+KS.m in Sources */,

@@ -61,7 +61,11 @@
     
     NSDictionary *dic = @{@"oldPassword"
                           :[dataOld md5String],@"newPassword":[dataNew md5String]};
+    [QLHUDTool showLoading];
     [QLHttpTool getWithBaseUrl:strUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [QLHUDTool showAlertMessage:@"密码修改成功"];
+        //密码修改成功后，跳至登录页
+        [[QLUserTool sharedUserTool] logout];
         QLLog(@"alter pwd response: %@",responseObject);
     } whenFailure:^{
         

@@ -23,6 +23,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [[IQKeyboardManager sharedManager] setEnable:YES];
+    [self changeRootViewControllerToLogin];
+    [self registerUserNotification];
+    [WXApi registerApp:WXpay_APP_ID withDescription:@"MLD"];
+
+    return YES;
     // Change Root View Controller
     NSString *strVersionKey = (NSString *)kCFBundleVersionKey;
     NSString *strVersionPrevious = [[NSUserDefaults standardUserDefaults] stringForKey:strVersionKey];
@@ -35,8 +40,6 @@
         QLGuideViewController *vcNewFeature = [[QLGuideViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
         self.window.rootViewController = vcNewFeature;
     }
-    [self registerUserNotification];
-    return YES;
 }
 
 - (void)changeRootViewControllerToMain {
