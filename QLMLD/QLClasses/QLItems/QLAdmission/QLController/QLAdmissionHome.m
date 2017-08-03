@@ -14,12 +14,19 @@
 #import "MyCollectionView.h"
 #import "ELCImagePickerController.h"
 #import "QLAdmissionPublishVC.h"
+#import "MKJCollectionViewCell.h"
+#import "MKJItemModel.h"
+#import "MKJCollectionViewFlowLayout.h"
+static NSString *indentify = @"MKJCollectionViewCell";
 
-@interface QLAdmissionHome ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ELCImagePickerControllerDelegate>{
+@interface QLAdmissionHome ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ELCImagePickerControllerDelegate,UICollectionViewDelegate,UICollectionViewDataSource,MKJCollectionViewFlowLayoutDelegate>{
     
     QLAdmisiionSlideVC *slideVC;
     NSString *_strTime;
     __weak IBOutlet UIView *_viewCollection;
+    
+    NSMutableArray *_datas;
+    __weak IBOutlet UICollectionView *_collectionView;
 }
 
 @end
@@ -28,9 +35,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self dataRequest];
-    [self loadDefaultSetting];
-    
+//    [self dataRequest];
+//    [self loadDefaultSetting];
+    [self addsubviews];
 }
 - (void)loadDefaultSetting {
     _viewICarousel.delegate = self;
@@ -255,5 +262,139 @@
     [[QLHttpTool getCurrentVC].navigationController pushViewController:uploadImage animated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - new picture test
+- (void)addsubviews {
+    MKJCollectionViewFlowLayout *flow = [[MKJCollectionViewFlowLayout alloc] init];
+    flow.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    flow.itemSize = CGSizeMake(QLScreenWidth / 1.5, QLScreenWidth - 100);
+    flow.minimumLineSpacing = 30;
+    flow.minimumInteritemSpacing = 30;
+    flow.needAlpha = YES;
+    flow.delegate = self;
+    CGFloat oneX =QLScreenWidth / 4;
+    flow.sectionInset = UIEdgeInsetsMake(0, oneX, 0, oneX);
+    
+    //TODO:这里设置frame
+    [_collectionView setCollectionViewLayout:flow];
+    _collectionView.backgroundColor = [UIColor grayColor];
+    _collectionView.showsHorizontalScrollIndicator = NO;
+    [_collectionView registerNib:[UINib nibWithNibName:indentify bundle:nil] forCellWithReuseIdentifier:indentify];
+    
+    [self datas];
+}
+
+#pragma makr - collectionView delegate
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return _datas.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    MKJItemModel *model = _datas[indexPath.item];
+    MKJCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:indentify forIndexPath:indexPath];
+    cell.heroImageVIew.image = [UIImage imageNamed:model.imageName];
+    
+    //在这里设置网络图片，
+    [cell.heroImageVIew sd_setImageWithURL:[NSURL URLWithString:model.imageURL]];
+    
+    cell.titleLabel.text = model.titleName;
+    
+    return cell;
+}
+
+// 点击item的时候
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    CGPoint pInUnderView = [self.view convertPoint:collectionView.center toView:collectionView];
+    
+    // 获取中间的indexpath
+    NSIndexPath *indexpathNew = [collectionView indexPathForItemAtPoint:pInUnderView];
+    
+    if (indexPath.row == indexpathNew.row)
+    {
+        NSLog(@"点击了同一个 %ld",indexPath.row);
+        return;
+    }
+    else
+    {
+        [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    }
+    
+}
+
+#pragma CustomLayout的代理方法
+- (void)collectioViewScrollToIndex:(NSInteger)index
+{
+    //do something you want to
+}
+
+
+- (NSMutableArray*)datas {
+    
+    if (!_datas) {
+        
+        _datas = [NSMutableArray array];
+        
+        {
+            MKJItemModel *model = [[MKJItemModel alloc]init];
+            
+            model.imageName = @"0";
+            model.imageURL = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1501736483332&di=76df714cbfee8413baf7331adde346df&imgtype=0&src=http%3A%2F%2Fimg.qqzhi.com%2Fupload%2Fimg_4_2981529949D3712932919_23.jpg";
+            model.titleName = @"2017-06-06";
+            
+            [_datas addObject:model];
+        }
+        
+        {
+            MKJItemModel *model = [[MKJItemModel alloc]init];
+            
+            model.imageName = @"1";
+            model.imageURL = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1501736483823&di=ac97884151d1e94d86eaa293b45f862e&imgtype=0&src=http%3A%2F%2Fimg2.a0bi.com%2Fupload%2Fqz%2F20150715%2F313479192953-1379.jpg";
+            model.titleName = @"2017-06-07";
+            
+            [_datas addObject:model];
+        }
+        
+        {
+            MKJItemModel *model = [[MKJItemModel alloc]init];
+            
+            model.imageName = @"2";
+            model.imageURL = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1501736483823&di=8bfd7b2e5b5dc76d9af3e255cc165a1c&imgtype=0&src=http%3A%2F%2Fjf258.com%2Fuploads%2F2015-05-16%2F140143280.jpg";
+            model.titleName = @"2017-06-08";
+            
+            [_datas addObject:model];
+        }
+        
+        {
+            MKJItemModel *model = [[MKJItemModel alloc]init];
+            
+            model.imageName = @"3";
+            model.imageURL = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1501736522923&di=ae9c993a5c9a4584b7ffe4206a751b35&imgtype=0&src=http%3A%2F%2Fwww.liaoswy.com%2Fqqimg%2Fbd33885800.jpg";
+            model.titleName = @"2017-06-09";
+            
+            [_datas addObject:model];
+        }
+        
+        {
+            MKJItemModel *model = [[MKJItemModel alloc]init];
+            
+            model.imageName = @"4";
+            model.imageURL = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1501736522923&di=9cd8343b9af3549152a40b0ab29b9217&imgtype=0&src=http%3A%2F%2Fm.qqzhi.com%2Fupload%2Fimg_2_990630281D4221516853_23.jpg";
+            model.titleName = @"2017-06-10";
+            
+            [_datas addObject:model];
+        }
+    }
+    
+    return _datas;
+}
+
 
 @end

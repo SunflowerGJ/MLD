@@ -207,6 +207,16 @@
 		CC4B56B21F14FF3600F53E90 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC4B56B11F14FF3600F53E90 /* UserNotifications.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CC4B56C11F15243900F53E90 /* QLRegisterFinisheInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC4B56BF1F15243900F53E90 /* QLRegisterFinisheInfoVC.m */; };
 		CC4B56C21F15243900F53E90 /* QLRegisterFinisheInfoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC4B56C01F15243900F53E90 /* QLRegisterFinisheInfoVC.xib */; };
+		CC5CACC91F333E5B00A069B6 /* MKJCircleLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5CACBB1F333E5B00A069B6 /* MKJCircleLayout.m */; };
+		CC5CACCA1F333E5B00A069B6 /* MKJCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5CACBD1F333E5B00A069B6 /* MKJCollectionViewCell.m */; };
+		CC5CACCB1F333E5B00A069B6 /* MKJCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC5CACBE1F333E5B00A069B6 /* MKJCollectionViewCell.xib */; };
+		CC5CACCC1F333E5B00A069B6 /* MKJCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5CACC01F333E5B00A069B6 /* MKJCollectionViewFlowLayout.m */; };
+		CC5CACCD1F333E5B00A069B6 /* MKJConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5CACC21F333E5B00A069B6 /* MKJConstant.m */; };
+		CC5CACCE1F333E5B00A069B6 /* MKJItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5CACC41F333E5B00A069B6 /* MKJItemModel.m */; };
+		CC5CACCF1F333E5B00A069B6 /* MKJMainPopoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5CACC61F333E5B00A069B6 /* MKJMainPopoutView.m */; };
+		CC5CACD01F333E5B00A069B6 /* MKJOverLayLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5CACC81F333E5B00A069B6 /* MKJOverLayLayout.m */; };
+		CC5CACD31F33402900A069B6 /* NSArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5CACD21F33402900A069B6 /* NSArray+Extension.m */; };
+		CC5CACD61F33404400A069B6 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CC5CACD51F33404400A069B6 /* UIView+Extension.m */; };
 		CC64A0AC1F08A3010057801C /* QLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC64A0AB1F08A3010057801C /* QLViewController.m */; };
 		CC64A0BD1F08A6140057801C /* libGeTuiSdk-1.6.4.0-noidfa.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC64A0BB1F08A6140057801C /* libGeTuiSdk-1.6.4.0-noidfa.a */; };
 		CC64A0BE1F08A6140057801C /* libGtExtensionSdk-1.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC64A0BC1F08A6140057801C /* libGtExtensionSdk-1.3.0.a */; };
@@ -840,6 +850,25 @@
 		CC4B56BE1F15243900F53E90 /* QLRegisterFinisheInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLRegisterFinisheInfoVC.h; sourceTree = "<group>"; };
 		CC4B56BF1F15243900F53E90 /* QLRegisterFinisheInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLRegisterFinisheInfoVC.m; sourceTree = "<group>"; };
 		CC4B56C01F15243900F53E90 /* QLRegisterFinisheInfoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLRegisterFinisheInfoVC.xib; sourceTree = "<group>"; };
+		CC5CACBA1F333E5B00A069B6 /* MKJCircleLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKJCircleLayout.h; sourceTree = "<group>"; };
+		CC5CACBB1F333E5B00A069B6 /* MKJCircleLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKJCircleLayout.m; sourceTree = "<group>"; };
+		CC5CACBC1F333E5B00A069B6 /* MKJCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKJCollectionViewCell.h; sourceTree = "<group>"; };
+		CC5CACBD1F333E5B00A069B6 /* MKJCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKJCollectionViewCell.m; sourceTree = "<group>"; };
+		CC5CACBE1F333E5B00A069B6 /* MKJCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MKJCollectionViewCell.xib; sourceTree = "<group>"; };
+		CC5CACBF1F333E5B00A069B6 /* MKJCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKJCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		CC5CACC01F333E5B00A069B6 /* MKJCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKJCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		CC5CACC11F333E5B00A069B6 /* MKJConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKJConstant.h; sourceTree = "<group>"; };
+		CC5CACC21F333E5B00A069B6 /* MKJConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKJConstant.m; sourceTree = "<group>"; };
+		CC5CACC31F333E5B00A069B6 /* MKJItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKJItemModel.h; sourceTree = "<group>"; };
+		CC5CACC41F333E5B00A069B6 /* MKJItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKJItemModel.m; sourceTree = "<group>"; };
+		CC5CACC51F333E5B00A069B6 /* MKJMainPopoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKJMainPopoutView.h; sourceTree = "<group>"; };
+		CC5CACC61F333E5B00A069B6 /* MKJMainPopoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKJMainPopoutView.m; sourceTree = "<group>"; };
+		CC5CACC71F333E5B00A069B6 /* MKJOverLayLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKJOverLayLayout.h; sourceTree = "<group>"; };
+		CC5CACC81F333E5B00A069B6 /* MKJOverLayLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKJOverLayLayout.m; sourceTree = "<group>"; };
+		CC5CACD11F33402900A069B6 /* NSArray+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extension.h"; sourceTree = "<group>"; };
+		CC5CACD21F33402900A069B6 /* NSArray+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Extension.m"; sourceTree = "<group>"; };
+		CC5CACD41F33404400A069B6 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		CC5CACD51F33404400A069B6 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		CC64A0AA1F08A3010057801C /* QLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLViewController.h; sourceTree = "<group>"; };
 		CC64A0AB1F08A3010057801C /* QLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLViewController.m; sourceTree = "<group>"; };
 		CC64A0B91F08A6140057801C /* GeTuiExtSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiExtSdk.h; sourceTree = "<group>"; };
@@ -1245,6 +1274,7 @@
 		1424870A1C1121A200592980 /* QLLibs */ = {
 			isa = PBXGroup;
 			children = (
+				CC5CACB91F333E5B00A069B6 /* CustomViews */,
 				CC1A6F861F2F5CE200ADC640 /* PictureShowView.h */,
 				CC1A6F871F2F5CE200ADC640 /* PictureShowView.m */,
 				CC1A6F881F2F5CE200ADC640 /* PictureShowView.xib */,
@@ -1346,6 +1376,10 @@
 		142487491C112B7500592980 /* QLCategories */ = {
 			isa = PBXGroup;
 			children = (
+				CC5CACD41F33404400A069B6 /* UIView+Extension.h */,
+				CC5CACD51F33404400A069B6 /* UIView+Extension.m */,
+				CC5CACD11F33402900A069B6 /* NSArray+Extension.h */,
+				CC5CACD21F33402900A069B6 /* NSArray+Extension.m */,
 				CCC829071F2308CA00757097 /* UITextView+Placeholder.h */,
 				CCC829081F2308CA00757097 /* UITextView+Placeholder.m */,
 				CCB76FED1F1BA3DC004589D8 /* UIImage+QLImage.h */,
@@ -2105,6 +2139,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CC5CACB91F333E5B00A069B6 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				CC5CACBA1F333E5B00A069B6 /* MKJCircleLayout.h */,
+				CC5CACBB1F333E5B00A069B6 /* MKJCircleLayout.m */,
+				CC5CACBC1F333E5B00A069B6 /* MKJCollectionViewCell.h */,
+				CC5CACBD1F333E5B00A069B6 /* MKJCollectionViewCell.m */,
+				CC5CACBE1F333E5B00A069B6 /* MKJCollectionViewCell.xib */,
+				CC5CACBF1F333E5B00A069B6 /* MKJCollectionViewFlowLayout.h */,
+				CC5CACC01F333E5B00A069B6 /* MKJCollectionViewFlowLayout.m */,
+				CC5CACC11F333E5B00A069B6 /* MKJConstant.h */,
+				CC5CACC21F333E5B00A069B6 /* MKJConstant.m */,
+				CC5CACC31F333E5B00A069B6 /* MKJItemModel.h */,
+				CC5CACC41F333E5B00A069B6 /* MKJItemModel.m */,
+				CC5CACC51F333E5B00A069B6 /* MKJMainPopoutView.h */,
+				CC5CACC61F333E5B00A069B6 /* MKJMainPopoutView.m */,
+				CC5CACC71F333E5B00A069B6 /* MKJOverLayLayout.h */,
+				CC5CACC81F333E5B00A069B6 /* MKJOverLayLayout.m */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		CC64A0AD1F08A4DB0057801C /* QLKindergarten(幼儿园) */ = {
 			isa = PBXGroup;
 			children = (
@@ -2856,6 +2912,7 @@
 				CC7637A21F2DC7E4006173DA /* UIBarButtonItemGrid.png in Resources */,
 				14C67C301C92764F0019F9E1 /* guide_2-667h@2x.png in Resources */,
 				CC7637951F2DC7E4006173DA /* ImageSelectedSmallOn@3x.png in Resources */,
+				CC5CACCB1F333E5B00A069B6 /* MKJCollectionViewCell.xib in Resources */,
 				14C67C341C92764F0019F9E1 /* guide_3-667h@2x.png in Resources */,
 				14475EBA1C96684800CB11CB /* 3.jpg in Resources */,
 				CCC829511F2348FA00757097 /* QLStoreClassifyVC.xib in Resources */,
@@ -2934,6 +2991,9 @@
 				14C67CF21C92974D0019F9E1 /* MASConstraint.m in Sources */,
 				CCF9598A1F1610860069DB2E /* MJRefreshHeaderView.m in Sources */,
 				CCF9599A1F1611240069DB2E /* KSDefaultFootRefreshView.m in Sources */,
+				CC5CACCD1F333E5B00A069B6 /* MKJConstant.m in Sources */,
+				CC5CACD01F333E5B00A069B6 /* MKJOverLayLayout.m in Sources */,
+				CC5CACCF1F333E5B00A069B6 /* MKJMainPopoutView.m in Sources */,
 				CC7D38411F271A1D0007AD6C /* QLStoreSmallTypeModel.m in Sources */,
 				CC4384761F13BA3D003692B4 /* MJPropertyKey.m in Sources */,
 				CC64A0CD1F08A7C20057801C /* QLAdmissionHome.m in Sources */,
@@ -2998,12 +3058,15 @@
 				CCBEB7E31F1DA33800FF4981 /* QLClassSelectedVC.m in Sources */,
 				CC950D821F1B051700877CD6 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				CC7637351F2D9E1D006173DA /* FlowCollectionCell.m in Sources */,
+				CC5CACCC1F333E5B00A069B6 /* MKJCollectionViewFlowLayout.m in Sources */,
 				CC4384781F13BA3D003692B4 /* NSObject+MJClass.m in Sources */,
 				CCF9599D1F1611240069DB2E /* UIScrollView+KS.m in Sources */,
 				CCC829321F23201800757097 /* QLBindTimecardVC.m in Sources */,
+				CC5CACD61F33404400A069B6 /* UIView+Extension.m in Sources */,
 				CCC829271F23113700757097 /* ELCImagePickerController.m in Sources */,
 				14C67CBE1C92968F0019F9E1 /* QLForgetPWDViewController.m in Sources */,
 				CCBEB7EA1F1DA51800FF4981 /* QLClassDataModel.m in Sources */,
+				CC5CACD31F33402900A069B6 /* NSArray+Extension.m in Sources */,
 				CC160E161F248A6B0045CD8C /* QLOrderListModel.m in Sources */,
 				CC160E121F2489A70045CD8C /* QLOrderTableCell.m in Sources */,
 				CC2852D01F25EF3C00B7AC99 /* ApiXml.mm in Sources */,
@@ -3057,6 +3120,7 @@
 				CC4384941F13BA64003692B4 /* AFNetworkReachabilityManager.m in Sources */,
 				CC4384791F13BA3D003692B4 /* NSObject+MJCoding.m in Sources */,
 				14C67CD41C9297080019F9E1 /* NSData+QLData.m in Sources */,
+				CC5CACC91F333E5B00A069B6 /* MKJCircleLayout.m in Sources */,
 				CC950D7D1F1B051700877CD6 /* IQSegmentedNextPrevious.m in Sources */,
 				14475EDB1C96691C00CB11CB /* SDWebImageCompat.m in Sources */,
 				CC7637A91F2DC7E4006173DA /* MWCaptionView.m in Sources */,
@@ -3064,6 +3128,7 @@
 				CCF9599C1F1611240069DB2E /* KSRefreshView.m in Sources */,
 				14475EE11C96691C00CB11CB /* UIButton+WebCache.m in Sources */,
 				CC7637AD1F2DC7E4006173DA /* MWPhotoBrowser.m in Sources */,
+				CC5CACCA1F333E5B00A069B6 /* MKJCollectionViewCell.m in Sources */,
 				CC18FAD51F16766600D79F84 /* QLGoodsModel.m in Sources */,
 				CC76C01D1F1E64FD00D686D1 /* QLAddressManageCell.m in Sources */,
 				14C67CF51C92974D0019F9E1 /* MASViewAttribute.m in Sources */,
@@ -3108,6 +3173,7 @@
 				CC7637AB1F2DC7E4006173DA /* MWGridViewController.m in Sources */,
 				14C67C741C9277CC0019F9E1 /* NSString+QLString.m in Sources */,
 				CC2852BC1F25EF3C00B7AC99 /* GlobalVariable.m in Sources */,
+				CC5CACCE1F333E5B00A069B6 /* MKJItemModel.m in Sources */,
 				14C67CC71C92968F0019F9E1 /* QLRegisterViewController.m in Sources */,
 				CC4384961F13BA64003692B4 /* AFURLConnectionOperation.m in Sources */,
 				CC2852CB1F25EF3C00B7AC99 /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */,
