@@ -140,7 +140,13 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 #endif
 
 //根据ID查询系统消息
-/** 公共类 */
+/** 公共类 
+ 1、user
+ 2、product
+ 3、grade
+ 4、other
+ else:others
+ */
 //文件上传
 #define fileUpload_interface @"/uploadImg.do"
 //微信支付
@@ -170,12 +176,18 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 #define class_interface @"/app/GradeGroup/readGradeGroup.action"
 //上传班级圈信息
 #define classUpload_interface @"/app/GradeGroup/writeGradeGroup.action"
+//点赞
+#define classPriseNum_interface @"/app/ThumbsUp/addThumbsUp.action" //62
+//查询用户的点赞和被赞数
+#define loolUserPriseNum_interface @"/app/User/readUserByUserId.action" //66
+//班级圈删除
+#define classDelete_interface @"app/GradeGroup/destroyGradeGroup.action"
 
 /** 成长印记 */
 //发布成长印记
 #define admissionPublish_interface @"/app/GroupSign/writeGroupSign.action"
 //详情
-#define admissionDetail_interface @"/app/GrowupSignDetail/readGrowupSignDetail.action"
+#define admissionDetail_interface @"/app/GrowupSignDetail/readGrowupSignDetail.action" //63
 //新增或根据ID修改
 #define admissionAddOrUpdate_interface @"/app/GrowupSignDetail/writeGrowupSignDetail.action"
 
@@ -197,6 +209,8 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 #define hotList_interface @"/app/Product/readProduct.action"
 //商品详情
 #define goodsDetail_interface @""
+//查询商品参数
+#define lookProductPara @"/app/ProductParams/readProductParams.action"//45
 
 /** 幼儿园 */
 //首页频道(已关注的)
@@ -204,12 +218,34 @@ static NSString * const QLBaseUrlString_Image = @"http://iche120test.image.alimm
 //首页的+
 #define channelAdd_interface @"/app/AttentionChannel/writeAttentionChannel.action"
 //删除
-#define channelDelete_interface @"/app/Channel/destroyChannel.action"
-//查询channelOrder列表
-#define queryChannel_interface @"/app/ChannelOrder/readChannelOrder.action"
+#define channelDelete_interface @"/app/AttentionChannel/destroyAttentionChannel.action"
+//新增选择列表
+#define addSelectedList_interface @"/app/Channel/readChannel.action"
+//查询infoUpload
+#define infoUpload @"/app/InfoUpload/readInfoUpload.action"
+
 
 /** 消息 */
 //给指定的单个用户发消息
 #define sendPerMessage_interface @"/app/AppMessage/sendMessageToList.action"
 //给当前应用下的所有用户发消息
 #define sendMessageToAll_interface @"/app/AppMessage/sendMessageToList.action"
+
+
+
+/** order */
+//查询
+#define lookOrderList_interface @"/app/Order/readOrder.action"
+
+
+
+/** 个人中心 */
+//地址列表
+#define shippingAddressList_interface @"/app/ShippingAddress/readShippingAddress.action"
+//修改地址
+#define shippingAddressAlter_interface @"/app/ShippingAddress/writeShippingAddress.action"//60
+//删除地址
+#define shippingAddressDelete_interface @"/app/ShippingAddress/destroyShippingAddress.action"  //data shipping_id 数组 多条删除
+
+
+

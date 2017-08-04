@@ -307,6 +307,14 @@
 		CC8BED471F264CEB0023981E /* QLStoreCLassTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8BED451F264CEB0023981E /* QLStoreCLassTableCell.m */; };
 		CC8BED481F264CEB0023981E /* QLStoreCLassTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8BED461F264CEB0023981E /* QLStoreCLassTableCell.xib */; };
 		CC8BED4B1F264E960023981E /* QLStoreClassModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8BED4A1F264E960023981E /* QLStoreClassModel.m */; };
+		CC8D98B31F3489CF00DA7217 /* QLChannelSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8D98B11F3489CE00DA7217 /* QLChannelSelectCell.m */; };
+		CC8D98B41F3489CF00DA7217 /* QLChannelSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8D98B21F3489CF00DA7217 /* QLChannelSelectCell.xib */; };
+		CC8D98B81F349BC600DA7217 /* QLChannelSelectListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8D98B61F349BC600DA7217 /* QLChannelSelectListVC.m */; };
+		CC8D98B91F349BC600DA7217 /* QLChannelSelectListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8D98B71F349BC600DA7217 /* QLChannelSelectListVC.xib */; };
+		CC8D98BD1F34A00600DA7217 /* QLChannelDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8D98BB1F34A00600DA7217 /* QLChannelDetailVC.m */; };
+		CC8D98BE1F34A00600DA7217 /* QLChannelDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8D98BC1F34A00600DA7217 /* QLChannelDetailVC.xib */; };
+		CC8D98C71F34AC5D00DA7217 /* QLChannelDetailListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CC8D98C51F34AC5D00DA7217 /* QLChannelDetailListVC.m */; };
+		CC8D98C81F34AC5D00DA7217 /* QLChannelDetailListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC8D98C61F34AC5D00DA7217 /* QLChannelDetailListVC.xib */; };
 		CC950D761F1B051700877CD6 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = CC950D541F1B051700877CD6 /* IQNSArray+Sort.m */; };
 		CC950D771F1B051700877CD6 /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = CC950D561F1B051700877CD6 /* IQUITextFieldView+Additions.m */; };
 		CC950D781F1B051700877CD6 /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = CC950D581F1B051700877CD6 /* IQUIView+Hierarchy.m */; };
@@ -409,8 +417,6 @@
 		CCFC62FB1F29C0A00068742C /* QLCollectionManageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC62F91F29C0A00068742C /* QLCollectionManageVC.m */; };
 		CCFC62FC1F29C0A00068742C /* QLCollectionManageVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFC62FA1F29C0A00068742C /* QLCollectionManageVC.xib */; };
 		CCFC630A1F29DF3E0068742C /* QLCollectionDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC63091F29DF3E0068742C /* QLCollectionDataModel.m */; };
-		CCFC630E1F29E0FC0068742C /* QLChannelListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC630C1F29E0FC0068742C /* QLChannelListVC.m */; };
-		CCFC630F1F29E0FC0068742C /* QLChannelListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCFC630D1F29E0FC0068742C /* QLChannelListVC.xib */; };
 		CCFC63121F29E2140068742C /* QLChannelListDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFC63111F29E2140068742C /* QLChannelListDataModel.m */; };
 /* End PBXBuildFile section */
 
@@ -996,6 +1002,18 @@
 		CC8BED491F264E960023981E /* QLStoreClassModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLStoreClassModel.h; sourceTree = "<group>"; };
 		CC8BED4A1F264E960023981E /* QLStoreClassModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLStoreClassModel.m; sourceTree = "<group>"; };
 		CC8BED4C1F2650150023981E /* interface.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = interface.docx; sourceTree = "<group>"; };
+		CC8D98B01F3489CE00DA7217 /* QLChannelSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChannelSelectCell.h; sourceTree = "<group>"; };
+		CC8D98B11F3489CE00DA7217 /* QLChannelSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChannelSelectCell.m; sourceTree = "<group>"; };
+		CC8D98B21F3489CF00DA7217 /* QLChannelSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLChannelSelectCell.xib; sourceTree = "<group>"; };
+		CC8D98B51F349BC600DA7217 /* QLChannelSelectListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChannelSelectListVC.h; sourceTree = "<group>"; };
+		CC8D98B61F349BC600DA7217 /* QLChannelSelectListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChannelSelectListVC.m; sourceTree = "<group>"; };
+		CC8D98B71F349BC600DA7217 /* QLChannelSelectListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLChannelSelectListVC.xib; sourceTree = "<group>"; };
+		CC8D98BA1F34A00600DA7217 /* QLChannelDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChannelDetailVC.h; sourceTree = "<group>"; };
+		CC8D98BB1F34A00600DA7217 /* QLChannelDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChannelDetailVC.m; sourceTree = "<group>"; };
+		CC8D98BC1F34A00600DA7217 /* QLChannelDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLChannelDetailVC.xib; sourceTree = "<group>"; };
+		CC8D98C41F34AC5D00DA7217 /* QLChannelDetailListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChannelDetailListVC.h; sourceTree = "<group>"; };
+		CC8D98C51F34AC5D00DA7217 /* QLChannelDetailListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChannelDetailListVC.m; sourceTree = "<group>"; };
+		CC8D98C61F34AC5D00DA7217 /* QLChannelDetailListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLChannelDetailListVC.xib; sourceTree = "<group>"; };
 		CC950D531F1B051700877CD6 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
 		CC950D541F1B051700877CD6 /* IQNSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQNSArray+Sort.m"; sourceTree = "<group>"; };
 		CC950D551F1B051700877CD6 /* IQUITextFieldView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUITextFieldView+Additions.h"; sourceTree = "<group>"; };
@@ -1157,9 +1175,6 @@
 		CCFC62FA1F29C0A00068742C /* QLCollectionManageVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLCollectionManageVC.xib; sourceTree = "<group>"; };
 		CCFC63081F29DF3E0068742C /* QLCollectionDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLCollectionDataModel.h; sourceTree = "<group>"; };
 		CCFC63091F29DF3E0068742C /* QLCollectionDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLCollectionDataModel.m; sourceTree = "<group>"; };
-		CCFC630B1F29E0FC0068742C /* QLChannelListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChannelListVC.h; sourceTree = "<group>"; };
-		CCFC630C1F29E0FC0068742C /* QLChannelListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChannelListVC.m; sourceTree = "<group>"; };
-		CCFC630D1F29E0FC0068742C /* QLChannelListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QLChannelListVC.xib; sourceTree = "<group>"; };
 		CCFC63101F29E2140068742C /* QLChannelListDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QLChannelListDataModel.h; sourceTree = "<group>"; };
 		CCFC63111F29E2140068742C /* QLChannelListDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QLChannelListDataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1254,7 +1269,7 @@
 				CC64A0B01F08A57C0057801C /* QLStore(商城) */,
 				CC64A0AF1F08A5400057801C /* QLAdmission(成长印记) */,
 				CC64A0AE1F08A5070057801C /* QLClass(班级圈) */,
-				CC64A0AD1F08A4DB0057801C /* QLKindergarten(幼儿园) */,
+				CC64A0AD1F08A4DB0057801C /* QLKindergarten(幼儿园、频道) */,
 				14C67C3B1C9276D80019F9E1 /* ItemLogin(登录注册) */,
 			);
 			path = QLItems;
@@ -1672,6 +1687,9 @@
 				CC18FAA81F165B5A00D79F84 /* QLKinderCollectionViewCell.h */,
 				CC18FAA91F165B5A00D79F84 /* QLKinderCollectionViewCell.m */,
 				CC18FAAA1F165B5A00D79F84 /* QLKinderCollectionViewCell.xib */,
+				CC8D98B01F3489CE00DA7217 /* QLChannelSelectCell.h */,
+				CC8D98B11F3489CE00DA7217 /* QLChannelSelectCell.m */,
+				CC8D98B21F3489CF00DA7217 /* QLChannelSelectCell.xib */,
 			);
 			path = QLView;
 			sourceTree = "<group>";
@@ -2149,14 +2167,14 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
-		CC64A0AD1F08A4DB0057801C /* QLKindergarten(幼儿园) */ = {
+		CC64A0AD1F08A4DB0057801C /* QLKindergarten(幼儿园、频道) */ = {
 			isa = PBXGroup;
 			children = (
 				CC18FAA71F165B4E00D79F84 /* QLView */,
 				CC64A0C01F08A7100057801C /* QLModel */,
 				CC64A0BF1F08A7060057801C /* QLController */,
 			);
-			name = "QLKindergarten(幼儿园)";
+			name = "QLKindergarten(幼儿园、频道)";
 			path = QLKindergarten;
 			sourceTree = "<group>";
 		};
@@ -2285,9 +2303,15 @@
 				CC64A0D41F08A7F80057801C /* QLKindergartenHome.h */,
 				CC64A0D51F08A7F80057801C /* QLKindergartenHome.m */,
 				CC64A0D61F08A7F80057801C /* QLKindergartenHome.xib */,
-				CCFC630B1F29E0FC0068742C /* QLChannelListVC.h */,
-				CCFC630C1F29E0FC0068742C /* QLChannelListVC.m */,
-				CCFC630D1F29E0FC0068742C /* QLChannelListVC.xib */,
+				CC8D98B51F349BC600DA7217 /* QLChannelSelectListVC.h */,
+				CC8D98B61F349BC600DA7217 /* QLChannelSelectListVC.m */,
+				CC8D98B71F349BC600DA7217 /* QLChannelSelectListVC.xib */,
+				CC8D98BA1F34A00600DA7217 /* QLChannelDetailVC.h */,
+				CC8D98BB1F34A00600DA7217 /* QLChannelDetailVC.m */,
+				CC8D98BC1F34A00600DA7217 /* QLChannelDetailVC.xib */,
+				CC8D98C41F34AC5D00DA7217 /* QLChannelDetailListVC.h */,
+				CC8D98C51F34AC5D00DA7217 /* QLChannelDetailListVC.m */,
+				CC8D98C61F34AC5D00DA7217 /* QLChannelDetailListVC.xib */,
 			);
 			path = QLController;
 			sourceTree = "<group>";
@@ -2823,6 +2847,7 @@
 				CCBEB7DF1F1DA31D00FF4981 /* QLKinderSelectedVC.xib in Resources */,
 				14C67C361C92764F0019F9E1 /* guide_3@2x.png in Resources */,
 				147AB89F1C9812FF007CAA0D /* controllers.plist in Resources */,
+				CC8D98B41F3489CF00DA7217 /* QLChannelSelectCell.xib in Resources */,
 				CCFC62FC1F29C0A00068742C /* QLCollectionManageVC.xib in Resources */,
 				CC7637A81F2DC7E4006173DA /* .gitkeep in Resources */,
 				CCF959CF1F162EE20069DB2E /* 21.jpg in Resources */,
@@ -2905,7 +2930,6 @@
 				CC76378D1F2DC7E4006173DA /* ImageSelectedOn.png in Resources */,
 				CC8BED481F264CEB0023981E /* QLStoreCLassTableCell.xib in Resources */,
 				CC7637991F2DC7E4006173DA /* PlayButtonOverlayLargeTap.png in Resources */,
-				CCFC630F1F29E0FC0068742C /* QLChannelListVC.xib in Resources */,
 				14C67C2C1C92764F0019F9E1 /* guide_1-667h@2x.png in Resources */,
 				CCF959D21F162EE20069DB2E /* 24.jpg in Resources */,
 				CC7637861F2DC7E4006173DA /* .gitkeep in Resources */,
@@ -2925,6 +2949,7 @@
 				CC7637931F2DC7E4006173DA /* ImageSelectedSmallOn.png in Resources */,
 				CCF959C71F162EE20069DB2E /* 14.jpg in Resources */,
 				CC76379D1F2DC7E4006173DA /* UIBarButtonItemArrowLeft@2x.png in Resources */,
+				CC8D98C81F34AC5D00DA7217 /* QLChannelDetailListVC.xib in Resources */,
 				CC4B56C21F15243900F53E90 /* QLRegisterFinisheInfoVC.xib in Resources */,
 				CC20B2571F17BD2100C80D20 /* QLAlterPwdVC.xib in Resources */,
 				CC7637A11F2DC7E4006173DA /* UIBarButtonItemArrowRight@3x.png in Resources */,
@@ -2940,8 +2965,10 @@
 				CC160E1E1F2492070045CD8C /* QLAdmissionDetailVC.xib in Resources */,
 				CCC829471F2322B400757097 /* QLGoodDetailVC.xib in Resources */,
 				CC7637981F2DC7E4006173DA /* PlayButtonOverlayLarge@3x.png in Resources */,
+				CC8D98BE1F34A00600DA7217 /* QLChannelDetailVC.xib in Resources */,
 				CC76378F1F2DC7E4006173DA /* ImageSelectedOn@3x.png in Resources */,
 				CC76378E1F2DC7E4006173DA /* ImageSelectedOn@2x.png in Resources */,
+				CC8D98B91F349BC600DA7217 /* QLChannelSelectListVC.xib in Resources */,
 				CCF959C91F162EE20069DB2E /* 16.jpg in Resources */,
 				CCF959861F1610860069DB2E /* MJRefresh.bundle in Resources */,
 				14C67C8F1C9279600019F9E1 /* SVProgressHUD.bundle in Resources */,
@@ -2967,6 +2994,7 @@
 				CC5CACCD1F333E5B00A069B6 /* MKJConstant.m in Sources */,
 				CC5CACD01F333E5B00A069B6 /* MKJOverLayLayout.m in Sources */,
 				CC5CACCF1F333E5B00A069B6 /* MKJMainPopoutView.m in Sources */,
+				CC8D98B31F3489CF00DA7217 /* QLChannelSelectCell.m in Sources */,
 				CC7D38411F271A1D0007AD6C /* QLStoreSmallTypeModel.m in Sources */,
 				CC4384761F13BA3D003692B4 /* MJPropertyKey.m in Sources */,
 				CC64A0CD1F08A7C20057801C /* QLAdmissionHome.m in Sources */,
@@ -3030,6 +3058,7 @@
 				CC950D821F1B051700877CD6 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				CC5CACCC1F333E5B00A069B6 /* MKJCollectionViewFlowLayout.m in Sources */,
 				CC4384781F13BA3D003692B4 /* NSObject+MJClass.m in Sources */,
+				CC8D98C71F34AC5D00DA7217 /* QLChannelDetailListVC.m in Sources */,
 				CCF9599D1F1611240069DB2E /* UIScrollView+KS.m in Sources */,
 				CCC829321F23201800757097 /* QLBindTimecardVC.m in Sources */,
 				CC5CACD61F33404400A069B6 /* UIView+Extension.m in Sources */,
@@ -3060,6 +3089,7 @@
 				147AB8A51C981398007CAA0D /* QLBannerView.m in Sources */,
 				14475EE31C96691C00CB11CB /* UIImage+MultiFormat.m in Sources */,
 				CC950D781F1B051700877CD6 /* IQUIView+Hierarchy.m in Sources */,
+				CC8D98B81F349BC600DA7217 /* QLChannelSelectListVC.m in Sources */,
 				14475EE01C96691C00CB11CB /* SDWebImagePrefetcher.m in Sources */,
 				CC76373C1F2DB017006173DA /* QLAddAddressVC.m in Sources */,
 				14C67C7B1C92790C0019F9E1 /* UIView+QLView.m in Sources */,
@@ -3123,7 +3153,6 @@
 				14CDE37D1C929E9200DD857E /* QLLoginViewController.m in Sources */,
 				CC2852B71F25EF3C00B7AC99 /* GJSPay.m in Sources */,
 				CC2852C71F25EF3C00B7AC99 /* WXApiManager.m in Sources */,
-				CCFC630E1F29E0FC0068742C /* QLChannelListVC.m in Sources */,
 				CC2852C21F25EF3C00B7AC99 /* TestWechatPay.m in Sources */,
 				CC2852C81F25EF3C00B7AC99 /* WXApiRequestHandler.m in Sources */,
 				CC950D7F1F1B051700877CD6 /* IQBarButtonItem.m in Sources */,
@@ -3177,6 +3206,7 @@
 				CCBEB7DE1F1DA31D00FF4981 /* QLKinderSelectedVC.m in Sources */,
 				CC64A0C81F08A79A0057801C /* QLStoreHome.m in Sources */,
 				14C67CFA1C92974D0019F9E1 /* ViewController+MASAdditions.m in Sources */,
+				CC8D98BD1F34A00600DA7217 /* QLChannelDetailVC.m in Sources */,
 				CC8BED471F264CEB0023981E /* QLStoreCLassTableCell.m in Sources */,
 				CC7D384E1F2731D40007AD6C /* QLAdmissionHomeDataModel.m in Sources */,
 				CCB76FEF1F1BA3DC004589D8 /* UIImage+QLImage.m in Sources */,

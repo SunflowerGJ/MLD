@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,7 +22,7 @@
                         <rect key="frame" x="27.5" y="38.5" width="42" height="20.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -35,8 +35,15 @@
             <size key="customSize" width="99" height="96"/>
             <connections>
                 <outlet property="_lblName" destination="WAN-zk-Ogi" id="qHs-YF-J6i"/>
+                <outletCollection property="gestureRecognizers" destination="wEQ-Ec-WvP" appends="YES" id="EiP-bU-HHB"/>
             </connections>
             <point key="canvasLocation" x="21.5" y="55"/>
         </collectionViewCell>
+        <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="wEQ-Ec-WvP">
+            <connections>
+                <action selector="longGesture:" destination="gTV-IL-0wX" id="d5c-QR-MBM"/>
+                <outlet property="delegate" destination="-1" id="V1y-LH-EtI"/>
+            </connections>
+        </pongPressGestureRecognizer>
     </objects>
 </document>

@@ -11,14 +11,14 @@
 @interface QLChannelListDataModel : NSObject
 @property (nonatomic, assign) NSInteger active;
 @property (nonatomic, assign) NSInteger channelType;
-@property (nonatomic, assign) NSInteger channelId;
-@property (nonatomic, assign) NSInteger isCharge;
-@property (nonatomic, assign) NSInteger isShow;
-@property (nonatomic, copy) NSString *channelName;
+@property (nonatomic, assign) NSInteger channel_id;
+@property (nonatomic, assign) NSInteger is_charge;
+@property (nonatomic, assign) NSInteger is_show;
+@property (nonatomic, copy) NSString *channel_name;
 @property (nonatomic, assign) NSInteger threeMonthPrice;
-@property (nonatomic, assign) NSInteger oneMonthPrice;
+@property (nonatomic, assign) NSInteger three_month_price;
 @property (nonatomic, assign) NSInteger yearly;
 @property (nonatomic, assign) NSInteger ROWNUM_;
-@property (nonatomic, assign) NSInteger harfYearPrice;
+@property (nonatomic, assign) NSInteger harf_year_price;
 @end
 

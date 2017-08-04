@@ -62,7 +62,9 @@
     [sheetSelect showInView:self.view];
 }
 - (IBAction)btnUser:(id)sender {
+
     QLClassPersonCircleVC *circleVC = [[QLClassPersonCircleVC alloc]init];
+    circleVC.strUserId = [NSString stringWithFormat:@"%ld",[QLUserTool sharedUserTool].userModel.user_id];
     [[QLHttpTool getCurrentVC].navigationController pushViewController:circleVC animated:YES];
 }
 
@@ -261,11 +263,42 @@
     QLClassHomeTableCell *cell = [QLClassHomeTableCell cellWithClassHomeTableView:tableView];
     QLClassHomeDataModel *model = self.dataSource[indexPath.row];
     [cell setCellDataWithDataModel:model];
+    __weak typeof (self) weakSelf = self;
+    [cell setBlockDelete:^{
+        [weakSelf deleteDataWithID:model.gradeGroupId];
+    }];
+    [cell setBlockPraise:^{
+        [weakSelf priseDataWithDataModel:model];
+    }];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    QLClassPersonCircleVC *circleVC = [[QLClassPersonCircleVC alloc]init];
+    QLClassHomeDataModel *model = self.dataSource[indexPath.row];
+    circleVC.strUserId = model.userId;
+    [[QLHttpTool getCurrentVC].navigationController pushViewController:circleVC animated:YES];
 }
 
+- (void)deleteDataWithID:(NSString *)listId{
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,classDelete_interface];
+    NSDictionary *dic = @{@"data":[NSString getValidStringWithObject:listId]};
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"dele: %@",responseObject);
+        [_tableMain headerBeginRefreshing];
+    } whenFailure:^{
+        
+    }];
+}
+- (void)priseDataWithDataModel:(QLClassHomeDataModel *)model{
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,classPriseNum_interface];
+    NSString *currectUserId = [NSString stringWithFormat:@"%ld",[QLUserTool sharedUserTool].userModel.user_id];
+    NSDictionary *dic = @{@"ordered_user_id":[NSString getValidStringWithObject:model.userId],@"point_user_id":[NSString getValidStringWithObject:currectUserId],@"grade_group_id":[NSString getValidStringWithObject:model.gradeGroupId]};
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"prise: %@",responseObject);
+        [_tableMain headerBeginRefreshing];
+    } whenFailure:^{
+        
+    }];
+}
 @end

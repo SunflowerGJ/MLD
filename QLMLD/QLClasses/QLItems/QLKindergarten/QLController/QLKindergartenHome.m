@@ -10,8 +10,9 @@
 #import "QLKinderCollectionViewCell.h"
 #import "MJRefresh.h"
 #import "UIScrollView+KS.h"
-#import "QLChannelListVC.h"
+#import "QLChannelDetailListVC.h"
 #import "QLChannelListDataModel.h"
+#import "QLChannelSelectListVC.h"
 static NSString *kinderHeadIdentity = @"KinderHeader";
 
 @interface QLKindergartenHome ()<UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource,KSRefreshViewDelegate>{
@@ -117,7 +118,19 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
     _collentionMain.footerKS = [[KSDefaultFootRefreshView alloc]  initWithDelegate:self];
 }
 - (void)collectionViewHeadLoad{
-    [self dataChannelRequest];
+//    [self dataChannelRequest];
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,channelList_interface];
+    //    NSDictionary *dicParam = @{};
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:nil whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"频道： %@",responseObject);
+        NSMutableArray *array = [NSMutableArray new];
+        array = [QLChannelListDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        _muArrayData = [[NSMutableArray alloc] initWithArray:array];
+        [_collentionMain reloadData];
+        [_collentionMain headerEndRefreshing];
+    } whenFailure:^{
+        
+    }];
 
 }
 //上拉加载更多
@@ -163,7 +176,7 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
 
 #pragma mark - collection delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return _muArrayData.count;
+    return _muArrayData.count+1;
 }
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
     return 1;
@@ -176,7 +189,10 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
     QLKinderCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
 //    [cell setCellIndexValue:indexPath.row withData:_muArrayData[indexPath.row]];
-    [cell setCellDataWithModel:_muArrayData[indexPath.row]];
+    [cell setCellDataWithModel:_muArrayData[indexPath.row] IndexValue:indexPath.row];
+    [cell setBlockLongGesture:^{
+        QLLog(@"delete");
+    }];
     return cell;
     
     
@@ -186,10 +202,18 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    QLChannelListDataModel *model = _muArrayData[indexPath.row];
     if (indexPath.row == _muArrayData.count-1) {
-        [self addItem];
+        QLChannelSelectListVC *selectVC = [[QLChannelSelectListVC alloc]init];
+        __weak typeof (self) weakSelf = self;
+        [selectVC setBlockSelectedModel:^(QLChannelListDataModel *model){
+            [weakSelf addItemWithModel:model];
+        }];
+        [[QLHttpTool getCurrentVC].navigationController pushViewController:selectVC animated:YES];
+
     }else{
-        QLChannelListVC *listVC = [[QLChannelListVC alloc]init];
+        QLChannelDetailListVC *listVC = [[QLChannelDetailListVC alloc]init];
+        listVC.channelID = [NSString stringWithFormat:@"%ld",model.channel_id];
         [[QLHttpTool getCurrentVC].navigationController pushViewController:listVC animated:YES];
     }
     
@@ -202,9 +226,14 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
 //    return headerView;
 //}
 #pragma mark - 
-- (void)addItem {
-    QLLog(@"add ");
-//    _muArrayData addObject:<#(nonnull id)#>
+- (void)addItemWithModel:(QLChannelListDataModel *)model {
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,channelAdd_interface];
+    NSDictionary *dic = @{@"channel_id":[NSString getValidStringWithObject:[NSString stringWithFormat:@"%ld",model.channel_id]]};
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"add success: %@",responseObject);
+    } whenFailure:^{
+       
+    }];
 }
 - (void)dataChannelRequest{
     NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,channelList_interface];
@@ -215,6 +244,15 @@ static NSString *kinderHeadIdentity = @"KinderHeader";
         array = [QLChannelListDataModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
         _muArrayData = [[NSMutableArray alloc] initWithArray:array];
         [_collentionMain reloadData];
+    } whenFailure:^{
+        
+    }];
+}
+- (void)dataDeleteOfRequest{
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,channelDelete_interface];
+    NSDictionary *dic = @{};
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
     } whenFailure:^{
         
     }];

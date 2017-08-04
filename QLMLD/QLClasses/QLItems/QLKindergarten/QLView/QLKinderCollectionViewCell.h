@@ -10,5 +10,7 @@
 #import "QLChannelListDataModel.h"
 @interface QLKinderCollectionViewCell : UICollectionViewCell
 - (void)setCellIndexValue:(NSInteger)value withData:(NSMutableAttributedString *)str;
-- (void)setCellDataWithModel:(QLChannelListDataModel *)model;
+- (void)setCellDataWithModel:(QLChannelListDataModel *)model IndexValue:(NSInteger)value;
+@property (nonatomic,copy) void (^blockLongGesture)();
+
 @end

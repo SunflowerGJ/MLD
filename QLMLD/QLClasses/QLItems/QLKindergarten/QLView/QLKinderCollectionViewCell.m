@@ -24,8 +24,8 @@
     
 }
 
-- (void)setCellDataWithModel:(QLChannelListDataModel *)model{
-    _lblName.text = model.channelName;
+- (void)setCellDataWithModel:(QLChannelListDataModel *)model IndexValue:(NSInteger)value{
+    _lblName.text = model.channel_name;
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -51,6 +51,7 @@
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.backgroundColor = QLColorRandom;
 }
 
 
@@ -63,6 +64,12 @@
     //    attributes.size = CGSizeMake(80, 150);
     
     return attributes;
+}
+
+- (IBAction)longGesture:(id)sender {
+    if (self.blockLongGesture) {
+        self.blockLongGesture();
+    }
 }
 
 

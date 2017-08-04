@@ -47,6 +47,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.titleView.hidden = YES;
+    [self getPriseNum];
     [self BlurWithImageView:_imgBg];
     [self loadDefaultSetting];
 }
@@ -137,7 +138,16 @@
         }];
     }
 }
-
+//查询点赞和被赞数
+- (void)getPriseNum{
+    NSString *strBaseUrl = [NSString stringWithFormat:@"%@%@",QLBaseUrlString,loolUserPriseNum_interface];
+    NSDictionary *dic = @{@"get_id":[NSString getValidStringWithObject:_strUserId]};
+    [QLHttpTool postWithBaseUrl:strBaseUrl Parameters:dic whenSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        QLLog(@"priseNum == %@",responseObject);
+    } whenFailure:^{
+       
+    }];
+}
 
 
 - (void)didReceiveMemoryWarning {
